@@ -1,0 +1,36 @@
+{
+  "name": "tanrlemn-shop",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@chakra-ui/react": "^2.8.2",
+    "@emotion/react": "^11.11.1",
+    "@emotion/styled": "^11.11.0",
+    "@netlify/plugin-nextjs": "^4.41.3",
+    "@stripe/react-stripe-js": "^2.4.0",
+    "@stripe/stripe-js": "^2.2.2",
+    "@supabase/auth-ui-react": "^0.4.6",
+    "@supabase/auth-ui-shared": "^0.1.8",
+    "@supabase/ssr": "^0.0.10",
+    "@supabase/supabase-js": "^2.39.1",
+    "framer-motion": "^10.16.16",
+    "lucide-react": "^0.299.0",
+    "next": "14.0.4",
+    "next-usequerystate": "^1.13.2",
+    "react": "^18",
+    "react-dom": "^18",
+    "react-slideshow-image": "^4.3.0",
+    "stripe": "^14.9.0"
+  },
+  "devDependencies": {
+    "eslint": "^8",
+    "eslint-config-next": "14.0.4"
+  },
+  "packageManager": "yarn@4.0.2"
+}
