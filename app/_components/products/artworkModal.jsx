@@ -19,7 +19,7 @@ export default function ArtworkModal({ artwork, isOpen, onClose }) {
 
   return (
     <Modal
-      size={'4xl'}
+      size={{ base: 'xs', md: '4xl' }}
       isCentered
       allowPinchZoom
       trapFocus={false}
@@ -29,20 +29,20 @@ export default function ArtworkModal({ artwork, isOpen, onClose }) {
       <ModalOverlay />
       <ModalContent>
         <ModalCloseButton />
-        <ModalBody>
+        <ModalBody p={{ base: 0 }}>
           <Flex
-            p={'2rem'}
-            maxW={'fit-content'}
-            gap={'2rem'}>
+            direction={{ base: 'column', md: 'row' }}
+            p={{ base: '3rem 0.75rem 1rem 0.75rem', md: '2rem' }}
+            gap={{ base: '1rem', md: '2rem' }}>
             <Image
               src={mainImage}
               alt={artwork.title}
-              h={'85vh'}
+              h={{ base: 'auto', md: '85vh' }}
               w={'auto'}
             />
             <Box
               w={'200px'}
-              mt={'3rem'}>
+              mt={{ base: '0', md: '3rem' }}>
               <Heading
                 mb={'0.5rem'}
                 size={'lg'}>

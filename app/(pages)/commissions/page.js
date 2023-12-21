@@ -15,5 +15,6 @@ export default function Commissions() {
   useEffect(() => {
     setLoading(false);
   }, [setLoading]);
-  return <Box></Box>;
+
+  return <Box minH={'50vh'}></Box>;
 }

@@ -12,6 +12,7 @@ export default function Logo({
   animate = false,
   isDesktop = false,
   text = 'taNrleMn',
+  p = '0.3125rem 1.4375rem',
 }) {
   return (
     <>
@@ -25,6 +26,8 @@ export default function Logo({
           <LogoContent
             color={color}
             text={text}
+            animate={animate}
+            p={p}
           />
         </Link>
       ) : (
@@ -32,13 +35,14 @@ export default function Logo({
           color={color}
           animate={animate}
           text={text}
+          p={p}
         />
       )}
     </>
   );
 }
 
-export const LogoContent = ({ color, animate, text }) => {
+export const LogoContent = ({ color, animate, text, p }) => {
   return (
     <Flex
       maxW={'fit-content'}
@@ -50,7 +54,7 @@ export const LogoContent = ({ color, animate, text }) => {
         outline: '1px solid var(--neonBlue)',
       }}
       align={'flex-end'}
-      p={'0.3125rem 1.4375rem'}>
+      p={p}>
       <Box
         pb={'0.3rem'}
         className={animate && 'animateUnderscore'}>

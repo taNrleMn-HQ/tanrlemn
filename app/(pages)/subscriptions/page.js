@@ -32,12 +32,10 @@ export default function Subscriptions() {
 
   return (
     <Box
-      p={'4rem 2rem'}
+      p={{ base: '2rem 1rem', md: '4rem 1rem' }}
       background={'var(--lightestBlue)'}>
       <Box
-        p={'2rem 1rem'}
         mb={'4rem'}
-        h={'fit-content'}
         position={'relative'}>
         <VStack>
           <Tag
@@ -68,7 +66,7 @@ export default function Subscriptions() {
       </Box>
       <Divider
         mb={'4rem'}
-        borderColor={'var(--darkBlue50)'}
+        borderColor={'var(--lighterOrange)'}
       />
       <Box
         h={'fit-content'}

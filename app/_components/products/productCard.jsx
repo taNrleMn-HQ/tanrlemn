@@ -70,8 +70,8 @@ export default function ProductCard({ product, collection }) {
       : `${collection} Collection`;
 
   const windowSize = useWindowWidth();
-  const mobile = useIsMobile();
-  const imageWidth = !mobile ? windowSize / 3.7 : windowSize / 2.5;
+  const isMobile = useIsMobile();
+  const imageWidth = !isMobile ? windowSize / 3.7 : windowSize / 2.5;
   const imageHeight = imageWidth * 1.25;
 
   const limitedEdition = product.limited_edition;
@@ -117,8 +117,10 @@ export default function ProductCard({ product, collection }) {
 
   return (
     <Box
+      mb={{ base: '1rem', md: '0' }}
       flexGrow={1}
-      maxW={'fit-content'}>
+      w={'fit-content'}
+      maxW={'45%'}>
       <Link
         href={`/shop/${slug}`}
         position={'relative'}>
@@ -154,29 +156,29 @@ export default function ProductCard({ product, collection }) {
             <span>{onSale ? `$${product.sale_price.toFixed(2)}` : ''}</span>
           </Text>
         </Link>
-        <Box
-          fontSize={'0.8rem'}
-          textTransform={'uppercase'}>
+        <Box fontSize={{ base: '0.7rem', md: '0.8rem' }}>
           {limitedEdition ? (
             <Box>
               <Text
+                textTransform={'uppercase'}
                 color={'var(--purple)'}
                 fontSize={'1.1em'}
                 fontWeight={500}>
                 Limited edition
               </Text>
               <Text>
-                – {numEditions} prints {`(${numAvailable} remaining)`}
+                {numEditions} prints {`(${numAvailable} remaining)`}
               </Text>
             </Box>
           ) : (
             <Box>
               <Text
+                textTransform={'uppercase'}
                 fontSize={'1.1em'}
                 fontWeight={500}>
                 General release
               </Text>
-              <Text>– unlimited prints available</Text>
+              <Text>Unlimited prints available</Text>
             </Box>
           )}
         </Box>

@@ -1,20 +1,18 @@
 'use client';
 
 // context
-import { ContactContext } from '@/app/lib/context/ContactProvider';
 import { CartContext } from '../lib/context/CartProvider';
 
 // hooks
 import { useContext } from 'react';
 
 // chakra-ui
-import { Link, Flex, Text, Button } from '@chakra-ui/react';
+import { Link, Flex, Text } from '@chakra-ui/react';
 
 // icons
 import ShoppingBag from '../_components/icons/shoppingBag';
 
 export default function DesktopNavbar({ routes }) {
-  const { contactOnOpen } = useContext(ContactContext);
   const { numCartItems } = useContext(CartContext);
 
   return (

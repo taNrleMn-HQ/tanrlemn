@@ -65,6 +65,7 @@ export default function Cart() {
       setCartItems(cart.items);
       setLoading(false);
     }
+    setLoading(false);
   }, [
     searchParams,
     router,
@@ -90,13 +91,17 @@ export default function Cart() {
       {success && <OrderSuccess />}
       {!success && (
         <Flex
+          flexDirection={{ base: 'column', md: 'row' }}
           w={'100%'}
-          p={'2rem'}>
+          p={{ base: '1rem', md: '2rem' }}>
           <Box
             flexGrow={1}
-            mr={'2rem'}>
+            mr={{ base: 0, md: '2rem' }}>
             <Box w={'100%'}>
-              <Box w={'100%'}>
+              <Box
+                w={'100%'}
+                mb={'1.5rem'}
+                borderBottom={'1px solid var(--lighterOrange)'}>
                 {numCartItems !== 0 && (
                   <Box
                     mb={'1rem'}
@@ -147,8 +152,7 @@ export default function Cart() {
                           borderBottom={'var(--blue-light-border)'}
                           pb={'1rem'}
                           mb={'1rem'}
-                          key={item.product.id}
-                          mobile={12}>
+                          key={item.product.id}>
                           <CartItem item={item} />
                         </GridItem>
                       );
@@ -174,7 +178,7 @@ export default function Cart() {
             </Box>
           </Box>
           {numCartItems > 0 && (
-            <Box minW={'15rem'}>
+            <Box minW={{ base: '100%', md: '17rem' }}>
               <CheckoutForm />
             </Box>
           )}

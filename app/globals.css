@@ -133,7 +133,7 @@ html body {
 }
 
 /* Stripe Pricing Table Styles */
-@media only screen and (max-width: 1279px) {
+@media only screen and (max-width: 959px) {
   .PricingTable.has-threeItems .PricingTable-grid {
     max-width: 100% !important;
   }

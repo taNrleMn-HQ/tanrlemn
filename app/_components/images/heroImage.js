@@ -18,7 +18,6 @@ export default function HeroImage({ mr, alt, ...props }) {
       <Image
         alt={alt}
         {...props}
-        pt={'20%'}
       />
     </Flex>
   );

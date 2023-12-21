@@ -11,6 +11,7 @@ import { useWindowWidth } from '@/app/lib/hooks/useWindowWidth';
 
 // components
 import { Slide } from 'react-slideshow-image';
+
 // chakra-ui
 import {
   Box,
@@ -113,6 +114,8 @@ export default function ProductInfo({ product, collection }) {
     for (let i = 0; i < additionalImages.length; i++) {
       images.push({ url: additionalImages[i] });
     }
+
+    console.log(images);
     return images;
   };
 
@@ -190,11 +193,15 @@ export default function ProductInfo({ product, collection }) {
             <Flex
               gap={'2rem'}
               h={'fit-content'}
+              w={'fit-content'}
               position={'relative'}>
               {hasAdditionalImages && additionalImages !== null && (
-                <VStack gap={'1rem'}>
+                <VStack
+                  gap={'1rem'}
+                  w={'fit-content'}>
                   {additionalImages.map((imageUrl, index) => (
                     <Box
+                      w={'10rem'}
                       cursor={'pointer'}
                       key={index}
                       onClick={() => setCurrentImage(index)}
@@ -203,8 +210,8 @@ export default function ProductInfo({ product, collection }) {
                       }>
                       <Image
                         src={imageUrl}
-                        width={140}
-                        height={180}
+                        width={'100%'}
+                        height={'auto'}
                         alt={`image for ${product.title}`}
                       />
                     </Box>
@@ -216,10 +223,10 @@ export default function ProductInfo({ product, collection }) {
               )}
             </Flex>
           )}
-          <Box>
+          <Box w={{ base: '100%', md: 'fit-content' }}>
             <VStack
-              position={'sticky'}
-              top={'9rem'}
+              position={{ base: 'relative', md: 'sticky' }}
+              top={{ base: '0', md: '9rem' }}
               flexGrow={1}
               align={'flex-start'}>
               <Heading>{product.title}</Heading>
@@ -246,24 +253,25 @@ export default function ProductInfo({ product, collection }) {
               )}
               {isMobile && (
                 <>
-                  <div>
+                  <Box w={'100%'}>
                     {currentImage !== null && additionalImages !== null && (
                       <Slide {...sliderOptions}>
-                        {sliderImages().map((slideImage, index) => (
-                          <div key={index}>
+                        {sliderImages().map((slideImage) => {
+                          console.log(slideImage);
+                          return (
                             <Image
+                              key={slideImage.url}
                               src={slideImage.url}
-                              width={imageWidth}
-                              height={imageHeight}
+                              width={'100%'}
+                              height={'auto'}
                               alt={`image for ${product.title}`}
-                              quality={100}
                               style={{ objectFit: 'cover' }}
                             />
-                          </div>
-                        ))}
+                          );
+                        })}
                       </Slide>
                     )}
-                  </div>
+                  </Box>
                   {collection !== null && (
                     <div>
                       <Link

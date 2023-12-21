@@ -33,10 +33,18 @@ export default function Footer() {
             background: 'var(--lightestBlue)',
             borderTop: '1px solid var(--lightOrange)',
           }}>
-          <Flex p={'7rem 2rem 5rem 2rem'}>
+          <Flex
+            flexDirection={{ base: 'column', md: 'row' }}
+            p={{ base: '4rem 2rem 2rem 2rem', md: '7rem 2rem 5rem 2rem' }}>
             <Stack
+              borderBottom={{
+                base: '1px solid var(--lighterGray)',
+                md: 'none',
+              }}
+              mb={{ base: '3rem', md: '0' }}
+              pb={{ base: '3rem', md: '0' }}
               maxW={'25rem'}
-              mr={'7rem'}>
+              mr={{ base: 0, md: '7rem' }}>
               <Heading
                 mb={'0.25rem'}
                 size={'md'}
@@ -53,24 +61,26 @@ export default function Footer() {
                   transformative power of connection.
                 </Highlight>
               </Text>
-              <Flex mt={'1rem'}>
+              <Flex mt={{ base: '0', md: '1rem' }}>
                 <Link
                   href='https://www.instagram.com/tanrlemn/'
                   isExternal>
                   <Instagram
-                    size={24}
+                    size={20}
                     color={'var(--midGray)'}
                     style={{ marginRight: '1rem' }}
                   />
                 </Link>
               </Flex>
             </Stack>
-            <Flex gap={'3rem'}>
+            <Flex
+              gap={'3rem'}
+              flexDirection={{ base: 'column', md: 'row' }}>
               <Box>
                 <Heading
-                  size={'md'}
+                  size={{ base: 'md' }}
                   mb={'0.5rem'}>
-                  The Artist
+                  Art
                 </Heading>
                 <Stack gap={0}>
                   <Link href='/gallery'>Gallery</Link>
@@ -79,7 +89,7 @@ export default function Footer() {
               </Box>
               <Box>
                 <Heading
-                  size={'md'}
+                  size={{ base: 'md' }}
                   mb={'0.5rem'}>
                   Shop
                 </Heading>
@@ -90,10 +100,9 @@ export default function Footer() {
                   <Link href='/shop?category=originals'>Originals</Link>
                 </Stack>
               </Box>
-
               <Box>
                 <Heading
-                  size={'md'}
+                  size={{ base: 'md' }}
                   mb={'0.5rem'}>
                   Support
                 </Heading>

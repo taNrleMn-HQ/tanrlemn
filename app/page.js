@@ -21,7 +21,7 @@ import {
   Skeleton,
   Link,
 } from '@chakra-ui/react';
-import { MoveRight } from 'lucide-react';
+import { BookImage, Brush, MoveRight, Paintbrush2 } from 'lucide-react';
 import HeroImage from './_components/images/heroImage';
 
 export default function Home() {
@@ -33,26 +33,28 @@ export default function Home() {
 
   return (
     <Flex
-      p={'1rem'}
+      flexDirection={{ base: 'column', md: 'row' }}
+      p={{ base: '4rem 1rem', md: '1rem' }}
       align={'center'}
       justify={'space-around'}
       background={'var(--lightestBlue30)'}>
       <Stack
         maxW={{ base: '100%', md: '550px' }}
         p={{ base: '0', md: '2rem' }}
-        mb={{ base: '2rem', md: '0' }}>
+        mb={{ base: '3rem', md: '0' }}>
         <Link
-          size={'lg'}
           maxW={'fit-content'}
-          colorScheme={'blackAlpha'}
           borderRadius={'full'}
+          background={'var(--lightestGreen)'}
+          p={'0.35rem 1rem 0.35rem 0.5rem'}
+          mb={'0.35rem'}
           href={'/commissions'}
           display={'flex'}
           transition={'all 0.2s ease-in-out'}
           _hover={{
             textDecoration: 'none',
             background: 'var(--lightestGreen)',
-            padding: '0.25rem 1rem 0.25rem 0.5rem',
+            padding: '0.35rem 1.5rem 0.35rem 0.5rem',
           }}>
           <Tag
             mr={'0.5rem'}
@@ -94,7 +96,6 @@ export default function Home() {
                 borderRadius: 'var(--mainBorderRadius)',
               }}
               mr={'1rem'}
-              rightIcon={<MoveRight />}
               background={'var(--midOrange)'}>
               View shop
             </Button>
@@ -105,17 +106,17 @@ export default function Home() {
                 outline: '1px solid var(--lightOrange)',
                 borderRadius: 'var(--mainBorderRadius)',
               }}
-              color={'var(--darkBlue)'}
-              variant={'ghost'}>
+              colorScheme={'gray'}
+              leftIcon={<BookImage size={20} />}>
               View my work
             </Button>
           </Link>
         </Flex>
       </Stack>
       <Stack
-        m={'1rem'}
-        mr={'-7rem'}
-        p={'1rem'}
+        m={{ base: '0', md: '1rem' }}
+        mr={{ base: '0', md: '-7rem' }}
+        p={{ base: '0', md: '1rem' }}
         borderRadius={'9px'}>
         <Flex>
           <Skeleton

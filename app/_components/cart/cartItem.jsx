@@ -22,6 +22,7 @@ import {
   Text,
   Heading,
   Divider,
+  VStack,
 } from '@chakra-ui/react';
 
 export default function CartItem({ item }) {
@@ -75,27 +76,32 @@ export default function CartItem({ item }) {
 
   return (
     <Grid
-      templateColumns={'1fr 2fr repeat(3, 1fr)'}
-      gap={5}
+      borderBottom={'1px solid var(--lightestOrange)'}
+      pb={'1.5rem'}
+      templateColumns={{
+        base: '1fr 2fr 1fr',
+        md: '1fr 2fr repeat(3, 1fr)',
+      }}
+      gap={'1rem'}
       w={'100%'}>
       <GridItem>
         <Link href={`/shop/${item.product.slug}`}>
           <Image
             src={product.small_thumbnail}
             alt={product.title}
-            width={imageWidth}
-            height={imageHeight}
+            width={'auto'}
+            height={'auto'}
           />
         </Link>
       </GridItem>
       <GridItem>
         <Link href={`/shop/${product.slug}`}>
-          <Heading size={'md'}>{product.title}</Heading>
+          <Heading
+            mb={'0.5rem'}
+            size={'md'}>
+            {product.title}
+          </Heading>
         </Link>
-        <Divider
-          w={'50%'}
-          m={'0.3rem 0'}
-        />
         {item.collection && (
           <Text>
             <strong>Collection:</strong> {item.collection}
@@ -109,6 +115,7 @@ export default function CartItem({ item }) {
         </Text>
         {isMobile && (
           <NumberInput
+            mt={'0.5rem'}
             maxW={'fit-content'}
             defaultValue={currentProductConfig.qty}
             min={1}
@@ -123,7 +130,7 @@ export default function CartItem({ item }) {
       </GridItem>
       {!isMobile && (
         <>
-          <GridItem mobile={1.5}>
+          <GridItem>
             <Text style={alignRight}>
               <span>{onSale ? `$${product.sale_price.toFixed(2)}` : ''}</span>
               <span style={onSale ? saleStyles : null}>
@@ -131,7 +138,7 @@ export default function CartItem({ item }) {
               </span>
             </Text>
           </GridItem>
-          <GridItem mobile={2}>
+          <GridItem>
             <NumberInput
               onChange={(valueString) => {
                 handleUpdateCart(Number(valueString));
@@ -152,35 +159,32 @@ export default function CartItem({ item }) {
       )}
 
       <GridItem
-        laptop={1.5}
-        mobile={3}>
-        <Text style={alignRight}>
-          <span>
-            {onSale
-              ? `$${(product.sale_price * currentProductConfig.qty).toFixed(2)}`
-              : ''}
-          </span>
-          <span style={onSale ? saleStyles : null}>
-            {`$${totalPrice.toFixed(2)}`}
-          </span>
-        </Text>
-        {!isMobile && (
+        w={'100%'}
+        h={'100%'}>
+        <VStack
+          w={'100%'}
+          h={'100%'}
+          align={'flex-end'}
+          justify={{ base: 'space-between', md: 'flex-start' }}>
+          <Text textAlign={'right'}>
+            <span>
+              {onSale
+                ? `$${(product.sale_price * currentProductConfig.qty).toFixed(
+                    2
+                  )}`
+                : ''}
+            </span>
+            <span style={onSale ? saleStyles : null}>
+              {`$${totalPrice.toFixed(2)}`}
+            </span>
+          </Text>
           <Text
             style={removeItemStyle}
             onClick={() => removeFromCart({ productId: product.id })}>
             Remove
           </Text>
-        )}
+        </VStack>
       </GridItem>
-      {isMobile && (
-        <GridItem>
-          <Text
-            style={removeItemStyle}
-            onClick={() => removeFromCart({ productId: product.id })}>
-            Remove
-          </Text>
-        </GridItem>
-      )}
     </Grid>
   );
 }

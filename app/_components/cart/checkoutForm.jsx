@@ -96,8 +96,10 @@ export default function CheckoutForm() {
   return (
     <FormControl
       p={'1rem'}
-      borderRadius={4}
-      border={'var(--blue-light-border)'}>
+      position={{ base: 'relative', md: 'sticky' }}
+      top={{ base: '0', md: '5rem' }}
+      borderRadius={'var(--mainBorderRadius)'}
+      border={'1px solid var(--lighterOrange)'}>
       <Heading size={'md'}>Order Summary</Heading>
       <Divider m={'0.75rem 0'} />
       {subtotal !== null &&

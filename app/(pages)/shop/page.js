@@ -23,13 +23,13 @@ export default function Shop() {
   const [category, setCategory] = useQueryState('category');
 
   const categoryText = {
-    all: 'Shop All YOURHEAD',
+    all: 'Shop All of taNrleMn',
     prints: 'Fine Art Prints',
-    originals: 'Original Paintings by YOURHEAD',
-    apparel: 'YOURHEAD Apparel',
+    originals: 'Original Paintings by taNrleMn',
+    apparel: 'taNrleMn Apparel',
     sale: 'Sale Items',
-    default: 'The Official YOURHEAD Shop',
-    null: 'The Official YOURHEAD Shop',
+    default: 'The Official Shop – taNrleMn',
+    null: 'The Official Shop – taNrleMn',
   };
 
   useEffect(() => {
@@ -97,8 +97,7 @@ export default function Shop() {
     <Box
       p={{
         base: '2rem 1rem',
-        md: '3rem 1.5rem',
-        lg: '4rem 2rem',
+        md: '4rem 2rem',
       }}>
       {products !== null &&
         collections !== null &&
@@ -114,7 +113,7 @@ export default function Shop() {
               </Text>
             </Box>
             <Flex
-              gap={'2rem'}
+              gap={{ base: '1.5rem' }}
               flexWrap={'wrap'}>
               {filteredProducts.map((product, i) => {
                 return (

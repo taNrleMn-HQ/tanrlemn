@@ -34,8 +34,7 @@ export default function Product({ params }) {
     <Box
       p={{
         base: '2rem 1rem',
-        md: '3rem 1.5rem',
-        lg: '4rem 2rem',
+        md: '4rem 2rem',
       }}>
       {currentProduct !== null && (
         <ProductInfo

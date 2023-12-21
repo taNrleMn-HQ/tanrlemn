@@ -40,7 +40,7 @@ export default function ToCartModal({
 
   return (
     <Modal
-      size={'xl'}
+      size={{ base: 'xs', md: 'xl' }}
       motionPreset='slideInBottom'
       isOpen={isOpen}
       onClose={onClose}>
@@ -48,41 +48,30 @@ export default function ToCartModal({
       <ModalContent>
         <ModalHeader>Added to bag</ModalHeader>
         <ModalCloseButton />
-        <ModalBody>
-          <Flex gap={'2rem'}>
-            <VStack
-              align={'flex-start'}
-              justify={'space-between'}
-              minH={'100%'}>
-              <Box
-                w={'100%'}
-                pt={'2rem'}>
-                <Heading size={'lg'}>
-                  <Highlight
-                    query={product.title}
-                    styles={{
-                      color: 'var(--darkBlue)',
-                    }}>
-                    {product.title}
-                  </Highlight>{' '}
-                  has been added to your bag.
-                </Heading>
-                <Divider m={'1rem 0'} />
-              </Box>
-
-              <Stat flex={0}>
-                <StatNumber fontSize={'1rem'}>{`${numCartItems} item${
-                  numCartItems !== 1 ? 's' : ''
-                } in your bag`}</StatNumber>
-              </Stat>
-            </VStack>
+        <ModalBody mb={'2rem'}>
+          <Flex
+            gap={{ base: '0.5rem', md: '2rem' }}
+            direction={{ base: 'column', md: 'row' }}>
             <Image
-              m={'1rem 0'}
               src={mainImage}
               alt={product.title}
-              width={150}
-              height={150 * 1.25}
+              width={{ base: '70%', md: 150 }}
+              height={'auto'}
             />
+            <Box
+              w={'100%'}
+              pt={'1rem'}>
+              <Heading size={'lg'}>
+                <Highlight
+                  query={product.title}
+                  styles={{
+                    color: 'var(--darkBlue)',
+                  }}>
+                  {product.title}
+                </Highlight>{' '}
+                has been added to your bag.
+              </Heading>
+            </Box>
           </Flex>
         </ModalBody>
 
