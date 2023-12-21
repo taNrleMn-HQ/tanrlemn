@@ -86,13 +86,15 @@ export default function ArtworkCard({ artwork }) {
       scope.current.addEventListener('mouseleave', handleLeave);
     }
 
+    const currentScope = scope.current;
+
     return () => {
-      if (scope.current) {
-        scope.current.removeEventListener('mouseenter', handleHover);
-        scope.current.removeEventListener('mouseleave', handleLeave);
+      if (currentScope) {
+        currentScope.removeEventListener('mouseenter', handleHover);
+        currentScope.removeEventListener('mouseleave', handleLeave);
       }
     };
-  }, [scope.current, textRef.current]);
+  }, [scope, animate]);
 
   return (
     <VStack

@@ -28,7 +28,7 @@ export default function Product({ params }) {
     if (currentProduct === null) {
       getProduct();
     }
-  }, [currentProduct, slug]);
+  }, [currentProduct, slug, setLoading]);
 
   return (
     <Box

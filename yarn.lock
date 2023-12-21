@@ -6037,6 +6037,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"react-responsive-masonry@npm:^2.1.7":
+  version: 2.1.7
+  resolution: "react-responsive-masonry@npm:2.1.7"
+  checksum: 3cbdbf4c68795293f82a8ed69a5419f640bce1de67cff4945e6d62797980344c6bfe71578b9687dbd2de994bcad0a37073eeb6445e6407ce0f6f9c8eab80ff57
+  languageName: node
+  linkType: hard
+
 "react-slideshow-image@npm:^4.3.0":
   version: 4.3.0
   resolution: "react-slideshow-image@npm:4.3.0"
@@ -6729,6 +6736,7 @@ __metadata:
     next-usequerystate: "npm:^1.13.2"
     react: "npm:^18"
     react-dom: "npm:^18"
+    react-responsive-masonry: "npm:^2.1.7"
     react-slideshow-image: "npm:^4.3.0"
     stripe: "npm:^14.9.0"
   languageName: unknown

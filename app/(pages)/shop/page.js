@@ -83,7 +83,15 @@ export default function Shop() {
     if (productTypes === null) {
       getProductTypes();
     }
-  }, [products, filteredProducts, productTypes, collections, searchParams]);
+  }, [
+    products,
+    filteredProducts,
+    productTypes,
+    collections,
+    searchParams,
+    setLoading,
+    category,
+  ]);
 
   return (
     <Box

@@ -22,7 +22,7 @@ export default function SubscriptionCard({ image, title, buttonText, slug }) {
     if (slug && product === null) {
       getProduct();
     }
-  }, [slug]);
+  }, [slug, product]);
 
   return (
     <Flex

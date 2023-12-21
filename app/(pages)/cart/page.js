@@ -23,7 +23,6 @@ import {
 // local components
 import CartItem from '@/app/_components/cart/cartItem';
 import CheckoutForm from '@/app/_components/cart/checkoutForm';
-import LoadingDiv from '@/app/_components/utils/loadingDiv';
 import OrderSuccess from '@/app/_components/cart/orderSuccess';
 
 export default function Cart() {
@@ -159,7 +158,6 @@ export default function Cart() {
               )}
               {numCartItems === 0 && (
                 <Box m={'2rem'}>
-                  <LoadingDiv />
                   <Heading mt={'1rem'}>Nothing here...</Heading>
                   <Text>Your shopping bag is empty!</Text>
 

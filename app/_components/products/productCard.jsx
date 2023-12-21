@@ -47,14 +47,16 @@ export default function ProductCard({ product, collection }) {
       setAdditionalImages([mainImage, ...product.additional_images]);
     }
 
+    const currentScope = scope.current;
+
     return () => {
       hoveringAnimation.stop();
-      if (scope.current) {
-        scope.current.removeEventListener('mouseenter', handleHover);
-        scope.current.removeEventListener('mouseleave', handleLeave);
+      if (currentScope) {
+        currentScope.removeEventListener('mouseenter', handleHover);
+        currentScope.removeEventListener('mouseleave', handleLeave);
       }
     };
-  }, [product, hasAdditionalImages, hovering]);
+  }, [product, hasAdditionalImages, hovering, animate, mainImage, scope]);
 
   collection =
     collection !== null

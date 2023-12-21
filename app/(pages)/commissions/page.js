@@ -14,6 +14,6 @@ export default function Commissions() {
 
   useEffect(() => {
     setLoading(false);
-  }, []);
+  }, [setLoading]);
   return <Box></Box>;
 }
