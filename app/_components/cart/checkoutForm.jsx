@@ -22,10 +22,12 @@ import {
   VStack,
 } from '@chakra-ui/react';
 
-export default function CheckoutForm({ checkoutSession, setCheckoutSession }) {
+export default function CheckoutForm() {
   const { setLoading } = useContext(LoadingContext);
 
   const { cart, numCartItems, cartTotal } = useContext(CartContext);
+  const [checkoutSession, setCheckoutSession] = useState(null);
+
   const [subtotal, setSubtotal] = useState(null);
   const [shipping, setShipping] = useState(null);
   const [tax, setTax] = useState(null);

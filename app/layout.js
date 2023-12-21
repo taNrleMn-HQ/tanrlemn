@@ -17,11 +17,11 @@ const Navbar = dynamic(() => import('./_navigation/navbar'), {
   ssr: false,
 });
 
-const APP_NAME = 'taNr leMn';
-const APP_DEFAULT_TITLE = 'taNr leMn – Oil Painter';
-const APP_TITLE_TEMPLATE = '%s - taNr leMn';
+const APP_NAME = 'taNrleMn';
+const APP_DEFAULT_TITLE = 'taNrleMn – Oil Painter';
+const APP_TITLE_TEMPLATE = '%s - taNrleMn';
 const APP_DESCRIPTION =
-  'taNr leMn is an oil painter who offers a unique style and approach to all aspects of life. He is currently accepting commissions.';
+  "taNrleMn's art explores the unity of shared pain and the transformative power of connection.";
 
 // metadata
 export const metadata = {

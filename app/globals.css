@@ -36,6 +36,7 @@
 
   /* Blues */
   --lightestBlue30: #eaf0f559;
+  --lightestBlue70: #eaf0f5bd;
   --lightestBlue: #ebf6ff;
   --lighterBlue: #c5def7;
   --lightBlue: #afd8f2;
@@ -85,6 +86,7 @@
   --lightestOrange90: #f4efecd7;
   --lightestOrange: #ffede4;
   --lightOrange90: #f8ac4fbe;
+  --lighterOrange: #ffcc8d;
   --lightOrange: #f8ad4f;
   --midOrange: #ffb04f;
   --midOrangeAlt: #fa8b35;

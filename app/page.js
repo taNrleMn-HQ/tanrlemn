@@ -77,14 +77,17 @@ export default function Home() {
           mb={'0.5rem'}
           size={'4xl'}
           fontWeight={800}>
-          Paint the space.
+          A tool for healing.
         </Heading>
         <Text mb={'1rem'}>
-          A self-taught artist who&apos;s been painting for over 10 years,
-          specializing in portrait painting using oil on canvas.
+          taNrleMn&apos;s art explores the profound unity found in shared pain.
+          It strives to uncover the true essence of humanity through intricate
+          embellishments and natural elements.
         </Text>
         <Flex>
-          <Link href={'/shop'}>
+          <Link
+            href={'/shop'}
+            maxW={'fit-content'}>
             <Button
               _hover={{
                 outline: '1px solid var(--lightOrange, #F8AD4F)',

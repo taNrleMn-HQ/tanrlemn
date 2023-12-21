@@ -2,6 +2,7 @@
 
 // context
 import { ContactContext } from '@/app/lib/context/ContactProvider';
+import { CartContext } from '../lib/context/CartProvider';
 
 // hooks
 import { useContext } from 'react';
@@ -9,36 +10,56 @@ import { useContext } from 'react';
 // chakra-ui
 import { Link, Flex, Text, Button } from '@chakra-ui/react';
 
+// icons
+import ShoppingBag from '../_components/icons/shoppingBag';
+
 export default function DesktopNavbar({ routes }) {
   const { contactOnOpen } = useContext(ContactContext);
+  const { numCartItems } = useContext(CartContext);
 
   return (
-    <>
-      <Flex align={'center'}>
-        <Flex fontSize={'0.9rem'}>
-          {routes.map((route) => (
-            <NavLink
-              key={route.name}
-              name={route.name}
-              path={route.path}
-              icon={route.icon}
-              target={route.target}
-            />
-          ))}
-        </Flex>
-
-        {/* <Button
-          onClick={contactOnOpen}
-          ml={'2rem'}
-          _hover={{
-            background: 'var(--neonGreen)',
-          }}
-          color={'var(--darkGray)'}
-          background={'var(--neonBlue)'}>
-          Connect
-        </Button> */}
+    <Flex align={'center'}>
+      <Flex fontSize={'0.9rem'}>
+        {routes.map((route) => (
+          <NavLink
+            key={route.name}
+            name={route.name}
+            path={route.path}
+            icon={route.icon}
+            target={route.target}
+          />
+        ))}
       </Flex>
-    </>
+
+      <Link
+        _hover={{ textDecoration: 'none', background: 'var(--lightestBlue)' }}
+        p={'0.4rem 0.8rem'}
+        borderRadius={'full'}
+        href='/cart'
+        ml={'1rem'}>
+        <Flex>
+          <ShoppingBag />
+          {numCartItems > 0 && (
+            <Flex
+              top={0}
+              left={'0.4rem'}
+              w={'1rem'}
+              h={'1rem'}
+              align={'center'}
+              justify={'center'}
+              background={'var(--lighterOrange)'}
+              borderRadius={'100px'}>
+              <Text
+                lineHeight={1}
+                fontSize={'0.65rem'}
+                fontWeight={600}>
+                {numCartItems}
+              </Text>
+            </Flex>
+          )}
+        </Flex>
+      </Link>
+    </Flex>
   );
 }
 

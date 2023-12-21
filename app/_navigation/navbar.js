@@ -22,7 +22,7 @@ export default function Navbar() {
       top={'0'}>
       <Flex
         zIndex={1000}
-        background={'var(--lightestBlue30)'}
+        background={'var(--lightestBlue70)'}
         backdropFilter={'blur(10px) saturate(100%)'}
         w={'100%'}
         p={'0.75rem'}

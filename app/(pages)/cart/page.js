@@ -32,7 +32,6 @@ export default function Cart() {
   const { cart, numCartItems, clearCart } = useContext(CartContext);
 
   const [cartItems, setCartItems] = useState([]);
-  const [checkoutSession, setCheckoutSession] = useState(null);
 
   const [success, setSuccess] = useState(false);
 
@@ -156,7 +155,7 @@ export default function Cart() {
                     })}
                 </>
               )}
-              {numCartItems === 0 && (
+              {!loading && numCartItems === 0 && (
                 <Box m={'2rem'}>
                   <Heading mt={'1rem'}>Nothing here...</Heading>
                   <Text>Your shopping bag is empty!</Text>
@@ -176,10 +175,7 @@ export default function Cart() {
           </Box>
           {numCartItems > 0 && (
             <Box minW={'15rem'}>
-              <CheckoutForm
-                checkoutSession={checkoutSession}
-                setCheckoutSession={setCheckoutSession}
-              />
+              <CheckoutForm />
             </Box>
           )}
         </Flex>

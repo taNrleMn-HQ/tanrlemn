@@ -7,11 +7,11 @@ import { Flex, Heading, Link, Box } from '@chakra-ui/react';
 import Underscore from './underscore';
 
 export default function Logo({
-  color = 'var(--orange)',
+  color = 'var(--midGray)',
   shouldLink = true,
   animate = false,
   isDesktop = false,
-  text = 'tL',
+  text = 'taNrleMn',
 }) {
   return (
     <>
@@ -54,7 +54,7 @@ export const LogoContent = ({ color, animate, text }) => {
       <Box
         pb={'0.3rem'}
         className={animate && 'animateUnderscore'}>
-        <Underscore color={color?.underscore || 'var(--green)'} />
+        <Underscore color={'var(--orange)'} />
       </Box>
       <Heading
         mr={'0.125rem'}

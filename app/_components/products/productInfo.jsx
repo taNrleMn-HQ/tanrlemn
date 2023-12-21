@@ -44,6 +44,10 @@ export default function ProductInfo({ product, collection }) {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const isMobile = useIsMobile();
 
+  const windowWidth = useWindowWidth();
+  const imageWidth = isMobile ? windowWidth - 40 : windowWidth / 3.7;
+  const imageHeight = imageWidth * 1.25;
+
   const mainImage = product.image_url;
   const [currentImage, setCurrentImage] = useState(0);
   const [currentProductConfig, setCurrentProductConfig] = useState({
@@ -64,13 +68,15 @@ export default function ProductInfo({ product, collection }) {
   });
 
   useEffect(() => {
-    if (hasAdditionalImages) {
-      setAdditionalImages([mainImage, ...product.additional_images]);
-    } else {
-      setAdditionalImages([mainImage]);
+    if (additionalImages === null) {
+      if (hasAdditionalImages) {
+        setAdditionalImages([mainImage, ...product.additional_images]);
+      } else {
+        setAdditionalImages([mainImage]);
+      }
     }
 
-    if (additionalImages !== null) {
+    if (additionalImages !== null && imageElements === null) {
       setImageElements(
         additionalImages.map((image) => {
           return (
@@ -95,6 +101,7 @@ export default function ProductInfo({ product, collection }) {
     imageWidth,
     imageHeight,
     mainImage,
+    imageElements,
   ]);
 
   const sliderImages = () => {
@@ -125,25 +132,21 @@ export default function ProductInfo({ product, collection }) {
   const tagStyles = {
     backgroundColor:
       collection === 'Exclusive'
-        ? 'var(--orange-lightest)'
+        ? 'var(--lightestOrange)'
         : collection == 'General'
         ? 'transparent'
-        : 'var(--pink-light)',
+        : 'var(--lightPink)',
     border:
       collection === 'Exclusive'
-        ? '1px solid var(--orange-mid)'
+        ? '1px solid var(--midOrange)'
         : collection == 'General'
-        ? 'var(--blue-light-border)'
+        ? '1px solid var(--lightBlue)'
         : 'none',
     marginLeft: '-0.2em',
   };
 
-  const windowWidth = useWindowWidth();
-  const imageWidth = isMobile ? windowWidth - 40 : windowWidth / 3.7;
-  const imageHeight = imageWidth * 1.25;
-
   const currentImageStyles = {
-    outline: 'var(--blue-mid-light-border)',
+    outline: '1px solid var(--lightOrange)',
     outlineOffset: '0.5rem',
   };
 
@@ -192,6 +195,7 @@ export default function ProductInfo({ product, collection }) {
                 <VStack gap={'1rem'}>
                   {additionalImages.map((imageUrl, index) => (
                     <Box
+                      cursor={'pointer'}
                       key={index}
                       onClick={() => setCurrentImage(index)}
                       style={

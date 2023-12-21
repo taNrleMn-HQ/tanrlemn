@@ -45,12 +45,12 @@ export default function Footer() {
               </Heading>
               <Text>
                 <Highlight
-                  query={'taNr leMn'}
+                  query={"taNrleMn's"}
                   styles={{
                     fontWeight: 600,
                   }}>
-                  taNr leMn is an oil painter, focusing on portraiture and the
-                  unique perspective of the human experience.
+                  taNrleMn&apos;s art explores the unity of shared pain and the
+                  transformative power of connection.
                 </Highlight>
               </Text>
               <Flex mt={'1rem'}>
