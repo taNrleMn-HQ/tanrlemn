@@ -36,7 +36,7 @@ export default function About() {
       p={{ base: '3rem 0', md: '6rem 3rem' }}
       fontSize={'1.1rem'}>
       <Container
-        maxW={'680px'}
+        maxW={'650px'}
         mb={'4rem'}
         h={'fit-content'}
         position={'relative'}>
@@ -48,17 +48,17 @@ export default function About() {
           <Tag
             size={'sm'}
             textTransform={'uppercase'}
-            colorScheme={'red'}
+            colorScheme={'purple'}
             maxW={'fit-content'}>
             Some words about
           </Tag>
           <Heading size={'lg'}>The brain of an artist</Heading>
           <Heading
-            mb={'2rem'}
+            mb={'1rem'}
             size={'4xl'}
             fontWeight={800}
-            color={'var(--orange)'}>
-            The world that never sleeps.
+            color={'var(--purple)'}>
+            A world that never sleeps.
           </Heading>
 
           <Text maxW={'750px'}>

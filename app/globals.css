@@ -30,8 +30,6 @@
   --darkerGreen: #1a393a;
   --darkGreen: #204f58;
 
-  --chartreuse: #5eff28;
-
   --teal: #00ffb6;
 
   /* Blues */
@@ -57,7 +55,7 @@
   --lighterPurpleGray: #efe4f4;
   --lightPurpleGray: #e0c8ea;
   --midPurpleGray: #c5a9d1;
-  --purple: #9747ff;
+  --purple: #6a3fc8;
   --midPurple: #6f00ff;
   --lightNeonPurple: #bd67ff;
   --neonPurple: #9000ff;
@@ -72,7 +70,7 @@
   --pink: #ff00f5;
 
   /* Reds */
-  --red: #ff4b00;
+  --red: #fb0e0e;
   --redAlt: #f94c4c;
   --redLight: #ffc0c0;
   --redMid: #fa4d4d;
@@ -88,7 +86,7 @@
   --lightOrange90: #f8ac4fbe;
   --lighterOrange: #ffcc8d;
   --lightOrange: #f8ad4f;
-  --midOrange: #ffb04f;
+  --midOrange: #ff9f29;
   --midOrangeAlt: #fa8b35;
   --orange: #ff7300;
   --orangeAlt: #ff8528;
@@ -129,7 +127,7 @@ html body {
 }
 
 ::selection {
-  background: var(--orangeAlt);
+  background: var(--lightOrange);
 }
 
 /* Stripe Pricing Table Styles */

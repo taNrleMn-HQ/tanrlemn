@@ -17,7 +17,7 @@ export async function POST(req) {
       console.log('item:', item);
       const priceId = () => {
         let id;
-        if (MODE === 'development') {
+        if (MODE === 'development' || MODE === 'staging') {
           id = item.on_sale
             ? item.product.sale_stripe_price_id.dev
             : item.product.stripe_price_id.dev;

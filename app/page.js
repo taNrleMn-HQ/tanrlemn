@@ -21,7 +21,7 @@ import {
   Skeleton,
   Link,
 } from '@chakra-ui/react';
-import { BookImage, Brush, MoveRight, Paintbrush2 } from 'lucide-react';
+import { BookImage, MoveRight } from 'lucide-react';
 import HeroImage from './_components/images/heroImage';
 
 export default function Home() {
@@ -34,7 +34,7 @@ export default function Home() {
   return (
     <Flex
       flexDirection={{ base: 'column', md: 'row' }}
-      p={{ base: '4rem 1rem', md: '1rem' }}
+      p={{ base: '4rem 1rem', md: ' 4rem 1rem' }}
       align={'center'}
       justify={'space-around'}
       background={'var(--lightestBlue30)'}>
@@ -115,7 +115,7 @@ export default function Home() {
       </Stack>
       <Stack
         m={{ base: '0', md: '1rem' }}
-        mr={{ base: '0', md: '-7rem' }}
+        mr={{ base: '0' }}
         p={{ base: '0', md: '1rem' }}
         borderRadius={'9px'}>
         <Flex>

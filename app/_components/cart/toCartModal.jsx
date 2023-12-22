@@ -21,26 +21,17 @@ import {
   Flex,
   Heading,
   Highlight,
-  Stat,
   Box,
-  StatNumber,
-  Divider,
-  VStack,
 } from '@chakra-ui/react';
 
-export default function ToCartModal({
-  product,
-  isOpen,
-  onClose,
-  numCartItems,
-}) {
+export default function ToCartModal({ product, isOpen, onClose }) {
   const { setLoading } = useContext(LoadingContext);
   const router = useRouter();
   const mainImage = product.small_thumbnail;
 
   return (
     <Modal
-      size={{ base: 'xs', md: 'xl' }}
+      size={{ base: 'xs', md: '2xl' }}
       motionPreset='slideInBottom'
       isOpen={isOpen}
       onClose={onClose}>
@@ -58,11 +49,12 @@ export default function ToCartModal({
               width={{ base: '70%', md: 150 }}
               height={'auto'}
             />
-            <Box
-              w={'100%'}
-              pt={'1rem'}>
-              <Heading size={'lg'}>
+            <Box pt={'1rem'}>
+              <Heading
+                size={'lg'}
+                display={'inline'}>
                 <Highlight
+                  display={'inline'}
                   query={product.title}
                   styles={{
                     color: 'var(--darkBlue)',

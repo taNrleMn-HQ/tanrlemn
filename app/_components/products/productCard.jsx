@@ -7,13 +7,22 @@ import { useState, useEffect } from 'react';
 import { useAnimate } from 'framer-motion';
 
 // components
-import { Box, Link, Image, Heading, Text } from '@chakra-ui/react';
+import { Box, Link, Image, Heading, Text, Tag } from '@chakra-ui/react';
 
 export default function ProductCard({ product, collection }) {
   const [scope, animate] = useAnimate();
+  const windowSize = useWindowWidth();
+  const isMobile = useIsMobile();
+
   const slug = product.slug;
-  const mainImage = product.small_thumbnail;
+  const mainImage = isMobile ? product.small_thumbnail : product.image_url;
   const hasAdditionalImages = product.additional_images !== null;
+
+  const limitedEdition = product.limited_edition;
+  const numEditions = product.num_editions;
+  const numAvailable = product.num_available;
+
+  const onSale = product.on_sale;
 
   const [hovering, setHovering] = useState(false);
 
@@ -69,16 +78,8 @@ export default function ProductCard({ product, collection }) {
       ? `${collection} Collection – Hug & Up`
       : `${collection} Collection`;
 
-  const windowSize = useWindowWidth();
-  const isMobile = useIsMobile();
-  const imageWidth = !isMobile ? windowSize / 3.7 : windowSize / 2.5;
+  const imageWidth = !isMobile ? windowSize / 3.5 : windowSize / 2.5;
   const imageHeight = imageWidth * 1.25;
-
-  const limitedEdition = product.limited_edition;
-  const numEditions = product.num_editions;
-  const numAvailable = product.num_available;
-
-  const onSale = product.on_sale;
 
   const cardStyles = {
     borderBottom:
@@ -117,11 +118,11 @@ export default function ProductCard({ product, collection }) {
 
   return (
     <Box
-      mb={{ base: '1rem', md: '0' }}
-      flexGrow={1}
+      mb={{ base: '1rem' }}
       w={'fit-content'}
       maxW={'45%'}>
       <Link
+        maxW={'fit-content'}
         href={`/shop/${slug}`}
         position={'relative'}>
         <Image
@@ -143,7 +144,9 @@ export default function ProductCard({ product, collection }) {
       </Link>
 
       <Box mt={'1rem'}>
-        <Link href={`/shop/${slug}`}>
+        <Link
+          href={`/shop/${slug}`}
+          maxW={'fit-content'}>
           <Heading
             mb={'0.1rem'}
             size={'md'}>
@@ -159,25 +162,30 @@ export default function ProductCard({ product, collection }) {
         <Box fontSize={{ base: '0.7rem', md: '0.8rem' }}>
           {limitedEdition ? (
             <Box>
-              <Text
+              <Tag
+                size={'sm'}
+                ml={'-0.25rem'}
                 textTransform={'uppercase'}
-                color={'var(--purple)'}
+                colorScheme={'purple'}
                 fontSize={'1.1em'}
                 fontWeight={500}>
                 Limited edition
-              </Text>
+              </Tag>
               <Text>
                 {numEditions} prints {`(${numAvailable} remaining)`}
               </Text>
             </Box>
           ) : (
             <Box>
-              <Text
+              <Tag
+                size={'sm'}
+                ml={'-0.25rem'}
                 textTransform={'uppercase'}
                 fontSize={'1.1em'}
+                mb={'0.25rem'}
                 fontWeight={500}>
                 General release
-              </Text>
+              </Tag>
               <Text>Unlimited prints available</Text>
             </Box>
           )}
