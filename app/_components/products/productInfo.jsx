@@ -6,6 +6,7 @@ import 'react-slideshow-image/dist/styles.css';
 import { CartContext } from '@/app/lib/context/CartProvider';
 // hooks
 import { useState, useContext, useEffect } from 'react';
+import { useRouter } from 'next/navigation';
 import { useIsMobile } from '@/app/lib/hooks/useIsMobile';
 import { useWindowWidth } from '@/app/lib/hooks/useWindowWidth';
 
@@ -33,12 +34,16 @@ import {
   StatNumber,
   StatHelpText,
   useDisclosure,
+  Text,
+  Tag,
 } from '@chakra-ui/react';
 
 // local components
 import ToCartModal from '../cart/toCartModal';
+import { MoveLeft } from 'lucide-react';
 
 export default function ProductInfo({ product, collection }) {
+  const router = useRouter();
   product = product.product;
   const { addToCart, setNumCartItems, setNumItems, numCartItems } =
     useContext(CartContext);
@@ -60,6 +65,9 @@ export default function ProductInfo({ product, collection }) {
   const [additionalImages, setAdditionalImages] = useState(null);
   const [imageElements, setImageElements] = useState(null);
   const hasAdditionalImages = product.additional_images !== null;
+  const limitedEdition = product.limited_edition;
+  const numEditions = product.num_editions;
+  const numAvailable = product.num_available;
 
   let artworkDate = new Date(product.artwork_date);
   artworkDate = artworkDate.toLocaleDateString('en-US', {
@@ -184,6 +192,18 @@ export default function ProductInfo({ product, collection }) {
 
   return (
     <>
+      <Button
+        variant={'ghost'}
+        mb={'2rem'}
+        onClick={() => router.back()}
+        cursor={'pointer'}>
+        <Flex
+          gap={'0.3rem'}
+          align={'center'}>
+          <MoveLeft size={17} />
+          <Text>Back to shop</Text>
+        </Flex>
+      </Button>
       {product !== null && (
         <Flex
           justify={'flex-start'}
@@ -244,6 +264,35 @@ export default function ProductInfo({ product, collection }) {
                 </StatNumber>
                 <StatHelpText></StatHelpText>
               </Stat>
+              <Box fontSize={{ base: '0.7rem', md: '0.8rem' }}>
+                {limitedEdition ? (
+                  <Box>
+                    <Tag
+                      ml={'-0.25rem'}
+                      textTransform={'uppercase'}
+                      colorScheme={'purple'}
+                      fontSize={'1.1em'}
+                      fontWeight={500}>
+                      Limited edition
+                    </Tag>
+                    <Text>
+                      {numEditions} prints {`(${numAvailable} remaining)`}
+                    </Text>
+                  </Box>
+                ) : (
+                  <Box>
+                    <Tag
+                      ml={'-0.25rem'}
+                      textTransform={'uppercase'}
+                      fontSize={'1.1em'}
+                      mb={'0.25rem'}
+                      fontWeight={500}>
+                      General release
+                    </Tag>
+                    <Text>Unlimited prints available</Text>
+                  </Box>
+                )}
+              </Box>
               {!isMobile && collection !== null && (
                 <div>
                   <Link href={`/shop/collections/${collection.toLowerCase()}`}>

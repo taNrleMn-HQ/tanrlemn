@@ -102,19 +102,17 @@ export default function Cart() {
                 w={'100%'}
                 mb={'1.5rem'}
                 borderBottom={'1px solid var(--lighterOrange)'}>
-                {numCartItems !== 0 && (
-                  <Box
-                    mb={'1rem'}
-                    style={
-                      isMobile
-                        ? mobileBorder
-                        : numCartItems > 0
-                        ? null
-                        : mobileBorder
-                    }>
-                    <Heading>Shopping Bag</Heading>
-                  </Box>
-                )}
+                <Box
+                  mb={'1rem'}
+                  style={
+                    isMobile
+                      ? mobileBorder
+                      : numCartItems > 0
+                      ? null
+                      : mobileBorder
+                  }>
+                  <Heading>Shopping Bag</Heading>
+                </Box>
               </Box>
               {numCartItems > 0 && (
                 <>
@@ -161,7 +159,11 @@ export default function Cart() {
               )}
               {!loading && numCartItems === 0 && (
                 <Box m={'2rem'}>
-                  <Heading mt={'1rem'}>Nothing here...</Heading>
+                  <Heading
+                    size={'lg'}
+                    mt={'1rem'}>
+                    Nothing here...
+                  </Heading>
                   <Text>Your shopping bag is empty!</Text>
 
                   <Button

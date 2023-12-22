@@ -7,21 +7,10 @@ import { LoadingContext } from '@/app/lib/context/LoadingProvider';
 import { useEffect, useContext } from 'react';
 
 // chakra-ui
-import {
-  Box,
-  Divider,
-  Flex,
-  Heading,
-  Link,
-  Tag,
-  Text,
-  VStack,
-} from '@chakra-ui/react';
+import { Box, Heading, Tag, VStack } from '@chakra-ui/react';
 
 // local components
-import StripeHigherPricingTable from '@/app/_components/products/stripeHigherPricingTable';
-import StripeLowerPricingTable from '@/app/_components/products/stripeLowerPricingTable';
-import { MoveRight } from 'lucide-react';
+import StripePricingTable from '@/app/_components/products/stripePricingTable';
 
 export default function Subscriptions() {
   const { setLoading } = useContext(LoadingContext);
@@ -61,26 +50,8 @@ export default function Subscriptions() {
           background={'var(--lightBlue)'}
           borderRadius={'var(--mainBorderRadius)'}
           p={'2rem 1rem'}>
-          <StripeHigherPricingTable />
+          <StripePricingTable />
         </Box>
-      </Box>
-      <Divider
-        mb={'4rem'}
-        borderColor={'var(--lighterOrange)'}
-      />
-      <Box
-        h={'fit-content'}
-        mb={'5rem'}>
-        <VStack>
-          <Heading
-            top={'0'}
-            size={'md'}
-            mb={'2rem'}
-            textAlign={'center'}>
-            Basic Subscriptions
-          </Heading>
-        </VStack>
-        <StripeLowerPricingTable />
       </Box>
     </Box>
   );
