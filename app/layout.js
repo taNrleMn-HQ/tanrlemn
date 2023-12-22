@@ -49,7 +49,7 @@ export const metadata = {
       template: APP_TITLE_TEMPLATE,
     },
     description: APP_DESCRIPTION,
-    images: '/images/og-image.png',
+    images: '/og-image.png',
   },
 };
 
