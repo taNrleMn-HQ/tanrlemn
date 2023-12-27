@@ -113,6 +113,8 @@ export default function Footer() {
                     Contact
                   </Text>
                   <Link href='/support/faqs'>FAQs</Link>
+                  <Link href='/privacy'>Privacy</Link>
+                  <Link href='/terms'>Terms</Link>
                 </Stack>
               </Box>
             </Flex>
