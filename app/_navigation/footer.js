@@ -121,10 +121,13 @@ export default function Footer() {
           <Flex
             borderTop={'1px solid var(--lighterGray)'}
             justify={'center'}
+            flexDirection={'column'}
+            w={'100%'}
+            textAlign={'center'}
             p={'2rem 1rem 1.5rem 1rem'}
             m={'0 2rem'}>
             <Text fontSize={'0.8rem'}>
-              © 2024 taNr leMn, All Rights reserved
+              © 2024 Thought Co, All Rights reserved
             </Text>
           </Flex>
         </footer>
