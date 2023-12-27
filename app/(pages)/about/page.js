@@ -1,7 +1,7 @@
 'use client';
 
 // images
-import aboutTanner from '@/public/images/people/aboutTanner.webp';
+const aboutTannerSrc = 'https://i.imgur.com/BFWf7ku.jpg';
 
 // context
 import { LoadingContext } from '@/app/lib/context/LoadingProvider';
@@ -96,7 +96,7 @@ export default function About() {
           </Link>
         </Stack>
         <Image
-          src={aboutTanner.src}
+          src={aboutTannerSrc}
           alt={'Tanner Lemon'}
           w={{ base: '100%', md: '450px' }}
           borderRadius={'1rem'}

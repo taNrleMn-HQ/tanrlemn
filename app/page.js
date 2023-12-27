@@ -1,8 +1,8 @@
 'use client';
 
 // images
-import whalerider from '@/public/images/paintings/whalerider.webp';
-import owner from '@/public/images/paintings/owner.webp';
+const whaleriderSrc = 'https://i.imgur.com/fNISTWS.jpg';
+const ownerSrc = 'https://i.imgur.com/v3TtoGI.jpg';
 
 // context
 import { LoadingContext } from '@/app/lib/context/LoadingProvider';
@@ -125,7 +125,7 @@ export default function Home() {
             h={{ base: '100%', md: '22rem' }}
             w={{ base: '100%', md: '17rem' }}>
             <HeroImage
-              src={owner.src}
+              src={ownerSrc}
               alt='Owner painting'
               mr={'1rem'}
             />
@@ -135,7 +135,7 @@ export default function Home() {
             h={{ base: '100%', md: '22rem' }}
             w={{ base: '100%', md: '17rem' }}>
             <HeroImage
-              src={whalerider.src}
+              src={whaleriderSrc}
               alt='Whalerider painting'
               mr={'0'}
             />
