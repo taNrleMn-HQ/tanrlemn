@@ -37,25 +37,24 @@ export default function ContactDrawer({ isOpen, onClose }) {
           <VStack
             align={'flex-start'}
             w={'100%'}>
-            <Heading size={'lg'}>Contact Me</Heading>
+            <Heading size={'lg'}>Contact taNrleMn</Heading>
             <Heading
               size={'sm'}
               fontWeight={400}>
-              I&apos;m currently open to new opportunities. If you&apos;d like
-              to get in touch, please send me an email.
+              taNrleMn is currently open to new opportunities. If you&apos;d
+              like to get in touch, please send an email.
             </Heading>
             <Link
-              color={'var(--neonBlue)'}
-              href={'mailto:contact@asynctanner.com'}
+              color={'var(--orange)'}
+              href={'mailto:support@tanrlemn.xyz'}
               target='_blank'>
               <Flex
                 align={'center'}
-                color={'var(--neonBlue)'}
                 w={'100%'}>
                 <Text
                   fontSize={'1rem'}
                   fontWeight={500}>
-                  contact@asynctanner.com
+                  support@tanrlemn.xyz
                 </Text>
               </Flex>
             </Link>

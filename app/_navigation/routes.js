@@ -48,14 +48,14 @@ export const routes = [
         'Learn more about YOURHEAD, including his background, influences, and approach to art.',
     },
   },
-  {
-    name: 'Support',
-    path: '/support',
-    order: 5,
-    meta: {
-      title: 'Support',
-      description:
-        'Get support for your order, including shipping, returns, and exchanges.',
-    },
-  },
+  // {
+  //   name: 'Support',
+  //   path: '/support',
+  //   order: 5,
+  //   meta: {
+  //     title: 'Support',
+  //     description:
+  //       'Get support for your order, including shipping, returns, and exchanges.',
+  //   },
+  // },
 ];
