@@ -57,19 +57,15 @@ export default function Gallery() {
         h={'fit-content'}
         position={'relative'}>
         <VStack maxW={'550px'}>
-          <Link
-            w={'fit-content'}
-            href={'/commissions'}>
-            <Tag
-              textTransform={'uppercase'}
-              size={'sm'}
-              fontWeight={500}
-              maxW={'fit-content'}
-              colorScheme={'green'}
-              borderRadius={'full'}>
-              accepting commissions
-            </Tag>
-          </Link>
+          <Tag
+            textTransform={'uppercase'}
+            size={'sm'}
+            fontWeight={500}
+            maxW={'fit-content'}
+            colorScheme={'green'}
+            borderRadius={'full'}>
+            accepting commissions
+          </Tag>
           <Heading textAlign={'center'}>taNrleMn</Heading>
           <Text mb={'1.5rem'}>
             These works range in creation date from early 2014 to the present.

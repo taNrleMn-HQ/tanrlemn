@@ -96,8 +96,6 @@ export default function Footer() {
                 <Stack gap={0}>
                   <Link href='/subscriptions'>Subscriptions</Link>
                   <Link href='/commissions'>Commissions</Link>
-                  <Link href='/shop?category=prints'>Prints</Link>
-                  <Link href='/shop?category=originals'>Originals</Link>
                 </Stack>
               </Box>
               <Box>
@@ -112,7 +110,6 @@ export default function Footer() {
                     onClick={contactOnOpen}>
                     Contact
                   </Text>
-                  <Link href='/support/faqs'>FAQs</Link>
                   <Link href='/privacy'>Privacy</Link>
                   <Link href='/terms'>Terms</Link>
                 </Stack>

@@ -1,4 +1,4 @@
-This is the official project for [taNrleMn](https:/tanrlemn.xyz/)'s shop.
+This is the official project for [taNrleMn](https://tanrlemn.xyz/)'s shop.
 
 ## taNrleMn Shop Website
 

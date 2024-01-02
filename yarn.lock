@@ -1356,14 +1356,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@emotion/react@npm:^11.11.1":
-  version: 11.11.1
-  resolution: "@emotion/react@npm:11.11.1"
+"@emotion/react@npm:^11.11.3":
+  version: 11.11.3
+  resolution: "@emotion/react@npm:11.11.3"
   dependencies:
     "@babel/runtime": "npm:^7.18.3"
     "@emotion/babel-plugin": "npm:^11.11.0"
     "@emotion/cache": "npm:^11.11.0"
-    "@emotion/serialize": "npm:^1.1.2"
+    "@emotion/serialize": "npm:^1.1.3"
     "@emotion/use-insertion-effect-with-fallbacks": "npm:^1.0.1"
     "@emotion/utils": "npm:^1.2.1"
     "@emotion/weak-memoize": "npm:^0.3.1"
@@ -1373,7 +1373,7 @@ __metadata:
   peerDependenciesMeta:
     "@types/react":
       optional: true
-  checksum: 1aea4d735b537fbfbeda828bbf929488a7e1b5b7d131f14aeede8737e92bb3b611e15fec353e97f85aed7a65a1c86a695a04ba6e9be905231beef6bd624cb705
+  checksum: ce995395b8714343715284beb8478afdfa72b89ed83981a15a170ca0f4a2f77d7a4a198fd50c1f9c6efcd0535768d168ff88c5921dc5f90bb33134c7a75f9455
   languageName: node
   linkType: hard
 
@@ -1387,6 +1387,19 @@ __metadata:
     "@emotion/utils": "npm:^1.2.1"
     csstype: "npm:^3.0.2"
   checksum: d243e0e5abce8d2183d25a32ec89bf650ee741ebadb29e6405abde05d4e2ed446ba5b3f725a29833ad709d0d08f0a5c8d0532fdcd43f4b23d931d8b6d4f218c1
+  languageName: node
+  linkType: hard
+
+"@emotion/serialize@npm:^1.1.3":
+  version: 1.1.3
+  resolution: "@emotion/serialize@npm:1.1.3"
+  dependencies:
+    "@emotion/hash": "npm:^0.9.1"
+    "@emotion/memoize": "npm:^0.8.1"
+    "@emotion/unitless": "npm:^0.8.1"
+    "@emotion/utils": "npm:^1.2.1"
+    csstype: "npm:^3.0.2"
+  checksum: 875241eafaa30e7d3b7cf9b585d8c1f224cbf627a674e87eb1d7662dafa76a8c8d67f14a79dbf7d1eaa017e9f68389962990fbcc699d5ad65035a1a047432a3f
   languageName: node
   linkType: hard
 
@@ -1647,6 +1660,13 @@ __metadata:
   version: 1.1.0
   resolution: "@fastify/accept-negotiator@npm:1.1.0"
   checksum: 1cb9a298c992b812869158ddc6093557a877b30e5f77618a7afea985a0667c50bc7113593bf0f7f9dc9b82b94c16e8ab127a0afc3efde6677fd645539f6d08e5
+  languageName: node
+  linkType: hard
+
+"@fillout/react@npm:^1.0.1":
+  version: 1.0.1
+  resolution: "@fillout/react@npm:1.0.1"
+  checksum: feb000319d8680d80b7ff135ce098f7072f8197d592b88a6378750caab59e4de620b7c8454565719a165fef51bb302c6644dbd7f8f7cda29f75acf02796cc979
   languageName: node
   linkType: hard
 
@@ -2372,12 +2392,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@supabase/postgrest-js@npm:^1.8.6":
-  version: 1.9.0
-  resolution: "@supabase/postgrest-js@npm:1.9.0"
+"@supabase/postgrest-js@npm:^1.9.0":
+  version: 1.9.1
+  resolution: "@supabase/postgrest-js@npm:1.9.1"
   dependencies:
     "@supabase/node-fetch": "npm:^2.6.14"
-  checksum: 20f668d22cf8492de84208f3d72f0b3bf96a64f53786ad2eae52f141c561180af480fba1e5bd1617f825b428a40c6dd87f078df879699833a93183cbe7571949
+  checksum: 804177509bfd4ac249e9892c3526d8159c54dadbec7f2e6f2b85634e5b18f4eb08bfe82a0d999705cfe0cbc8b1a0c1fd9dcd5fa724e056b95f2dd1fdf1e2e091
   languageName: node
   linkType: hard
 
@@ -2413,17 +2433,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@supabase/supabase-js@npm:^2.39.1":
-  version: 2.39.1
-  resolution: "@supabase/supabase-js@npm:2.39.1"
+"@supabase/supabase-js@npm:^2.39.2":
+  version: 2.39.2
+  resolution: "@supabase/supabase-js@npm:2.39.2"
   dependencies:
     "@supabase/functions-js": "npm:^2.1.5"
     "@supabase/gotrue-js": "npm:^2.60.0"
     "@supabase/node-fetch": "npm:^2.6.14"
-    "@supabase/postgrest-js": "npm:^1.8.6"
+    "@supabase/postgrest-js": "npm:^1.9.0"
     "@supabase/realtime-js": "npm:^2.8.4"
     "@supabase/storage-js": "npm:^2.5.4"
-  checksum: e6323c95671b90687ddbe219f91552bca4dfc7b74ef88e1be862a98a44133def1509d948f27853a05a34bb7d4b2e19eda0effe6dbb437be2b5e50284f649d876
+  checksum: c502ebd6b62b9a02e0abd4f5349906e70a19c35201d973ff1218e983ee92953bf5fe8689312f07f1a0a6a8d4e2a24d16f9604c277dfa6384aa1df86f46c02e8e
   languageName: node
   linkType: hard
 
@@ -3915,7 +3935,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint@npm:^8":
+"eslint@npm:^8.56.0":
   version: 8.56.0
   resolution: "eslint@npm:8.56.0"
   dependencies:
@@ -4192,9 +4212,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"framer-motion@npm:^10.16.16":
-  version: 10.16.16
-  resolution: "framer-motion@npm:10.16.16"
+"framer-motion@npm:^10.17.0":
+  version: 10.17.0
+  resolution: "framer-motion@npm:10.17.0"
   dependencies:
     "@emotion/is-prop-valid": "npm:^0.8.2"
     tslib: "npm:^2.4.0"
@@ -4209,7 +4229,7 @@ __metadata:
       optional: true
     react-dom:
       optional: true
-  checksum: 4cd620971e6ac044461783ee94d8fe39dafd11d658f1b2fb06f025c0c502d022bb3bf24dd95b9486325fce27e437ce575b8f033c7770539b4fb3af62a5742e71
+  checksum: 6ffa7967251945c63dbd2c448ab7e0b47acfde7c6ba6980a84ab0493453929f2b7973acae0cb9b40523a0c7976b327b1765805d1f9a442bc97153a04550ed5f1
   languageName: node
   linkType: hard
 
@@ -5367,12 +5387,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"lucide-react@npm:^0.299.0":
-  version: 0.299.0
-  resolution: "lucide-react@npm:0.299.0"
+"lucide-react@npm:^0.303.0":
+  version: 0.303.0
+  resolution: "lucide-react@npm:0.303.0"
   peerDependencies:
     react: ^16.5.1 || ^17.0.0 || ^18.0.0
-  checksum: 8ca07f837685223e58d79f44f51f21e339fa5eeb76fa96c7cb58cab2303ca09ad19f139fd2d8cffb783895f27b5123dab655cd45c014efc2f5d98ceeb8d21a3e
+  checksum: 58dc833311a4aa29b4a71ce1dade2c55eba3d07d5f9207fdabe55ed06499f13d62439bb37942b7aaebea90f638deb7ec67adde1e12404fb4d9f82a19ba1727f5
   languageName: node
   linkType: hard
 
@@ -5677,14 +5697,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"next-usequerystate@npm:^1.13.2":
-  version: 1.13.2
-  resolution: "next-usequerystate@npm:1.13.2"
+"next-usequerystate@npm:^1.14.0":
+  version: 1.14.0
+  resolution: "next-usequerystate@npm:1.14.0"
   dependencies:
     mitt: "npm:^3.0.1"
   peerDependencies:
     next: ">=13.4 <14.0.2 || ^14.0.3"
-  checksum: 983b726ccc93abc5734773fa82c4b2d53d1cc6288bdc7e7ffb2fe1288800eafd6115ebb8d52e42a6aa0dc08f75cf3134301796f35d86c4c7c140805fc5757711
+  checksum: c8d78fbb0681ec4efea625c3195743b175beeb8ac5fb9123a67a6a976f5ac1bac94a46472990684bcc3ef5c4389a13bfff403915663a3c8daba730dce1bdc45c
   languageName: node
   linkType: hard
 
@@ -6286,7 +6306,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-dom@npm:^18, react-dom@npm:^18.2.0":
+"react-dom@npm:^18.2.0":
   version: 18.2.0
   resolution: "react-dom@npm:18.2.0"
   dependencies:
@@ -6403,7 +6423,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react@npm:^18, react@npm:^18.2.0":
+"react@npm:^18.2.0":
   version: 18.2.0
   resolution: "react@npm:18.2.0"
   dependencies:
@@ -6986,13 +7006,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"stripe@npm:^14.9.0":
-  version: 14.9.0
-  resolution: "stripe@npm:14.9.0"
+"stripe@npm:^14.10.0":
+  version: 14.10.0
+  resolution: "stripe@npm:14.10.0"
   dependencies:
     "@types/node": "npm:>=8.1.0"
     qs: "npm:^6.11.0"
-  checksum: c1c5657e5ecc906317b30c04d7c5efc183663aaa0c1f4d1eccaba2a06dfedb72ce4bfe1c83385fc4bee3aa4b184774755f8f068e8d52f4d96fc278f4c9390e18
+  checksum: 4c6e201e43023f5f140626e177ec244557c102d9437f92362b017440ca9dc074b2ed6dd8cddc1551c15eb276fe0598bae38ed6f8d8d8a36132295b327f862972
   languageName: node
   linkType: hard
 
@@ -7052,26 +7072,27 @@ __metadata:
     "@chakra-ui/cli": "npm:^2.4.1"
     "@chakra-ui/react": "npm:^2.8.2"
     "@chakra-ui/styled-system": "npm:^2.9.2"
-    "@emotion/react": "npm:^11.11.1"
+    "@emotion/react": "npm:^11.11.3"
     "@emotion/styled": "npm:^11.11.0"
+    "@fillout/react": "npm:^1.0.1"
     "@netlify/plugin-nextjs": "npm:^4.41.3"
     "@stripe/react-stripe-js": "npm:^2.4.0"
     "@stripe/stripe-js": "npm:^2.2.2"
     "@supabase/auth-ui-react": "npm:^0.4.6"
     "@supabase/auth-ui-shared": "npm:^0.1.8"
     "@supabase/ssr": "npm:^0.0.10"
-    "@supabase/supabase-js": "npm:^2.39.1"
-    eslint: "npm:^8"
+    "@supabase/supabase-js": "npm:^2.39.2"
+    eslint: "npm:^8.56.0"
     eslint-config-next: "npm:14.0.4"
-    framer-motion: "npm:^10.16.16"
-    lucide-react: "npm:^0.299.0"
+    framer-motion: "npm:^10.17.0"
+    lucide-react: "npm:^0.303.0"
     next: "npm:14.0.4"
-    next-usequerystate: "npm:^1.13.2"
-    react: "npm:^18"
-    react-dom: "npm:^18"
+    next-usequerystate: "npm:^1.14.0"
+    react: "npm:^18.2.0"
+    react-dom: "npm:^18.2.0"
     react-responsive-masonry: "npm:^2.1.7"
     react-slideshow-image: "npm:^4.3.0"
-    stripe: "npm:^14.9.0"
+    stripe: "npm:^14.10.0"
   languageName: unknown
   linkType: soft
 
