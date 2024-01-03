@@ -1,12 +1,14 @@
 import Script from 'next/script';
 
-export default function StripePricingTable() {
+export default function StripePricingTable({ id }) {
   const MODE = process.env.MODE;
 
   const isDev = MODE === 'development' || MODE === 'staging';
 
   const pricingTableId = isDev
     ? 'prctbl_1OQFzaJPdRao2mztnfQYQasN'
+    : id
+    ? id
     : 'prctbl_1OQHHBJPdRao2mztRSAGP9we';
 
   const publishableKey = isDev

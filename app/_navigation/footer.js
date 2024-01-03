@@ -121,7 +121,6 @@ export default function Footer() {
             borderTop={'1px solid var(--lighterGray)'}
             justify={'center'}
             flexDirection={'column'}
-            w={'100%'}
             textAlign={'center'}
             p={'2rem 1rem 1.5rem 1rem'}
             m={'0 2rem'}>

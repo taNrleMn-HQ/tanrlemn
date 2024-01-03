@@ -26,9 +26,9 @@
   --midGreen: #66fe7d;
   --neonGreen: #00ff26;
   --green: #00e823;
+  --darkGreen: #00b51b;
   --greenGray: #47888a;
   --darkerGreen: #1a393a;
-  --darkGreen: #204f58;
 
   --teal: #00ffb6;
 
@@ -54,6 +54,7 @@
   /* Purples */
   --lighterPurpleGray: #efe4f4;
   --lightPurpleGray: #e0c8ea;
+  --lightPurple: #f5e1fe;
   --midPurpleGray: #c5a9d1;
   --purple: #6a3fc8;
   --midPurple: #6f00ff;

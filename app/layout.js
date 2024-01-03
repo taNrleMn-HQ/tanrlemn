@@ -18,8 +18,8 @@ const Navbar = dynamic(() => import('./_navigation/navbar'), {
 });
 
 const APP_NAME = 'taNrleMn';
-const APP_DEFAULT_TITLE = 'taNrleMn – Oil Painter';
-const APP_TITLE_TEMPLATE = '%s - taNrleMn';
+const APP_DEFAULT_TITLE = 'taNrleMn – Artist & Lover of Donuts';
+const APP_TITLE_TEMPLATE = '%s — taNrleMn';
 const APP_DESCRIPTION =
   "taNrleMn's art explores the unity of shared pain and the transformative power of connection.";
 
@@ -41,6 +41,7 @@ export const metadata = {
   formatDetection: {
     telephone: false,
   },
+  category: 'art',
   openGraph: {
     type: 'website',
     siteName: APP_NAME,
@@ -49,7 +50,7 @@ export const metadata = {
       template: APP_TITLE_TEMPLATE,
     },
     description: APP_DESCRIPTION,
-    images: '/og-image.png',
+    images: ['https://i.imgur.com/CljkHnsh.jpg'],
   },
 };
 
