@@ -97,7 +97,7 @@ export default function Home() {
               }}
               mr={'1rem'}
               background={'var(--midOrange)'}>
-              View shop
+              Shop now
             </Button>
           </Link>
           <Link href={'/gallery'}>
@@ -108,7 +108,7 @@ export default function Home() {
               }}
               colorScheme={'gray'}
               leftIcon={<BookImage size={20} />}>
-              View my work
+              View works
             </Button>
           </Link>
         </Flex>

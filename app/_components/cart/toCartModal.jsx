@@ -58,6 +58,7 @@ export default function ToCartModal({ product, isOpen, onClose }) {
                   query={product.title}
                   styles={{
                     color: 'var(--darkBlue)',
+                    whiteSpace: 'pre-wrap',
                   }}>
                   {product.title}
                 </Highlight>{' '}
