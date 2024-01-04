@@ -4,14 +4,14 @@ import '@/app/globals.css';
 import dynamic from 'next/dynamic';
 
 // providers
-import { ThemeProvider } from './lib/context/ThemeProvider';
-import { LoadingProvider } from './lib/context/LoadingProvider';
-import { ContactProvider } from './lib/context/ContactProvider';
+import { ThemeProvider } from './_lib/context/ThemeProvider';
+import { LoadingProvider } from './_lib/context/LoadingProvider';
+import { ContactProvider } from './_lib/context/ContactProvider';
 
 // local components
 import Footer from './_navigation/footer';
-import { CartProvider } from './lib/context/CartProvider';
-import { SessionProvider } from './lib/context/SessionProvider';
+import { CartProvider } from './_lib/context/CartProvider';
+import { SessionProvider } from './_lib/context/SessionProvider';
 
 const Navbar = dynamic(() => import('./_navigation/navbar'), {
   ssr: false,

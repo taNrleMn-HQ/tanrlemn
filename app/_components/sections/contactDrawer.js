@@ -16,10 +16,6 @@ import {
   Heading,
 } from '@chakra-ui/react';
 
-// local components
-import Logo from '../brandElements/logo';
-import EmailIcon from '../icons/emailIcon';
-
 export default function ContactDrawer({ isOpen, onClose }) {
   return (
     <Drawer

@@ -1,8 +1,8 @@
 'use client';
 
 // hooks
-import { useWindowWidth } from '@/app/lib/hooks/useWindowWidth';
-import { useIsMobile } from '@/app/lib/hooks/useIsMobile';
+import { useWindowWidth } from '@/app/_lib/hooks/useWindowWidth';
+import { useIsMobile } from '@/app/_lib/hooks/useIsMobile';
 import { useState, useEffect } from 'react';
 import { useAnimate } from 'framer-motion';
 

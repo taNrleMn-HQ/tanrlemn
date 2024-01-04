@@ -3,12 +3,12 @@
 import 'react-slideshow-image/dist/styles.css';
 
 // context
-import { CartContext } from '@/app/lib/context/CartProvider';
+import { CartContext } from '@/app/_lib/context/CartProvider';
 // hooks
 import { useState, useContext, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
-import { useIsMobile } from '@/app/lib/hooks/useIsMobile';
-import { useWindowWidth } from '@/app/lib/hooks/useWindowWidth';
+import { useIsMobile } from '@/app/_lib/hooks/useIsMobile';
+import { useWindowWidth } from '@/app/_lib/hooks/useWindowWidth';
 
 // components
 import { Slide } from 'react-slideshow-image';

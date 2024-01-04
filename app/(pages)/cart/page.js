@@ -1,13 +1,13 @@
 'use client';
 
 // context
-import { CartContext } from '@/app/lib/context/CartProvider';
-import { LoadingContext } from '@/app/lib/context/LoadingProvider';
+import { CartContext } from '@/app/_lib/context/CartProvider';
+import { LoadingContext } from '@/app/_lib/context/LoadingProvider';
 
 // hooks
 import { useState, useEffect, useContext } from 'react';
 import { useSearchParams, useRouter } from 'next/navigation';
-import { useIsMobile } from '@/app/lib/hooks/useIsMobile';
+import { useIsMobile } from '@/app/_lib/hooks/useIsMobile';
 
 // chakra-ui
 import {

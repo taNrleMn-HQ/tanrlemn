@@ -1,7 +1,7 @@
 'use client';
 
 // context
-import { CartContext } from '../lib/context/CartProvider';
+import { CartContext } from '../_lib/context/CartProvider';
 
 // hooks
 import { useContext } from 'react';

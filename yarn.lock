@@ -6318,6 +6318,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"react-facebook-pixel@npm:^1.0.4":
+  version: 1.0.4
+  resolution: "react-facebook-pixel@npm:1.0.4"
+  checksum: e742b3583027456f8710427d8ff5c70dedc8deac6143f9bfc04caec865b2ce6a02cfec834613c39d9822d0527a13a6caac3e160f7cd0c42e13d9037d1fbcae71
+  languageName: node
+  linkType: hard
+
 "react-fast-compare@npm:3.2.2":
   version: 3.2.2
   resolution: "react-fast-compare@npm:3.2.2"
@@ -7090,6 +7097,7 @@ __metadata:
     next-usequerystate: "npm:^1.14.0"
     react: "npm:^18.2.0"
     react-dom: "npm:^18.2.0"
+    react-facebook-pixel: "npm:^1.0.4"
     react-responsive-masonry: "npm:^2.1.7"
     react-slideshow-image: "npm:^4.3.0"
     stripe: "npm:^14.10.0"

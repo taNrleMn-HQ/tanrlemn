@@ -1,8 +1,8 @@
 'use client';
 
 // context
-import { ContactContext } from '@/app/lib/context/ContactProvider';
-import { CartContext } from '../lib/context/CartProvider';
+import { ContactContext } from '@/app/_lib/context/ContactProvider';
+import { CartContext } from '../_lib/context/CartProvider';
 
 // hooks
 import { useRef, useContext } from 'react';
