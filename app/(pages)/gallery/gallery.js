@@ -1,7 +1,7 @@
 'use client';
 
 // context
-import { LoadingContext } from '@/app/lib/context/LoadingProvider';
+import { LoadingContext } from '@/app/_lib/context/LoadingProvider';
 
 // hooks
 import { useEffect, useState, useContext } from 'react';

@@ -5,7 +5,7 @@ const whaleriderSrc = 'https://i.imgur.com/fNISTWS.jpg';
 const ownerSrc = 'https://i.imgur.com/v3TtoGI.jpg';
 
 // context
-import { LoadingContext } from '@/app/lib/context/LoadingProvider';
+import { LoadingContext } from '@/app/_lib/context/LoadingProvider';
 
 // hooks
 import { useContext, useEffect } from 'react';

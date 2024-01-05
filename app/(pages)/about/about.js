@@ -4,7 +4,7 @@
 const aboutTannerSrc = 'https://i.imgur.com/BFWf7ku.jpg';
 
 // context
-import { LoadingContext } from '@/app/lib/context/LoadingProvider';
+import { LoadingContext } from '@/app/_lib/context/LoadingProvider';
 
 // hooks
 import { useEffect, useContext } from 'react';

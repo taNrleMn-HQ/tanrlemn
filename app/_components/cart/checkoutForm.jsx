@@ -1,13 +1,13 @@
 'use client';
 
 // context
-import { CartContext } from '@/app/lib/context/CartProvider';
-import { LoadingContext } from '@/app/lib/context/LoadingProvider';
+import { CartContext } from '@/app/_lib/context/CartProvider';
+import { LoadingContext } from '@/app/_lib/context/LoadingProvider';
 
 // hooks
 import { useState, useEffect, useContext } from 'react';
 import { useRouter } from 'next/navigation';
-import { useOrigin } from '@/app/lib/hooks/useOrigin';
+import { useOrigin } from '@/app/_lib/hooks/useOrigin';
 
 // components
 import {
@@ -15,8 +15,6 @@ import {
   Divider,
   Flex,
   FormControl,
-  Grid,
-  GridItem,
   Heading,
   Text,
   VStack,

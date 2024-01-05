@@ -1,8 +1,8 @@
 'use client';
 
 // context
-import { LoadingContext } from '../lib/context/LoadingProvider';
-import { ContactContext } from '../lib/context/ContactProvider';
+import { LoadingContext } from '../_lib/context/LoadingProvider';
+import { ContactContext } from '../_lib/context/ContactProvider';
 
 // hooks
 import { useContext } from 'react';

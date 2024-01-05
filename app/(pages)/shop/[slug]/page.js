@@ -1,47 +1,62 @@
-'use client';
+// local components
+import Product from './product';
 
-// context
-import { LoadingContext } from '@/app/lib/context/LoadingProvider';
-
-// hooks
-import { useEffect, useState, useContext } from 'react';
-
-// components
-import ProductInfo from '@/app/_components/products/productInfo';
-import { Box } from '@chakra-ui/react';
-
-export default function Product({ params }) {
-  const { setLoading } = useContext(LoadingContext);
-  const [currentProduct, setCurrentProduct] = useState(null);
-
+// metadata
+export async function generateMetadata({ params }) {
   const slug = params.slug;
 
-  useEffect(() => {
-    const getProduct = async () => {
-      const res = await fetch(`/api/supabase/getProducts/${slug}`);
-      const data = await res.json();
-      console.log(data);
-      setCurrentProduct(data);
-      setLoading(false);
-    };
+  const res = await fetch(
+    `https://tanrlemn.xyz/api/supabase/getProducts/${slug}`
+  );
+  const data = await res.json();
+  const product = data.product;
 
-    if (currentProduct === null) {
-      getProduct();
-    }
-  }, [currentProduct, slug, setLoading]);
+  return {
+    title: product.title,
+    description: product.description,
+    openGraph: {
+      id: product.slug,
+      url: `https://tanrlemn.xyz/shop/${product.slug}`,
+      title: product.title,
+      description: product.description,
+      type: 'website',
+      images: [product.image_url, ...product.additional_images],
+    },
+  };
+}
+
+export default async function ProductPage({ params }) {
+  const slug = params.slug;
+  const res = await fetch(
+    `https://tanrlemn.xyz/api/supabase/getProducts/${slug}`
+  );
+  const data = await res.json();
+  const product = data.product;
+
+  const jsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'Product',
+    name: product.title,
+    description: product.description,
+    image: product.image_url,
+    productID: product.slug,
+    url: `https://tanrlemn.xyz/shop/${product.slug}`,
+    offers: {
+      '@type': 'Offer',
+      priceCurrency: 'USD',
+      price: product.on_sale ? product.sale_price : product.price,
+      availability: product.available_for_sale ? 'InStock' : 'OutOfStock',
+      condition: 'New',
+    },
+  };
 
   return (
-    <Box
-      p={{
-        base: '2rem 1rem',
-        md: '2rem 2rem',
-      }}>
-      {currentProduct !== null && (
-        <ProductInfo
-          product={currentProduct}
-          collection={null}
-        />
-      )}
-    </Box>
+    <>
+      <script
+        type='application/ld+json'
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+      <Product slug={slug} />
+    </>
   );
 }

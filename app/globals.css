@@ -1,7 +1,4 @@
 :root {
-  --max-width: 100vw;
-  --border-radius: 9px;
-
   /* Grays */
   --white30: #ffffff4f;
   --white: #fff;
@@ -21,14 +18,11 @@
   --lighterGreen: #dbf1df;
   --lightGreen: #b6e8be;
   --lightGreen50: #b0eab980;
-  --lightGreenGray: #80bec0;
-  --midGreenGray: #60b56d;
   --midGreen: #66fe7d;
   --neonGreen: #00ff26;
   --green: #00e823;
   --darkGreen: #00b51b;
-  --greenGray: #47888a;
-  --darkerGreen: #1a393a;
+  --darkerGreen: #1a3a2d;
 
   --teal: #00ffb6;
 
@@ -41,7 +35,7 @@
   --midLightBlue: #69c3ff;
   --blue: #0098ff;
   --neonBlue: #00e1ff;
-  --blueAlt: #0085d8;
+  --darkBlueAlt: #0085d8;
   --darkBlue: #0081d9;
   --darkBlue10: #0082d94a;
   --darkBlue30: #0082d952;
@@ -52,19 +46,14 @@
   --darkestBlue90: #071a35d3;
 
   /* Purples */
-  --lighterPurpleGray: #efe4f4;
-  --lightPurpleGray: #e0c8ea;
+  --lighterPurple: #eec7ff;
   --lightPurple: #f5e1fe;
-  --midPurpleGray: #c5a9d1;
-  --purple: #6a3fc8;
-  --midPurple: #6f00ff;
+  --purple: #9f19cf;
+  --midPurple: #8100af;
   --lightNeonPurple: #bd67ff;
   --neonPurple: #9000ff;
   --darkPurple: #50008e;
-  --darkPurpleGray: #584361;
-  --darkPurpleGrayAlt: #432e4c;
   --darkestPurple: #210735;
-  --darkestPurple90: #210735ca;
 
   /* Pinks */
   --lightPink: #f2ceec;
@@ -72,10 +61,10 @@
 
   /* Reds */
   --red: #fb0e0e;
-  --redAlt: #f94c4c;
-  --redLight: #ffc0c0;
-  --redMid: #fa4d4d;
-  --darkRed: #863131;
+  --redAlt: #fd5858;
+  --lightRed: #ffc0c0;
+  --midRed: #cd1212;
+  --darkRed: #880404;
 
   /* Yellows */
   --yellow: #ffed28;
@@ -92,7 +81,7 @@
   --orange: #ff7300;
   --orangeAlt: #ff8528;
   --darkOrange: #c25e0c;
-  --darkerOrange: #892300;
+  --darkerOrange: #893100;
 
   /* Misc */
   --mainBorderRadius: 9px;
@@ -116,7 +105,7 @@
 
 html,
 body {
-  max-width: var(--max-width);
+  max-width: 100vw;
 }
 
 html {
