@@ -7,6 +7,7 @@ import dynamic from 'next/dynamic';
 import { ThemeProvider } from './_lib/context/ThemeProvider';
 import { LoadingProvider } from './_lib/context/LoadingProvider';
 import { ContactProvider } from './_lib/context/ContactProvider';
+// import { ConsentToast } from './_lib/utils/consentToast';
 
 // local components
 import Footer from './_navigation/footer';
@@ -19,7 +20,7 @@ const Navbar = dynamic(() => import('./_navigation/navbar'), {
 
 const APP_NAME = 'taNrleMn';
 const APP_DEFAULT_TITLE = 'taNrleMn – Artist & Lover of Donuts';
-const APP_TITLE_TEMPLATE = '%s — taNrleMn';
+const APP_TITLE_TEMPLATE = '%s – taNrleMn';
 const APP_DESCRIPTION =
   "taNrleMn's art explores the unity of shared pain and the transformative power of connection.";
 
@@ -65,6 +66,7 @@ export default async function RootLayout({ children }) {
                 <ContactProvider>
                   <Navbar />
                   {children}
+                  {/* <ConsentToast /> */}
                   <Footer />
                 </ContactProvider>
               </SessionProvider>

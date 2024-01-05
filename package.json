@@ -24,6 +24,7 @@
     "@supabase/auth-ui-shared": "^0.1.8",
     "@supabase/ssr": "^0.0.10",
     "@supabase/supabase-js": "^2.39.2",
+    "cookies-next": "^4.1.0",
     "framer-motion": "^10.17.0",
     "lucide-react": "^0.303.0",
     "next": "14.0.4",

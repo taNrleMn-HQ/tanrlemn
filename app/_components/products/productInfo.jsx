@@ -195,7 +195,7 @@ export default function ProductInfo({ product, collection }) {
       <Button
         variant={'ghost'}
         mb={'2rem'}
-        onClick={() => router.back()}
+        onClick={() => router.push('/shop')}
         cursor={'pointer'}>
         <Flex
           gap={'0.3rem'}
