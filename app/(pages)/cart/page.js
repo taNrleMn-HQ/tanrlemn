@@ -53,7 +53,7 @@ export default function Cart() {
     }
 
     if (searchParams.get('canceled')) {
-      router.replace('/cart');
+      router.replace('/cart', undefined, { shallow: true });
       setSuccess(false);
 
       console.log(
