@@ -13,25 +13,24 @@ export async function POST(req) {
 
     const line_items = [];
 
-    cart.items.map((item) => {
-      console.log('item:', item);
+    cart.map((item) => {
       const priceId = () => {
         let id;
         if (MODE === 'development' || MODE === 'staging') {
           id = item.on_sale
-            ? item.product.sale_stripe_price_id.dev
-            : item.product.stripe_price_id.dev;
+            ? item.sale_stripe_price_id.dev
+            : item.stripe_price_id.dev;
         } else {
-          id = item.product.on_sale
-            ? item.product.sale_stripe_price_id.live
-            : item.product.stripe_price_id.live;
+          id = item.on_sale
+            ? item.sale_stripe_price_id.live
+            : item.stripe_price_id.live;
         }
 
         return id;
       };
       const product = {
         price: priceId(),
-        quantity: item.qty,
+        quantity: item.options.qty,
       };
       line_items.push(product);
     });

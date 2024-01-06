@@ -4585,6 +4585,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"hamt_plus@npm:1.0.2":
+  version: 1.0.2
+  resolution: "hamt_plus@npm:1.0.2"
+  checksum: c5aa5cc08228e8cc2a90150fef680bd5b09f16a327bdab799daeb80fd3c987663308b14e2c6718abdf75afce21d29607e35f2705eb336a14aa935c0ca5949ce7
+  languageName: node
+  linkType: hard
+
 "has-bigints@npm:^1.0.1, has-bigints@npm:^1.0.2":
   version: 1.0.2
   resolution: "has-bigints@npm:1.0.2"
@@ -5400,6 +5407,25 @@ __metadata:
   bin:
     loose-envify: cli.js
   checksum: 655d110220983c1a4b9c0c679a2e8016d4b67f6e9c7b5435ff5979ecdb20d0813f4dec0a08674fcbdd4846a3f07edbb50a36811fd37930b94aaa0d9daceb017e
+  languageName: node
+  linkType: hard
+
+"lottie-react@npm:^2.4.0":
+  version: 2.4.0
+  resolution: "lottie-react@npm:2.4.0"
+  dependencies:
+    lottie-web: "npm:^5.10.2"
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0 || ^18.0.0
+    react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
+  checksum: 5c0ef3f1832b21232fe6826cc021cd90bb0e3c9d63f1047031ce77a0992092f8712b6f3a6aeeaa0f410d918ca557df160b1c776399f69b498c560273767befe0
+  languageName: node
+  linkType: hard
+
+"lottie-web@npm:^5.10.2":
+  version: 5.12.2
+  resolution: "lottie-web@npm:5.12.2"
+  checksum: 0aeaf631b10a76afd025df70c2a1486543530708e07a316946c08e55891dac483ffbaf2bf3648ae0b9c54c733118a0a086fd150aa76f7848606214c67ad72c30
   languageName: node
   linkType: hard
 
@@ -6491,6 +6517,22 @@ __metadata:
   languageName: node
   linkType: hard
 
+"recoil@npm:^0.7.7":
+  version: 0.7.7
+  resolution: "recoil@npm:0.7.7"
+  dependencies:
+    hamt_plus: "npm:1.0.2"
+  peerDependencies:
+    react: ">=16.13.1"
+  peerDependenciesMeta:
+    react-dom:
+      optional: true
+    react-native:
+      optional: true
+  checksum: 630a73b0bdfb1b453c68eca9b3fa0771d489006fbd856a7700174d775978ba3faa10d251ac2af7c07142014dcba07c2b103f448ecc19b6124d3228ec810f5c28
+  languageName: node
+  linkType: hard
+
 "redis-errors@npm:^1.0.0, redis-errors@npm:^1.2.0":
   version: 1.2.0
   resolution: "redis-errors@npm:1.2.0"
@@ -7125,6 +7167,7 @@ __metadata:
     eslint: "npm:^8.56.0"
     eslint-config-next: "npm:14.0.4"
     framer-motion: "npm:^10.17.0"
+    lottie-react: "npm:^2.4.0"
     lucide-react: "npm:^0.303.0"
     next: "npm:14.0.4"
     next-usequerystate: "npm:^1.14.0"
@@ -7133,6 +7176,7 @@ __metadata:
     react-facebook-pixel: "npm:^1.0.4"
     react-responsive-masonry: "npm:^2.1.7"
     react-slideshow-image: "npm:^4.3.0"
+    recoil: "npm:^0.7.7"
     stripe: "npm:^14.10.0"
   languageName: unknown
   linkType: soft

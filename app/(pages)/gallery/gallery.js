@@ -1,10 +1,11 @@
 'use client';
 
-// context
-import { LoadingContext } from '@/app/_lib/context/LoadingProvider';
+// recoil
+import { useSetRecoilState } from 'recoil';
+import { loadingState } from '@/app/loading';
 
 // hooks
-import { useEffect, useState, useContext } from 'react';
+import { useEffect, useState } from 'react';
 
 // chakra-ui
 import {
@@ -25,7 +26,7 @@ import { MoveRight } from 'lucide-react';
 import ArtworkCard from '@/app/_components/products/artworkCard';
 
 export default function Gallery() {
-  const { setLoading } = useContext(LoadingContext);
+  const setLoading = useSetRecoilState(loadingState);
 
   const [artworks, setArtworks] = useState(null);
 
@@ -37,73 +38,71 @@ export default function Gallery() {
     };
 
     if (artworks === null) {
-      setLoading(true);
       getProjects();
     } else {
-      setLoading(true);
-
-      setTimeout(() => {
-        setLoading(false);
-      }, 2000);
+      setLoading(false);
     }
   }, [artworks, setLoading]);
 
   return (
     <Box p={'4rem 0'}>
-      <VStack
-        textAlign={'center'}
-        w={'100%'}
-        mb={'4rem'}
-        h={'fit-content'}
-        position={'relative'}>
-        <VStack maxW={'550px'}>
-          <Tag
-            textTransform={'uppercase'}
-            size={'sm'}
-            fontWeight={500}
-            maxW={'fit-content'}
-            colorScheme={'green'}
-            borderRadius={'full'}>
-            accepting commissions
-          </Tag>
-          <Heading textAlign={'center'}>Artwork by taNrleMn</Heading>
-          <Text mb={'1.5rem'}>
-            These works range in creation date from early 2014 to the present.
-            They traverse a plethora of identities and styles.
-          </Text>
-          <Link
-            maxW={'fit-content'}
-            href={'/commissions'}>
-            <Button
-              _hover={{
-                outline: '1px solid var(--lightOrange, #F8AD4F)',
-                borderRadius: 'var(--mainBorderRadius)',
-              }}
-              mr={'1rem'}
-              rightIcon={<MoveRight />}
-              background={'var(--midOrange)'}>
-              Request a commission
-            </Button>
-          </Link>
-        </VStack>
-      </VStack>
-      <Box p={'1rem'}>
-        {artworks && (
-          <ResponsiveMasonry
-            columnsCountBreakPoints={{ 350: 1, 750: 2, 900: 3 }}>
-            <Masonry gutter={'0.75rem'}>
-              {artworks.map((artwork) => {
-                return (
-                  <ArtworkCard
-                    key={artwork.id}
-                    artwork={artwork}
-                  />
-                );
-              })}
-            </Masonry>
-          </ResponsiveMasonry>
-        )}
-      </Box>
+      {artworks !== null && (
+        <>
+          {' '}
+          <VStack
+            textAlign={'center'}
+            w={'100%'}
+            mb={'4rem'}
+            h={'fit-content'}
+            position={'relative'}>
+            <VStack maxW={'550px'}>
+              <Tag
+                textTransform={'uppercase'}
+                size={'sm'}
+                fontWeight={500}
+                maxW={'fit-content'}
+                colorScheme={'green'}
+                borderRadius={'full'}>
+                accepting commissions
+              </Tag>
+              <Heading textAlign={'center'}>Artwork by taNrleMn</Heading>
+              <Text mb={'1.5rem'}>
+                These works range in creation date from early 2014 to the
+                present. They traverse a plethora of identities and styles.
+              </Text>
+              <Link
+                maxW={'fit-content'}
+                href={'/commissions'}>
+                <Button
+                  _hover={{
+                    outline: '1px solid var(--lightOrange, #F8AD4F)',
+                    borderRadius: 'var(--mainBorderRadius)',
+                  }}
+                  mr={'1rem'}
+                  rightIcon={<MoveRight />}
+                  background={'var(--midOrange)'}>
+                  Request a commission
+                </Button>
+              </Link>
+            </VStack>
+          </VStack>
+          <Box p={'1rem'}>
+            <ResponsiveMasonry
+              columnsCountBreakPoints={{ 350: 1, 750: 2, 900: 3 }}>
+              <Masonry gutter={'0.75rem'}>
+                {artworks.map((artwork) => {
+                  return (
+                    <ArtworkCard
+                      key={artwork.id}
+                      artwork={artwork}
+                    />
+                  );
+                })}
+              </Masonry>
+            </ResponsiveMasonry>
+          </Box>
+        </>
+      )}
     </Box>
   );
 }

@@ -1,7 +1,8 @@
 'use client';
 
-// context
-import { LoadingContext } from '@/app/_lib/context/LoadingProvider';
+// recoil
+import { useSetRecoilState } from 'recoil';
+import { loadingState } from '@/app/loading';
 
 // hooks
 import { useEffect, useContext } from 'react';
@@ -10,7 +11,7 @@ import { useEffect, useContext } from 'react';
 import { Box, Container, Heading, Link, Tag, Text } from '@chakra-ui/react';
 
 export default function Terms() {
-  const { setLoading } = useContext(LoadingContext);
+  const setLoading = useSetRecoilState(loadingState);
 
   useEffect(() => {
     setLoading(false);
@@ -24,7 +25,7 @@ export default function Terms() {
           textTransform={'uppercase'}
           colorScheme={'purple'}
           maxW={'fit-content'}>
-          Policy
+          Terms
         </Tag>
         <Heading
           mb={'1rem'}

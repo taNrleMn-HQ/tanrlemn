@@ -1,8 +1,5 @@
 'use client';
 
-// context
-import { LoadingContext } from '@/app/_lib/context/LoadingProvider';
-
 // hooks
 import { useEffect, useState, useContext } from 'react';
 
@@ -11,7 +8,6 @@ import ProductInfo from '@/app/_components/products/productInfo';
 import { Box } from '@chakra-ui/react';
 
 export default function Product({ slug }) {
-  const { setLoading } = useContext(LoadingContext);
   const [currentProduct, setCurrentProduct] = useState(null);
 
   useEffect(() => {
@@ -19,13 +15,13 @@ export default function Product({ slug }) {
       const res = await fetch(`/api/supabase/getProducts/${slug}`);
       const data = await res.json();
       setCurrentProduct(data);
-      setLoading(false);
+      // setLoading(false);
     };
 
     if (currentProduct === null) {
       getProduct();
     }
-  }, [currentProduct, slug, setLoading]);
+  }, [currentProduct, slug]);
 
   return (
     <Box

@@ -2,11 +2,12 @@
 
 import 'react-slideshow-image/dist/styles.css';
 
-// context
-import { CartContext } from '@/app/_lib/context/CartProvider';
+// recoil
+import { useSetRecoilState } from 'recoil';
+import { loadingState } from '@/app/loading';
+
 // hooks
-import { useState, useContext, useEffect } from 'react';
-import { useRouter } from 'next/navigation';
+import { useState, useEffect } from 'react';
 import { useIsMobile } from '@/app/_lib/hooks/useIsMobile';
 import { useWindowWidth } from '@/app/_lib/hooks/useWindowWidth';
 
@@ -41,12 +42,14 @@ import {
 // local components
 import ToCartModal from '../cart/toCartModal';
 import { MoveLeft } from 'lucide-react';
+import { useCart } from '@/app/_lib/hooks/useCart';
 
 export default function ProductInfo({ product, collection }) {
-  const router = useRouter();
+  const setLoading = useSetRecoilState(loadingState);
+
   product = product.product;
-  const { addToCart, setNumCartItems, setNumItems, numCartItems } =
-    useContext(CartContext);
+  const { numCartItems, addUpdateItem } = useCart();
+
   const { isOpen, onOpen, onClose } = useDisclosure();
   const isMobile = useIsMobile();
 
@@ -94,13 +97,14 @@ export default function ProductInfo({ product, collection }) {
               top={'9rem'}
               key={image}
               src={image}
-              width={imageWidth}
+              width={'auto'}
               height={imageHeight}
               alt={`image for ${product.title}`}
             />
           );
         })
       );
+      setLoading(false);
     }
   }, [
     product,
@@ -111,6 +115,7 @@ export default function ProductInfo({ product, collection }) {
     imageHeight,
     mainImage,
     imageElements,
+    setLoading,
   ]);
 
   const sliderImages = () => {
@@ -123,7 +128,6 @@ export default function ProductInfo({ product, collection }) {
       images.push({ url: additionalImages[i] });
     }
 
-    console.log(images);
     return images;
   };
 
@@ -175,35 +179,31 @@ export default function ProductInfo({ product, collection }) {
     showIndicators: false,
   };
 
-  const handleAddToCart = async (e) => {
+  const handleAddToCart = (e) => {
     e.preventDefault();
-    const res = addToCart({
-      product: product,
-      qty: currentProductConfig.qty,
-      size: currentProductConfig.size,
-      color: currentProductConfig.color,
-      collection: collection,
-    });
-    setNumCartItems(setNumItems);
-    onOpen();
 
-    return res;
+    addUpdateItem({
+      item: product,
+      options: currentProductConfig,
+      fromCart: false,
+    });
+    onOpen();
   };
 
   return (
     <>
-      <Button
-        variant={'ghost'}
-        mb={'2rem'}
-        onClick={() => router.push('/shop')}
-        cursor={'pointer'}>
-        <Flex
-          gap={'0.3rem'}
-          align={'center'}>
-          <MoveLeft size={17} />
-          <Text>Back to shop</Text>
-        </Flex>
-      </Button>
+      <Link href={'/shop'}>
+        <Button
+          variant={'ghost'}
+          mb={'2rem'}>
+          <Flex
+            gap={'0.3rem'}
+            align={'center'}>
+            <MoveLeft size={17} />
+            <Text>Back to shop</Text>
+          </Flex>
+        </Button>
+      </Link>
       {product !== null && (
         <Flex
           justify={'flex-start'}
@@ -239,7 +239,12 @@ export default function ProductInfo({ product, collection }) {
                 </VStack>
               )}
               {currentImage !== null && imageElements !== null && (
-                <>{imageElements[currentImage]}</>
+                <Flex
+                  maxH={'fit-content'}
+                  justify={'center'}
+                  w={imageWidth}>
+                  {imageElements[currentImage]}
+                </Flex>
               )}
             </Flex>
           )}
@@ -262,7 +267,6 @@ export default function ProductInfo({ product, collection }) {
                     {onSale ? `$${product.sale_price.toFixed(2)}` : ''}
                   </span>
                 </StatNumber>
-                <StatHelpText></StatHelpText>
               </Stat>
               <Box fontSize={{ base: '0.7rem', md: '0.8rem' }}>
                 {limitedEdition ? (
@@ -306,7 +310,6 @@ export default function ProductInfo({ product, collection }) {
                     {currentImage !== null && additionalImages !== null && (
                       <Slide {...sliderOptions}>
                         {sliderImages().map((slideImage) => {
-                          console.log(slideImage);
                           return (
                             <Image
                               key={slideImage.url}

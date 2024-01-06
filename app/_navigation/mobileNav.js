@@ -1,11 +1,7 @@
 'use client';
 
-// context
-import { ContactContext } from '@/app/_lib/context/ContactProvider';
-import { CartContext } from '../_lib/context/CartProvider';
-
 // hooks
-import { useRef, useContext } from 'react';
+import { useCart } from '../_lib/hooks/useCart';
 
 // chakra-ui
 import {
@@ -13,16 +9,13 @@ import {
   Drawer,
   DrawerHeader,
   DrawerBody,
-  DrawerFooter,
   DrawerOverlay,
   DrawerContent,
   DrawerCloseButton,
   useDisclosure,
-  Button,
   Flex,
   VStack,
   Heading,
-  Text,
   Box,
 } from '@chakra-ui/react';
 import { Menu } from 'lucide-react';
@@ -30,8 +23,7 @@ import Logo from '../_components/brandElements/logo';
 import ShoppingBag from '../_components/icons/shoppingBag';
 
 export default function MobileNavbar({ routes }) {
-  const btnRef = useRef();
-  const { numCartItems } = useContext(CartContext);
+  const { numCartItems } = useCart();
 
   const { isOpen, onOpen, onClose } = useDisclosure();
 

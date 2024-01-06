@@ -8,11 +8,12 @@ const commissionImageLinks = [
   'https://i.imgur.com/fNISTWSh.jpg',
 ];
 
-// context
-import { LoadingContext } from '@/app/_lib/context/LoadingProvider';
+// recoil
+import { useRecoilState } from 'recoil';
+import { loadingState } from '@/app/loading';
 
 // hooks
-import { useEffect, useContext } from 'react';
+import { useEffect } from 'react';
 
 // chakra-ui
 import {
@@ -24,7 +25,6 @@ import {
   Heading,
   Highlight,
   Image,
-  Link,
   ListItem,
   OrderedList,
   Stack,
@@ -37,23 +37,23 @@ import {
 import CommissionRequest from '@/app/_components/forms/commissionRequest';
 
 export default function Commissions() {
-  const { setLoading } = useContext(LoadingContext);
-
   const { isOpen, onOpen, onClose } = useDisclosure();
+
+  const [loading, setLoading] = useRecoilState(loadingState);
 
   useEffect(() => {
     setLoading(false);
   }, [setLoading]);
 
   return (
-    <>
+    <Box
+      p={{ base: '3rem 0', md: '6rem 3rem' }}
+      fontSize={'1.1rem'}>
       <CommissionRequest
         isOpen={isOpen}
         onClose={onClose}
       />
-      <Box
-        p={{ base: '3rem 0', md: '6rem 3rem' }}
-        fontSize={'1.1rem'}>
+      {!loading && (
         <Container
           maxW={'650px'}
           mb={'4rem'}
@@ -253,7 +253,7 @@ export default function Commissions() {
             </Box>
           </Box>
         </Container>
-      </Box>
-    </>
+      )}
+    </Box>
   );
 }

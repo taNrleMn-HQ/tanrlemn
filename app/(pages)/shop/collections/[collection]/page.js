@@ -17,7 +17,6 @@ export default function Collection({ params }) {
     const getCollection = async () => {
       const res = await fetch(`/api/supabase/getCollections/${slug}`);
       const data = await res.json();
-      console.log(data);
       setCurrentCollection(data);
     };
 
@@ -67,7 +66,6 @@ export default function Collection({ params }) {
           </div>
           <div>
             {filteredProducts.map((product, i) => {
-              console.log(currentCollection);
               return (
                 <ProductCard
                   key={i}
