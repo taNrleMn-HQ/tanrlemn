@@ -1,13 +1,14 @@
 'use client';
 
-// context
-import { CartContext } from '@/app/_lib/context/CartProvider';
-import { LoadingContext } from '@/app/_lib/context/LoadingProvider';
+// recoil
+import { useSetRecoilState } from 'recoil';
+import { loadingState } from '@/app/loading';
 
 // hooks
-import { useState, useEffect, useContext } from 'react';
+import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import { useOrigin } from '@/app/_lib/hooks/useOrigin';
+import { useCart } from '@/app/_lib/hooks/useCart';
 
 // components
 import {
@@ -21,9 +22,9 @@ import {
 } from '@chakra-ui/react';
 
 export default function CheckoutForm() {
-  const { setLoading } = useContext(LoadingContext);
+  const setLoading = useSetRecoilState(loadingState);
 
-  const { cart, numCartItems, cartTotal } = useContext(CartContext);
+  const { cart, numCartItems, cartTotal } = useCart();
   const [checkoutSession, setCheckoutSession] = useState(null);
 
   const [subtotal, setSubtotal] = useState(null);

@@ -5,14 +5,13 @@ import dynamic from 'next/dynamic';
 
 // providers
 import { ThemeProvider } from './_lib/context/ThemeProvider';
-import { LoadingProvider } from './_lib/context/LoadingProvider';
+import { RecoilRootProvider } from './_lib/context/RecoilRoot';
 import { ContactProvider } from './_lib/context/ContactProvider';
-// import { ConsentToast } from './_lib/utils/consentToast';
+import { SessionProvider } from './_lib/context/SessionProvider';
 
 // local components
 import Footer from './_navigation/footer';
-import { CartProvider } from './_lib/context/CartProvider';
-import { SessionProvider } from './_lib/context/SessionProvider';
+import Loading from './loading';
 
 const Navbar = dynamic(() => import('./_navigation/navbar'), {
   ssr: false,
@@ -59,20 +58,18 @@ export default async function RootLayout({ children }) {
   return (
     <html lang='en'>
       <body>
-        <LoadingProvider>
+        <RecoilRootProvider>
           <ThemeProvider>
-            <CartProvider>
-              <SessionProvider>
-                <ContactProvider>
-                  <Navbar />
-                  {children}
-                  {/* <ConsentToast /> */}
-                  <Footer />
-                </ContactProvider>
-              </SessionProvider>
-            </CartProvider>
+            <SessionProvider>
+              <ContactProvider>
+                <Navbar />
+                <Loading />
+                {children}
+                <Footer />
+              </ContactProvider>
+            </SessionProvider>
           </ThemeProvider>
-        </LoadingProvider>
+        </RecoilRootProvider>
       </body>
     </html>
   );

@@ -1,7 +1,8 @@
 'use client';
 
-// context
-import { LoadingContext } from '@/app/_lib/context/LoadingProvider';
+// recoil
+import { useSetRecoilState } from 'recoil';
+import { loadingState } from '@/app/loading';
 
 // hooks
 import { useEffect, useState, useContext, useCallback } from 'react';
@@ -13,7 +14,7 @@ import ProductCard from '@/app/_components/products/productCard';
 import { Box, Flex, Heading, Text } from '@chakra-ui/react';
 
 export default function Shop() {
-  const { setLoading } = useContext(LoadingContext);
+  const setLoading = useSetRecoilState(loadingState);
 
   const searchParams = useSearchParams();
   const [products, setProducts] = useState(null);
@@ -89,8 +90,8 @@ export default function Shop() {
     productTypes,
     collections,
     searchParams,
-    setLoading,
     category,
+    setLoading,
   ]);
 
   return (

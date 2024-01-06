@@ -26,6 +26,7 @@
     "@supabase/supabase-js": "^2.39.2",
     "cookies-next": "^4.1.0",
     "framer-motion": "^10.17.0",
+    "lottie-react": "^2.4.0",
     "lucide-react": "^0.303.0",
     "next": "14.0.4",
     "next-usequerystate": "^1.14.0",
@@ -34,6 +35,7 @@
     "react-facebook-pixel": "^1.0.4",
     "react-responsive-masonry": "^2.1.7",
     "react-slideshow-image": "^4.3.0",
+    "recoil": "^0.7.7",
     "stripe": "^14.10.0"
   },
   "devDependencies": {

@@ -1,7 +1,10 @@
 'use client';
 
+// recoil
+import { useRecoilValue } from 'recoil';
+import { loadingState } from '@/app/loading';
+
 // context
-import { LoadingContext } from '../_lib/context/LoadingProvider';
 import { ContactContext } from '../_lib/context/ContactProvider';
 
 // hooks
@@ -14,8 +17,6 @@ import {
   Heading,
   Text,
   Stack,
-  Input,
-  Button,
   Link,
   Highlight,
 } from '@chakra-ui/react';
@@ -23,7 +24,7 @@ import { Instagram } from 'lucide-react';
 
 export default function Footer() {
   const { contactOnOpen } = useContext(ContactContext);
-  const { loading } = useContext(LoadingContext);
+  const loading = useRecoilValue(loadingState);
 
   return (
     <>
@@ -94,6 +95,7 @@ export default function Footer() {
                   Shop
                 </Heading>
                 <Stack gap={0}>
+                  <Link href='/shop'>Official Shop</Link>
                   <Link href='/subscriptions'>Subscriptions</Link>
                   <Link href='/commissions'>Commissions</Link>
                 </Stack>

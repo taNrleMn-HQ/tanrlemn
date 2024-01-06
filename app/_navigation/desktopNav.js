@@ -1,10 +1,7 @@
 'use client';
 
-// context
-import { CartContext } from '../_lib/context/CartProvider';
-
 // hooks
-import { useContext } from 'react';
+import { useCart } from '../_lib/hooks/useCart';
 
 // chakra-ui
 import { Link, Flex, Text } from '@chakra-ui/react';
@@ -13,7 +10,7 @@ import { Link, Flex, Text } from '@chakra-ui/react';
 import ShoppingBag from '../_components/icons/shoppingBag';
 
 export default function DesktopNavbar({ routes }) {
-  const { numCartItems } = useContext(CartContext);
+  const { numCartItems } = useCart();
 
   return (
     <Flex align={'center'}>

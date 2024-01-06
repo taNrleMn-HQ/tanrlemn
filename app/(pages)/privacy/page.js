@@ -1,16 +1,17 @@
 'use client';
 
-// context
-import { LoadingContext } from '@/app/_lib/context/LoadingProvider';
+// recoil
+import { useSetRecoilState } from 'recoil';
+import { loadingState } from '@/app/loading';
 
 // hooks
-import { useEffect, useContext } from 'react';
+import { useEffect } from 'react';
 
 // chakra-ui
 import { Box, Container, Heading, Link, Tag, Text } from '@chakra-ui/react';
 
 export default function Privacy() {
-  const { setLoading } = useContext(LoadingContext);
+  const setLoading = useSetRecoilState(loadingState);
 
   useEffect(() => {
     setLoading(false);

@@ -4,11 +4,12 @@
 const whaleriderSrc = 'https://i.imgur.com/fNISTWS.jpg';
 const ownerSrc = 'https://i.imgur.com/v3TtoGI.jpg';
 
-// context
-import { LoadingContext } from '@/app/_lib/context/LoadingProvider';
+// recoil
+import { useRecoilState } from 'recoil';
+import { loadingState } from '@/app/loading';
 
 // hooks
-import { useContext, useEffect } from 'react';
+import { useEffect } from 'react';
 
 // chakra-ui
 import {
@@ -25,7 +26,7 @@ import { BookImage, MoveRight } from 'lucide-react';
 import HeroImage from './_components/images/heroImage';
 
 export default function Home() {
-  const { loading, setLoading } = useContext(LoadingContext);
+  const [loading, setLoading] = useRecoilState(loadingState);
 
   useEffect(() => {
     setLoading(false);
