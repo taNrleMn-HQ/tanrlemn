@@ -118,12 +118,12 @@ export default function CartItem({ item }) {
               </Text>
             )}
             <Text>
-              <strong>Color:</strong> {item.color}
+              <strong>Color:</strong> {item.options.color}
             </Text>
             <Text>
-              <strong>Size:</strong> {item.size}
+              <strong>Size:</strong> {item.options.size}
             </Text>
-            {isMobile ? (
+            {isMobile && (
               <NumberInput
                 onChange={(valueString) => {
                   handleUpdateCart(Number(valueString));
@@ -139,38 +139,37 @@ export default function CartItem({ item }) {
                   <NumberDecrementStepper />
                 </NumberInputStepper>
               </NumberInput>
-            ) : (
-              <>
-                <GridItem>
-                  <Text style={alignRight}>
-                    <span>
-                      {onSale ? `$${item.sale_price.toFixed(2)}` : ''}
-                    </span>
-                    <span style={onSale ? saleStyles : null}>
-                      ${item.price.toFixed(2)}
-                    </span>
-                  </Text>
-                </GridItem>
-                <GridItem>
-                  <NumberInput
-                    onChange={(valueString) => {
-                      handleUpdateCart(Number(valueString));
-                    }}
-                    maxW={'8rem'}
-                    mb={'2rem'}
-                    defaultValue={currentProductConfig.qty}
-                    min={1}
-                    max={20}>
-                    <NumberInputField />
-                    <NumberInputStepper>
-                      <NumberIncrementStepper />
-                      <NumberDecrementStepper />
-                    </NumberInputStepper>
-                  </NumberInput>
-                </GridItem>
-              </>
             )}
           </GridItem>
+          {!isMobile && (
+            <>
+              <GridItem>
+                <Text style={alignRight}>
+                  <span>{onSale ? `$${item.sale_price.toFixed(2)}` : ''}</span>
+                  <span style={onSale ? saleStyles : null}>
+                    ${item.price.toFixed(2)}
+                  </span>
+                </Text>
+              </GridItem>
+              <GridItem>
+                <NumberInput
+                  onChange={(valueString) => {
+                    handleUpdateCart(Number(valueString));
+                  }}
+                  maxW={'8rem'}
+                  mb={'2rem'}
+                  defaultValue={currentProductConfig.qty}
+                  min={1}
+                  max={20}>
+                  <NumberInputField />
+                  <NumberInputStepper>
+                    <NumberIncrementStepper />
+                    <NumberDecrementStepper />
+                  </NumberInputStepper>
+                </NumberInput>
+              </GridItem>
+            </>
+          )}
 
           <GridItem
             w={'100%'}
