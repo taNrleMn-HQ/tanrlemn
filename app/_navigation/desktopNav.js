@@ -6,7 +6,8 @@ import { useCart } from '../_lib/hooks/useCart';
 // chakra-ui
 import { Link, Flex, Text } from '@chakra-ui/react';
 
-// icons
+// local components
+import AccountButton from '../(user)/_components/accountButton';
 import ShoppingBag from '../_components/icons/shoppingBag';
 
 export default function DesktopNavbar({ routes }) {
@@ -54,6 +55,7 @@ export default function DesktopNavbar({ routes }) {
           )}
         </Flex>
       </Link>
+      <AccountButton />
     </Flex>
   );
 }

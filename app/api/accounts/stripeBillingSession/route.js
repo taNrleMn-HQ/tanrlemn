@@ -16,7 +16,7 @@ export async function POST(req) {
       return_url:
         MODE === 'development'
           ? 'http://localhost:3000/dashboard'
-          : 'https://yourheadisourhead.com/dashboard',
+          : 'https://tarnelmn.xyz/dashboard',
     });
 
     return NextResponse.json(session);

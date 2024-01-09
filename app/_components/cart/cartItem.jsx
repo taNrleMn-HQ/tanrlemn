@@ -153,6 +153,7 @@ export default function CartItem({ item }) {
               </GridItem>
               <GridItem>
                 <NumberInput
+                  float={'right'}
                   onChange={(valueString) => {
                     handleUpdateCart(Number(valueString));
                   }}

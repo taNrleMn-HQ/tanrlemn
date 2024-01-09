@@ -7,7 +7,6 @@ import dynamic from 'next/dynamic';
 import { ThemeProvider } from './_lib/context/ThemeProvider';
 import { RecoilRootProvider } from './_lib/context/RecoilRoot';
 import { ContactProvider } from './_lib/context/ContactProvider';
-import { SessionProvider } from './_lib/context/SessionProvider';
 
 // local components
 import Footer from './_navigation/footer';
@@ -60,14 +59,12 @@ export default async function RootLayout({ children }) {
       <body>
         <RecoilRootProvider>
           <ThemeProvider>
-            <SessionProvider>
-              <ContactProvider>
-                <Navbar />
-                <Loading />
-                {children}
-                <Footer />
-              </ContactProvider>
-            </SessionProvider>
+            <ContactProvider>
+              <Navbar />
+              <Loading />
+              {children}
+              <Footer />
+            </ContactProvider>
           </ThemeProvider>
         </RecoilRootProvider>
       </body>

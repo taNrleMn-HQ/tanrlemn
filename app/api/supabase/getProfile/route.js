@@ -34,7 +34,7 @@ export async function GET() {
       return NextResponse.json({ data, error });
     }
 
-    return NextResponse.redirect('/auth');
+    return NextResponse.redirect('/dashboard/sign-in');
   } catch (error) {
     console.error(error);
     return NextResponse.error(error);

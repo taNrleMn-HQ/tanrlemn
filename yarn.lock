@@ -2334,16 +2334,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@stripe/stripe-js@npm:^2.2.2":
-  version: 2.2.2
-  resolution: "@stripe/stripe-js@npm:2.2.2"
-  checksum: 12d75b7f48e84a254813dbf7e6265a478776cc35e3af407027fd060ee9ce8cdb600f3ded54b4e9ef6c0b20f9955ee9513429d2f6f7f463c8f99da8146e2ad393
+"@stripe/stripe-js@npm:^2.3.0":
+  version: 2.3.0
+  resolution: "@stripe/stripe-js@npm:2.3.0"
+  checksum: 53cf4b542c3645077db84d5c61799877395eddd68b189469aa12fb01b2b7165bf4c5d9f158d9ee24a6820ed9a92c7cb8fba8555e6d249ed5c4d5ee96730cc63d
   languageName: node
   linkType: hard
 
-"@supabase/auth-ui-react@npm:^0.4.6":
-  version: 0.4.6
-  resolution: "@supabase/auth-ui-react@npm:0.4.6"
+"@supabase/auth-ui-react@npm:^0.4.7":
+  version: 0.4.7
+  resolution: "@supabase/auth-ui-react@npm:0.4.7"
   dependencies:
     "@stitches/core": "npm:^1.2.8"
     "@supabase/auth-ui-shared": "npm:0.1.8"
@@ -2352,7 +2352,7 @@ __metadata:
     react-dom: "npm:^18.2.0"
   peerDependencies:
     "@supabase/supabase-js": ^2.21.0
-  checksum: 27ebedb97d29a55bc179ac4baa08e386938a8ef25fed92f1a53b4380c5169c17001c3939c50e7333d0846b18b2538ce2c465a58a769a6a2e0ca73ea687d2407d
+  checksum: 841d8f4dc30d672db38e020ede35104ff0ae394585715c52dfef2cd3eb274fbef60211e29970a68efc45bade840159c75ac0567a74c9bf3ec53385c662149581
   languageName: node
   linkType: hard
 
@@ -7158,8 +7158,8 @@ __metadata:
     "@fillout/react": "npm:^1.0.1"
     "@netlify/plugin-nextjs": "npm:^4.41.3"
     "@stripe/react-stripe-js": "npm:^2.4.0"
-    "@stripe/stripe-js": "npm:^2.2.2"
-    "@supabase/auth-ui-react": "npm:^0.4.6"
+    "@stripe/stripe-js": "npm:^2.3.0"
+    "@supabase/auth-ui-react": "npm:^0.4.7"
     "@supabase/auth-ui-shared": "npm:^0.1.8"
     "@supabase/ssr": "npm:^0.0.10"
     "@supabase/supabase-js": "npm:^2.39.2"

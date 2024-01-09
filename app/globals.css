@@ -2,6 +2,7 @@
   /* Grays */
   --white30: #ffffff4f;
   --white: #fff;
+  --lightestGray: #f6f3ff;
   --lighterGray: #e3dfee;
   --lightGray: #b2adbe;
   --grayAlt: #7b8692;
@@ -29,9 +30,11 @@
   /* Blues */
   --lightestBlue30: #eaf0f559;
   --lightestBlue70: #eaf0f5bd;
+  --lightestBlue90: #e9f2ffb9;
   --lightestBlue: #ebf6ff;
   --lighterBlue: #c5def7;
   --lightBlue: #afd8f2;
+  --midLightBlueAlt: #8bcffd;
   --midLightBlue: #69c3ff;
   --blue: #0098ff;
   --neonBlue: #00e1ff;
@@ -40,6 +43,7 @@
   --darkBlue10: #0082d94a;
   --darkBlue30: #0082d952;
   --darkBlue50: #0082d984;
+  --darkerBlueAlt: #02568e;
   --darkerBlue: #003456;
   --darkestBlue: #071a35;
   --darkestBlue30: #071a354d;

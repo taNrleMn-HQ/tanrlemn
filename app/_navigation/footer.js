@@ -9,6 +9,8 @@ import { ContactContext } from '../_lib/context/ContactProvider';
 
 // hooks
 import { useContext } from 'react';
+import { usePathname } from 'next/navigation';
+import { useSession } from '../_lib/hooks/useUser';
 
 // components
 import {
@@ -26,9 +28,17 @@ export default function Footer() {
   const { contactOnOpen } = useContext(ContactContext);
   const loading = useRecoilValue(loadingState);
 
+  const { session } = useSession();
+
+  const pathname = usePathname();
+
+  const isAuth =
+    (pathname.includes('sign-in') || pathname.includes('sign-up')) &&
+    session === null;
+
   return (
     <>
-      {!loading && (
+      {!loading && !isAuth && (
         <footer
           style={{
             background: 'var(--lightestBlue)',
