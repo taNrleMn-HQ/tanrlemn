@@ -16,7 +16,7 @@ export function useOrigin() {
   const callbackUrl = MODE === 'production' ? removePort : origin;
   const fullPagePath = `${callbackUrl}${pathname}`;
 
-  console.log('window.location', window.location);
+  console.log('callbackUrl', callbackUrl);
 
   return { pathname, callbackUrl, fullPagePath };
 }
