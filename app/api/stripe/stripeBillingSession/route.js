@@ -9,12 +9,9 @@ const MODE = process.env.NEXT_PUBLIC_MODE;
 
 export async function POST(req) {
   try {
-    const url = new URL(req.url);
-    const origin = url.origin;
+    const { origin, port, href } = new URL(req.url);
 
-    const port = url.port;
-    const href = url.href;
-    const removePort = href.replace(`:${port}`, '');
+    const removePort = port !== '' ? origin.replace(`:${port}`, '') : origin;
 
     const callbackUrl = MODE === 'production' ? removePort : origin;
 
