@@ -35,18 +35,7 @@ export default function AuthUI() {
 
   const [message] = useQueryState('message');
 
-  const router = useRouter();
-
-  const user = useRecoilValue(userState);
-  const loggedIn = !!user;
-
   const supabase = createClient();
-
-  useEffect(() => {
-    if (loggedIn) {
-      router.replace('/dashboard');
-    }
-  }, [router, loggedIn]);
 
   return (
     <>

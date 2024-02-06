@@ -24,20 +24,28 @@ import { routes } from './routes';
 import LoadingDiv from '../_components/interactive/loadingDiv';
 
 export default function Navbar() {
-  const router = useRouter();
   const { loading } = useAuth();
-  const pathname = usePathname();
+  const router = useRouter();
+  const isMobile = useIsMobile();
 
+  const pathname = usePathname();
   const user = useRecoilValue(userState);
   const loggedIn = !!user;
 
-  const isMobile = useIsMobile();
+  const isAuth = pathname.includes('/auth');
+  const isUserPage = pathname.includes('/dashboard');
 
   useEffect(() => {
-    if (!loggedIn && pathname == '/dashboard') {
-      router.replace('/auth/login');
+    if (!loading && !loggedIn && !isAuth && isUserPage) {
+      console.log('redirecting to login');
+      router.replace(
+        '/auth/login?message=You must be logged in to view that page'
+      );
+    } else if (!loading && loggedIn && isAuth && !isUserPage) {
+      console.log('redirecting to dashboard');
+      router.replace('/dashboard');
     }
-  }, [loggedIn, pathname, router]);
+  }, [loading, user, loggedIn, router, isAuth, isUserPage, pathname]);
 
   return (
     <>
