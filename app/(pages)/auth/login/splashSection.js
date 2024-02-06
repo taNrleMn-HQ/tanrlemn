@@ -13,20 +13,24 @@ const images = [
 ];
 
 // chakra-ui
-import { Box } from '@chakra-ui/react';
+import { AspectRatio, Box } from '@chakra-ui/react';
 
 const randomIndex = Math.floor(Math.random() * images.length);
 
 export default function AuthSplashSection() {
   return (
-    <Box
-      flexGrow={1}
-      w={{ base: '100%', md: '50%' }}
-      minH={{ base: '25rem', md: '93vh' }}
-      backgroundImage={`url(${images[randomIndex]})`}
-      backgroundPosition={{ base: '50% 30%', md: '50% 50%' }}
-      backgroundSize={'cover'}
-      backgroundRepeat={'no-repeat'}
-    />
+    <AspectRatio
+      overflow={'hidden'}
+      ratio={1}
+      w={{ base: '100%', md: '50%' }}>
+      <Box
+        flexGrow={1}
+        position={'relative'}
+        backgroundImage={`url(${images[randomIndex]})`}
+        backgroundPosition={{ base: '50% 30%' }}
+        backgroundSize={'cover'}
+        backgroundRepeat={'no-repeat'}
+      />
+    </AspectRatio>
   );
 }

@@ -53,8 +53,7 @@ export default function AuthUI() {
       <Flex
         background={'blue.50'}
         direction={{ base: 'column', md: 'row' }}
-        w={'100vw'}
-        justify={'space-between'}
+        minH={'93vh'}
         align={'center'}>
         <AuthSplashSection />
         <Flex
@@ -92,9 +91,7 @@ export default function AuthUI() {
                 redirectTo={`${origin.origin}/auth/callback`}
               />
             </Box>
-            <Text
-              textAlign={'center'}
-              fontSize={'0.75rem'}>
+            <Text fontSize={'0.75rem'}>
               By continuing, you agree to taNrleMn&apos;s{' '}
               <Link
                 textDecoration={'underline'}
