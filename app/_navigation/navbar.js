@@ -24,6 +24,7 @@ import { routes } from './routes';
 import LoadingDiv from '../_components/interactive/loadingDiv';
 
 export default function Navbar() {
+  const router = useRouter();
   const { loading } = useAuth();
   const pathname = usePathname();
 
@@ -31,6 +32,12 @@ export default function Navbar() {
   const loggedIn = !!user;
 
   const isMobile = useIsMobile();
+
+  useEffect(() => {
+    if (!loggedIn && pathname == '/dashboard') {
+      router.replace('/auth/login');
+    }
+  }, [loggedIn, pathname, router]);
 
   return (
     <>

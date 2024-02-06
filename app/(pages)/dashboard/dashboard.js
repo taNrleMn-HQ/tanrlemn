@@ -34,19 +34,8 @@ export default function Dashboard() {
   const router = useRouter();
   const profile = useRecoilValue(userProfileSelector);
 
-  const user = useRecoilValue(userState);
-  const loggedIn = !!user;
-
   const [loadingBillingSession, setLoadingBillingSession] = useState(false);
   const [loggingOut, setLoggingOut] = useState(false);
-
-  useEffect(() => {
-    if (!loggedIn) {
-      router.replace(
-        '/auth/login?message=You must be logged in to view that page.'
-      );
-    }
-  }, [loggedIn, router]);
 
   const handleManageBilling = async () => {
     setLoadingBillingSession(true);

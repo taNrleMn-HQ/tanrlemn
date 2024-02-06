@@ -44,7 +44,7 @@ export default function AuthUI() {
 
   useEffect(() => {
     if (loggedIn) {
-      router.push('/dashboard');
+      router.replace('/dashboard');
     }
   }, [router, loggedIn]);
 
