@@ -6,15 +6,10 @@ import dynamic from 'next/dynamic';
 // providers
 import { ThemeProvider } from './_lib/context/ThemeProvider';
 import { RecoilRootProvider } from './_lib/context/RecoilRoot';
-import { ContactProvider } from './_lib/context/ContactProvider';
 
 // local components
 import Footer from './_navigation/footer';
-import Loading from './loading';
-
-const Navbar = dynamic(() => import('./_navigation/navbar'), {
-  ssr: false,
-});
+import Navbar from './_navigation/navbar';
 
 const APP_NAME = 'taNrleMn';
 const APP_DEFAULT_TITLE = 'taNrleMn – Artist & Lover of Donuts';
@@ -59,12 +54,9 @@ export default async function RootLayout({ children }) {
       <body>
         <RecoilRootProvider>
           <ThemeProvider>
-            <ContactProvider>
-              <Navbar />
-              <Loading />
-              {children}
-              <Footer />
-            </ContactProvider>
+            <Navbar />
+            {children}
+            <Footer />
           </ThemeProvider>
         </RecoilRootProvider>
       </body>

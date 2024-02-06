@@ -17,7 +17,6 @@ import {
   Heading,
   Link,
 } from '@chakra-ui/react';
-import { MoveRight } from 'lucide-react';
 
 export default function Error({ error, reset }) {
   const setLoading = useSetRecoilState(loadingState);

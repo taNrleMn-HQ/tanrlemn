@@ -9,6 +9,6 @@ export function useOrigin() {
       ? window.location.origin
       : '';
 
-  const url = `${origin}${pathname}`;
-  return url;
+  const fullPagePath = `${origin}${pathname}`;
+  return { pathname, origin, fullPagePath };
 }

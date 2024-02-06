@@ -7,7 +7,7 @@ import { useCart } from '../_lib/hooks/useCart';
 import { Link, Flex, Text } from '@chakra-ui/react';
 
 // local components
-import AccountButton from '../(user)/_components/accountButton';
+import AccountButton from '../_components/interactive/accountButton';
 import ShoppingBag from '../_components/icons/shoppingBag';
 
 export default function DesktopNavbar({ routes }) {

@@ -4,13 +4,9 @@
 import { useRecoilValue } from 'recoil';
 import { loadingState } from '@/app/loading';
 
-// context
-import { ContactContext } from '../_lib/context/ContactProvider';
-
 // hooks
 import { useContext } from 'react';
 import { usePathname } from 'next/navigation';
-import { useSession } from '../_lib/hooks/useUser';
 
 // components
 import {
@@ -25,16 +21,11 @@ import {
 import { Instagram } from 'lucide-react';
 
 export default function Footer() {
-  const { contactOnOpen } = useContext(ContactContext);
   const loading = useRecoilValue(loadingState);
-
-  const { session } = useSession();
 
   const pathname = usePathname();
 
-  const isAuth =
-    (pathname.includes('sign-in') || pathname.includes('sign-up')) &&
-    session === null;
+  const isAuth = pathname.includes('sign-in') || pathname.includes('sign-up');
 
   return (
     <>
@@ -117,11 +108,6 @@ export default function Footer() {
                   Support
                 </Heading>
                 <Stack gap={0}>
-                  <Text
-                    cursor={'pointer'}
-                    onClick={contactOnOpen}>
-                    Contact
-                  </Text>
                   <Link href='/privacy'>Privacy</Link>
                   <Link href='/terms'>Terms</Link>
                 </Stack>

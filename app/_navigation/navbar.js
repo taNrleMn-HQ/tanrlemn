@@ -1,83 +1,65 @@
 'use client';
 
+// Recoil
+import { useRecoilValue } from 'recoil';
+import { userState } from '@/app/_state/atoms';
+
 // hooks
+import { usePathname, useRouter } from 'next/navigation';
+import { useEffect } from 'react';
 import { useIsMobile } from '@/app/_lib/hooks/useIsMobile';
-import { usePathname } from 'next/navigation';
-import { useSession } from '../_lib/hooks/useUser';
+import { useAuth } from '@/app/_lib/hooks/useAuth';
+
+// Supabase
+import { createClient } from '@/app/_lib/utils/supabase/client';
 
 // chakra-ui
-import { Flex, Box, Button, Link } from '@chakra-ui/react';
+import { Flex, Box } from '@chakra-ui/react';
 
 // local components
-import Logo from '../_components/brandElements/logo';
+import Logo from '../_components/branding/logo';
 import DesktopNav from './desktopNav';
 import MobileNav from './mobileNav';
 import { routes } from './routes';
-import ShoppingBag from '../_components/icons/shoppingBag';
+import LoadingDiv from '../_components/interactive/loadingDiv';
 
 export default function Navbar() {
-  const isMobile = useIsMobile();
-  const { session } = useSession();
-
+  const { loading } = useAuth();
   const pathname = usePathname();
 
-  const isAuth =
-    (pathname.includes('sign-in') || pathname.includes('sign-up')) &&
-    session === null;
+  const user = useRecoilValue(userState);
+  const loggedIn = !!user;
+
+  const isMobile = useIsMobile();
 
   return (
     <>
-      {isAuth ? (
-        <Box
+      <Box
+        zIndex={1000}
+        position={'sticky'}
+        top={'0'}>
+        <Flex
           zIndex={1000}
-          minW={'100%'}
-          position={'absolute'}
-          top={'0'}>
+          background={'blue.50'}
+          backdropFilter={'blur(10px) saturate(100%)'}
+          w={'100%'}
+          p={'0.75rem'}
+          borderBottom={'1px solid var(--lightOrange)'}>
           <Flex
-            zIndex={1000}
             w={'100%'}
             align={'center'}
-            justify={{ base: 'space-between' }}
-            p={'0.75rem'}>
-            <Logo p={isMobile ? '0.3125rem 0' : '0.3125rem 1.4375rem'} />
-            {!isMobile && (
-              <Link href={'/shop'}>
-                <Button
-                  colorScheme={'gray'}
-                  leftIcon={<ShoppingBag color={'var(--darkGray)'} />}
-                  size={'sm'}>
-                  View shop
-                </Button>
-              </Link>
+            justify={{ base: 'space-between' }}>
+            <Logo />
+            {loading ? (
+              <LoadingDiv />
+            ) : isMobile ? (
+              <MobileNav routes={routes} />
+            ) : (
+              <DesktopNav routes={routes} />
             )}
           </Flex>
-        </Box>
-      ) : (
-        <Box
-          zIndex={1000}
-          position={'sticky'}
-          top={'0'}>
-          <Flex
-            zIndex={1000}
-            background={'var(--lightestBlue70)'}
-            backdropFilter={'blur(10px) saturate(100%)'}
-            w={'100%'}
-            p={'0.75rem'}
-            borderBottom={'1px solid var(--lightOrange)'}>
-            <Flex
-              w={'100%'}
-              align={'center'}
-              justify={{ base: 'space-between' }}>
-              <Logo />
-              {isMobile ? (
-                <MobileNav routes={routes} />
-              ) : (
-                <DesktopNav routes={routes} />
-              )}
-            </Flex>
-          </Flex>
-        </Box>
-      )}
+        </Flex>
+      </Box>
     </>
   );
 }

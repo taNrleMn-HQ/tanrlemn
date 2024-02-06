@@ -21,8 +21,8 @@ import {
 import { Menu } from 'lucide-react';
 
 // local components
-import AccountButton from '../(user)/_components/accountButton';
-import Logo from '../_components/brandElements/logo';
+import AccountButton from '../_components/interactive/accountButton';
+import Logo from '../_components/branding/logo';
 import ShoppingBag from '../_components/icons/shoppingBag';
 
 export default function MobileNavbar({ routes }) {

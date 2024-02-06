@@ -1,7 +1,7 @@
 'use client';
 
 // supabase
-import { createBrowserClient } from '@supabase/ssr';
+import { createClient } from '@/app/_lib/utils/supabase/client';
 
 // recoil
 import { useRecoilState } from 'recoil';
@@ -10,7 +10,6 @@ import { loadingState } from '@/app/loading';
 // hooks
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
-import { useSession, useProfile } from '@/app/_lib/hooks/useUser';
 
 // chakra-ui
 import {
@@ -28,19 +27,14 @@ import {
   useToast,
 } from '@chakra-ui/react';
 
-// local components
-import { AccountAvatar } from '@/app/(user)/_components/accountButton';
+const supabase = createClient();
 
-const supabase = createBrowserClient(
-  process.env.NEXT_PUBLIC_SUPABASE_URL,
-  process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY
-);
-
-export default function UpdateProfileForm({ isOpen, onClose }) {
-  const router = useRouter();
-
-  const { session } = useSession();
-  const { profile, setProfile } = useProfile();
+export default function UpdateProfileForm({
+  isOpen,
+  onClose,
+  profile,
+  setProfile,
+}) {
   const toast = useToast();
 
   const [loading, setLoading] = useRecoilState(loadingState);
@@ -118,22 +112,13 @@ export default function UpdateProfileForm({ isOpen, onClose }) {
           mt={'2rem'}>
           <FormControl>
             <FormLabel htmlFor='avatar'>Avatar</FormLabel>
-            <AccountAvatar
-              uid={session?.user.id}
-              url={profile?.avatar_url}
-              size={'xl'}
-              onUpload={(url) => {
-                setAvatarUrl(url);
-                updateProfile({ fullname, avatarUrl: url });
-              }}
-              isUploadWidget
-            />
+
             <FormLabel htmlFor='email'>Email</FormLabel>
             <Input
               mb={'1rem'}
               id='email'
               type='text'
-              value={session?.user.email}
+              value={profile.email}
               disabled
             />
             <FormLabel htmlFor='fullName'>Full Name</FormLabel>

@@ -19,29 +19,32 @@
     "@fillout/react": "^1.0.1",
     "@netlify/plugin-nextjs": "^4.41.3",
     "@stripe/react-stripe-js": "^2.4.0",
-    "@stripe/stripe-js": "^2.3.0",
+    "@stripe/stripe-js": "^2.4.0",
     "@supabase/auth-ui-react": "^0.4.7",
     "@supabase/auth-ui-shared": "^0.1.8",
-    "@supabase/ssr": "^0.0.10",
-    "@supabase/supabase-js": "^2.39.2",
-    "cookies-next": "^4.1.0",
-    "framer-motion": "^10.17.0",
+    "@supabase/ssr": "^0.1.0",
+    "@supabase/supabase-js": "^2.39.3",
+    "cookies-next": "^4.1.1",
+    "framer-motion": "^11.0.3",
     "lottie-react": "^2.4.0",
-    "lucide-react": "^0.303.0",
-    "next": "14.0.4",
-    "next-usequerystate": "^1.14.0",
+    "lucide-react": "^0.323.0",
+    "next": "14.1.0",
+    "next-usequerystate": "^1.16.1",
+    "nuqs": "^1.16.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-facebook-pixel": "^1.0.4",
     "react-responsive-masonry": "^2.1.7",
     "react-slideshow-image": "^4.3.0",
     "recoil": "^0.7.7",
-    "stripe": "^14.10.0"
+    "stripe": "^14.15.0"
   },
   "devDependencies": {
     "@chakra-ui/cli": "^2.4.1",
+    "@types/react": "^18.2.54",
     "eslint": "^8.56.0",
-    "eslint-config-next": "14.0.4"
+    "eslint-config-next": "14.1.0",
+    "typescript": "^5.3.3"
   },
   "packageManager": "yarn@4.0.2"
 }
