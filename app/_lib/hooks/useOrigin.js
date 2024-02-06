@@ -1,20 +1,25 @@
 'use client';
 
-import { usePathname } from 'next/navigation';
-
-const MODE = process.env.MODE;
+const MODE = process.env.NEXT_PUBLIC_MODE;
 
 export function useOrigin() {
-  const pathname = usePathname();
-  const origin =
-    typeof window !== 'undefined'
-      ? MODE === 'production'
-        ? `${window.location.protocol}//${window.location.hostname}`
-        : `${window.location.protocol}//${window.location.host}`
-      : '';
+  if (typeof window === 'undefined') {
+    return { pathname: '', callbackUrl: '', fullPagePath: '' };
+  }
 
-  console.log('origin', origin);
+  const origin = window.location.origin;
+  const pathname = window.location.pathname;
 
-  const fullPagePath = `${origin}${pathname}`;
-  return { pathname, origin, fullPagePath };
+  const port = window.location.port;
+  const href = window.location.href;
+  const removePort = href.replace(`:${port}`, '');
+
+  const callbackUrl = MODE === 'production' ? removePort : origin;
+  const fullPagePath = `${callbackUrl}${pathname}`;
+
+  // console.log('window.location', window.location);
+  console.log('MODE', MODE);
+  console.log('useOrigin', { pathname, callbackUrl, fullPagePath });
+
+  return { pathname, callbackUrl, fullPagePath };
 }

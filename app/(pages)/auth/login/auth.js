@@ -5,13 +5,7 @@ import { Auth } from '@supabase/auth-ui-react';
 import { ThemeSupa } from '@supabase/auth-ui-shared';
 import { createClient } from '@/app/_lib/utils/supabase/client';
 
-// Recoil
-import { userState } from '@/app/_state/atoms';
-import { useRecoilValue } from 'recoil';
-
 // hooks
-import { useEffect } from 'react';
-import { useRouter } from 'next/navigation';
 import { useQueryState } from 'nuqs';
 import { useOrigin } from '@/app/_lib/hooks/useOrigin';
 
@@ -23,7 +17,6 @@ import {
   Flex,
   Link,
   Container,
-  useToast,
   Tag,
 } from '@chakra-ui/react';
 
@@ -31,7 +24,7 @@ import {
 import AuthSplashSection from './splashSection';
 
 export default function AuthUI() {
-  const origin = useOrigin();
+  const { callbackUrl } = useOrigin();
 
   const [message] = useQueryState('message');
 
@@ -77,7 +70,7 @@ export default function AuthUI() {
                 providers={['google']}
                 showLinks={false}
                 onlyThirdPartyProviders
-                redirectTo={`${origin.origin}/auth/callback`}
+                redirectTo={`${callbackUrl}/auth/callback`}
               />
             </Box>
             <Text fontSize={'0.75rem'}>

@@ -32,6 +32,7 @@ export default function CheckoutForm() {
   const [tax, setTax] = useState(null);
 
   const { fullPagePath } = useOrigin();
+  console.log(fullPagePath);
   const router = useRouter();
 
   useEffect(() => {
