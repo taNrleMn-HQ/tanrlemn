@@ -1,6 +1,6 @@
 import { FilloutStandardEmbed } from '@fillout/react';
 
-export default function CommissionRequest() {
+export default function CustomerSupportForm() {
   return (
     <FilloutStandardEmbed
       dynamicResize

@@ -1,12 +1,8 @@
 'use client';
 
-// recoil
-import { useRecoilValue } from 'recoil';
-import { loadingState } from '@/app/loading';
-
 // hooks
-import { useContext } from 'react';
 import { usePathname } from 'next/navigation';
+import { useEffect, useState } from 'react';
 
 // components
 import {
@@ -18,14 +14,17 @@ import {
   Link,
   Highlight,
 } from '@chakra-ui/react';
-import { Instagram } from 'lucide-react';
+import Instagram from '../_components/icons/instagram';
 
 export default function Footer() {
-  const loading = useRecoilValue(loadingState);
-
+  const [loading, setLoading] = useState(true);
   const pathname = usePathname();
 
-  const isAuth = pathname.includes('sign-in') || pathname.includes('sign-up');
+  const isAuth = pathname === '/auth/login';
+
+  useEffect(() => {
+    setLoading(false);
+  }, [loading]);
 
   return (
     <>
@@ -108,6 +107,7 @@ export default function Footer() {
                   Support
                 </Heading>
                 <Stack gap={0}>
+                  <Link href='/support'>Get Help</Link>
                   <Link href='/privacy'>Privacy</Link>
                   <Link href='/terms'>Terms</Link>
                 </Stack>
