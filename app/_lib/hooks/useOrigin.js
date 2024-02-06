@@ -11,15 +11,12 @@ export function useOrigin() {
   const pathname = window.location.pathname;
 
   const port = window.location.port;
-  const href = window.location.href;
-  const removePort = href.replace(`:${port}`, '');
+  const removePort = origin.replace(`:${port}`, '');
 
   const callbackUrl = MODE === 'production' ? removePort : origin;
   const fullPagePath = `${callbackUrl}${pathname}`;
 
   // console.log('window.location', window.location);
-  console.log('MODE', MODE);
-  console.log('useOrigin', { pathname, callbackUrl, fullPagePath });
 
   return { pathname, callbackUrl, fullPagePath };
 }
