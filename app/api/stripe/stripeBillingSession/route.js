@@ -5,12 +5,18 @@ import { NextResponse } from 'next/server';
 const Stripe = require('stripe');
 const stripe = Stripe(process.env.STRIPE_SECRET_KEY);
 
-const MODE = process.env.MODE;
+const MODE = process.env.NEXT_PUBLIC_MODE;
 
 export async function POST(req) {
   try {
     const url = new URL(req.url);
     const origin = url.origin;
+
+    const port = url.port;
+    const href = url.href;
+    const removePort = href.replace(`:${port}`, '');
+
+    const callbackUrl = MODE === 'production' ? removePort : origin;
 
     const request = await req.json();
 
@@ -20,7 +26,7 @@ export async function POST(req) {
 
     const session = await stripe.billingPortal.sessions.create({
       customer: customerId,
-      return_url: `${origin}/dashboard`,
+      return_url: `${callbackUrl}/dashboard`,
     });
 
     return NextResponse.json(session);
