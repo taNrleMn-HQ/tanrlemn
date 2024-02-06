@@ -1,18 +1,26 @@
-'use client'; // Error components must be Client Components
+'use client';
 
-import { Box, Button, Container, Tag, Text } from '@chakra-ui/react';
-import { Heading } from 'lucide-react';
 // hooks
 import { useEffect } from 'react';
 
+// chakra-ui
+import {
+  Box,
+  Button,
+  Container,
+  Tag,
+  Text,
+  Heading,
+  Link,
+} from '@chakra-ui/react';
+
 export default function Error({ error, reset }) {
   useEffect(() => {
-    // Log the error to an error reporting service
     console.error(error);
   }, [error]);
 
   return (
-    <Container p={'5rem 0'}>
+    <Container p={'5rem 1rem'}>
       <Tag
         size={'md'}
         textTransform={'uppercase'}
@@ -32,15 +40,21 @@ export default function Error({ error, reset }) {
       </Text>
       <Box>
         <Button
-          _hover={{
-            outline: '1px solid var(--lightOrange, #F8AD4F)',
-            borderRadius: 'var(--mainBorderRadius)',
-          }}
+          colorScheme={'purple'}
           onClick={() => reset()}
-          mr={'1rem'}
-          background={'var(--midOrange)'}>
+          mr={'1rem'}>
           Try again
         </Button>
+        <Link
+          mb={'2rem'}
+          maxW={'fit-content'}
+          href={'/'}>
+          <Button
+            variant={'ghost'}
+            mr={'1rem'}>
+            Return home
+          </Button>
+        </Link>
       </Box>
     </Container>
   );

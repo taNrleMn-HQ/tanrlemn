@@ -1,21 +1,19 @@
-import '@/app/globals.css';
+import { Inter } from 'next/font/google';
+import './globals.css';
 
-// server
-import dynamic from 'next/dynamic';
+const inter = Inter({ subsets: ['latin'] });
+
+// images
+const images = ['https://i.imgur.com/4KQQFag.jpg'];
 
 // providers
-import { ThemeProvider } from './_lib/context/ThemeProvider';
 import { RecoilRootProvider } from './_lib/context/RecoilRoot';
-import { ContactProvider } from './_lib/context/ContactProvider';
-import { SessionProvider } from './_lib/context/SessionProvider';
+import { ThemeProvider } from './_lib/context/ThemeProvider';
+import { Suspense } from 'react';
 
 // local components
-import Footer from './_navigation/footer';
-import Loading from './loading';
-
-const Navbar = dynamic(() => import('./_navigation/navbar'), {
-  ssr: false,
-});
+import Navbar from './_navigation/navbar';
+import LoadingDiv from './_components/interactive/loadingDiv';
 
 const APP_NAME = 'taNrleMn';
 const APP_DEFAULT_TITLE = 'taNrleMn – Artist & Lover of Donuts';
@@ -41,7 +39,6 @@ export const metadata = {
   formatDetection: {
     telephone: false,
   },
-  category: 'art',
   openGraph: {
     type: 'website',
     siteName: APP_NAME,
@@ -50,24 +47,20 @@ export const metadata = {
       template: APP_TITLE_TEMPLATE,
     },
     description: APP_DESCRIPTION,
-    images: ['https://i.imgur.com/CljkHnsh.jpg'],
+    images: images,
   },
 };
 
-export default async function RootLayout({ children }) {
+export default function RootLayout({ children }) {
   return (
     <html lang='en'>
-      <body>
+      <body className={inter.className}>
         <RecoilRootProvider>
           <ThemeProvider>
-            <SessionProvider>
-              <ContactProvider>
-                <Navbar />
-                <Loading />
-                {children}
-                <Footer />
-              </ContactProvider>
-            </SessionProvider>
+            <Suspense fallback={<LoadingDiv />}>
+              <Navbar />
+              {children}
+            </Suspense>
           </ThemeProvider>
         </RecoilRootProvider>
       </body>

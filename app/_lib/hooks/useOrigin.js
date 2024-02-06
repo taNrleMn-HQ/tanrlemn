@@ -1,14 +1,19 @@
 'use client';
 
-import { usePathname } from 'next/navigation';
+import { useEffect, useState } from 'react';
 
 export function useOrigin() {
-  const pathname = usePathname();
-  const origin =
-    typeof window !== 'undefined' && window.location.origin
-      ? window.location.origin
-      : '';
+  const [origin, setOrigin] = useState(null);
+  const [pathname, setPathname] = useState(null);
+  const [href, setHref] = useState(null);
 
-  const url = `${origin}${pathname}`;
-  return url;
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      setOrigin(window.location.origin);
+      setPathname(window.location.pathname);
+      setHref(window.location.href);
+    }
+  }, []);
+
+  return { origin, pathname, href };
 }

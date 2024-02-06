@@ -1,5 +1,8 @@
 'use client';
 
+// hooks
+import { useEffect } from 'react';
+
 // chakra-ui
 import {
   Box,
@@ -10,13 +13,12 @@ import {
   Heading,
   Tag,
 } from '@chakra-ui/react';
-import { MoveRight } from 'lucide-react';
 
-export default function Error() {
+export default function NotFound() {
   return (
-    <Container p={'5rem 0'}>
+    <Container p={'5rem 1rem'}>
       <Tag
-        size={'lg'}
+        size={'md'}
         textTransform={'uppercase'}
         colorScheme={'red'}
         maxW={'fit-content'}>
@@ -25,7 +27,7 @@ export default function Error() {
       <Heading
         maxW={'500px'}
         mb={'1rem'}
-        size={'4xl'}
+        size={'2xl'}
         fontWeight={800}>
         Oops... That&apos;s an error
       </Heading>
@@ -38,13 +40,8 @@ export default function Error() {
           maxW={'fit-content'}
           href={'/'}>
           <Button
-            _hover={{
-              outline: '1px solid var(--lightOrange, #F8AD4F)',
-              borderRadius: 'var(--mainBorderRadius)',
-            }}
-            mr={'1rem'}
-            rightIcon={<MoveRight />}
-            background={'var(--midOrange)'}>
+            colorScheme={'purple'}
+            mr={'1rem'}>
             Return home
           </Button>
         </Link>

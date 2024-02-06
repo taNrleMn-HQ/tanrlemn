@@ -1,44 +1,193 @@
 'use client';
 
 // hooks
-import { useIsMobile } from '@/app/_lib/hooks/useIsMobile';
+import { usePathname, useRouter } from 'next/navigation';
+import { useEffect } from 'react';
+import { useAuth } from '@/app/_lib/hooks/useAuth';
 
-// chakra-ui
-import { Flex, Box } from '@chakra-ui/react';
+// Recoil
+import { useRecoilValue } from 'recoil';
+import { userState, profileState } from '@/app/_state/atoms';
 
-// local components
-import Logo from '../_components/brandElements/logo';
-import DesktopNav from './desktopNav';
-import MobileNav from './mobileNav';
-import { routes } from './routes';
+// Supabase
+import { createClient } from '@/app/_lib/utils/supabase/client';
+
+// Chakra-UI components
+import {
+  Flex,
+  Box,
+  Heading,
+  Text,
+  Menu,
+  MenuButton,
+  MenuList,
+  MenuItem,
+} from '@chakra-ui/react';
+
+// Icons
+import { LogOut, MoreHorizontal } from 'lucide-react';
+
+// Local components
+import MenuDrawer from './menuDrawer';
+import LinkedLogo from '../_components/branding/linkedLogo';
+import Logo from '../_components/branding/logo';
 
 export default function Navbar() {
-  const isMobile = useIsMobile();
+  const { loading } = useAuth();
+
+  const pathname = usePathname();
+  const user = useRecoilValue(userState);
+  const profile = useRecoilValue(profileState);
+  const loggedIn = !!user;
+  const router = useRouter();
+  const supabase = createClient();
+
+  const isMaintenance = pathname === '/maintenance';
+  const isAuth = pathname.includes('/auth');
+  const isUserPage =
+    pathname.includes('/envelopes') ||
+    pathname.includes('/settings') ||
+    pathname.includes('/dashboard') ||
+    pathname.includes('/transactions');
+
+  useEffect(() => {
+    if (!loading && !loggedIn && !isAuth && isUserPage) {
+      console.log('redirecting to login');
+      router.replace('/auth/login?redirectTo=' + pathname);
+    }
+  }, [
+    loading,
+    user,
+    loggedIn,
+    router,
+    isAuth,
+    isMaintenance,
+    isUserPage,
+    pathname,
+  ]);
+
+  const signOut = async () => {
+    await supabase.auth.signOut({ scope: 'local' });
+    router.replace('/auth/login');
+  };
 
   return (
     <Box
+      backdropFilter={'blur(2px)'}
+      bg={'transparent'}
+      borderBottom={'1px solid'}
+      borderBottomColor={'gray.900'}
       zIndex={1000}
-      position={'sticky'}
+      position={isAuth ? 'absolute' : 'fixed'}
+      w={'100%'}
       top={'0'}>
       <Flex
-        zIndex={1000}
-        background={'var(--lightestBlue70)'}
-        backdropFilter={'blur(10px) saturate(100%)'}
+        p={{ base: '0.35rem' }}
+        display={isAuth ? 'none' : 'flex'}
         w={'100%'}
-        p={'0.75rem'}
-        borderBottom={'1px solid var(--lightOrange)'}>
-        <Flex
-          w={'100%'}
-          align={'center'}
-          justify={{ base: 'space-between' }}>
-          <Logo />
-          {isMobile ? (
-            <MobileNav routes={routes} />
-          ) : (
-            <DesktopNav routes={routes} />
-          )}
-        </Flex>
+        align={'center'}
+        justify={{ base: 'space-between' }}>
+        {isMaintenance ? (
+          <MaintenanceLayout />
+        ) : isAuth ? (
+          <></>
+        ) : loggedIn ? (
+          <LoggedInLayout
+            profile={profile}
+            signOut={signOut}
+          />
+        ) : (
+          <LoggedOutLayout />
+        )}
       </Flex>
     </Box>
+  );
+}
+
+function LoggedInLayout({ profile, signOut }) {
+  return (
+    <>
+      <Flex
+        align={'center'}
+        gap={'0.5rem'}>
+        <Logo />
+        <Box>
+          <Heading
+            mb={0}
+            lineHeight={1.2}
+            size={'xs'}
+            fontWeight={500}
+            color={'purple.600'}>
+            {profile?.full_name}
+          </Heading>
+          <Text
+            lineHeight={1}
+            fontSize={'0.7rem'}>
+            {profile?.email}
+          </Text>
+        </Box>
+      </Flex>
+      <UserMenu signOut={signOut} />
+    </>
+  );
+}
+
+function LoggedOutLayout() {
+  return (
+    <>
+      <LinkedLogo />
+      <MenuDrawer />
+    </>
+  );
+}
+
+function MaintenanceLayout() {
+  return (
+    <>
+      <Flex
+        gap={{ base: '1rem' }}
+        direction={{ base: 'column', md: 'row' }}
+        align={{ base: 'flex-start', md: 'center' }}>
+        <LinkedLogo />
+        <Heading
+          size={'md'}
+          color={'purple.600'}>
+          Looking for art and donuts.
+        </Heading>
+      </Flex>
+    </>
+  );
+}
+
+function UserMenu({ signOut }) {
+  return (
+    <Menu>
+      <MenuButton>
+        <Box
+          borderRadius={'100px'}
+          border={'1px solid'}
+          p={'0.15rem'}
+          color={'gray.600'}
+          borderColor={'gray.600'}>
+          <MoreHorizontal size={15} />
+        </Box>
+      </MenuButton>
+      <MenuList fontSize={'0.85rem'}>
+        <MenuItem
+          w={'100%'}
+          color={'red.500'}
+          py={'1rem'}
+          onClick={signOut}>
+          <Flex
+            w={'100%'}
+            gap={'0.5rem'}
+            justify={'space-between'}
+            align={'center'}>
+            Log out
+            <LogOut size={15} />
+          </Flex>
+        </MenuItem>
+      </MenuList>
+    </Menu>
   );
 }
