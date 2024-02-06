@@ -5,7 +5,7 @@ import { NextResponse } from 'next/server';
 const Stripe = require('stripe');
 const stripe = Stripe(process.env.STRIPE_SECRET_KEY);
 
-const MODE = process.env.MODE;
+const MODE = process.env.NEXT_PUBLIC_MODE;
 
 export async function POST(req) {
   try {

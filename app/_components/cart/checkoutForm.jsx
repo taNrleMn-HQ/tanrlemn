@@ -22,7 +22,7 @@ import {
 } from '@chakra-ui/react';
 
 export default function CheckoutForm() {
-  const setLoading = useSetRecoilState(loadingState);
+  const [loadingCheckout, setLoadingCheckout] = useState(false);
 
   const { cart, numCartItems, cartTotal } = useCart();
   const [checkoutSession, setCheckoutSession] = useState(null);
@@ -32,12 +32,11 @@ export default function CheckoutForm() {
   const [tax, setTax] = useState(null);
 
   const { fullPagePath } = useOrigin();
-  console.log(fullPagePath);
   const router = useRouter();
 
   useEffect(() => {
     if (checkoutSession) {
-      setLoading(true);
+      setLoadingCheckout(true);
 
       router.push(checkoutSession);
     }
@@ -64,7 +63,7 @@ export default function CheckoutForm() {
     shipping,
     tax,
     subtotal,
-    setLoading,
+    setLoadingCheckout,
   ]);
 
   const handleCheckout = async () => {
@@ -83,7 +82,7 @@ export default function CheckoutForm() {
     };
 
     if (checkoutSession === null) {
-      setLoading(true);
+      setLoadingCheckout(true);
 
       getCheckoutSession();
     }
@@ -143,6 +142,7 @@ export default function CheckoutForm() {
               </Flex>
             </VStack>
             <Button
+              isLoading={loadingCheckout}
               w={'100%'}
               colorScheme={'blue'}
               onClick={(e) => handleCheckout(e)}>
