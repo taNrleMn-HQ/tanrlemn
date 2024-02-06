@@ -118,13 +118,16 @@ export default function CartItem({ item }) {
               </Text>
             )}
             <Text>
-              <strong>Color:</strong> {item.color}
+              <strong>Color:</strong> {item.options.color}
             </Text>
             <Text>
-              <strong>Size:</strong> {item.size}
+              <strong>Size:</strong> {item.options.size}
             </Text>
             {isMobile && (
               <NumberInput
+                onChange={(valueString) => {
+                  handleUpdateCart(Number(valueString));
+                }}
                 mt={'0.5rem'}
                 maxW={'fit-content'}
                 defaultValue={currentProductConfig.qty}
@@ -150,6 +153,7 @@ export default function CartItem({ item }) {
               </GridItem>
               <GridItem>
                 <NumberInput
+                  float={'right'}
                   onChange={(valueString) => {
                     handleUpdateCart(Number(valueString));
                   }}

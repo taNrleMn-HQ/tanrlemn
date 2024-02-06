@@ -1,18 +1,33 @@
-'use client'; // Error components must be Client Components
+'use client';
 
-import { Box, Button, Container, Tag, Text } from '@chakra-ui/react';
-import { Heading } from 'lucide-react';
+// recoil
+import { useSetRecoilState } from 'recoil';
+import { loadingState } from '@/app/loading';
+
 // hooks
 import { useEffect } from 'react';
 
+// chakra-ui
+import {
+  Box,
+  Button,
+  Container,
+  Tag,
+  Text,
+  Heading,
+  Link,
+} from '@chakra-ui/react';
+
 export default function Error({ error, reset }) {
+  const setLoading = useSetRecoilState(loadingState);
+
   useEffect(() => {
-    // Log the error to an error reporting service
     console.error(error);
-  }, [error]);
+    setLoading(false);
+  }, [error, setLoading]);
 
   return (
-    <Container p={'5rem 0'}>
+    <Container p={'5rem 1rem'}>
       <Tag
         size={'md'}
         textTransform={'uppercase'}
@@ -41,6 +56,19 @@ export default function Error({ error, reset }) {
           background={'var(--midOrange)'}>
           Try again
         </Button>
+        <Link
+          mb={'2rem'}
+          maxW={'fit-content'}
+          href={'/'}>
+          <Button
+            variant={'ghost'}
+            _hover={{
+              background: 'var(--lightBlue)',
+            }}
+            mr={'1rem'}>
+            Return home
+          </Button>
+        </Link>
       </Box>
     </Container>
   );

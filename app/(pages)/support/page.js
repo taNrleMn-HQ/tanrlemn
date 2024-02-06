@@ -1,11 +1,27 @@
-'use client';
+// images
+const images = [
+  'https://i.imgur.com/CVuS9hmh.jpg',
+  'https://i.imgur.com/SfRhvWSh.jpg',
+  'https://i.imgur.com/EKiZuD2h.jpg',
+  'https://i.imgur.com/jRDmNhTh.jpg',
+];
 
-// hooks
-import { useContext, useEffect } from 'react';
+// local components
+import Support from './support';
 
-// chakra-ui
-import { Box } from '@chakra-ui/react';
+// metadata
+export const metadata = {
+  title: 'Support',
+  description: 'Get help with your account, orders, and more.',
+  openGraph: {
+    title: 'Support',
+    images: images,
+    description: 'Get help with your account, orders, and more.',
+    locale: 'en_US',
+    type: 'website',
+  },
+};
 
-export default function Support() {
-  return <Box minH={'50vh'}></Box>;
+export default function Page() {
+  return <Support />;
 }

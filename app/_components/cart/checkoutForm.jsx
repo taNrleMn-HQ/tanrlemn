@@ -31,7 +31,8 @@ export default function CheckoutForm() {
   const [shipping, setShipping] = useState(null);
   const [tax, setTax] = useState(null);
 
-  const origin = useOrigin();
+  const { fullPagePath } = useOrigin();
+  console.log(fullPagePath);
   const router = useRouter();
 
   useEffect(() => {
@@ -68,10 +69,10 @@ export default function CheckoutForm() {
 
   const handleCheckout = async () => {
     const getCheckoutSession = async () => {
-      const res = await fetch('/api/checkout/checkoutSession', {
+      const res = await fetch('/api/stripe/checkoutSession', {
         method: 'POST',
         body: JSON.stringify({
-          origin: origin,
+          origin: fullPagePath,
           cart: cart,
         }),
       });

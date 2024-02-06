@@ -1,5 +1,12 @@
 'use client';
 
+// recoil
+import { useSetRecoilState } from 'recoil';
+import { loadingState } from '@/app/loading';
+
+// hooks
+import { useEffect } from 'react';
+
 // chakra-ui
 import {
   Box,
@@ -12,9 +19,15 @@ import {
 } from '@chakra-ui/react';
 import { MoveRight } from 'lucide-react';
 
-export default function Error() {
+export default function NotFound() {
+  const setLoading = useSetRecoilState(loadingState);
+
+  useEffect(() => {
+    setLoading(false);
+  }, [setLoading]);
+
   return (
-    <Container p={'5rem 0'}>
+    <Container p={'5rem 1rem'}>
       <Tag
         size={'lg'}
         textTransform={'uppercase'}
@@ -40,11 +53,9 @@ export default function Error() {
           <Button
             _hover={{
               outline: '1px solid var(--lightOrange, #F8AD4F)',
-              borderRadius: 'var(--mainBorderRadius)',
             }}
             mr={'1rem'}
-            rightIcon={<MoveRight />}
-            background={'var(--midOrange)'}>
+            background={'var(--lightBlue)'}>
             Return home
           </Button>
         </Link>

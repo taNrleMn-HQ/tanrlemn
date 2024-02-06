@@ -19,7 +19,10 @@ import {
   Box,
 } from '@chakra-ui/react';
 import { Menu } from 'lucide-react';
-import Logo from '../_components/brandElements/logo';
+
+// local components
+import AccountButton from '../_components/interactive/accountButton';
+import Logo from '../_components/branding/logo';
 import ShoppingBag from '../_components/icons/shoppingBag';
 
 export default function MobileNavbar({ routes }) {
@@ -74,24 +77,25 @@ export default function MobileNavbar({ routes }) {
             minH={'50vh'}
             w={'100%'}>
             <VStack
-              align={'flex-start'}
-              w={'100%'}>
-              <VStack
-                w={'100%'}
-                fontSize={'0.9rem'}
-                align={'flex-start'}>
-                {routes.map((route, index) => (
-                  <NavLink
-                    key={route.name}
-                    name={route.name}
-                    path={route.path}
-                    icon={route.icon}
-                    target={route.target}
-                    index={index}
-                    routesLength={routes.length}
-                  />
-                ))}
-              </VStack>
+              w={'100%'}
+              fontSize={'0.9rem'}
+              align={'flex-start'}>
+              {routes.map((route, index) => (
+                <NavLink
+                  key={route.name}
+                  name={route.name}
+                  path={route.path}
+                  icon={route.icon}
+                  target={route.target}
+                  index={index}
+                  routesLength={routes.length}
+                />
+              ))}
+              <Box
+                m={'2rem 0 1rem 0'}
+                w={'100%'}>
+                <AccountButton />
+              </Box>
             </VStack>
           </DrawerBody>
         </DrawerContent>

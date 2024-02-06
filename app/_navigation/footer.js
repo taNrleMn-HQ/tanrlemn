@@ -1,14 +1,8 @@
 'use client';
 
-// recoil
-import { useRecoilValue } from 'recoil';
-import { loadingState } from '@/app/loading';
-
-// context
-import { ContactContext } from '../_lib/context/ContactProvider';
-
 // hooks
-import { useContext } from 'react';
+import { usePathname } from 'next/navigation';
+import { useEffect, useState } from 'react';
 
 // components
 import {
@@ -20,15 +14,21 @@ import {
   Link,
   Highlight,
 } from '@chakra-ui/react';
-import { Instagram } from 'lucide-react';
+import Instagram from '../_components/icons/instagram';
 
 export default function Footer() {
-  const { contactOnOpen } = useContext(ContactContext);
-  const loading = useRecoilValue(loadingState);
+  const [loading, setLoading] = useState(true);
+  const pathname = usePathname();
+
+  const isAuth = pathname === '/auth/login';
+
+  useEffect(() => {
+    setLoading(false);
+  }, [loading]);
 
   return (
     <>
-      {!loading && (
+      {!loading && !isAuth && (
         <footer
           style={{
             background: 'var(--lightestBlue)',
@@ -107,11 +107,7 @@ export default function Footer() {
                   Support
                 </Heading>
                 <Stack gap={0}>
-                  <Text
-                    cursor={'pointer'}
-                    onClick={contactOnOpen}>
-                    Contact
-                  </Text>
+                  <Link href='/support'>Get Help</Link>
                   <Link href='/privacy'>Privacy</Link>
                   <Link href='/terms'>Terms</Link>
                 </Stack>
