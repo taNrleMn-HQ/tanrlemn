@@ -11,7 +11,7 @@ export function useOrigin() {
   const pathname = window.location.pathname;
 
   const port = window.location.port;
-  const removePort = origin.replace(`:${port}`, '');
+  const removePort = port !== '' ? origin.replace(`:${port}`, '') : origin;
 
   const callbackUrl = MODE === 'production' ? removePort : origin;
   const fullPagePath = `${callbackUrl}${pathname}`;
