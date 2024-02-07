@@ -66,7 +66,7 @@ export default function Navbar() {
             justify={{ base: 'space-between' }}>
             <Logo />
             {loading ? (
-              <LoadingDiv />
+              <></>
             ) : isMobile ? (
               <MobileNav routes={routes} />
             ) : (

@@ -1,22 +1,22 @@
 'use client';
 
 // recoil
-import { useSetRecoilState, useRecoilValue } from 'recoil';
+import { useRecoilValue } from 'recoil';
 import { shopProductsSelector } from '@/app/_state/selectors';
-import { loadingState } from '@/app/loading';
 
 // hooks
-import { useEffect, useState } from 'react';
-import { useSearchParams } from 'next/navigation';
 import { useQueryState } from 'next-usequerystate';
+import { useProducts } from '@/app/_lib/hooks/useProducts';
+
+// chakra-ui
+import { Box, Flex, Heading, Text } from '@chakra-ui/react';
 
 // components
 import ProductCard from '@/app/_components/products/productCard';
-import { Box, Flex, Heading, Text } from '@chakra-ui/react';
-import { useProducts } from '@/app/_lib/hooks/useProducts';
+import LoadingDiv from '@/app/_components/interactive/loadingDiv';
 
 export default function Shop() {
-  useProducts();
+  const { loading } = useProducts();
   const shopProducts = useRecoilValue(shopProductsSelector);
 
   const [category, setCategory] = useQueryState('category');
@@ -37,6 +37,12 @@ export default function Shop() {
         base: '2rem 1rem',
         md: '4rem 2rem',
       }}>
+      {loading && (
+        <LoadingDiv
+          isLoading={loading}
+          id={'shop'}
+        />
+      )}
       {shopProducts !== null && (
         <Box>
           <Box mb={'1.5rem'}>

@@ -58,6 +58,17 @@ export const cartItemsSelector = selector({
   },
 });
 
+export const hasCartItemSelector = selectorFamily({
+  key: 'hasCartItemSelector',
+  get:
+    (id) =>
+    ({ get }) => {
+      const cart = get(cartState);
+
+      return cart.some((item) => item.id === id);
+    },
+});
+
 export const enrichedProductsSelector = selector({
   key: 'enrichedProductsSelector',
   get: ({ get }) => {
@@ -157,7 +168,7 @@ export const singleProductSelector = selectorFamily({
   get:
     (slug) =>
     ({ get }) => {
-      const products = get(enrichedProductsSelector);
+      const products = get(shopProductsSelector);
 
       if (!products) {
         return null;

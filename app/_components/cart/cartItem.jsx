@@ -22,7 +22,7 @@ import {
 } from '@chakra-ui/react';
 
 // local components
-import LoadingDiv from '../icons/loadingDiv';
+import LoadingDiv from '@/app/_components/interactive/loadingDiv';
 
 export default function CartItem({ item }) {
   const [loadingDiv, setLoadingDiv] = useState(false);

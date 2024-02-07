@@ -69,7 +69,6 @@ export default function ToCartModal({ product, isOpen, onClose }) {
             colorScheme='blue'
             mr={3}
             onClick={() => {
-              // setLoading(true);
               router.push('/cart');
             }}>
             View Bag

@@ -1,12 +1,11 @@
 'use client';
 
 // images
-const whaleriderSrc = 'https://i.imgur.com/fNISTWS.jpg';
-const ownerSrc = 'https://i.imgur.com/v3TtoGI.jpg';
+const whaleriderSrc = 'https://i.imgur.com/fNISTWSl.jpg';
+const ownerSrc = 'https://i.imgur.com/v3TtoGIl.jpg';
 
 // recoil
 import { useRecoilState } from 'recoil';
-import { loadingState } from '@/app/loading';
 
 // hooks
 import { useEffect } from 'react';
@@ -26,12 +25,6 @@ import { BookImage, MoveRight } from 'lucide-react';
 import HeroImage from './_components/images/heroImage';
 
 export default function Home() {
-  const [loading, setLoading] = useRecoilState(loadingState);
-
-  useEffect(() => {
-    setLoading(false);
-  }, [setLoading]);
-
   return (
     <Flex
       flexDirection={{ base: 'column', md: 'row' }}
@@ -120,27 +113,20 @@ export default function Home() {
         p={{ base: '0', md: '1rem' }}
         borderRadius={'9px'}>
         <Flex>
-          <Skeleton
+          <HeroImage
             mr={'1rem'}
-            isLoaded={!loading}
             h={{ base: '100%', md: '22rem' }}
-            w={{ base: '100%', md: '17rem' }}>
-            <HeroImage
-              src={ownerSrc}
-              alt='Owner painting'
-              mr={'1rem'}
-            />
-          </Skeleton>
-          <Skeleton
-            isLoaded={!loading}
+            w={{ base: '100%', md: '17rem' }}
+            src={ownerSrc}
+            alt='Owner painting'
+          />
+          <HeroImage
             h={{ base: '100%', md: '22rem' }}
-            w={{ base: '100%', md: '17rem' }}>
-            <HeroImage
-              src={whaleriderSrc}
-              alt='Whalerider painting'
-              mr={'0'}
-            />
-          </Skeleton>
+            w={{ base: '100%', md: '17rem' }}
+            src={whaleriderSrc}
+            alt='Whalerider painting'
+            mr={'0'}
+          />
         </Flex>
       </Stack>
     </Flex>

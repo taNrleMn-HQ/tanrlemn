@@ -2,7 +2,6 @@
 
 // recoil
 import { useSetRecoilState } from 'recoil';
-import { loadingState } from '@/app/loading';
 
 // hooks
 import { useEffect } from 'react';
@@ -11,12 +10,6 @@ import { useEffect } from 'react';
 import { Box, Container, Heading, Link, Tag, Text } from '@chakra-ui/react';
 
 export default function Privacy() {
-  const setLoading = useSetRecoilState(loadingState);
-
-  useEffect(() => {
-    setLoading(false);
-  }, [setLoading]);
-
   return (
     <Container p={'5rem 1rem'}>
       <Box mb={'2rem'}>

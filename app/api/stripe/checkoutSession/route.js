@@ -12,8 +12,6 @@ export async function POST(req) {
     const request = await req.json();
     const { origin, cart } = request;
 
-    console.log('cart', cart);
-
     // Simplify line item creation
     const line_items = cart.map((item) => {
       const priceId = item.price_id;

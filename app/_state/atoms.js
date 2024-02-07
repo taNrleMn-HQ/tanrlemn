@@ -26,7 +26,7 @@ export const productsState = atom({
 });
 
 // ui atoms
-export const isloadingState = atom({
+export const isLoadingState = atom({
   key: 'isLoadingState',
   default: true,
 });

@@ -1,8 +1,5 @@
 import '@/app/globals.css';
 
-// server
-import dynamic from 'next/dynamic';
-
 // providers
 import { ThemeProvider } from './_lib/context/ThemeProvider';
 import { RecoilRootProvider } from './_lib/context/RecoilRoot';

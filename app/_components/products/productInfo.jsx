@@ -3,11 +3,12 @@
 import 'react-slideshow-image/dist/styles.css';
 
 // recoil
-import { useSetRecoilState } from 'recoil';
-import { loadingState } from '@/app/loading';
+import { useRecoilValue } from 'recoil';
+import { hasCartItemSelector } from '@/app/_state/selectors';
 
 // hooks
 import { useState, useEffect } from 'react';
+import { useRouter } from 'next/navigation';
 import { useIsMobile } from '@/app/_lib/hooks/useIsMobile';
 import { useWindowWidth } from '@/app/_lib/hooks/useWindowWidth';
 
@@ -33,7 +34,6 @@ import {
   Stat,
   StatLabel,
   StatNumber,
-  StatHelpText,
   useDisclosure,
   Text,
   Tag,
@@ -45,7 +45,8 @@ import { MoveLeft } from 'lucide-react';
 import { useCart } from '@/app/_lib/hooks/useCart';
 
 export default function ProductInfo({ product }) {
-  const setLoading = useSetRecoilState(loadingState);
+  const router = useRouter();
+  const hasCartItem = useRecoilValue(hasCartItemSelector(product.id));
 
   const { numCartItems, addUpdateItem } = useCart();
 
@@ -105,7 +106,6 @@ export default function ProductInfo({ product }) {
           );
         })
       );
-      setLoading(false);
     }
   }, [
     product,
@@ -116,7 +116,6 @@ export default function ProductInfo({ product }) {
     imageHeight,
     mainImage,
     imageElements,
-    setLoading,
   ]);
 
   const sliderImages = () => {
@@ -334,47 +333,60 @@ export default function ProductInfo({ product }) {
               )}
               <Heading size={'md'}></Heading>
               <FormControl>
-                <FormLabel htmlFor='size'>Size*</FormLabel>
-                <Box
-                  mb={'1rem'}
-                  maxW={'fit-content'}
-                  borderRadius='sm'
-                  outline={'1px solid var(--lightGreen)'}
-                  outlineOffset={'0.2rem'}
-                  background={'var(--lightGreen50)'}
-                  px={5}
-                  py={3}>
-                  {currentProductConfig.size}
-                </Box>
-                <FormLabel htmlFor='qty'>Qty*</FormLabel>
-                {currentProductConfig.qty && (
-                  <NumberInput
-                    onChange={(valueString) => {
-                      setCurrentProductConfig({
-                        ...currentProductConfig,
-                        qty: Number(valueString),
-                      });
-                    }}
-                    maxW={'8rem'}
-                    mb={'2rem'}
-                    defaultValue={currentProductConfig.qty}
-                    min={1}
-                    max={20}>
-                    <NumberInputField />
-                    <NumberInputStepper>
-                      <NumberIncrementStepper />
-                      <NumberDecrementStepper />
-                    </NumberInputStepper>
-                  </NumberInput>
+                {hasCartItem ? (
+                  <Button
+                    colorScheme={'blue'}
+                    size={'lg'}
+                    onClick={() => {
+                      router.replace('/cart');
+                    }}>
+                    View in cart
+                  </Button>
+                ) : (
+                  <>
+                    <FormLabel htmlFor='size'>Size*</FormLabel>
+                    <Box
+                      mb={'1rem'}
+                      maxW={'fit-content'}
+                      borderRadius='sm'
+                      outline={'1px solid var(--lightGreen)'}
+                      outlineOffset={'0.2rem'}
+                      background={'var(--lightGreen50)'}
+                      px={5}
+                      py={3}>
+                      {currentProductConfig.size}
+                    </Box>
+                    <FormLabel htmlFor='qty'>Qty*</FormLabel>
+                    {currentProductConfig.qty && (
+                      <NumberInput
+                        onChange={(valueString) => {
+                          setCurrentProductConfig({
+                            ...currentProductConfig,
+                            qty: Number(valueString),
+                          });
+                        }}
+                        maxW={'8rem'}
+                        mb={'2rem'}
+                        defaultValue={currentProductConfig.qty}
+                        min={1}
+                        max={20}>
+                        <NumberInputField />
+                        <NumberInputStepper>
+                          <NumberIncrementStepper />
+                          <NumberDecrementStepper />
+                        </NumberInputStepper>
+                      </NumberInput>
+                    )}
+                    <Button
+                      colorScheme={'blue'}
+                      size={'lg'}
+                      onClick={(e) => {
+                        handleAddToCart(e);
+                      }}>
+                      Add to bag
+                    </Button>
+                  </>
                 )}
-                <Button
-                  colorScheme={'blue'}
-                  size={'lg'}
-                  onClick={(e) => {
-                    handleAddToCart(e);
-                  }}>
-                  Add to bag
-                </Button>
                 {collection !== null && (
                   <Link href={`/shop/collections/${collection.toLowerCase()}`}>
                     <div>Shop related items</div>

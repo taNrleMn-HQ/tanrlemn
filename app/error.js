@@ -2,7 +2,6 @@
 
 // recoil
 import { useSetRecoilState } from 'recoil';
-import { loadingState } from '@/app/loading';
 
 // hooks
 import { useEffect } from 'react';
@@ -21,12 +20,9 @@ import {
 } from '@chakra-ui/react';
 
 export default function Error({ error, reset }) {
-  const setLoading = useSetRecoilState(loadingState);
-
   useEffect(() => {
     console.error(error);
-    setLoading(false);
-  }, [error, setLoading]);
+  }, [error]);
 
   return (
     <Container p={'5rem 1rem'}>

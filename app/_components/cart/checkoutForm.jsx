@@ -1,9 +1,5 @@
 'use client';
 
-// recoil
-import { useSetRecoilState } from 'recoil';
-import { loadingState } from '@/app/loading';
-
 // hooks
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';

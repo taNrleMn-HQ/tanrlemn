@@ -2,7 +2,6 @@
 
 // recoil
 import { useRecoilState } from 'recoil';
-import { loadingState } from '@/app/loading';
 
 // hooks
 import { useState, useEffect } from 'react';
@@ -30,7 +29,6 @@ import OrderSuccess from '@/app/_components/cart/orderSuccess';
 
 export default function Cart() {
   const [isClient, setIsClient] = useState(false);
-  const [loading, setLoading] = useRecoilState(loadingState);
 
   const { cart, numCartItems, clearCart } = useCart();
 
@@ -77,18 +75,8 @@ export default function Cart() {
 
     if (cart !== null) {
       setIsClient(true);
-      setLoading(false);
     }
-  }, [
-    searchParams,
-    router,
-    cart,
-    numCartItems,
-    clearCart,
-    success,
-    setLoading,
-    toast,
-  ]);
+  }, [searchParams, router, cart, numCartItems, clearCart, success, toast]);
 
   const alignRight = {
     textAlign: 'right',
