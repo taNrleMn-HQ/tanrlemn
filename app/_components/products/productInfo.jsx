@@ -44,10 +44,9 @@ import ToCartModal from '../cart/toCartModal';
 import { MoveLeft } from 'lucide-react';
 import { useCart } from '@/app/_lib/hooks/useCart';
 
-export default function ProductInfo({ product, collection }) {
+export default function ProductInfo({ product }) {
   const setLoading = useSetRecoilState(loadingState);
 
-  product = product.product;
   const { numCartItems, addUpdateItem } = useCart();
 
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -57,7 +56,9 @@ export default function ProductInfo({ product, collection }) {
   const imageWidth = isMobile ? windowWidth - 40 : windowWidth / 3.7;
   const imageHeight = imageWidth * 1.25;
 
-  const mainImage = product.image_url;
+  const collection = product.collection;
+
+  const mainImage = product.main_image;
   const [currentImage, setCurrentImage] = useState(0);
   const [currentProductConfig, setCurrentProductConfig] = useState({
     qty: 1,
@@ -99,7 +100,7 @@ export default function ProductInfo({ product, collection }) {
               src={image}
               width={'auto'}
               height={imageHeight}
-              alt={`image for ${product.title}`}
+              alt={`image for ${product.name}`}
             />
           );
         })
@@ -133,16 +134,8 @@ export default function ProductInfo({ product, collection }) {
 
   const onSale = product.on_sale;
 
-  collection =
-    collection !== null
-      ? collection.collection.charAt(0).toUpperCase() +
-        collection.collection.slice(1)
-      : null;
-
   const collectionTagName =
-    collection === 'Exclusive'
-      ? `${collection} Collection – Hug & Up`
-      : `${collection} Collection`;
+    collection === null ? 'Exclusive Collection' : 'General Release';
 
   const tagStyles = {
     backgroundColor:
@@ -232,7 +225,7 @@ export default function ProductInfo({ product, collection }) {
                         src={imageUrl}
                         width={'100%'}
                         height={'auto'}
-                        alt={`image for ${product.title}`}
+                        alt={`image for ${product.name}`}
                       />
                     </Box>
                   ))}
@@ -254,7 +247,7 @@ export default function ProductInfo({ product, collection }) {
               top={{ base: '0', md: '9rem' }}
               flexGrow={1}
               align={'flex-start'}>
-              <Heading>{product.title}</Heading>
+              <Heading>{product.name}</Heading>
               <Stat
                 maxH={'fit-content'}
                 flex={0}>
@@ -316,7 +309,7 @@ export default function ProductInfo({ product, collection }) {
                               src={slideImage.url}
                               width={'100%'}
                               height={'auto'}
-                              alt={`image for ${product.title}`}
+                              alt={`image for ${product.name}`}
                               style={{ objectFit: 'cover' }}
                             />
                           );

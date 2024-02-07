@@ -12,16 +12,11 @@ export async function POST(req) {
     const request = await req.json();
     const { origin, cart } = request;
 
+    console.log('cart', cart);
+
     // Simplify line item creation
     const line_items = cart.map((item) => {
-      const priceId =
-        MODE === 'development' || MODE === 'staging'
-          ? item.on_sale
-            ? item.sale_stripe_price_id.dev
-            : item.stripe_price_id.dev
-          : item.on_sale
-          ? item.sale_stripe_price_id.live
-          : item.stripe_price_id.live;
+      const priceId = item.price_id;
 
       return {
         price: priceId,
@@ -60,7 +55,6 @@ export async function POST(req) {
       }
     } finally {
       const url = session.url;
-      console.log('Checkout session:', session);
       return NextResponse.json({ url });
     }
   } catch (error) {

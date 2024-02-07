@@ -78,7 +78,6 @@ export default function CheckoutForm() {
 
       const { url } = await res.json();
 
-      console.log('url', url);
       setLoadingCheckout(false);
 
       setCheckoutSession(url);

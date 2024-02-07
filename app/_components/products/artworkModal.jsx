@@ -15,7 +15,7 @@ import {
 } from '@chakra-ui/react';
 
 export default function ArtworkModal({ artwork, isOpen, onClose }) {
-  const mainImage = artwork.image_url;
+  const mainImage = artwork.main_image;
 
   return (
     <Modal
@@ -36,7 +36,7 @@ export default function ArtworkModal({ artwork, isOpen, onClose }) {
             gap={{ base: '1rem', md: '2rem' }}>
             <Image
               src={mainImage}
-              alt={artwork.title}
+              alt={artwork.name}
               h={{ base: 'auto', md: '85vh' }}
               w={'auto'}
             />
@@ -46,7 +46,7 @@ export default function ArtworkModal({ artwork, isOpen, onClose }) {
               <Heading
                 mb={'0.5rem'}
                 size={'lg'}>
-                {artwork.title}
+                {artwork.name}
               </Heading>
               <Text>{artwork.description}</Text>
             </Box>

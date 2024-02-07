@@ -20,6 +20,11 @@ export const cartState = atom({
   effects: [localStorageEffect('cart')],
 });
 
+export const productsState = atom({
+  key: 'productsState',
+  default: null,
+});
+
 // ui atoms
 export const isloadingState = atom({
   key: 'isLoadingState',

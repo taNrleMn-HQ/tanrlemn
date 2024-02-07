@@ -97,8 +97,8 @@ export default function CartItem({ item }) {
           <GridItem>
             <Link href={`/shop/${item.slug}`}>
               <Image
-                src={item.small_thumbnail}
-                alt={item.title}
+                src={item.main_image}
+                alt={item.name}
                 width={'auto'}
                 height={'auto'}
               />
@@ -109,7 +109,7 @@ export default function CartItem({ item }) {
               <Heading
                 mb={'0.5rem'}
                 size={'md'}>
-                {item.title}
+                {item.name}
               </Heading>
             </Link>
             {item.collection && (
