@@ -1,5 +1,6 @@
 // recoil
 import { atom } from 'recoil';
+import { localStorageEffect } from './effects';
 
 // auth atoms
 export const userState = atom({
@@ -10,6 +11,13 @@ export const userState = atom({
 export const profileState = atom({
   key: 'profileState',
   default: null,
+});
+
+// ecommerce atoms
+export const cartState = atom({
+  key: 'cartState',
+  default: [],
+  effects: [localStorageEffect('cart')],
 });
 
 // ui atoms
