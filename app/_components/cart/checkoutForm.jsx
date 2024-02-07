@@ -1,9 +1,5 @@
 'use client';
 
-// recoil
-import { useSetRecoilState } from 'recoil';
-import { loadingState } from '@/app/loading';
-
 // hooks
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
@@ -38,7 +34,7 @@ export default function CheckoutForm() {
     if (checkoutSession) {
       setLoadingCheckout(true);
 
-      router.push(checkoutSession);
+      router.replace(checkoutSession);
     }
     if (subtotal === null || shipping === null || tax === null) {
       if (cartTotal) {
@@ -76,9 +72,11 @@ export default function CheckoutForm() {
         }),
       });
 
-      const sessionUrl = await res.json();
+      const { url } = await res.json();
 
-      setCheckoutSession(sessionUrl);
+      setLoadingCheckout(false);
+
+      setCheckoutSession(url);
     };
 
     if (checkoutSession === null) {

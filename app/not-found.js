@@ -2,7 +2,6 @@
 
 // recoil
 import { useSetRecoilState } from 'recoil';
-import { loadingState } from '@/app/loading';
 
 // hooks
 import { useEffect } from 'react';
@@ -20,12 +19,6 @@ import {
 import { MoveRight } from 'lucide-react';
 
 export default function NotFound() {
-  const setLoading = useSetRecoilState(loadingState);
-
-  useEffect(() => {
-    setLoading(false);
-  }, [setLoading]);
-
   return (
     <Container p={'5rem 1rem'}>
       <Tag

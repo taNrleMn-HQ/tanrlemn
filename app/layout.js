@@ -1,11 +1,9 @@
 import '@/app/globals.css';
 
-// server
-import dynamic from 'next/dynamic';
-
 // providers
 import { ThemeProvider } from './_lib/context/ThemeProvider';
 import { RecoilRootProvider } from './_lib/context/RecoilRoot';
+import { Suspense } from 'react';
 
 // local components
 import Footer from './_navigation/footer';
@@ -54,9 +52,11 @@ export default async function RootLayout({ children }) {
       <body>
         <RecoilRootProvider>
           <ThemeProvider>
-            <Navbar />
-            {children}
-            <Footer />
+            <Suspense fallback={<div>Loading...</div>}>
+              <Navbar />
+              {children}
+              <Footer />
+            </Suspense>
           </ThemeProvider>
         </RecoilRootProvider>
       </body>

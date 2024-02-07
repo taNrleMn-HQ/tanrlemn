@@ -17,18 +17,19 @@ import {
 import Instagram from '../_components/icons/instagram';
 
 export default function Footer() {
-  const [loading, setLoading] = useState(true);
   const pathname = usePathname();
 
   const isAuth = pathname === '/auth/login';
 
+  const [isClient, setIsClient] = useState(false);
+
   useEffect(() => {
-    setLoading(false);
-  }, [loading]);
+    setIsClient(true);
+  }, []);
 
   return (
     <>
-      {!loading && !isAuth && (
+      {!isAuth && isClient && (
         <footer
           style={{
             background: 'var(--lightestBlue)',

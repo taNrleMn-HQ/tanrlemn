@@ -1,32 +1,9 @@
 // local components
 import Product from './product';
 
-// metadata
-export async function generateMetadata({ params }) {
-  const slug = params.slug;
-
-  const res = await fetch(
-    `https://tanrlemn.xyz/api/supabase/getProducts/${slug}`
-  );
-  const data = await res.json();
-  const product = data.product;
-
-  return {
-    title: product.title,
-    description: product.description,
-    openGraph: {
-      id: product.slug,
-      url: `https://tanrlemn.xyz/shop/${product.slug}`,
-      title: product.title,
-      description: product.description,
-      type: 'website',
-      images: [product.image_url, ...product.additional_images],
-    },
-  };
-}
-
 export default async function ProductPage({ params }) {
   const slug = params.slug;
+
   const res = await fetch(
     `https://tanrlemn.xyz/api/supabase/getProducts/${slug}`
   );
@@ -36,9 +13,9 @@ export default async function ProductPage({ params }) {
   const jsonLd = {
     '@context': 'https://schema.org',
     '@type': 'Product',
-    name: product.title,
+    name: product.name,
     description: product.description,
-    image: product.image_url,
+    image: product.main_image,
     productID: product.slug,
     url: `https://tanrlemn.xyz/shop/${product.slug}`,
     offers: {

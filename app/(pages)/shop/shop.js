@@ -1,26 +1,24 @@
 'use client';
 
 // recoil
-import { useSetRecoilState } from 'recoil';
-import { loadingState } from '@/app/loading';
+import { useRecoilValue } from 'recoil';
+import { shopProductsSelector } from '@/app/_state/selectors';
 
 // hooks
-import { useEffect, useState, useContext, useCallback } from 'react';
-import { useSearchParams } from 'next/navigation';
 import { useQueryState } from 'next-usequerystate';
+import { useProducts } from '@/app/_lib/hooks/useProducts';
+
+// chakra-ui
+import { Box, Flex, Heading, Text } from '@chakra-ui/react';
 
 // components
 import ProductCard from '@/app/_components/products/productCard';
-import { Box, Flex, Heading, Text } from '@chakra-ui/react';
+import LoadingDiv from '@/app/_components/interactive/loadingDiv';
 
 export default function Shop() {
-  const setLoading = useSetRecoilState(loadingState);
+  const { loading } = useProducts();
+  const shopProducts = useRecoilValue(shopProductsSelector);
 
-  const searchParams = useSearchParams();
-  const [products, setProducts] = useState(null);
-  const [filteredProducts, setFilteredProducts] = useState(null);
-  const [productTypes, setProductTypes] = useState(null);
-  const [collections, setCollections] = useState(null);
   const [category, setCategory] = useQueryState('category');
 
   const categoryText = {
@@ -33,101 +31,42 @@ export default function Shop() {
     null: 'The Official Shop – taNrleMn',
   };
 
-  useEffect(() => {
-    if (
-      products !== null &&
-      collections !== null &&
-      productTypes !== null &&
-      filteredProducts === null
-    ) {
-      setFilteredProducts(
-        products.filter((product) => {
-          if (category === 'default' || category === 'all') {
-            return true;
-          } else if (category === 'sale') {
-            return product.on_sale;
-          } else {
-            return product.product_type === category;
-          }
-        })
-      );
-      setLoading(false);
-    }
-
-    const getProducts = async () => {
-      const res = await fetch('/api/supabase/getProducts');
-      const data = await res.json();
-      setProducts(data.products);
-
-      category === null && setFilteredProducts(data.products);
-      setLoading(false);
-    };
-
-    const getCollections = async () => {
-      const res = await fetch('/api/supabase/getCollections');
-      const data = await res.json();
-      setCollections(data.collections);
-    };
-
-    const getProductTypes = async () => {
-      const res = await fetch('/api/supabase/getProductTypes');
-      const data = await res.json();
-      setProductTypes(data.product_types);
-    };
-
-    if (products === null && filteredProducts === null) {
-      getProducts();
-    }
-    if (collections === null) {
-      getCollections();
-    }
-    if (productTypes === null) {
-      getProductTypes();
-    }
-  }, [
-    products,
-    filteredProducts,
-    productTypes,
-    collections,
-    searchParams,
-    category,
-    setLoading,
-  ]);
-
   return (
     <Box
       p={{
         base: '2rem 1rem',
         md: '4rem 2rem',
       }}>
-      {products !== null &&
-        collections !== null &&
-        productTypes !== null &&
-        filteredProducts !== null && (
-          <Box>
-            <Box mb={'1.5rem'}>
-              <Heading>{categoryText[category]}</Heading>
-              <Text>
-                {filteredProducts.length === 1
-                  ? `${filteredProducts.length} product`
-                  : `${filteredProducts.length} products`}
-              </Text>
-            </Box>
-            <Flex
-              gap={{ base: '1.5rem' }}
-              flexWrap={'wrap'}>
-              {filteredProducts.map((product, i) => {
-                return (
-                  <ProductCard
-                    key={i}
-                    product={product}
-                    collection={null}
-                  />
-                );
-              })}
-            </Flex>
+      {loading && (
+        <LoadingDiv
+          isLoading={loading}
+          id={'shop'}
+        />
+      )}
+      {shopProducts !== null && (
+        <Box>
+          <Box mb={'1.5rem'}>
+            <Heading>{categoryText[category]}</Heading>
+            <Text>
+              {shopProducts.length === 1
+                ? `${shopProducts.length} product`
+                : `${shopProducts.length} products`}
+            </Text>
           </Box>
-        )}
+          <Flex
+            gap={{ base: '1.5rem' }}
+            flexWrap={'wrap'}>
+            {shopProducts.map((product, i) => {
+              return (
+                <ProductCard
+                  key={i}
+                  product={product}
+                />
+              );
+            })}
+          </Flex>
+        </Box>
+      )}
     </Box>
   );
 }

@@ -10,9 +10,6 @@ import { useEffect } from 'react';
 import { useIsMobile } from '@/app/_lib/hooks/useIsMobile';
 import { useAuth } from '@/app/_lib/hooks/useAuth';
 
-// Supabase
-import { createClient } from '@/app/_lib/utils/supabase/client';
-
 // chakra-ui
 import { Flex, Box } from '@chakra-ui/react';
 
@@ -21,7 +18,6 @@ import Logo from '../_components/branding/logo';
 import DesktopNav from './desktopNav';
 import MobileNav from './mobileNav';
 import { routes } from './routes';
-import LoadingDiv from '../_components/interactive/loadingDiv';
 
 export default function Navbar() {
   const { loading } = useAuth();
@@ -66,7 +62,7 @@ export default function Navbar() {
             justify={{ base: 'space-between' }}>
             <Logo />
             {loading ? (
-              <LoadingDiv />
+              <></>
             ) : isMobile ? (
               <MobileNav routes={routes} />
             ) : (
