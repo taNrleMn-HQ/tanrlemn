@@ -67,7 +67,7 @@ export const enrichedProductsSelector = selector({
       return null;
     }
 
-    const shopProducts = Promise.all(
+    const enrichedProducts = Promise.all(
       products.map(async (product) => {
         const res = await fetch(`/api/stripe/prices/${product.default_price}`);
 
@@ -97,7 +97,7 @@ export const enrichedProductsSelector = selector({
       })
     );
 
-    return shopProducts;
+    return enrichedProducts;
   },
 });
 
