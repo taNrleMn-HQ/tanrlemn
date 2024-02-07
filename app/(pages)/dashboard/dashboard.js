@@ -51,7 +51,7 @@ export default function Dashboard() {
 
     const { url } = await response.json();
 
-    router.push(url);
+    router.replace(url);
   };
 
   const signOut = async () => {

@@ -16,6 +16,8 @@ import {
   Text,
   Heading,
   Link,
+  Code,
+  VStack,
 } from '@chakra-ui/react';
 
 export default function Error({ error, reset }) {
@@ -42,9 +44,15 @@ export default function Error({ error, reset }) {
         fontWeight={800}>
         Oops... That&apos;s an error
       </Heading>
-      <Text mb={'2rem'}>
+      <Text mb={'0.5rem'}>
         We couldn&apos;t make that request. Please try again.
       </Text>
+      <Code
+        mb={'2rem'}
+        colorScheme={'red'}>
+        Error: {error.name}
+        <br /> Message: {error.message}
+      </Code>
       <Box>
         <Button
           _hover={{

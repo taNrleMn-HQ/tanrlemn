@@ -10,68 +10,62 @@ const MODE = process.env.NEXT_PUBLIC_MODE;
 export async function POST(req) {
   try {
     const request = await req.json();
-
     const { origin, cart } = request;
 
-    const line_items = [];
-
-    cart.map((item) => {
-      const priceId = () => {
-        let id;
-        if (MODE === 'development' || MODE === 'staging') {
-          id = item.on_sale
+    // Simplify line item creation
+    const line_items = cart.map((item) => {
+      const priceId =
+        MODE === 'development' || MODE === 'staging'
+          ? item.on_sale
             ? item.sale_stripe_price_id.dev
-            : item.stripe_price_id.dev;
-        } else {
-          id = item.on_sale
-            ? item.sale_stripe_price_id.live
-            : item.stripe_price_id.live;
-        }
+            : item.stripe_price_id.dev
+          : item.on_sale
+          ? item.sale_stripe_price_id.live
+          : item.stripe_price_id.live;
 
-        return id;
-      };
-      const product = {
-        price: priceId(),
+      return {
+        price: priceId,
         quantity: item.options.qty,
       };
-      line_items.push(product);
     });
 
     const { stripe_customer_id, email } = await getSupabaseCustomerId();
 
-    const session =
-      stripe_customer_id !== null
-        ? await stripe.checkout.sessions.create({
-            line_items: line_items,
-            mode: 'payment',
-            customer: stripe_customer_id,
-            success_url: `${origin}?success=true`,
-            cancel_url: `${origin}?canceled=true`,
-            automatic_tax: { enabled: true },
-          })
-        : email !== null
-        ? await stripe.checkout.sessions.create({
-            line_items: line_items,
-            mode: 'payment',
-            customer_email: email,
-            success_url: `${origin}?success=true`,
-            cancel_url: `${origin}?canceled=true`,
-            automatic_tax: { enabled: true },
-          })
-        : await stripe.checkout.sessions.create({
-            line_items: line_items,
-            mode: 'payment',
-            success_url: `${origin}?success=true`,
-            cancel_url: `${origin}?canceled=true`,
-            automatic_tax: { enabled: true },
-          });
-
-    const url = await session.url;
-
-    return NextResponse.json(url);
+    let session;
+    try {
+      session = await stripe.checkout.sessions.create({
+        line_items,
+        mode: 'payment',
+        customer: stripe_customer_id ?? undefined, // Use customer ID if available
+        customer_email: stripe_customer_id ? undefined : email, // Use email if customer ID is not available
+        success_url: `${origin}?success=true`,
+        cancel_url: `${origin}?canceled=true`,
+        automatic_tax: { enabled: true },
+      });
+    } catch (error) {
+      if (error.code === 'resource_missing' && email) {
+        // Handle "No such customer" by creating a new customer
+        const newCustomer = await stripe.customers.create({ email });
+        session = await stripe.checkout.sessions.create({
+          line_items,
+          mode: 'payment',
+          customer: newCustomer.id,
+          success_url: `${origin}?success=true`,
+          cancel_url: `${origin}?canceled=true`,
+          automatic_tax: { enabled: false },
+        });
+      } else {
+        // Rethrow the error if it's not a "No such customer" case
+        throw error;
+      }
+    } finally {
+      const url = session.url;
+      console.log('Checkout session:', session);
+      return NextResponse.json({ url });
+    }
   } catch (error) {
     console.error(error);
-    return NextResponse.error(error);
+    return NextResponse.error({ message: error.message });
   }
 }
 
