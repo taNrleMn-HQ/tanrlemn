@@ -29,8 +29,8 @@ export async function POST(req) {
       session = await stripe.checkout.sessions.create({
         line_items,
         mode: 'payment',
-        customer: stripe_customer_id ?? undefined, // Use customer ID if available
-        customer_email: stripe_customer_id ? undefined : email, // Use email if customer ID is not available
+        customer: stripe_customer_id ?? undefined,
+        customer_email: email,
         success_url: `${origin}?success=true`,
         cancel_url: `${origin}?canceled=true`,
         automatic_tax: { enabled: true },
