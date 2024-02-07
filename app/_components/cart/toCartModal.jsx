@@ -1,7 +1,6 @@
 'use client';
 
 // hooks
-import { useContext } from 'react';
 import { useRouter } from 'next/navigation';
 
 // components

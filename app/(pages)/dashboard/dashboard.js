@@ -3,7 +3,6 @@
 // recoil
 import { useRecoilValue } from 'recoil';
 import { userProfileSelector } from '@/app/_state/selectors';
-import { userState } from '@/app/_state/atoms';
 
 // hooks
 import { useEffect, useState } from 'react';

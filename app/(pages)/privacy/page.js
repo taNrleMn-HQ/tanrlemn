@@ -1,11 +1,5 @@
 'use client';
 
-// recoil
-import { useSetRecoilState } from 'recoil';
-
-// hooks
-import { useEffect } from 'react';
-
 // chakra-ui
 import { Box, Container, Heading, Link, Tag, Text } from '@chakra-ui/react';
 

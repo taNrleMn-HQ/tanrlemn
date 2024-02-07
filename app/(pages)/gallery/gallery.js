@@ -1,8 +1,5 @@
 'use client';
 
-// recoil
-import { useSetRecoilState } from 'recoil';
-
 // hooks
 import { useEffect, useState } from 'react';
 

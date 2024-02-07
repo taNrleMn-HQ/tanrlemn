@@ -1,11 +1,9 @@
 'use client';
 
-// recoil
-import { useRecoilState } from 'recoil';
-
 // hooks
 import { useState, useEffect } from 'react';
-import { useSearchParams, useRouter } from 'next/navigation';
+import { useRouter } from 'next/navigation';
+import { useQueryState } from 'nuqs';
 import { useIsMobile } from '@/app/_lib/hooks/useIsMobile';
 import { useCart } from '@/app/_lib/hooks/useCart';
 
@@ -35,14 +33,15 @@ export default function Cart() {
   const isMobile = useIsMobile();
 
   const [success, setSuccess] = useState(false);
+  const [successParam] = useQueryState('success');
+  const [canceledParam] = useQueryState('canceled');
 
-  const searchParams = useSearchParams();
   const router = useRouter();
 
   const toast = useToast();
 
   useEffect(() => {
-    if (searchParams.get('success')) {
+    if (successParam === 'true') {
       if (!success) {
         clearCart();
         setSuccess(true);
@@ -50,7 +49,7 @@ export default function Cart() {
       console.log('Order placed! You will receive an email confirmation.');
     }
 
-    if (searchParams.get('canceled')) {
+    if (canceledParam === 'true') {
       router.replace('/cart', undefined, { shallow: true });
       setSuccess(false);
 
@@ -76,7 +75,16 @@ export default function Cart() {
     if (cart !== null) {
       setIsClient(true);
     }
-  }, [searchParams, router, cart, numCartItems, clearCart, success, toast]);
+  }, [
+    successParam,
+    canceledParam,
+    router,
+    cart,
+    numCartItems,
+    clearCart,
+    success,
+    toast,
+  ]);
 
   const alignRight = {
     textAlign: 'right',

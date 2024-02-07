@@ -11,6 +11,7 @@ import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import { useIsMobile } from '@/app/_lib/hooks/useIsMobile';
 import { useWindowWidth } from '@/app/_lib/hooks/useWindowWidth';
+import { useCart } from '@/app/_lib/hooks/useCart';
 
 // components
 import { Slide } from 'react-slideshow-image';
@@ -42,7 +43,6 @@ import {
 // local components
 import ToCartModal from '../cart/toCartModal';
 import { MoveLeft } from 'lucide-react';
-import { useCart } from '@/app/_lib/hooks/useCart';
 
 export default function ProductInfo({ product }) {
   const router = useRouter();
@@ -340,7 +340,7 @@ export default function ProductInfo({ product }) {
                     onClick={() => {
                       router.replace('/cart');
                     }}>
-                    View in cart
+                    View in bag
                   </Button>
                 ) : (
                   <>

@@ -4,12 +4,6 @@
 const whaleriderSrc = 'https://i.imgur.com/fNISTWSl.jpg';
 const ownerSrc = 'https://i.imgur.com/v3TtoGIl.jpg';
 
-// recoil
-import { useRecoilState } from 'recoil';
-
-// hooks
-import { useEffect } from 'react';
-
 // chakra-ui
 import {
   Heading,
@@ -18,7 +12,6 @@ import {
   Stack,
   Button,
   Tag,
-  Skeleton,
   Link,
 } from '@chakra-ui/react';
 import { BookImage, MoveRight } from 'lucide-react';

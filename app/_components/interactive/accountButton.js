@@ -1,5 +1,5 @@
 // recoil
-import { useRecoilValue, useRecoilState } from 'recoil';
+import { useRecoilValue } from 'recoil';
 import { userState } from '@/app/_state/atoms';
 
 // hooks

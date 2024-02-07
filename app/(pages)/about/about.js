@@ -3,12 +3,6 @@
 // images
 const aboutTannerSrc = 'https://i.imgur.com/BFWf7ku.jpg';
 
-// recoil
-import { useRecoilState } from 'recoil';
-
-// hooks
-import { useEffect } from 'react';
-
 // chakra-ui
 import {
   Box,
