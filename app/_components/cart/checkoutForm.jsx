@@ -1,9 +1,5 @@
 'use client';
 
-// recoil
-import { useSetRecoilState } from 'recoil';
-import { loadingState } from '@/app/loading';
-
 // hooks
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
@@ -19,13 +15,16 @@ import {
   Heading,
   Text,
   VStack,
+  useToast,
 } from '@chakra-ui/react';
 
 export default function CheckoutForm() {
+  const toast = useToast();
   const [loadingCheckout, setLoadingCheckout] = useState(false);
 
   const { cart, numCartItems, cartTotal } = useCart();
   const [checkoutSession, setCheckoutSession] = useState(null);
+  const [isError, setIsError] = useState(false);
 
   const [subtotal, setSubtotal] = useState(null);
   const [shipping, setShipping] = useState(null);
@@ -35,10 +34,25 @@ export default function CheckoutForm() {
   const router = useRouter();
 
   useEffect(() => {
+    if (isError) {
+      toast({
+        title: 'Error',
+        description: 'There was an error processing your order.',
+        status: 'error',
+        duration: 5000,
+        isClosable: true,
+      });
+
+      setTimeout(() => {
+        setLoadingCheckout(false);
+        setIsError(false);
+      }, 3000);
+    }
+
     if (checkoutSession) {
       setLoadingCheckout(true);
 
-      router.push(checkoutSession);
+      router.replace(checkoutSession);
     }
     if (subtotal === null || shipping === null || tax === null) {
       if (cartTotal) {
@@ -64,21 +78,29 @@ export default function CheckoutForm() {
     tax,
     subtotal,
     setLoadingCheckout,
+    isError,
+    toast,
   ]);
 
   const handleCheckout = async () => {
     const getCheckoutSession = async () => {
-      const res = await fetch('/api/stripe/checkoutSession', {
-        method: 'POST',
-        body: JSON.stringify({
-          origin: fullPagePath,
-          cart: cart,
-        }),
-      });
+      try {
+        const res = await fetch('/api/stripe/checkoutSession', {
+          method: 'POST',
+          body: JSON.stringify({
+            origin: fullPagePath,
+            cart: cart,
+          }),
+        });
 
-      const sessionUrl = await res.json();
+        const { url } = await res.json();
 
-      setCheckoutSession(sessionUrl);
+        setLoadingCheckout(false);
+
+        setCheckoutSession(url);
+      } catch (error) {
+        setIsError(error);
+      }
     };
 
     if (checkoutSession === null) {
@@ -142,11 +164,11 @@ export default function CheckoutForm() {
               </Flex>
             </VStack>
             <Button
-              isLoading={loadingCheckout}
+              isLoading={!isError && loadingCheckout}
               w={'100%'}
-              colorScheme={'blue'}
+              colorScheme={isError ? 'red' : 'blue'}
               onClick={(e) => handleCheckout(e)}>
-              Proceed to Checkout
+              {isError ? 'Error' : 'Proceed to Checkout'}
             </Button>
           </>
         )}

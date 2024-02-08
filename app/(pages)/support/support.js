@@ -1,8 +1,5 @@
 'use client';
 
-// hooks
-import { useContext, useEffect } from 'react';
-
 // chakra-ui
 import { Box, Container, Flex, Heading, Link, Text } from '@chakra-ui/react';
 

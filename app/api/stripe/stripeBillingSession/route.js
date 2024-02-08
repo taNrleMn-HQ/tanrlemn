@@ -9,7 +9,7 @@ const MODE = process.env.NEXT_PUBLIC_MODE;
 
 export async function POST(req) {
   try {
-    const { origin, port, href } = new URL(req.url);
+    const { origin, port } = new URL(req.url);
 
     const removePort = port !== '' ? origin.replace(`:${port}`, '') : origin;
 
@@ -21,12 +21,26 @@ export async function POST(req) {
 
     const customerId = await getCustomerId(email);
 
-    const session = await stripe.billingPortal.sessions.create({
-      customer: customerId,
-      return_url: `${callbackUrl}/dashboard`,
-    });
-
-    return NextResponse.json(session);
+    let session;
+    try {
+      session = await stripe.billingPortal.sessions.create({
+        customer: customerId,
+        return_url: `${callbackUrl}/dashboard`,
+      });
+    } catch (error) {
+      if (error.code === 'resource_missing' && email) {
+        // Handle "No such customer" by creating a new customer
+        session = {
+          url: false,
+        };
+      } else {
+        // Rethrow the error if it's not a "No such customer" case
+        throw error;
+      }
+    } finally {
+      const url = session.url;
+      return NextResponse.json({ url });
+    }
   } catch (error) {
     console.error(error);
     return NextResponse.error(error);

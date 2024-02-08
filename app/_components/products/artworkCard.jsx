@@ -27,8 +27,8 @@ export default function ArtworkCard({ artwork }) {
           <Image
             objectFit={'cover'}
             objectPosition={'top'}
-            src={artwork.image_url}
-            alt={`${artwork.title} image`}
+            src={artwork.main_image}
+            alt={`${artwork.name} image`}
           />
         </Box>
       </VStack>

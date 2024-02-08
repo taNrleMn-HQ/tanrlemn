@@ -4,7 +4,7 @@
 import { useIsMobile } from '@/app/_lib/hooks/useIsMobile';
 
 // chakra-ui
-import { Flex, Heading, Link } from '@chakra-ui/react';
+import { Flex, Link } from '@chakra-ui/react';
 
 // local components
 import Logo from './logo';

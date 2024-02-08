@@ -2,20 +2,10 @@
 
 // components
 import {
-  Button,
-  Image,
   Modal,
-  ModalOverlay,
   ModalContent,
-  ModalHeader,
   ModalCloseButton,
   ModalBody,
-  ModalFooter,
-  Flex,
-  Heading,
-  Highlight,
-  Box,
-  Text,
 } from '@chakra-ui/react';
 import { FilloutStandardEmbed } from '@fillout/react';
 

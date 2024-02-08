@@ -9,18 +9,19 @@ import { useAnimate } from 'framer-motion';
 // components
 import { Box, Link, Image, Heading, Text, Tag } from '@chakra-ui/react';
 
-export default function ProductCard({ product, collection }) {
+export default function ProductCard({ product }) {
   const [scope, animate] = useAnimate();
   const windowSize = useWindowWidth();
   const isMobile = useIsMobile();
 
   const slug = product.slug;
-  const mainImage = isMobile ? product.small_thumbnail : product.image_url;
+  const mainImage = product.main_image;
   const hasAdditionalImages = product.additional_images !== null;
 
   const limitedEdition = product.limited_edition;
   const numEditions = product.num_editions;
   const numAvailable = product.num_available;
+  const collection = product.collection;
 
   const onSale = product.on_sale;
 
@@ -67,16 +68,8 @@ export default function ProductCard({ product, collection }) {
     };
   }, [product, hasAdditionalImages, hovering, animate, mainImage, scope]);
 
-  collection =
-    collection !== null
-      ? collection.collection.charAt(0).toUpperCase() +
-        collection.collection.slice(1)
-      : null;
-
   const collectionName =
-    collection === 'Exclusive'
-      ? `${collection} Collection – Hug & Up`
-      : `${collection} Collection`;
+    collection === null ? 'Exclusive Collection' : 'General Release';
 
   const imageWidth = !isMobile ? windowSize / 3.5 : windowSize / 2.5;
   const imageHeight = imageWidth * 1.25;
@@ -131,14 +124,14 @@ export default function ProductCard({ product, collection }) {
           width={imageWidth}
           height={imageHeight}
           style={cardStyles}
-          alt={`image for ${product.title}`}
+          alt={`image for ${product.name}`}
         />
         <Image
           src={additionalImages[1]}
           width={imageWidth}
           height={imageHeight}
           style={imageStyles}
-          alt={`image for ${product.title}`}
+          alt={`image for ${product.name}`}
           ref={scope}
         />
       </Link>
@@ -150,7 +143,7 @@ export default function ProductCard({ product, collection }) {
           <Heading
             mb={'0.1rem'}
             size={'md'}>
-            {product.title}
+            {product.name}
           </Heading>
           <Text mb={'0.5rem'}>
             <span style={onSale ? saleStyles : null}>
