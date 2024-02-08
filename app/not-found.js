@@ -45,10 +45,11 @@ export default function NotFound() {
           href={'/'}>
           <Button
             _hover={{
-              outline: '1px solid var(--lightOrange, #F8AD4F)',
+              outline: '1px solid',
+              outlineColor: 'orange.300',
             }}
             mr={'1rem'}
-            background={'var(--lightBlue)'}>
+            colorScheme={'blue'}>
             Return home
           </Button>
         </Link>

@@ -35,9 +35,7 @@ export default function Subscriptions() {
   }, []);
 
   return (
-    <Box
-      p={{ base: '4rem 1rem' }}
-      background={'var(--lightestBlue)'}>
+    <Box p={{ base: '4rem 1rem' }}>
       <Container
         p={0}
         mb={'3rem'}>
@@ -81,8 +79,8 @@ export default function Subscriptions() {
         maxW={'1100px'}
         p={0}>
         <Box
-          background={'var(--lightBlue)'}
-          borderRadius={'var(--mainBorderRadius)'}
+          background={'blue.100'}
+          borderRadius={'9px'}
           p={'2rem 1rem'}>
           {loading ? <LoadingDiv /> : <StripePricingTable />}
         </Box>
@@ -111,20 +109,20 @@ export default function Subscriptions() {
           mt={'5rem'}
           p={{ base: '3rem 2rem', md: '4rem' }}
           gap={{ base: '2rem', md: '3rem' }}
-          borderRadius={'var(--mainBorderRadius)'}
-          background={'var(--lightPurple)'}>
+          borderRadius={'9px'}
+          background={'purple.100'}>
           <HStack maxW={{ base: '100%', md: '40%' }}>
             <Image
               src={gpaSrc1}
               alt={'bliss'}
-              borderRadius={'var(--mainBorderRadius)'}
+              borderRadius={'9px'}
               maxH={'auto'}
               w={'50%'}
             />
             <Image
               src={gpaSrc2}
               alt={'bliss'}
-              borderRadius={'var(--mainBorderRadius)'}
+              borderRadius={'9px'}
               maxH={'auto'}
               w={'50%'}
             />
@@ -144,13 +142,9 @@ export default function Subscriptions() {
             <Link href={'/commissions'}>
               <Button
                 maxW={'fit-content'}
-                _hover={{
-                  outline: '1px solid var(--lightOrange, #F8AD4F)',
-                  borderRadius: 'var(--mainBorderRadius)',
-                }}
+                colorScheme={'purple'}
                 mr={'1rem'}
-                rightIcon={<MoveRight size={15} />}
-                background={'var(--midOrange)'}>
+                rightIcon={<MoveRight size={15} />}>
                 Submit a request
               </Button>
             </Link>

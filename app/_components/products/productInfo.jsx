@@ -136,24 +136,9 @@ export default function ProductInfo({ product }) {
   const collectionTagName =
     collection === null ? 'Exclusive Collection' : 'General Release';
 
-  const tagStyles = {
-    backgroundColor:
-      collection === 'Exclusive'
-        ? 'var(--lightestOrange)'
-        : collection == 'General'
-        ? 'transparent'
-        : 'var(--lightPink)',
-    border:
-      collection === 'Exclusive'
-        ? '1px solid var(--midOrange)'
-        : collection == 'General'
-        ? '1px solid var(--lightBlue)'
-        : 'none',
-    marginLeft: '-0.2em',
-  };
-
   const currentImageStyles = {
-    outline: '1px solid var(--lightOrange)',
+    outline: '1px solid',
+    outlineColor: 'var(--chakra-colors-purple-300)',
     outlineOffset: '0.5rem',
   };
 
@@ -289,13 +274,7 @@ export default function ProductInfo({ product }) {
                   </Box>
                 )}
               </Box>
-              {!isMobile && collection !== null && (
-                <div>
-                  <Link href={`/shop/collections/${collection.toLowerCase()}`}>
-                    <div style={tagStyles}>{collectionTagName}</div>
-                  </Link>
-                </div>
-              )}
+
               {isMobile && (
                 <>
                   <Box w={'100%'}>
@@ -316,14 +295,6 @@ export default function ProductInfo({ product }) {
                       </Slide>
                     )}
                   </Box>
-                  {collection !== null && (
-                    <div>
-                      <Link
-                        href={`/shop/collections/${collection.toLowerCase()}`}>
-                        <div style={tagStyles}>{collectionTagName}</div>
-                      </Link>
-                    </div>
-                  )}
                 </>
               )}
               {collection !== null && (
@@ -349,11 +320,12 @@ export default function ProductInfo({ product }) {
                       mb={'1rem'}
                       maxW={'fit-content'}
                       borderRadius='sm'
-                      outline={'1px solid var(--lightGreen)'}
+                      outline={'1px solid'}
+                      outlineColor={'green.200'}
                       outlineOffset={'0.2rem'}
-                      background={'var(--lightGreen50)'}
-                      px={5}
-                      py={3}>
+                      background={'green.100'}
+                      px={2}
+                      py={1}>
                       {currentProductConfig.size}
                     </Box>
                     <FormLabel htmlFor='qty'>Qty*</FormLabel>

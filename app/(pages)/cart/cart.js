@@ -87,14 +87,6 @@ export default function Cart() {
     toast,
   ]);
 
-  const alignRight = {
-    textAlign: 'right',
-  };
-
-  const mobileBorder = {
-    borderBottom: 'var(--blue-light-border)',
-  };
-
   return (
     <Box>
       {success && <OrderSuccess />}
@@ -112,10 +104,9 @@ export default function Cart() {
                   <Box
                     w={'100%'}
                     mb={'1.5rem'}
-                    borderBottom={'1px solid var(--lighterOrange)'}>
-                    <Box
-                      mb={'1rem'}
-                      style={mobileBorder}>
+                    borderBottom={'1px solid'}
+                    borderBottomColor={'orange.200'}>
+                    <Box mb={'1rem'}>
                       <Heading>Shopping Bag</Heading>
                     </Box>
                   </Box>
@@ -123,7 +114,8 @@ export default function Cart() {
                     <>
                       {!isMobile && (
                         <Grid
-                          borderBottom={'var(--blue-light-border)'}
+                          borderBottom={'1px solid'}
+                          borderBottomColor={'orange.200'}
                           mb={'1rem'}
                           templateColumns={'1fr 2fr repeat(3, 1fr)'}
                           gap={5}
@@ -136,13 +128,13 @@ export default function Cart() {
                             <Text>Item</Text>
                           </GridItem>
                           <GridItem w={'100%'}>
-                            <Text style={alignRight}>Item Price</Text>
+                            <Text textAlign={'right'}>Item Price</Text>
                           </GridItem>
                           <GridItem w={'100%'}>
-                            <Text style={alignRight}>Quantity</Text>
+                            <Text textAlign={'right'}>Quantity</Text>
                           </GridItem>
                           <GridItem w={'100%'}>
-                            <Text style={alignRight}>Total Price</Text>
+                            <Text textAlign={'right'}>Total Price</Text>
                           </GridItem>
                         </Grid>
                       )}
@@ -151,7 +143,6 @@ export default function Cart() {
                         cart.map((item) => {
                           return (
                             <GridItem
-                              borderBottom={'var(--blue-light-border)'}
                               pb={'1rem'}
                               mb={'1rem'}
                               key={item.id}>

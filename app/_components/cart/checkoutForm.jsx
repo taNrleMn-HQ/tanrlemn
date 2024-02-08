@@ -119,8 +119,9 @@ export default function CheckoutForm() {
       p={'1rem'}
       position={{ base: 'relative', md: 'sticky' }}
       top={{ base: '0', md: '5rem' }}
-      borderRadius={'var(--mainBorderRadius)'}
-      border={'1px solid var(--lighterOrange)'}>
+      borderRadius={'9px'}
+      border={'1px solid'}
+      borderColor={'orange.200'}>
       <Heading size={'md'}>Order Summary</Heading>
       <Divider m={'0.75rem 0'} />
       {subtotal !== null &&
@@ -155,7 +156,7 @@ export default function CheckoutForm() {
               <Flex
                 w={'100%'}
                 justify={'space-between'}
-                color={'var(--darkest-gray)'}
+                color={'gray.7800'}
                 fontWeight={600}>
                 <Text>Total</Text>
                 <Text style={alignRight}>{`$${cartTotal.total.toFixed(

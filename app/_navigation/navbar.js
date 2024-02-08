@@ -55,7 +55,8 @@ export default function Navbar() {
           backdropFilter={'blur(10px) saturate(100%)'}
           w={'100%'}
           p={'0.75rem'}
-          borderBottom={'1px solid var(--lightOrange)'}>
+          borderBottom={'1px solid'}
+          borderColor={'orange.300'}>
           <Flex
             w={'100%'}
             align={'center'}

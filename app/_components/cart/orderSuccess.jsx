@@ -36,11 +36,8 @@ export default function OrderSuccess() {
           maxW={'fit-content'}
           href={'/shop'}>
           <Button
-            _hover={{
-              outline: '1px solid var(--lightOrange, #F8AD4F)',
-            }}
-            mr={'1rem'}
-            background={'var(--lightBlue)'}>
+            colorScheme={'blue'}
+            mr={'1rem'}>
             Continue Shopping
           </Button>
         </Link>

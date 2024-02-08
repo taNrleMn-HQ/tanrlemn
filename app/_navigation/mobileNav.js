@@ -36,10 +36,6 @@ export default function MobileNavbar({ routes }) {
         align={'center'}
         gap={'1rem'}>
         <Link
-          _hover={{
-            textDecoration: 'none',
-            background: 'var(--lightestBlue)',
-          }}
           p={'0.4rem 0.8rem'}
           borderRadius={'full'}
           href='/cart'
@@ -53,7 +49,7 @@ export default function MobileNavbar({ routes }) {
                 left={'-0.2rem'}
                 w={'0.6rem'}
                 h={'0.6rem'}
-                background={'var(--orangeAlt)'}
+                background={'red.300'}
                 borderRadius={'100px'}></Box>
             )}
           </Flex>
@@ -108,9 +104,8 @@ const NavLink = ({ name, path, icon, target, index, routesLength }) => {
   return (
     <Link
       w={'100%'}
-      borderBottom={
-        index === routesLength - 1 ? 'none' : '1px solid var(--lightGray)'
-      }
+      borderBottom={index === routesLength - 1 ? 'none' : '1px solid'}
+      borderColor={'gray.200'}
       position={'relative'}
       textDecoration={'none'}
       _hover={{

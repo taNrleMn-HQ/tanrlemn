@@ -121,7 +121,7 @@ html body {
 }
 
 ::selection {
-  background: var(--lightOrange);
+  background: var(--chakra-colors-orange-300);
 }
 
 /* Stripe Pricing Table Styles */
@@ -134,7 +134,7 @@ html body {
 /* Scrollbar Styles */
 ::-webkit-scrollbar {
   width: 0.5rem;
-  background: var(--white30);
+  background: var(--chakra-colors-blackAlpha-300);
   backdrop-filter: blur(10px) saturate(100%);
 }
 
@@ -145,13 +145,8 @@ html body {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--lightOrange90);
+  background: var(--chakra-colors-orange-200);
   border-radius: 0.25rem;
-}
-
-::-webkit-scrollbar:horizontal {
-  height: 0.25rem;
-  outline: 1px solid var(--darkestPurple90);
 }
 
 /* Gooey Balls */

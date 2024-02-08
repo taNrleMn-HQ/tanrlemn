@@ -6,7 +6,8 @@ import { Flex, Image } from '@chakra-ui/react';
 export default function HeroImage({ mr, alt, ...props }) {
   return (
     <Flex
-      outline={'1px solid var(--lightOrange)'}
+      outline={'1px solid '}
+      outlineColor={'orange.300'}
       outlineOffset={'0.25rem'}
       alignItems={'center'}
       overflow={'hidden'}
@@ -17,6 +18,7 @@ export default function HeroImage({ mr, alt, ...props }) {
       maxW={{ base: '100%', md: '17rem' }}>
       <Image
         alt={alt}
+        objectFit={'cover'}
         {...props}
       />
     </Flex>

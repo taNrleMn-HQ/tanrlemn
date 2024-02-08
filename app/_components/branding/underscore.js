@@ -1,4 +1,4 @@
-export default function Underscore({ color }) {
+export default function Underscore() {
   return (
     <svg
       xmlns='http://www.w3.org/2000/svg'
@@ -8,7 +8,7 @@ export default function Underscore({ color }) {
       fill='none'>
       <path
         d='M1 0H0V2H1V0ZM13 2C13.5523 2 14 1.55228 14 1C14 0.447715 13.5523 0 13 0V2ZM1 2H13V0H1V2Z'
-        fill={color || 'var(--neonBlue)'}
+        fill={'var(--chakra-colors-orange-400)'}
       />
     </svg>
   );

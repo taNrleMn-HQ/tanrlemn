@@ -30,7 +30,8 @@ export default function About() {
         position={'relative'}>
         <Stack
           pb={'3rem'}
-          borderBottom={'1px solid var(--gray)'}
+          borderBottom={'1px solid'}
+          borderBottomColor={'gray.200'}
           mb={'4rem'}
           w={'100%'}>
           <Tag
@@ -45,7 +46,7 @@ export default function About() {
             mb={'1rem'}
             size={'4xl'}
             fontWeight={800}
-            color={'var(--purple)'}>
+            color={'purple.500'}>
             A world that never sleeps.
           </Heading>
 
@@ -72,13 +73,9 @@ export default function About() {
             maxW={'fit-content'}
             href={'/commissions'}>
             <Button
-              _hover={{
-                outline: '1px solid var(--lightOrange, #F8AD4F)',
-                borderRadius: 'var(--mainBorderRadius)',
-              }}
+              colorScheme={'purple'}
               mr={'1rem'}
-              rightIcon={<MoveRight />}
-              background={'var(--midOrange)'}>
+              rightIcon={<MoveRight />}>
               Request a commission
             </Button>
           </Link>

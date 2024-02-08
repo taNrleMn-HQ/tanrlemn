@@ -56,7 +56,8 @@ export default function Commissions() {
           w={'100%'}
           mb={'3rem'}
           pb={'2rem'}
-          borderBottom={'1px solid var(--lightGray)'}>
+          borderBottom={'1px solid'}
+          borderBottomColor={'gray.200'}>
           <Tag
             size={'sm'}
             textTransform={'uppercase'}
@@ -69,7 +70,7 @@ export default function Commissions() {
             mb={'1rem'}
             size={'4xl'}
             fontWeight={800}
-            color={'var(--orange)'}>
+            color={'purple.500'}>
             Commission a painting
           </Heading>
 
@@ -91,12 +92,8 @@ export default function Commissions() {
             onClick={onOpen}
             maxW={'fit-content'}
             mb={'2rem'}
-            _hover={{
-              outline: '1px solid var(--lightOrange, #F8AD4F)',
-              borderRadius: 'var(--mainBorderRadius)',
-            }}
-            mr={'1rem'}
-            background={'var(--midOrange)'}>
+            colorScheme={'purple'}
+            mr={'1rem'}>
             Submit a request
           </Button>
           <Grid
@@ -220,8 +217,8 @@ export default function Commissions() {
           <Box
             mt={'3rem'}
             p={'3rem 2rem'}
-            borderRadius={'var(--mainBorderRadius)'}
-            background={'var(--lightestGreen)'}>
+            borderRadius={'9px'}
+            background={'green.100'}>
             <Heading
               size={'lg'}
               mb={'0.5rem'}>
@@ -235,12 +232,8 @@ export default function Commissions() {
               maxW={'fit-content'}
               onClick={onOpen}
               mb={'2rem'}
-              _hover={{
-                outline: '1px solid var(--lightOrange, #F8AD4F)',
-                borderRadius: 'var(--mainBorderRadius)',
-              }}
-              mr={'1rem'}
-              background={'var(--midOrange)'}>
+              colorScheme={'purple'}
+              mr={'1rem'}>
               Submit a request
             </Button>
           </Box>

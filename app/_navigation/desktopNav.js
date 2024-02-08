@@ -28,7 +28,7 @@ export default function DesktopNavbar({ routes }) {
       </Flex>
 
       <Link
-        _hover={{ textDecoration: 'none', background: 'var(--lightestBlue)' }}
+        _hover={{ textDecoration: 'none' }}
         p={'0.4rem 0.8rem'}
         borderRadius={'full'}
         href='/cart'
@@ -43,7 +43,7 @@ export default function DesktopNavbar({ routes }) {
               h={'1rem'}
               align={'center'}
               justify={'center'}
-              background={'var(--lighterOrange)'}
+              background={'red.200'}
               borderRadius={'100px'}>
               <Text
                 lineHeight={1}
@@ -70,7 +70,8 @@ const NavLink = ({ name, path, icon, target }) => {
       textDecoration={'none'}
       _hover={{
         textDecoration: 'none',
-        boxShadow: '0px -1px 0px var(--orangeAlt) inset',
+        background: 'purple.100',
+        borderRadius: '0.25rem',
       }}
       target={target}
       href={path}

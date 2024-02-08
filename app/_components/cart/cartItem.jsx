@@ -65,21 +65,14 @@ export default function CartItem({ item }) {
     alignItems: 'flex-end',
   };
 
-  const removeItemStyle = {
-    textAlign: 'right',
-    cursor: 'pointer',
-    color: 'var(--medium-gray)',
-    fontSize: '0.75em',
-    marginBottom: '5px',
-  };
-
   const saleStyles = {
     textDecoration: 'line-through',
   };
 
   return (
     <Grid
-      borderBottom={'1px solid var(--lightestOrange)'}
+      borderBottom={'1px solid'}
+      borderColor={'orange.200'}
       pb={'1.5rem'}
       templateColumns={{
         base: '1fr 2fr 1fr',
@@ -193,7 +186,11 @@ export default function CartItem({ item }) {
                 </span>
               </Text>
               <Text
-                style={removeItemStyle}
+                textAlign={'right'}
+                cursor={'pointer'}
+                color={'gray.700'}
+                fontSize={'0.75em'}
+                marginBottom={'5px'}
                 onClick={() => {
                   handleRemoveFromCart();
                 }}>
