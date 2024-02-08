@@ -15,13 +15,16 @@ import {
   Heading,
   Text,
   VStack,
+  useToast,
 } from '@chakra-ui/react';
 
 export default function CheckoutForm() {
+  const toast = useToast();
   const [loadingCheckout, setLoadingCheckout] = useState(false);
 
   const { cart, numCartItems, cartTotal } = useCart();
   const [checkoutSession, setCheckoutSession] = useState(null);
+  const [isError, setIsError] = useState(false);
 
   const [subtotal, setSubtotal] = useState(null);
   const [shipping, setShipping] = useState(null);
@@ -31,6 +34,21 @@ export default function CheckoutForm() {
   const router = useRouter();
 
   useEffect(() => {
+    if (isError) {
+      toast({
+        title: 'Error',
+        description: 'There was an error processing your order.',
+        status: 'error',
+        duration: 5000,
+        isClosable: true,
+      });
+
+      setTimeout(() => {
+        setLoadingCheckout(false);
+        setIsError(false);
+      }, 3000);
+    }
+
     if (checkoutSession) {
       setLoadingCheckout(true);
 
@@ -60,23 +78,29 @@ export default function CheckoutForm() {
     tax,
     subtotal,
     setLoadingCheckout,
+    isError,
+    toast,
   ]);
 
   const handleCheckout = async () => {
     const getCheckoutSession = async () => {
-      const res = await fetch('/api/stripe/checkoutSession', {
-        method: 'POST',
-        body: JSON.stringify({
-          origin: fullPagePath,
-          cart: cart,
-        }),
-      });
+      try {
+        const res = await fetch('/api/stripe/checkoutSession', {
+          method: 'POST',
+          body: JSON.stringify({
+            origin: fullPagePath,
+            cart: cart,
+          }),
+        });
 
-      const { url } = await res.json();
+        const { url } = await res.json();
 
-      setLoadingCheckout(false);
+        setLoadingCheckout(false);
 
-      setCheckoutSession(url);
+        setCheckoutSession(url);
+      } catch (error) {
+        setIsError(error);
+      }
     };
 
     if (checkoutSession === null) {
@@ -140,11 +164,11 @@ export default function CheckoutForm() {
               </Flex>
             </VStack>
             <Button
-              isLoading={loadingCheckout}
+              isLoading={!isError && loadingCheckout}
               w={'100%'}
-              colorScheme={'blue'}
+              colorScheme={isError ? 'red' : 'blue'}
               onClick={(e) => handleCheckout(e)}>
-              Proceed to Checkout
+              {isError ? 'Error' : 'Proceed to Checkout'}
             </Button>
           </>
         )}

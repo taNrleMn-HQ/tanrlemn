@@ -1,8 +1,10 @@
 // images
 const images = ['https://i.imgur.com/BFWf7kuh.jpg'];
 
+import { Suspense } from 'react';
 // local components
 import AuthUI from './auth';
+import { Container, Text } from '@chakra-ui/react';
 
 // metadata
 export const metadata = {
@@ -18,5 +20,14 @@ export const metadata = {
 };
 
 export default function Page() {
-  return <AuthUI />;
+  return (
+    <Suspense
+      fallback={
+        <Container>
+          <Text>Loading...</Text>
+        </Container>
+      }>
+      <AuthUI />
+    </Suspense>
+  );
 }

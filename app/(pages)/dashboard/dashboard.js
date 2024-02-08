@@ -53,7 +53,6 @@ export default function Dashboard() {
 
       const { url } = await response.json();
 
-      console.log(url);
       setBillingSessionUrl(url);
       setLoadingBillingSession(false);
     };
