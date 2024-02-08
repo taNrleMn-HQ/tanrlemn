@@ -24,7 +24,7 @@ export async function POST(req) {
 
     let session;
     try {
-      if (email === null || stripe_customer_id === null) {
+      if (email === null || email === '' || stripe_customer_id === null) {
         throw new Error('No email');
       }
 
