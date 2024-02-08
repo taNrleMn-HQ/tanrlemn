@@ -17,6 +17,7 @@ import { Flex, Box } from '@chakra-ui/react';
 import Logo from '../_components/branding/logo';
 import DesktopNav from './desktopNav';
 import MobileNav from './mobileNav';
+import ArtistToggle from '@/app/_components/interactive/artistToggle';
 import { routes } from './routes';
 
 export default function Navbar() {
@@ -62,6 +63,7 @@ export default function Navbar() {
             align={'center'}
             justify={{ base: 'space-between' }}>
             <Logo />
+            <ArtistToggle />
             {loading ? (
               <></>
             ) : isMobile ? (

@@ -1,6 +1,8 @@
-// Define a selector to derive a simplified user profile
 import { selector, selectorFamily } from 'recoil';
-import { profileState, cartState, productsState } from './atoms';
+import { profileState, cartState, productsState, artistState } from './atoms';
+
+// chakra-ui
+import { useColorMode } from '@chakra-ui/react';
 
 // auth selectors
 export const userProfileSelector = selector({
@@ -12,7 +14,6 @@ export const userProfileSelector = selector({
 });
 
 // ecommerce selectors
-
 export const cartItemsSelector = selector({
   key: 'cartItemsState',
   get: ({ get }) => {
@@ -182,4 +183,14 @@ export const singleProductSelector = selectorFamily({
 
       return product;
     },
+});
+
+// ui selectors
+export const artistSelector = selector({
+  key: 'artistSelector',
+  get: ({ get }) => {
+    const artist = get(artistState);
+
+    return artist;
+  },
 });

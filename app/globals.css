@@ -91,12 +91,6 @@
   --mainBorderRadius: 9px;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    color-scheme: dark;
-  }
-}
-
 *,
 *:before,
 *:after {
