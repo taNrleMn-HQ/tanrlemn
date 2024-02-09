@@ -1,12 +1,5 @@
 'use client';
 
-// recoil
-import { useSetRecoilState } from 'recoil';
-import { loadingState } from '@/app/loading';
-
-// hooks
-import { useEffect } from 'react';
-
 // chakra-ui
 import {
   Box,
@@ -17,15 +10,8 @@ import {
   Heading,
   Tag,
 } from '@chakra-ui/react';
-import { MoveRight } from 'lucide-react';
 
 export default function OrderSuccess() {
-  const setLoading = useSetRecoilState(loadingState);
-
-  useEffect(() => {
-    setLoading(false);
-  }, [setLoading]);
-
   return (
     <Container p={'5rem 1rem'}>
       <Tag
@@ -50,11 +36,8 @@ export default function OrderSuccess() {
           maxW={'fit-content'}
           href={'/shop'}>
           <Button
-            _hover={{
-              outline: '1px solid var(--lightOrange, #F8AD4F)',
-            }}
-            mr={'1rem'}
-            background={'var(--lightBlue)'}>
+            colorScheme={'blue'}
+            mr={'1rem'}>
             Continue Shopping
           </Button>
         </Link>

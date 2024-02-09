@@ -1,9 +1,5 @@
 'use client';
 
-// recoil
-import { useSetRecoilState } from 'recoil';
-import { loadingState } from '@/app/loading';
-
 // hooks
 import { useEffect, useState } from 'react';
 
@@ -24,31 +20,35 @@ import { MoveRight } from 'lucide-react';
 
 // local components
 import ArtworkCard from '@/app/_components/products/artworkCard';
+import LoadingDiv from '@/app/_components/interactive/loadingDiv';
 
 export default function Gallery() {
-  const setLoading = useSetRecoilState(loadingState);
-
   const [artworks, setArtworks] = useState(null);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const getProjects = async () => {
       const res = await fetch('/api/supabase/getArtworks');
       const data = await res.json();
       setArtworks(data.artworks);
+      setLoading(false);
     };
 
     if (artworks === null) {
       getProjects();
-    } else {
-      setLoading(false);
     }
-  }, [artworks, setLoading]);
+  }, [artworks]);
 
   return (
     <Box p={'4rem 0'}>
+      {loading && (
+        <LoadingDiv
+          isLoading={loading}
+          id={'gallery'}
+        />
+      )}
       {artworks !== null && (
         <>
-          {' '}
           <VStack
             textAlign={'center'}
             w={'100%'}
@@ -74,13 +74,9 @@ export default function Gallery() {
                 maxW={'fit-content'}
                 href={'/commissions'}>
                 <Button
-                  _hover={{
-                    outline: '1px solid var(--lightOrange, #F8AD4F)',
-                    borderRadius: 'var(--mainBorderRadius)',
-                  }}
+                  colorScheme={'purple'}
                   mr={'1rem'}
-                  rightIcon={<MoveRight />}
-                  background={'var(--midOrange)'}>
+                  rightIcon={<MoveRight />}>
                   Request a commission
                 </Button>
               </Link>

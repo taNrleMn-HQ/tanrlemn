@@ -3,13 +3,15 @@
 import 'react-slideshow-image/dist/styles.css';
 
 // recoil
-import { useSetRecoilState } from 'recoil';
-import { loadingState } from '@/app/loading';
+import { useRecoilValue } from 'recoil';
+import { hasCartItemSelector } from '@/app/_state/selectors';
 
 // hooks
 import { useState, useEffect } from 'react';
+import { useRouter } from 'next/navigation';
 import { useIsMobile } from '@/app/_lib/hooks/useIsMobile';
 import { useWindowWidth } from '@/app/_lib/hooks/useWindowWidth';
+import { useCart } from '@/app/_lib/hooks/useCart';
 
 // components
 import { Slide } from 'react-slideshow-image';
@@ -33,7 +35,6 @@ import {
   Stat,
   StatLabel,
   StatNumber,
-  StatHelpText,
   useDisclosure,
   Text,
   Tag,
@@ -42,12 +43,11 @@ import {
 // local components
 import ToCartModal from '../cart/toCartModal';
 import { MoveLeft } from 'lucide-react';
-import { useCart } from '@/app/_lib/hooks/useCart';
 
-export default function ProductInfo({ product, collection }) {
-  const setLoading = useSetRecoilState(loadingState);
+export default function ProductInfo({ product }) {
+  const router = useRouter();
+  const hasCartItem = useRecoilValue(hasCartItemSelector(product.id));
 
-  product = product.product;
   const { numCartItems, addUpdateItem } = useCart();
 
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -57,13 +57,12 @@ export default function ProductInfo({ product, collection }) {
   const imageWidth = isMobile ? windowWidth - 40 : windowWidth / 3.7;
   const imageHeight = imageWidth * 1.25;
 
-  const mainImage = product.image_url;
+  const mainImage = product.main_image;
   const [currentImage, setCurrentImage] = useState(0);
   const [currentProductConfig, setCurrentProductConfig] = useState({
     qty: 1,
     size: '8 x 12',
     color: 'Multi',
-    collection: collection,
   });
   const [additionalImages, setAdditionalImages] = useState(null);
   const [imageElements, setImageElements] = useState(null);
@@ -99,12 +98,11 @@ export default function ProductInfo({ product, collection }) {
               src={image}
               width={'auto'}
               height={imageHeight}
-              alt={`image for ${product.title}`}
+              alt={`image for ${product.name}`}
             />
           );
         })
       );
-      setLoading(false);
     }
   }, [
     product,
@@ -115,7 +113,6 @@ export default function ProductInfo({ product, collection }) {
     imageHeight,
     mainImage,
     imageElements,
-    setLoading,
   ]);
 
   const sliderImages = () => {
@@ -133,35 +130,9 @@ export default function ProductInfo({ product, collection }) {
 
   const onSale = product.on_sale;
 
-  collection =
-    collection !== null
-      ? collection.collection.charAt(0).toUpperCase() +
-        collection.collection.slice(1)
-      : null;
-
-  const collectionTagName =
-    collection === 'Exclusive'
-      ? `${collection} Collection – Hug & Up`
-      : `${collection} Collection`;
-
-  const tagStyles = {
-    backgroundColor:
-      collection === 'Exclusive'
-        ? 'var(--lightestOrange)'
-        : collection == 'General'
-        ? 'transparent'
-        : 'var(--lightPink)',
-    border:
-      collection === 'Exclusive'
-        ? '1px solid var(--midOrange)'
-        : collection == 'General'
-        ? '1px solid var(--lightBlue)'
-        : 'none',
-    marginLeft: '-0.2em',
-  };
-
   const currentImageStyles = {
-    outline: '1px solid var(--lightOrange)',
+    outline: '1px solid',
+    outlineColor: 'var(--chakra-colors-purple-300)',
     outlineOffset: '0.5rem',
   };
 
@@ -232,7 +203,7 @@ export default function ProductInfo({ product, collection }) {
                         src={imageUrl}
                         width={'100%'}
                         height={'auto'}
-                        alt={`image for ${product.title}`}
+                        alt={`image for ${product.name}`}
                       />
                     </Box>
                   ))}
@@ -254,7 +225,7 @@ export default function ProductInfo({ product, collection }) {
               top={{ base: '0', md: '9rem' }}
               flexGrow={1}
               align={'flex-start'}>
-              <Heading>{product.title}</Heading>
+              <Heading>{product.name}</Heading>
               <Stat
                 maxH={'fit-content'}
                 flex={0}>
@@ -297,16 +268,12 @@ export default function ProductInfo({ product, collection }) {
                   </Box>
                 )}
               </Box>
-              {!isMobile && collection !== null && (
-                <div>
-                  <Link href={`/shop/collections/${collection.toLowerCase()}`}>
-                    <div style={tagStyles}>{collectionTagName}</div>
-                  </Link>
-                </div>
-              )}
+
               {isMobile && (
                 <>
-                  <Box w={'100%'}>
+                  <Box
+                    w={'100%'}
+                    my={'1rem'}>
                     {currentImage !== null && additionalImages !== null && (
                       <Slide {...sliderOptions}>
                         {sliderImages().map((slideImage) => {
@@ -314,9 +281,10 @@ export default function ProductInfo({ product, collection }) {
                             <Image
                               key={slideImage.url}
                               src={slideImage.url}
-                              width={'100%'}
-                              height={'auto'}
-                              alt={`image for ${product.title}`}
+                              h={imageHeight}
+                              m={'auto'}
+                              objectFit={'contain'}
+                              alt={`image for ${product.name}`}
                               style={{ objectFit: 'cover' }}
                             />
                           );
@@ -324,73 +292,68 @@ export default function ProductInfo({ product, collection }) {
                       </Slide>
                     )}
                   </Box>
-                  {collection !== null && (
-                    <div>
-                      <Link
-                        href={`/shop/collections/${collection.toLowerCase()}`}>
-                        <div style={tagStyles}>{collectionTagName}</div>
-                      </Link>
-                    </div>
-                  )}
                 </>
               )}
-              {collection !== null && (
-                <Link href={`/shop/collections/${collection.toLowerCase()}`}>
-                  See all of the {collection} Collection
-                </Link>
-              )}
-              <Heading size={'md'}></Heading>
               <FormControl>
-                <FormLabel htmlFor='size'>Size*</FormLabel>
-                <Box
-                  mb={'1rem'}
-                  maxW={'fit-content'}
-                  borderRadius='sm'
-                  outline={'1px solid var(--lightGreen)'}
-                  outlineOffset={'0.2rem'}
-                  background={'var(--lightGreen50)'}
-                  px={5}
-                  py={3}>
-                  {currentProductConfig.size}
-                </Box>
-                <FormLabel htmlFor='qty'>Qty*</FormLabel>
-                {currentProductConfig.qty && (
-                  <NumberInput
-                    onChange={(valueString) => {
-                      setCurrentProductConfig({
-                        ...currentProductConfig,
-                        qty: Number(valueString),
-                      });
-                    }}
-                    maxW={'8rem'}
-                    mb={'2rem'}
-                    defaultValue={currentProductConfig.qty}
-                    min={1}
-                    max={20}>
-                    <NumberInputField />
-                    <NumberInputStepper>
-                      <NumberIncrementStepper />
-                      <NumberDecrementStepper />
-                    </NumberInputStepper>
-                  </NumberInput>
-                )}
-                <Button
-                  colorScheme={'blue'}
-                  size={'lg'}
-                  onClick={(e) => {
-                    handleAddToCart(e);
-                  }}>
-                  Add to bag
-                </Button>
-                {collection !== null && (
-                  <Link href={`/shop/collections/${collection.toLowerCase()}`}>
-                    <div>Shop related items</div>
-                  </Link>
+                {hasCartItem ? (
+                  <Button
+                    mt={'1rem'}
+                    colorScheme={'blue'}
+                    size={'lg'}
+                    onClick={() => {
+                      router.replace('/cart');
+                    }}>
+                    View in bag
+                  </Button>
+                ) : (
+                  <>
+                    <FormLabel htmlFor='size'>Size*</FormLabel>
+                    <Tag
+                      mb={'1rem'}
+                      maxW={'fit-content'}
+                      borderRadius='sm'
+                      outline={'1px solid'}
+                      outlineColor={'green.200'}
+                      outlineOffset={'0.2rem'}
+                      colorScheme={'green'}
+                      px={2}
+                      py={1}>
+                      {currentProductConfig.size}
+                    </Tag>
+                    <FormLabel htmlFor='qty'>Qty*</FormLabel>
+                    {currentProductConfig.qty && (
+                      <NumberInput
+                        onChange={(valueString) => {
+                          setCurrentProductConfig({
+                            ...currentProductConfig,
+                            qty: Number(valueString),
+                          });
+                        }}
+                        maxW={'8rem'}
+                        mb={'2rem'}
+                        defaultValue={currentProductConfig.qty}
+                        min={1}
+                        max={20}>
+                        <NumberInputField />
+                        <NumberInputStepper>
+                          <NumberIncrementStepper />
+                          <NumberDecrementStepper />
+                        </NumberInputStepper>
+                      </NumberInput>
+                    )}
+                    <Button
+                      colorScheme={'blue'}
+                      size={'lg'}
+                      onClick={(e) => {
+                        handleAddToCart(e);
+                      }}>
+                      Add to bag
+                    </Button>
+                  </>
                 )}
               </FormControl>
               <ToCartModal
                 product={product}
-                collection={collection}
                 isOpen={isOpen}
                 onClose={onClose}
                 numCartItems={numCartItems}

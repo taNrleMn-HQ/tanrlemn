@@ -1,7 +1,6 @@
 'use client';
 
 // hooks
-import { useContext } from 'react';
 import { useRouter } from 'next/navigation';
 
 // components
@@ -23,7 +22,7 @@ import {
 
 export default function ToCartModal({ product, isOpen, onClose }) {
   const router = useRouter();
-  const mainImage = product.small_thumbnail;
+  const mainImage = product.main_image;
 
   return (
     <Modal
@@ -41,7 +40,7 @@ export default function ToCartModal({ product, isOpen, onClose }) {
             direction={{ base: 'column', md: 'row' }}>
             <Image
               src={mainImage}
-              alt={product.title}
+              alt={product.name}
               width={{ base: '70%', md: 150 }}
               height={'auto'}
             />
@@ -51,12 +50,12 @@ export default function ToCartModal({ product, isOpen, onClose }) {
                 display={'inline'}>
                 <Highlight
                   display={'inline'}
-                  query={product.title}
+                  query={product.name}
                   styles={{
-                    color: 'var(--darkBlue)',
+                    color: 'blue.500',
                     whiteSpace: 'pre-wrap',
                   }}>
-                  {product.title}
+                  {product.name}
                 </Highlight>{' '}
                 has been added to your bag.
               </Heading>
@@ -69,7 +68,6 @@ export default function ToCartModal({ product, isOpen, onClose }) {
             colorScheme='blue'
             mr={3}
             onClick={() => {
-              // setLoading(true);
               router.push('/cart');
             }}>
             View Bag

@@ -3,7 +3,6 @@
 // recoil
 import { useRecoilValue } from 'recoil';
 import { userProfileSelector } from '@/app/_state/selectors';
-import { userState } from '@/app/_state/atoms';
 
 // hooks
 import { useEffect, useState } from 'react';
@@ -35,23 +34,37 @@ export default function Dashboard() {
   const profile = useRecoilValue(userProfileSelector);
 
   const [loadingBillingSession, setLoadingBillingSession] = useState(false);
+  const [billingSessionUrl, setBillingSessionUrl] = useState(null);
   const [loggingOut, setLoggingOut] = useState(false);
+  const [customerExists, setCustomerExists] = useState(false);
+
+  useEffect(() => {
+    const getBillingSession = async () => {
+      setLoadingBillingSession(true);
+      const response = await fetch('/api/stripe/stripeBillingSession', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          email: profile.email,
+        }),
+      });
+
+      const { url } = await response.json();
+
+      setBillingSessionUrl(url);
+      setLoadingBillingSession(false);
+    };
+    if (profile !== null && !billingSessionUrl) {
+      getBillingSession();
+    }
+  }, [profile, billingSessionUrl]);
 
   const handleManageBilling = async () => {
     setLoadingBillingSession(true);
-    const response = await fetch('/api/stripe/stripeBillingSession', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        email: profile.email,
-      }),
-    });
 
-    const { url } = await response.json();
-
-    router.push(url);
+    router.replace(billingSessionUrl);
   };
 
   const signOut = async () => {
@@ -98,17 +111,26 @@ export default function Dashboard() {
             <Flex
               flexWrap={'wrap'}
               gap={3}>
-              <Button
-                isLoading={loadingBillingSession}
-                onClick={handleManageBilling}
-                _hover={{
-                  outline: '1px solid var(--blue)',
-                }}
-                size={'sm'}
-                maxW={'fit-content'}
-                background={'var(--lightBlue)'}>
-                Manage subscriptions
-              </Button>
+              {billingSessionUrl ? (
+                <Button
+                  isLoading={loadingBillingSession}
+                  onClick={handleManageBilling}
+                  colorScheme={'blue'}
+                  size={'sm'}
+                  maxW={'fit-content'}>
+                  Manage subscriptions
+                </Button>
+              ) : (
+                <Button
+                  isLoading={loadingBillingSession}
+                  onClick={() => router.push('/subscriptions')}
+                  colorScheme={'blue'}
+                  variant={'outline'}
+                  size={'sm'}
+                  maxW={'fit-content'}>
+                  Find a plan
+                </Button>
+              )}
             </Flex>
             <Divider m={'2rem 0 1rem 0'} />
             <Button

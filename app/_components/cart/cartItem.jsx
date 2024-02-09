@@ -19,10 +19,11 @@ import {
   Text,
   Heading,
   VStack,
+  useColorModeValue,
 } from '@chakra-ui/react';
 
 // local components
-import LoadingDiv from '../icons/loadingDiv';
+import LoadingDiv from '@/app/_components/interactive/loadingDiv';
 
 export default function CartItem({ item }) {
   const [loadingDiv, setLoadingDiv] = useState(false);
@@ -65,21 +66,17 @@ export default function CartItem({ item }) {
     alignItems: 'flex-end',
   };
 
-  const removeItemStyle = {
-    textAlign: 'right',
-    cursor: 'pointer',
-    color: 'var(--medium-gray)',
-    fontSize: '0.75em',
-    marginBottom: '5px',
-  };
-
   const saleStyles = {
     textDecoration: 'line-through',
   };
 
+  const borderColor = useColorModeValue('orange.200', 'gray.600');
+  const color = useColorModeValue('gray.800', 'gray.500');
+
   return (
     <Grid
-      borderBottom={'1px solid var(--lightestOrange)'}
+      borderBottom={'1px solid'}
+      borderColor={borderColor}
       pb={'1.5rem'}
       templateColumns={{
         base: '1fr 2fr 1fr',
@@ -97,8 +94,8 @@ export default function CartItem({ item }) {
           <GridItem>
             <Link href={`/shop/${item.slug}`}>
               <Image
-                src={item.small_thumbnail}
-                alt={item.title}
+                src={item.main_image}
+                alt={item.name}
                 width={'auto'}
                 height={'auto'}
               />
@@ -109,14 +106,10 @@ export default function CartItem({ item }) {
               <Heading
                 mb={'0.5rem'}
                 size={'md'}>
-                {item.title}
+                {item.name}
               </Heading>
             </Link>
-            {item.collection && (
-              <Text>
-                <strong>Collection:</strong> {item.collection}
-              </Text>
-            )}
+
             <Text>
               <strong>Color:</strong> {item.options.color}
             </Text>
@@ -193,7 +186,11 @@ export default function CartItem({ item }) {
                 </span>
               </Text>
               <Text
-                style={removeItemStyle}
+                textAlign={'right'}
+                cursor={'pointer'}
+                color={color}
+                fontSize={'0.75em'}
+                marginBottom={'5px'}
                 onClick={() => {
                   handleRemoveFromCart();
                 }}>

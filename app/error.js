@@ -2,7 +2,6 @@
 
 // recoil
 import { useSetRecoilState } from 'recoil';
-import { loadingState } from '@/app/loading';
 
 // hooks
 import { useEffect } from 'react';
@@ -16,15 +15,14 @@ import {
   Text,
   Heading,
   Link,
+  Code,
+  VStack,
 } from '@chakra-ui/react';
 
 export default function Error({ error, reset }) {
-  const setLoading = useSetRecoilState(loadingState);
-
   useEffect(() => {
     console.error(error);
-    setLoading(false);
-  }, [error, setLoading]);
+  }, [error]);
 
   return (
     <Container p={'5rem 1rem'}>
@@ -42,18 +40,20 @@ export default function Error({ error, reset }) {
         fontWeight={800}>
         Oops... That&apos;s an error
       </Heading>
-      <Text mb={'2rem'}>
+      <Text mb={'0.5rem'}>
         We couldn&apos;t make that request. Please try again.
       </Text>
+      <Code
+        mb={'2rem'}
+        colorScheme={'red'}>
+        Error: {error.name}
+        <br /> Message: {error.message}
+      </Code>
       <Box>
         <Button
-          _hover={{
-            outline: '1px solid var(--lightOrange, #F8AD4F)',
-            borderRadius: 'var(--mainBorderRadius)',
-          }}
           onClick={() => reset()}
           mr={'1rem'}
-          background={'var(--midOrange)'}>
+          colorScheme={'orange'}>
           Try again
         </Button>
         <Link
@@ -62,9 +62,7 @@ export default function Error({ error, reset }) {
           href={'/'}>
           <Button
             variant={'ghost'}
-            _hover={{
-              background: 'var(--lightBlue)',
-            }}
+            colorScheme={'blue'}
             mr={'1rem'}>
             Return home
           </Button>

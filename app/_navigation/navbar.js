@@ -10,18 +10,15 @@ import { useEffect } from 'react';
 import { useIsMobile } from '@/app/_lib/hooks/useIsMobile';
 import { useAuth } from '@/app/_lib/hooks/useAuth';
 
-// Supabase
-import { createClient } from '@/app/_lib/utils/supabase/client';
-
 // chakra-ui
-import { Flex, Box } from '@chakra-ui/react';
+import { Flex, Box, useColorModeValue } from '@chakra-ui/react';
 
 // local components
 import Logo from '../_components/branding/logo';
 import DesktopNav from './desktopNav';
 import MobileNav from './mobileNav';
+import ArtistToggle from '@/app/_components/interactive/artistToggle';
 import { routes } from './routes';
-import LoadingDiv from '../_components/interactive/loadingDiv';
 
 export default function Navbar() {
   const { loading } = useAuth();
@@ -47,6 +44,9 @@ export default function Navbar() {
     }
   }, [loading, user, loggedIn, router, isAuth, isUserPage, pathname]);
 
+  const bg = useColorModeValue('blue.50', 'gray.800');
+  const borderColor = useColorModeValue('orange.300', 'gray.600');
+
   return (
     <>
       <Box
@@ -55,22 +55,27 @@ export default function Navbar() {
         top={'0'}>
         <Flex
           zIndex={1000}
-          background={'blue.50'}
+          background={bg}
           backdropFilter={'blur(10px) saturate(100%)'}
           w={'100%'}
           p={'0.75rem'}
-          borderBottom={'1px solid var(--lightOrange)'}>
+          borderBottom={'1px solid'}
+          borderColor={borderColor}>
           <Flex
             w={'100%'}
             align={'center'}
             justify={{ base: 'space-between' }}>
             <Logo />
+
             {loading ? (
-              <LoadingDiv />
+              <></>
             ) : isMobile ? (
               <MobileNav routes={routes} />
             ) : (
-              <DesktopNav routes={routes} />
+              <>
+                <ArtistToggle />
+                <DesktopNav routes={routes} />
+              </>
             )}
           </Flex>
         </Flex>

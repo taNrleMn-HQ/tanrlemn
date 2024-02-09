@@ -9,13 +9,13 @@ import { useAnimate } from 'framer-motion';
 // components
 import { Box, Link, Image, Heading, Text, Tag } from '@chakra-ui/react';
 
-export default function ProductCard({ product, collection }) {
+export default function ProductCard({ product }) {
   const [scope, animate] = useAnimate();
   const windowSize = useWindowWidth();
   const isMobile = useIsMobile();
 
   const slug = product.slug;
-  const mainImage = isMobile ? product.small_thumbnail : product.image_url;
+  const mainImage = product.main_image;
   const hasAdditionalImages = product.additional_images !== null;
 
   const limitedEdition = product.limited_edition;
@@ -67,50 +67,8 @@ export default function ProductCard({ product, collection }) {
     };
   }, [product, hasAdditionalImages, hovering, animate, mainImage, scope]);
 
-  collection =
-    collection !== null
-      ? collection.collection.charAt(0).toUpperCase() +
-        collection.collection.slice(1)
-      : null;
-
-  const collectionName =
-    collection === 'Exclusive'
-      ? `${collection} Collection – Hug & Up`
-      : `${collection} Collection`;
-
   const imageWidth = !isMobile ? windowSize / 3.5 : windowSize / 2.5;
   const imageHeight = imageWidth * 1.25;
-
-  const cardStyles = {
-    borderBottom:
-      collection === 'Exclusive'
-        ? 'var(--exclusive-border)'
-        : collection == 'General'
-        ? 'none'
-        : 'var(--collection-border)',
-  };
-
-  const imageStyles = {
-    opacity: 0,
-    position: 'absolute',
-    top: 0,
-    left: 0,
-  };
-
-  const tagStyles = {
-    backgroundColor:
-      collection === 'Exclusive'
-        ? 'var(--orange-lightest)'
-        : collection == 'General'
-        ? 'transparent'
-        : 'var(--pink-light)',
-    border:
-      collection === 'Exclusive'
-        ? '1px solid var(--orange-mid)'
-        : collection == 'General'
-        ? 'var(--blue-light-border)'
-        : 'none',
-  };
 
   const saleStyles = {
     textDecoration: 'line-through',
@@ -130,15 +88,17 @@ export default function ProductCard({ product, collection }) {
           src={mainImage}
           width={imageWidth}
           height={imageHeight}
-          style={cardStyles}
-          alt={`image for ${product.title}`}
+          alt={`image for ${product.name}`}
         />
         <Image
           src={additionalImages[1]}
           width={imageWidth}
           height={imageHeight}
-          style={imageStyles}
-          alt={`image for ${product.title}`}
+          opacity={0}
+          position={'absolute'}
+          top={0}
+          left={0}
+          alt={`image for ${product.name}`}
           ref={scope}
         />
       </Link>
@@ -150,7 +110,7 @@ export default function ProductCard({ product, collection }) {
           <Heading
             mb={'0.1rem'}
             size={'md'}>
-            {product.title}
+            {product.name}
           </Heading>
           <Text mb={'0.5rem'}>
             <span style={onSale ? saleStyles : null}>
@@ -190,11 +150,6 @@ export default function ProductCard({ product, collection }) {
             </Box>
           )}
         </Box>
-        {collection !== null && (
-          <Link href={`shop/collections/${collection.toLowerCase()}`}>
-            <Text style={tagStyles}>{collectionName}</Text>
-          </Link>
-        )}
       </Box>
     </Box>
   );

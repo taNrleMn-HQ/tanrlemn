@@ -7,7 +7,7 @@ import { atomFamily, useRecoilState } from 'recoil';
 import { useEffect } from 'react';
 
 // chakra-ui
-import { Box, Flex } from '@chakra-ui/react';
+import { Box } from '@chakra-ui/react';
 
 // local components
 import Lottie from 'lottie-react';
