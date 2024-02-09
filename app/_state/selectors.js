@@ -1,6 +1,8 @@
-// Define a selector to derive a simplified user profile
 import { selector, selectorFamily } from 'recoil';
-import { profileState, cartState, productsState } from './atoms';
+import { profileState, cartState, productsState, artistState } from './atoms';
+
+// chakra-ui
+import { useColorMode } from '@chakra-ui/react';
 
 // auth selectors
 export const userProfileSelector = selector({
@@ -12,7 +14,6 @@ export const userProfileSelector = selector({
 });
 
 // ecommerce selectors
-
 export const cartItemsSelector = selector({
   key: 'cartItemsState',
   get: ({ get }) => {
@@ -104,6 +105,7 @@ export const enrichedProductsSelector = selector({
           num_editions: product.metadata.num_editions || null,
           num_available: product.metadata.num_available || null,
           collection: product.metadata.collection || null,
+          artwork_date: product.metadata.artwork_date || null,
         };
       })
     );
@@ -155,6 +157,7 @@ export const shopProductsSelector = selector({
             num_editions: product.metadata.num_editions || null,
             num_available: product.metadata.num_available || null,
             collection: product.metadata.collection || null,
+            artwork_date: product.metadata.artwork_date || null,
           };
         })
     );
@@ -182,4 +185,14 @@ export const singleProductSelector = selectorFamily({
 
       return product;
     },
+});
+
+// ui selectors
+export const artistSelector = selector({
+  key: 'artistSelector',
+  get: ({ get }) => {
+    const artist = get(artistState);
+
+    return artist;
+  },
 });

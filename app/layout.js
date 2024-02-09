@@ -1,9 +1,11 @@
 import '@/app/globals.css';
 
+// next
+import { cookies } from 'next/headers';
+
 // providers
 import { ThemeProvider } from './_lib/context/ThemeProvider';
 import { RecoilRootProvider } from './_lib/context/RecoilRoot';
-import { Suspense } from 'react';
 
 // local components
 import Footer from './_navigation/footer';
@@ -47,16 +49,15 @@ export const metadata = {
 };
 
 export default async function RootLayout({ children }) {
+  const cookieStore = cookies();
   return (
     <html lang='en'>
       <body>
         <RecoilRootProvider>
-          <ThemeProvider>
-            <Suspense fallback={<div>Loading...</div>}>
-              <Navbar />
-              {children}
-              <Footer />
-            </Suspense>
+          <ThemeProvider cookies={cookieStore}>
+            <Navbar />
+            {children}
+            <Footer />
           </ThemeProvider>
         </RecoilRootProvider>
       </body>

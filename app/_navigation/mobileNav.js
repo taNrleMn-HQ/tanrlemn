@@ -17,18 +17,22 @@ import {
   VStack,
   Heading,
   Box,
+  useColorModeValue,
 } from '@chakra-ui/react';
-import { Menu } from 'lucide-react';
+import { Menu, ShoppingBagIcon } from 'lucide-react';
 
 // local components
 import AccountButton from '../_components/interactive/accountButton';
 import Logo from '../_components/branding/logo';
-import ShoppingBag from '../_components/icons/shoppingBag';
+import ArtistToggle from '../_components/interactive/artistToggle';
 
 export default function MobileNavbar({ routes }) {
   const { numCartItems } = useCart();
 
   const { isOpen, onOpen, onClose } = useDisclosure();
+
+  const bagColor = useColorModeValue('gray.800', 'gray.200');
+  const bg = useColorModeValue('red.300', 'orange.400');
 
   return (
     <>
@@ -36,16 +40,14 @@ export default function MobileNavbar({ routes }) {
         align={'center'}
         gap={'1rem'}>
         <Link
-          _hover={{
-            textDecoration: 'none',
-            background: 'var(--lightestBlue)',
-          }}
           p={'0.4rem 0.8rem'}
           borderRadius={'full'}
           href='/cart'
           ml={'1rem'}>
           <Flex>
-            <ShoppingBag />
+            <Box color={bagColor}>
+              <ShoppingBagIcon size={17} />
+            </Box>
             {numCartItems > 0 && (
               <Box
                 position={'relative'}
@@ -53,7 +55,7 @@ export default function MobileNavbar({ routes }) {
                 left={'-0.2rem'}
                 w={'0.6rem'}
                 h={'0.6rem'}
-                background={'var(--orangeAlt)'}
+                background={bg}
                 borderRadius={'100px'}></Box>
             )}
           </Flex>
@@ -72,6 +74,7 @@ export default function MobileNavbar({ routes }) {
           <DrawerCloseButton />
           <DrawerHeader>
             <Logo p={0} />
+            <ArtistToggle />
           </DrawerHeader>
           <DrawerBody
             minH={'50vh'}
@@ -108,9 +111,8 @@ const NavLink = ({ name, path, icon, target, index, routesLength }) => {
   return (
     <Link
       w={'100%'}
-      borderBottom={
-        index === routesLength - 1 ? 'none' : '1px solid var(--lightGray)'
-      }
+      borderBottom={index === routesLength - 1 ? 'none' : '1px solid'}
+      borderColor={'gray.200'}
       position={'relative'}
       textDecoration={'none'}
       _hover={{

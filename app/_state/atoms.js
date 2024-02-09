@@ -30,3 +30,8 @@ export const isLoadingState = atom({
   key: 'isLoadingState',
   default: true,
 });
+
+export const artistState = atom({
+  key: 'artistState',
+  default: 'tanrlemn',
+});

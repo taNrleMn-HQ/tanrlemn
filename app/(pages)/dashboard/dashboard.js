@@ -53,7 +53,6 @@ export default function Dashboard() {
 
       const { url } = await response.json();
 
-      console.log(url);
       setBillingSessionUrl(url);
       setLoadingBillingSession(false);
     };
@@ -116,24 +115,19 @@ export default function Dashboard() {
                 <Button
                   isLoading={loadingBillingSession}
                   onClick={handleManageBilling}
-                  _hover={{
-                    outline: '1px solid var(--blue)',
-                  }}
+                  colorScheme={'blue'}
                   size={'sm'}
-                  maxW={'fit-content'}
-                  background={'var(--lightBlue)'}>
+                  maxW={'fit-content'}>
                   Manage subscriptions
                 </Button>
               ) : (
                 <Button
                   isLoading={loadingBillingSession}
                   onClick={() => router.push('/subscriptions')}
-                  _hover={{
-                    outline: '1px solid var(--blue)',
-                  }}
+                  colorScheme={'blue'}
+                  variant={'outline'}
                   size={'sm'}
-                  maxW={'fit-content'}
-                  background={'var(--lightBlue)'}>
+                  maxW={'fit-content'}>
                   Find a plan
                 </Button>
               )}

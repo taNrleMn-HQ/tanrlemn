@@ -32,14 +32,12 @@ export default function GooeyBalls() {
         </defs>
         <g filter='url(#spinner-gF00)'>
           <circle
-            fill='var(--midOrangeAlt)'
             className='spinner_mHwL'
             cx='4'
             cy='12'
             r='3'
           />
           <circle
-            fill='var(--lightOrange)'
             className='spinner_ote2'
             cx='15'
             cy='12'

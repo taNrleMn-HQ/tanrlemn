@@ -74,13 +74,9 @@ export default function Gallery() {
                 maxW={'fit-content'}
                 href={'/commissions'}>
                 <Button
-                  _hover={{
-                    outline: '1px solid var(--lightOrange, #F8AD4F)',
-                    borderRadius: 'var(--mainBorderRadius)',
-                  }}
+                  colorScheme={'purple'}
                   mr={'1rem'}
-                  rightIcon={<MoveRight />}
-                  background={'var(--midOrange)'}>
+                  rightIcon={<MoveRight />}>
                   Request a commission
                 </Button>
               </Link>

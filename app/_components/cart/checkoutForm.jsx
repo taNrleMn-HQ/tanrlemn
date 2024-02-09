@@ -15,13 +15,17 @@ import {
   Heading,
   Text,
   VStack,
+  useColorModeValue,
+  useToast,
 } from '@chakra-ui/react';
 
 export default function CheckoutForm() {
+  const toast = useToast();
   const [loadingCheckout, setLoadingCheckout] = useState(false);
 
   const { cart, numCartItems, cartTotal } = useCart();
   const [checkoutSession, setCheckoutSession] = useState(null);
+  const [isError, setIsError] = useState(false);
 
   const [subtotal, setSubtotal] = useState(null);
   const [shipping, setShipping] = useState(null);
@@ -31,6 +35,21 @@ export default function CheckoutForm() {
   const router = useRouter();
 
   useEffect(() => {
+    if (isError) {
+      toast({
+        title: 'Error',
+        description: 'There was an error processing your order.',
+        status: 'error',
+        duration: 5000,
+        isClosable: true,
+      });
+
+      setTimeout(() => {
+        setLoadingCheckout(false);
+        setIsError(false);
+      }, 3000);
+    }
+
     if (checkoutSession) {
       setLoadingCheckout(true);
 
@@ -60,23 +79,29 @@ export default function CheckoutForm() {
     tax,
     subtotal,
     setLoadingCheckout,
+    isError,
+    toast,
   ]);
 
   const handleCheckout = async () => {
     const getCheckoutSession = async () => {
-      const res = await fetch('/api/stripe/checkoutSession', {
-        method: 'POST',
-        body: JSON.stringify({
-          origin: fullPagePath,
-          cart: cart,
-        }),
-      });
+      try {
+        const res = await fetch('/api/stripe/checkoutSession', {
+          method: 'POST',
+          body: JSON.stringify({
+            origin: fullPagePath,
+            cart: cart,
+          }),
+        });
 
-      const { url } = await res.json();
+        const { url } = await res.json();
 
-      setLoadingCheckout(false);
+        setLoadingCheckout(false);
 
-      setCheckoutSession(url);
+        setCheckoutSession(url);
+      } catch (error) {
+        setIsError(error);
+      }
     };
 
     if (checkoutSession === null) {
@@ -90,13 +115,16 @@ export default function CheckoutForm() {
     textAlign: 'right',
   };
 
+  const borderColor = useColorModeValue('orange.200', 'gray.600');
+
   return (
     <FormControl
       p={'1rem'}
       position={{ base: 'relative', md: 'sticky' }}
       top={{ base: '0', md: '5rem' }}
-      borderRadius={'var(--mainBorderRadius)'}
-      border={'1px solid var(--lighterOrange)'}>
+      borderRadius={'9px'}
+      border={'1px solid'}
+      borderColor={borderColor}>
       <Heading size={'md'}>Order Summary</Heading>
       <Divider m={'0.75rem 0'} />
       {subtotal !== null &&
@@ -131,7 +159,7 @@ export default function CheckoutForm() {
               <Flex
                 w={'100%'}
                 justify={'space-between'}
-                color={'var(--darkest-gray)'}
+                color={'gray.7800'}
                 fontWeight={600}>
                 <Text>Total</Text>
                 <Text style={alignRight}>{`$${cartTotal.total.toFixed(
@@ -140,11 +168,11 @@ export default function CheckoutForm() {
               </Flex>
             </VStack>
             <Button
-              isLoading={loadingCheckout}
+              isLoading={!isError && loadingCheckout}
               w={'100%'}
-              colorScheme={'blue'}
+              colorScheme={isError ? 'red' : 'blue'}
               onClick={(e) => handleCheckout(e)}>
-              Proceed to Checkout
+              {isError ? 'Error' : 'Proceed to Checkout'}
             </Button>
           </>
         )}

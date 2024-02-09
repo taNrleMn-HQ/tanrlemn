@@ -23,8 +23,7 @@ export default function Home() {
       flexDirection={{ base: 'column', md: 'row' }}
       p={{ base: '4rem 1rem', md: ' 4rem 1rem' }}
       align={'center'}
-      justify={'space-around'}
-      background={'var(--lightestBlue30)'}>
+      justify={'space-around'}>
       <Stack
         maxW={{ base: '100%', md: '550px' }}
         p={{ base: '0', md: '2rem' }}
@@ -32,15 +31,15 @@ export default function Home() {
         <Link
           maxW={'fit-content'}
           borderRadius={'full'}
-          background={'var(--lightestGreen)'}
           p={'0.35rem 1rem 0.35rem 0.5rem'}
+          pl={0}
           mb={'0.35rem'}
           href={'/commissions'}
           display={'flex'}
           transition={'all 0.2s ease-in-out'}
           _hover={{
             textDecoration: 'none',
-            background: 'var(--lightestGreen)',
+            background: 'green.100',
             padding: '0.35rem 1.5rem 0.35rem 0.5rem',
           }}>
           <Tag
@@ -78,21 +77,13 @@ export default function Home() {
             href={'/shop'}
             maxW={'fit-content'}>
             <Button
-              _hover={{
-                outline: '1px solid var(--lightOrange, #F8AD4F)',
-                borderRadius: 'var(--mainBorderRadius)',
-              }}
               mr={'1rem'}
-              background={'var(--midOrange)'}>
+              colorScheme={'purple'}>
               Shop now
             </Button>
           </Link>
           <Link href={'/gallery'}>
             <Button
-              _hover={{
-                outline: '1px solid var(--lightOrange)',
-                borderRadius: 'var(--mainBorderRadius)',
-              }}
               colorScheme={'gray'}
               leftIcon={<BookImage size={20} />}>
               View works
@@ -101,6 +92,7 @@ export default function Home() {
         </Flex>
       </Stack>
       <Stack
+        maxW={{ base: '100%', md: '50%' }}
         m={{ base: '0', md: '1rem' }}
         mr={{ base: '0' }}
         p={{ base: '0', md: '1rem' }}

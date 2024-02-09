@@ -18,6 +18,7 @@ import {
   Link,
   Container,
   Tag,
+  useColorModeValue,
 } from '@chakra-ui/react';
 
 // local components
@@ -30,10 +31,12 @@ export default function AuthUI() {
 
   const supabase = createClient();
 
+  const bg = useColorModeValue('blue.50', 'gray.800');
+
   return (
     <>
       <Flex
-        background={'blue.50'}
+        background={bg}
         direction={{ base: 'column', md: 'row' }}
         minH={'93vh'}
         align={'center'}>

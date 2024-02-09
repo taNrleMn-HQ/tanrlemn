@@ -5,7 +5,6 @@ import { useRecoilValue } from 'recoil';
 import { shopProductsSelector } from '@/app/_state/selectors';
 
 // hooks
-import { useQueryState } from 'next-usequerystate';
 import { useProducts } from '@/app/_lib/hooks/useProducts';
 
 // chakra-ui
@@ -18,8 +17,6 @@ import LoadingDiv from '@/app/_components/interactive/loadingDiv';
 export default function Shop() {
   const { loading } = useProducts();
   const shopProducts = useRecoilValue(shopProductsSelector);
-
-  const [category, setCategory] = useQueryState('category');
 
   const categoryText = {
     all: 'Shop All of taNrleMn',
@@ -46,7 +43,7 @@ export default function Shop() {
       {shopProducts !== null && (
         <Box>
           <Box mb={'1.5rem'}>
-            <Heading>{categoryText[category]}</Heading>
+            <Heading>{categoryText[null]}</Heading>
             <Text>
               {shopProducts.length === 1
                 ? `${shopProducts.length} product`
