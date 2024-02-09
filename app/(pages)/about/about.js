@@ -15,10 +15,12 @@ import {
   Container,
   Button,
   Highlight,
+  useColorModeValue,
 } from '@chakra-ui/react';
 import { MoveRight } from 'lucide-react';
 
 export default function About() {
+  const color = useColorModeValue('purple.500', 'purple.300');
   return (
     <Box
       p={{ base: '3rem 0', md: '6rem 3rem' }}
@@ -46,7 +48,7 @@ export default function About() {
             mb={'1rem'}
             size={'4xl'}
             fontWeight={800}
-            color={'purple.500'}>
+            color={color}>
             A world that never sleeps.
           </Heading>
 
@@ -55,6 +57,7 @@ export default function About() {
               query={'taNrleMn'}
               styles={{
                 fontWeight: 600,
+                color: color,
               }}>
               taNrleMn is an oil painter who is passionately committed to
               capturing the vibrancy of the world around us. As a self-taught
@@ -99,6 +102,7 @@ export default function About() {
               query={'taNrleMn'}
               styles={{
                 fontWeight: 600,
+                color: color,
               }}>
               As we navigate the pain passed down through generations, we
               journey through life in search of answers to heal or make the pain
@@ -113,6 +117,7 @@ export default function About() {
               query={'taNrleMn'}
               styles={{
                 fontWeight: 600,
+                color: color,
               }}>
               taNrleMn&apos;s artistry delves into the complex relationship
               between the profound pain that unites us and the visible, shared
@@ -127,6 +132,7 @@ export default function About() {
               query={'taNrleMn'}
               styles={{
                 fontWeight: 600,
+                color: color,
               }}>
               People serve as beacons of inspiration, brimming with the beauty
               and anguish of existence. For taNrleMn, painting becomes a medium

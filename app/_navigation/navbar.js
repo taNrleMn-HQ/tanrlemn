@@ -11,7 +11,7 @@ import { useIsMobile } from '@/app/_lib/hooks/useIsMobile';
 import { useAuth } from '@/app/_lib/hooks/useAuth';
 
 // chakra-ui
-import { Flex, Box } from '@chakra-ui/react';
+import { Flex, Box, useColorModeValue } from '@chakra-ui/react';
 
 // local components
 import Logo from '../_components/branding/logo';
@@ -44,6 +44,9 @@ export default function Navbar() {
     }
   }, [loading, user, loggedIn, router, isAuth, isUserPage, pathname]);
 
+  const bg = useColorModeValue('blue.50', 'gray.800');
+  const borderColor = useColorModeValue('orange.300', 'gray.600');
+
   return (
     <>
       <Box
@@ -52,24 +55,27 @@ export default function Navbar() {
         top={'0'}>
         <Flex
           zIndex={1000}
-          background={'blue.50'}
+          background={bg}
           backdropFilter={'blur(10px) saturate(100%)'}
           w={'100%'}
           p={'0.75rem'}
           borderBottom={'1px solid'}
-          borderColor={'orange.300'}>
+          borderColor={borderColor}>
           <Flex
             w={'100%'}
             align={'center'}
             justify={{ base: 'space-between' }}>
             <Logo />
-            <ArtistToggle />
+
             {loading ? (
               <></>
             ) : isMobile ? (
               <MobileNav routes={routes} />
             ) : (
-              <DesktopNav routes={routes} />
+              <>
+                <ArtistToggle />
+                <DesktopNav routes={routes} />
+              </>
             )}
           </Flex>
         </Flex>

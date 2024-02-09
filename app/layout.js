@@ -1,5 +1,8 @@
 import '@/app/globals.css';
 
+// next
+import { cookies } from 'next/headers';
+
 // providers
 import { ThemeProvider } from './_lib/context/ThemeProvider';
 import { RecoilRootProvider } from './_lib/context/RecoilRoot';
@@ -46,11 +49,12 @@ export const metadata = {
 };
 
 export default async function RootLayout({ children }) {
+  const cookieStore = cookies();
   return (
     <html lang='en'>
       <body>
         <RecoilRootProvider>
-          <ThemeProvider>
+          <ThemeProvider cookies={cookieStore}>
             <Navbar />
             {children}
             <Footer />

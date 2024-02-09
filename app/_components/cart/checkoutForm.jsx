@@ -15,6 +15,7 @@ import {
   Heading,
   Text,
   VStack,
+  useColorModeValue,
   useToast,
 } from '@chakra-ui/react';
 
@@ -114,6 +115,8 @@ export default function CheckoutForm() {
     textAlign: 'right',
   };
 
+  const borderColor = useColorModeValue('orange.200', 'gray.600');
+
   return (
     <FormControl
       p={'1rem'}
@@ -121,7 +124,7 @@ export default function CheckoutForm() {
       top={{ base: '0', md: '5rem' }}
       borderRadius={'9px'}
       border={'1px solid'}
-      borderColor={'orange.200'}>
+      borderColor={borderColor}>
       <Heading size={'md'}>Order Summary</Heading>
       <Divider m={'0.75rem 0'} />
       {subtotal !== null &&

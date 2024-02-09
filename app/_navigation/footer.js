@@ -13,6 +13,7 @@ import {
   Stack,
   Link,
   Highlight,
+  useColorModeValue,
 } from '@chakra-ui/react';
 import Instagram from '../_components/icons/instagram';
 
@@ -27,14 +28,18 @@ export default function Footer() {
     setIsClient(true);
   }, []);
 
+  const bg = useColorModeValue('blue.50', 'gray.800');
+  const color = useColorModeValue('orange.400', 'purple.200');
+  const borderColor = useColorModeValue('orange.300', 'gray.600');
+
   return (
     <>
       {!isAuth && isClient && (
         <footer>
           <Box
-            background={'blue.50'}
+            background={bg}
             borderTop={'1px solid'}
-            borderColor={'blue.200'}>
+            borderColor={borderColor}>
             <Flex
               flexDirection={{ base: 'column', md: 'row' }}
               p={{ base: '4rem 2rem 2rem 2rem', md: '7rem 2rem 5rem 2rem' }}>
@@ -43,7 +48,7 @@ export default function Footer() {
                   base: '1px solid',
                   md: 'none',
                 }}
-                borderColor={'blue.100'}
+                borderColor={borderColor}
                 mb={{ base: '3rem', md: '0' }}
                 pb={{ base: '3rem', md: '0' }}
                 maxW={'25rem'}
@@ -51,7 +56,7 @@ export default function Footer() {
                 <Heading
                   mb={'0.25rem'}
                   size={'md'}
-                  color={'orange.400'}>
+                  color={color}>
                   _tL
                 </Heading>
                 <Text>
@@ -59,6 +64,7 @@ export default function Footer() {
                     query={"taNrleMn's"}
                     styles={{
                       fontWeight: 600,
+                      color: color,
                     }}>
                     taNrleMn&apos;s art explores the unity of shared pain and
                     the transformative power of connection.
@@ -70,7 +76,7 @@ export default function Footer() {
                     isExternal>
                     <Instagram
                       size={20}
-                      color={'purple.500'}
+                      color={color}
                       style={{ marginRight: '1rem' }}
                     />
                   </Link>
@@ -118,7 +124,7 @@ export default function Footer() {
             </Flex>
             <Flex
               borderTop={'1px solid'}
-              borderColor={'blue.100'}
+              borderColor={borderColor}
               justify={'center'}
               flexDirection={'column'}
               textAlign={'center'}

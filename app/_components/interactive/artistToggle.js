@@ -2,6 +2,9 @@
 import { useRecoilState } from 'recoil';
 import { artistState } from '@/app/_state/atoms';
 
+// hooks
+import { useEffect } from 'react';
+
 // chakra-ui
 import {
   useColorMode,
@@ -9,8 +12,9 @@ import {
   Switch,
   FormControl,
   FormLabel,
+  Box,
 } from '@chakra-ui/react';
-import { useEffect } from 'react';
+import { Mic2, Paintbrush2 } from 'lucide-react';
 
 export default function ArtistToggle() {
   const { colorMode, toggleColorMode } = useColorMode();
@@ -22,33 +26,26 @@ export default function ArtistToggle() {
 
   useEffect(() => {
     setArtist(colorMode === 'light' ? 'tanrlemn' : 'fakepete');
-    console.log('artist:', artist);
   }, [artist, colorMode, setArtist]);
 
   return (
     <FormControl
       display='flex'
       alignItems='center'>
-      <FormLabel
-        fontSize={'0.8rem'}
-        fontWeight={artist === 'tanrlemn' ? 600 : 400}
-        htmlFor='artist'
-        mb='0'>
-        taNrleMn
-      </FormLabel>
+      <Box color={artist === 'tanrlemn' ? 'orange.500' : 'gray.400'}>
+        <Paintbrush2 size={17} />
+      </Box>
       <Switch
+        mx={'0.5rem'}
+        isChecked={artist === 'fakepete'}
         id='artist'
         onChange={handleToggle}
-        colorScheme={'orange'}
-        size={'lg'}
+        colorScheme={'purple'}
+        size={'sm'}
       />
-      <FormLabel
-        fontSize={'0.8rem'}
-        fontWeight={artist === 'fakepete' ? 600 : 400}
-        htmlFor='artist'
-        mb='0'>
-        Fake Pete
-      </FormLabel>
+      <Box color={artist === 'fakepete' ? 'purple.300' : 'gray.500'}>
+        <Mic2 size={17} />
+      </Box>
     </FormControl>
   );
 }

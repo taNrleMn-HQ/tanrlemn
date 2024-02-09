@@ -92,6 +92,7 @@ export default function Home() {
         </Flex>
       </Stack>
       <Stack
+        maxW={{ base: '100%', md: '50%' }}
         m={{ base: '0', md: '1rem' }}
         mr={{ base: '0' }}
         p={{ base: '0', md: '1rem' }}

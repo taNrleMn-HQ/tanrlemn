@@ -57,15 +57,12 @@ export default function ProductInfo({ product }) {
   const imageWidth = isMobile ? windowWidth - 40 : windowWidth / 3.7;
   const imageHeight = imageWidth * 1.25;
 
-  const collection = product.collection;
-
   const mainImage = product.main_image;
   const [currentImage, setCurrentImage] = useState(0);
   const [currentProductConfig, setCurrentProductConfig] = useState({
     qty: 1,
     size: '8 x 12',
     color: 'Multi',
-    collection: collection,
   });
   const [additionalImages, setAdditionalImages] = useState(null);
   const [imageElements, setImageElements] = useState(null);
@@ -132,9 +129,6 @@ export default function ProductInfo({ product }) {
   };
 
   const onSale = product.on_sale;
-
-  const collectionTagName =
-    collection === null ? 'Exclusive Collection' : 'General Release';
 
   const currentImageStyles = {
     outline: '1px solid',
@@ -277,7 +271,9 @@ export default function ProductInfo({ product }) {
 
               {isMobile && (
                 <>
-                  <Box w={'100%'}>
+                  <Box
+                    w={'100%'}
+                    my={'1rem'}>
                     {currentImage !== null && additionalImages !== null && (
                       <Slide {...sliderOptions}>
                         {sliderImages().map((slideImage) => {
@@ -285,8 +281,9 @@ export default function ProductInfo({ product }) {
                             <Image
                               key={slideImage.url}
                               src={slideImage.url}
-                              width={'100%'}
-                              height={'auto'}
+                              h={imageHeight}
+                              m={'auto'}
+                              objectFit={'contain'}
                               alt={`image for ${product.name}`}
                               style={{ objectFit: 'cover' }}
                             />
@@ -297,15 +294,10 @@ export default function ProductInfo({ product }) {
                   </Box>
                 </>
               )}
-              {collection !== null && (
-                <Link href={`/shop/collections/${collection.toLowerCase()}`}>
-                  See all of the {collection} Collection
-                </Link>
-              )}
-              <Heading size={'md'}></Heading>
               <FormControl>
                 {hasCartItem ? (
                   <Button
+                    mt={'1rem'}
                     colorScheme={'blue'}
                     size={'lg'}
                     onClick={() => {
@@ -316,18 +308,18 @@ export default function ProductInfo({ product }) {
                 ) : (
                   <>
                     <FormLabel htmlFor='size'>Size*</FormLabel>
-                    <Box
+                    <Tag
                       mb={'1rem'}
                       maxW={'fit-content'}
                       borderRadius='sm'
                       outline={'1px solid'}
                       outlineColor={'green.200'}
                       outlineOffset={'0.2rem'}
-                      background={'green.100'}
+                      colorScheme={'green'}
                       px={2}
                       py={1}>
                       {currentProductConfig.size}
-                    </Box>
+                    </Tag>
                     <FormLabel htmlFor='qty'>Qty*</FormLabel>
                     {currentProductConfig.qty && (
                       <NumberInput
@@ -359,15 +351,9 @@ export default function ProductInfo({ product }) {
                     </Button>
                   </>
                 )}
-                {collection !== null && (
-                  <Link href={`/shop/collections/${collection.toLowerCase()}`}>
-                    <div>Shop related items</div>
-                  </Link>
-                )}
               </FormControl>
               <ToCartModal
                 product={product}
-                collection={collection}
                 isOpen={isOpen}
                 onClose={onClose}
                 numCartItems={numCartItems}

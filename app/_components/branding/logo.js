@@ -1,17 +1,14 @@
 'use client';
 
 // chakra-ui
-import { Flex, Heading, Link, Box } from '@chakra-ui/react';
+import { Flex, Heading, Link, Box, useColorModeValue } from '@chakra-ui/react';
 
 // local components
 import Underscore from './underscore';
 
-export default function Logo({
-  color = 'gray.700',
-  shouldLink = true,
-  text = 'taNrleMn',
-  p = '0.3125rem 1.4375rem',
-}) {
+export default function Logo({ shouldLink = true, p = '0.3125rem 1.4375rem' }) {
+  const text = useColorModeValue('taNrleMn', 'Fake Pete');
+  const color = useColorModeValue('gray.700', 'gray.300');
   return (
     <>
       {shouldLink ? (
@@ -59,6 +56,7 @@ export const LogoContent = ({ color, text, p }) => {
         mr={'0.125rem'}
         color={color}
         fontWeight={700}
+        whiteSpace={'nowrap'}
         lineHeight={'1.56288rem'}
         letterSpacing={'-0.02688rem'}
         size={'md'}>

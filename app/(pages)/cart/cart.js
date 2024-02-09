@@ -18,6 +18,7 @@ import {
   Heading,
   Link,
   Text,
+  useColorModeValue,
   useToast,
 } from '@chakra-ui/react';
 
@@ -87,6 +88,8 @@ export default function Cart() {
     toast,
   ]);
 
+  const borderColor = useColorModeValue('orange.200', 'gray.600');
+
   return (
     <Box>
       {success && <OrderSuccess />}
@@ -105,7 +108,7 @@ export default function Cart() {
                     w={'100%'}
                     mb={'1.5rem'}
                     borderBottom={'1px solid'}
-                    borderBottomColor={'orange.200'}>
+                    borderBottomColor={borderColor}>
                     <Box mb={'1rem'}>
                       <Heading>Shopping Bag</Heading>
                     </Box>
@@ -115,7 +118,7 @@ export default function Cart() {
                       {!isMobile && (
                         <Grid
                           borderBottom={'1px solid'}
-                          borderBottomColor={'orange.200'}
+                          borderBottomColor={borderColor}
                           mb={'1rem'}
                           templateColumns={'1fr 2fr repeat(3, 1fr)'}
                           gap={5}

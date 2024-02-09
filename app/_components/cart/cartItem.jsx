@@ -19,6 +19,7 @@ import {
   Text,
   Heading,
   VStack,
+  useColorModeValue,
 } from '@chakra-ui/react';
 
 // local components
@@ -69,10 +70,13 @@ export default function CartItem({ item }) {
     textDecoration: 'line-through',
   };
 
+  const borderColor = useColorModeValue('orange.200', 'gray.600');
+  const color = useColorModeValue('gray.800', 'gray.500');
+
   return (
     <Grid
       borderBottom={'1px solid'}
-      borderColor={'orange.200'}
+      borderColor={borderColor}
       pb={'1.5rem'}
       templateColumns={{
         base: '1fr 2fr 1fr',
@@ -105,11 +109,7 @@ export default function CartItem({ item }) {
                 {item.name}
               </Heading>
             </Link>
-            {item.collection && (
-              <Text>
-                <strong>Collection:</strong> {item.collection}
-              </Text>
-            )}
+
             <Text>
               <strong>Color:</strong> {item.options.color}
             </Text>
@@ -188,7 +188,7 @@ export default function CartItem({ item }) {
               <Text
                 textAlign={'right'}
                 cursor={'pointer'}
-                color={'gray.700'}
+                color={color}
                 fontSize={'0.75em'}
                 marginBottom={'5px'}
                 onClick={() => {
