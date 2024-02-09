@@ -21,7 +21,6 @@ export default function ProductCard({ product }) {
   const limitedEdition = product.limited_edition;
   const numEditions = product.num_editions;
   const numAvailable = product.num_available;
-  const collection = product.collection;
 
   const onSale = product.on_sale;
 
@@ -68,42 +67,8 @@ export default function ProductCard({ product }) {
     };
   }, [product, hasAdditionalImages, hovering, animate, mainImage, scope]);
 
-  const collectionName =
-    collection === null ? 'Exclusive Collection' : 'General Release';
-
   const imageWidth = !isMobile ? windowSize / 3.5 : windowSize / 2.5;
   const imageHeight = imageWidth * 1.25;
-
-  const cardStyles = {
-    borderBottom:
-      collection === 'Exclusive'
-        ? 'var(--exclusive-border)'
-        : collection == 'General'
-        ? 'none'
-        : 'var(--collection-border)',
-  };
-
-  const imageStyles = {
-    opacity: 0,
-    position: 'absolute',
-    top: 0,
-    left: 0,
-  };
-
-  const tagStyles = {
-    backgroundColor:
-      collection === 'Exclusive'
-        ? 'var(--orange-lightest)'
-        : collection == 'General'
-        ? 'transparent'
-        : 'var(--pink-light)',
-    border:
-      collection === 'Exclusive'
-        ? '1px solid var(--orange-mid)'
-        : collection == 'General'
-        ? 'var(--blue-light-border)'
-        : 'none',
-  };
 
   const saleStyles = {
     textDecoration: 'line-through',
@@ -123,14 +88,16 @@ export default function ProductCard({ product }) {
           src={mainImage}
           width={imageWidth}
           height={imageHeight}
-          style={cardStyles}
           alt={`image for ${product.name}`}
         />
         <Image
           src={additionalImages[1]}
           width={imageWidth}
           height={imageHeight}
-          style={imageStyles}
+          opacity={0}
+          position={'absolute'}
+          top={0}
+          left={0}
           alt={`image for ${product.name}`}
           ref={scope}
         />
@@ -183,11 +150,6 @@ export default function ProductCard({ product }) {
             </Box>
           )}
         </Box>
-        {collection !== null && (
-          <Link href={`shop/collections/${collection.toLowerCase()}`}>
-            <Text style={tagStyles}>{collectionName}</Text>
-          </Link>
-        )}
       </Box>
     </Box>
   );

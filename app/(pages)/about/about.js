@@ -15,10 +15,12 @@ import {
   Container,
   Button,
   Highlight,
+  useColorModeValue,
 } from '@chakra-ui/react';
 import { MoveRight } from 'lucide-react';
 
 export default function About() {
+  const color = useColorModeValue('purple.500', 'purple.300');
   return (
     <Box
       p={{ base: '3rem 0', md: '6rem 3rem' }}
@@ -30,7 +32,8 @@ export default function About() {
         position={'relative'}>
         <Stack
           pb={'3rem'}
-          borderBottom={'1px solid var(--gray)'}
+          borderBottom={'1px solid'}
+          borderBottomColor={'gray.200'}
           mb={'4rem'}
           w={'100%'}>
           <Tag
@@ -45,7 +48,7 @@ export default function About() {
             mb={'1rem'}
             size={'4xl'}
             fontWeight={800}
-            color={'var(--purple)'}>
+            color={color}>
             A world that never sleeps.
           </Heading>
 
@@ -54,6 +57,7 @@ export default function About() {
               query={'taNrleMn'}
               styles={{
                 fontWeight: 600,
+                color: color,
               }}>
               taNrleMn is an oil painter who is passionately committed to
               capturing the vibrancy of the world around us. As a self-taught
@@ -72,13 +76,9 @@ export default function About() {
             maxW={'fit-content'}
             href={'/commissions'}>
             <Button
-              _hover={{
-                outline: '1px solid var(--lightOrange, #F8AD4F)',
-                borderRadius: 'var(--mainBorderRadius)',
-              }}
+              colorScheme={'purple'}
               mr={'1rem'}
-              rightIcon={<MoveRight />}
-              background={'var(--midOrange)'}>
+              rightIcon={<MoveRight />}>
               Request a commission
             </Button>
           </Link>
@@ -102,6 +102,7 @@ export default function About() {
               query={'taNrleMn'}
               styles={{
                 fontWeight: 600,
+                color: color,
               }}>
               As we navigate the pain passed down through generations, we
               journey through life in search of answers to heal or make the pain
@@ -116,6 +117,7 @@ export default function About() {
               query={'taNrleMn'}
               styles={{
                 fontWeight: 600,
+                color: color,
               }}>
               taNrleMn&apos;s artistry delves into the complex relationship
               between the profound pain that unites us and the visible, shared
@@ -130,6 +132,7 @@ export default function About() {
               query={'taNrleMn'}
               styles={{
                 fontWeight: 600,
+                color: color,
               }}>
               People serve as beacons of inspiration, brimming with the beauty
               and anguish of existence. For taNrleMn, painting becomes a medium

@@ -20,7 +20,8 @@ export const metadata = {
 
 export default function Page() {
   return (
-    <Suspense fallback={<div>Loading your cart...</div>}>
+    <Suspense
+      fallback={<div style={{ padding: '3rem' }}>Loading your cart...</div>}>
       <Cart />
     </Suspense>
   );

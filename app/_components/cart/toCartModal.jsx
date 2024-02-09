@@ -52,7 +52,7 @@ export default function ToCartModal({ product, isOpen, onClose }) {
                   display={'inline'}
                   query={product.name}
                   styles={{
-                    color: 'var(--darkBlue)',
+                    color: 'blue.500',
                     whiteSpace: 'pre-wrap',
                   }}>
                   {product.name}

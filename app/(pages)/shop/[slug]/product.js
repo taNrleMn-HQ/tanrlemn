@@ -29,12 +29,7 @@ export default function Product({ slug }) {
           id={'shop'}
         />
       )}
-      {!loading && product !== null && (
-        <ProductInfo
-          product={product}
-          collection={null}
-        />
-      )}
+      {!loading && product !== null && <ProductInfo product={product} />}
     </Box>
   );
 }

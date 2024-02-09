@@ -1,102 +1,3 @@
-:root {
-  /* Grays */
-  --white30: #ffffff4f;
-  --white: #fff;
-  --lightestGray: #f6f3ff;
-  --lighterGray: #e3dfee;
-  --lightGray: #b2adbe;
-  --grayAlt: #7b8692;
-  --gray: #6a747e;
-  --midGrayAlt: #4f5963;
-  --midGray: #253342;
-  --darkGray: #1a202c;
-  --darkGrayAlt: #111621;
-  --black: #010510;
-  --blackAlt: #161616;
-
-  /* Greens */
-  --lightestGreen: #e6f2e8;
-  --lighterGreen: #dbf1df;
-  --lightGreen: #b6e8be;
-  --lightGreen50: #b0eab980;
-  --midGreen: #66fe7d;
-  --neonGreen: #00ff26;
-  --green: #00e823;
-  --darkGreen: #00b51b;
-  --darkerGreen: #1a3a2d;
-
-  --teal: #00ffb6;
-
-  /* Blues */
-  --lightestBlue30: #eaf0f559;
-  --lightestBlue70: #eaf0f5bd;
-  --lightestBlue90: #e9f2ffb9;
-  --lightestBlue: #ebf6ff;
-  --lighterBlue: #c5def7;
-  --lightBlue: #afd8f2;
-  --midLightBlueAlt: #8bcffd;
-  --midLightBlue: #69c3ff;
-  --blue: #0098ff;
-  --neonBlue: #00e1ff;
-  --darkBlueAlt: #0085d8;
-  --darkBlue: #0081d9;
-  --darkBlue10: #0082d94a;
-  --darkBlue30: #0082d952;
-  --darkBlue50: #0082d984;
-  --darkerBlueAlt: #02568e;
-  --darkerBlue: #003456;
-  --darkestBlue: #071a35;
-  --darkestBlue30: #071a354d;
-  --darkestBlue90: #071a35d3;
-
-  /* Purples */
-  --lighterPurple: #eec7ff;
-  --lightPurple: #f5e1fe;
-  --purple: #9f19cf;
-  --midPurple: #8100af;
-  --lightNeonPurple: #bd67ff;
-  --neonPurple: #9000ff;
-  --darkPurple: #50008e;
-  --darkestPurple: #210735;
-
-  /* Pinks */
-  --lightPink: #f2ceec;
-  --pink: #ff00f5;
-
-  /* Reds */
-  --red: #fb0e0e;
-  --redAlt: #fd5858;
-  --lightRed: #ffc0c0;
-  --midRed: #cd1212;
-  --darkRed: #880404;
-
-  /* Yellows */
-  --yellow: #ffed28;
-  --boldYellow: #fec501;
-
-  /* Oranges */
-  --lightestOrange90: #f4efecd7;
-  --lightestOrange: #ffede4;
-  --lightOrange90: #f8ac4fbe;
-  --lighterOrange: #ffcc8d;
-  --lightOrange: #f8ad4f;
-  --midOrange: #ff9f29;
-  --midOrangeAlt: #fa8b35;
-  --orange: #ff7300;
-  --orangeAlt: #ff8528;
-  --darkOrange: #c25e0c;
-  --darkerOrange: #893100;
-
-  /* Misc */
-  --mainBorderRadius: 9px;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    color-scheme: dark;
-  }
-}
-
 *,
 *:before,
 *:after {
@@ -121,20 +22,13 @@ html body {
 }
 
 ::selection {
-  background: var(--lightOrange);
-}
-
-/* Stripe Pricing Table Styles */
-@media only screen and (max-width: 959px) {
-  .PricingTable.has-threeItems .PricingTable-grid {
-    max-width: 100% !important;
-  }
+  background: var(--chakra-colors-orange-300);
 }
 
 /* Scrollbar Styles */
 ::-webkit-scrollbar {
   width: 0.5rem;
-  background: var(--white30);
+  background: var(--chakra-colors-blackAlpha-300);
   backdrop-filter: blur(10px) saturate(100%);
 }
 
@@ -145,13 +39,8 @@ html body {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--lightOrange90);
+  background: var(--chakra-colors-orange-200);
   border-radius: 0.25rem;
-}
-
-::-webkit-scrollbar:horizontal {
-  height: 0.25rem;
-  outline: 1px solid var(--darkestPurple90);
 }
 
 /* Gooey Balls */

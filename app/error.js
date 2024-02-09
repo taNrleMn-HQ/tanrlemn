@@ -51,13 +51,9 @@ export default function Error({ error, reset }) {
       </Code>
       <Box>
         <Button
-          _hover={{
-            outline: '1px solid var(--lightOrange, #F8AD4F)',
-            borderRadius: 'var(--mainBorderRadius)',
-          }}
           onClick={() => reset()}
           mr={'1rem'}
-          background={'var(--midOrange)'}>
+          colorScheme={'orange'}>
           Try again
         </Button>
         <Link
@@ -66,9 +62,7 @@ export default function Error({ error, reset }) {
           href={'/'}>
           <Button
             variant={'ghost'}
-            _hover={{
-              background: 'var(--lightBlue)',
-            }}
+            colorScheme={'blue'}
             mr={'1rem'}>
             Return home
           </Button>

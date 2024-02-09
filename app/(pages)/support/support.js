@@ -40,7 +40,7 @@ export default function Support() {
             href='https://www.instagram.com/tanrlemn/'
             isExternal>
             <Instagram
-              color='gray.600'
+              color='gray.500'
               size={20}
               style={{ marginRight: '1rem' }}
             />

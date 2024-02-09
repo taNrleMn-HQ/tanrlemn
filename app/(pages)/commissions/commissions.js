@@ -29,6 +29,7 @@ import {
   Stack,
   Tag,
   Text,
+  useColorModeValue,
   useDisclosure,
 } from '@chakra-ui/react';
 
@@ -37,6 +38,9 @@ import CommissionRequest from '@/app/_components/forms/commissionRequest';
 
 export default function Commissions() {
   const { isOpen, onOpen, onClose } = useDisclosure();
+
+  const color = useColorModeValue('purple.500', 'orange.300');
+  const bg = useColorModeValue('green.100', 'gray.700');
 
   return (
     <Box
@@ -56,7 +60,8 @@ export default function Commissions() {
           w={'100%'}
           mb={'3rem'}
           pb={'2rem'}
-          borderBottom={'1px solid var(--lightGray)'}>
+          borderBottom={'1px solid'}
+          borderBottomColor={'gray.200'}>
           <Tag
             size={'sm'}
             textTransform={'uppercase'}
@@ -69,7 +74,7 @@ export default function Commissions() {
             mb={'1rem'}
             size={'4xl'}
             fontWeight={800}
-            color={'var(--orange)'}>
+            color={color}>
             Commission a painting
           </Heading>
 
@@ -80,6 +85,7 @@ export default function Commissions() {
               query={['taNrleMn']}
               styles={{
                 fontWeight: 600,
+                color: color,
               }}>
               Work one-on-one with taNrleMn to turn your idea into reality. The
               artist will work with you to create a custom piece of art that is
@@ -91,12 +97,8 @@ export default function Commissions() {
             onClick={onOpen}
             maxW={'fit-content'}
             mb={'2rem'}
-            _hover={{
-              outline: '1px solid var(--lightOrange, #F8AD4F)',
-              borderRadius: 'var(--mainBorderRadius)',
-            }}
-            mr={'1rem'}
-            background={'var(--midOrange)'}>
+            colorScheme={'purple'}
+            mr={'1rem'}>
             Submit a request
           </Button>
           <Grid
@@ -129,6 +131,7 @@ export default function Commissions() {
                 query={'Discover and Connect'}
                 styles={{
                   fontWeight: 600,
+                  color: color,
                 }}>
                 Discover and Connect – Begin by browsing through the gallery to
                 get a feel for taNrleMn&apos;s style and range. If something
@@ -141,6 +144,7 @@ export default function Commissions() {
                 query={'Define Your Vision'}
                 styles={{
                   fontWeight: 600,
+                  color: color,
                 }}>
                 Define Your Vision – Share your ideas, inspirations, and
                 preferences. Whether it&apos;s a particular subject, color
@@ -153,6 +157,7 @@ export default function Commissions() {
                 query={'Crafting Your Masterpiece'}
                 styles={{
                   fontWeight: 600,
+                  color: color,
                 }}>
                 Crafting Your Masterpiece – With your vision as our guide, we
                 embark on the artistic journey of creating your bespoke piece.
@@ -165,6 +170,7 @@ export default function Commissions() {
                 query={'The Reveal'}
                 styles={{
                   fontWeight: 600,
+                  color: color,
                 }}>
                 The Reveal – The moment of unveiling. Your personalized artwork
                 is ready to claim its place in your life, adding beauty, depth,
@@ -178,6 +184,7 @@ export default function Commissions() {
               query={'Personalized Experience:'}
               styles={{
                 fontWeight: 600,
+                color: color,
               }}>
               Personalized Experience: Every commission is a journey taken
               together. The final piece is not just an artwork but a reflection
@@ -189,6 +196,7 @@ export default function Commissions() {
               query={'Expert Craftsmanship:'}
               styles={{
                 fontWeight: 600,
+                color: color,
               }}>
               Expert Craftsmanship: With years of experience and a passion for
               art, the artist brings a blend of skill, creativity, and attention
@@ -200,6 +208,7 @@ export default function Commissions() {
               query={'Quality Assured:'}
               styles={{
                 fontWeight: 600,
+                color: color,
               }}>
               Quality Assured: taNrleMn uses high quality materials, ensuring
               that your artwork not only looks beautiful but also stands the
@@ -211,6 +220,7 @@ export default function Commissions() {
               query={'Satisfaction Guaranteed:'}
               styles={{
                 fontWeight: 600,
+                color: color,
               }}>
               Satisfaction Guaranteed: taNrleMn&apos;s process is collaborative
               and transparent, ensuring that the final piece meets your
@@ -220,8 +230,8 @@ export default function Commissions() {
           <Box
             mt={'3rem'}
             p={'3rem 2rem'}
-            borderRadius={'var(--mainBorderRadius)'}
-            background={'var(--lightestGreen)'}>
+            borderRadius={'9px'}
+            background={bg}>
             <Heading
               size={'lg'}
               mb={'0.5rem'}>
@@ -235,12 +245,8 @@ export default function Commissions() {
               maxW={'fit-content'}
               onClick={onOpen}
               mb={'2rem'}
-              _hover={{
-                outline: '1px solid var(--lightOrange, #F8AD4F)',
-                borderRadius: 'var(--mainBorderRadius)',
-              }}
-              mr={'1rem'}
-              background={'var(--midOrange)'}>
+              colorScheme={'purple'}
+              mr={'1rem'}>
               Submit a request
             </Button>
           </Box>
