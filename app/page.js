@@ -69,7 +69,7 @@ export default function Home() {
         </Heading>
         <Text mb={'1rem'}>
           taNrleMn&apos;s art explores the profound unity found in shared pain.
-          It strives to uncover the true essence of humanity through intricate
+          He strives to uncover the true essence of humanity through intricate
           embellishments and natural elements.
         </Text>
         <Flex>

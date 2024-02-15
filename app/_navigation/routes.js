@@ -1,14 +1,14 @@
 export const routes = [
-  {
-    name: 'Subscriptions',
-    path: '/subscriptions',
-    order: 0,
-    meta: {
-      title: 'Subscriptions',
-      description:
-        'Subscriptions offered by YOURHEAD to get exclusive access to new works.',
-    },
-  },
+  // {
+  //   name: 'Subscriptions',
+  //   path: '/subscriptions',
+  //   order: 0,
+  //   meta: {
+  //     title: 'Subscriptions',
+  //     description:
+  //       'Subscriptions offered by YOURHEAD to get exclusive access to new works.',
+  //   },
+  // },
   {
     name: 'Commissions',
     path: '/commissions',
@@ -39,23 +39,23 @@ export const routes = [
     },
   },
   {
+    name: 'Music',
+    path: '/music',
+    order: 4,
+    meta: {
+      title: 'Music',
+      description:
+        'Listen to music by Fake Pete, including original compositions and collaborations.',
+    },
+  },
+  {
     name: 'About',
     path: '/about',
-    order: 4,
+    order: 5,
     meta: {
       title: 'About',
       description:
         'Learn more about YOURHEAD, including his background, influences, and approach to art.',
     },
   },
-  // {
-  //   name: 'Support',
-  //   path: '/support',
-  //   order: 5,
-  //   meta: {
-  //     title: 'Support',
-  //     description:
-  //       'Get support for your order, including shipping, returns, and exchanges.',
-  //   },
-  // },
 ];

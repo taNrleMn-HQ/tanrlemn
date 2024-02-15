@@ -18,6 +18,7 @@ import Logo from '../_components/branding/logo';
 import DesktopNav from './desktopNav';
 import MobileNav from './mobileNav';
 import ColorModeToggle from '@/app/_components/interactive/colorModeToggle';
+import SoundCloudPlayer from '@/app/_components/interactive/soundcloudPlayer';
 import { routes } from './routes';
 
 export default function Navbar() {
@@ -52,6 +53,7 @@ export default function Navbar() {
       <Box
         zIndex={1000}
         position={'sticky'}
+        h={'fit-content'}
         top={'0'}>
         <Flex
           zIndex={1000}
