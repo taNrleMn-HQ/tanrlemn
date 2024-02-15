@@ -13,6 +13,9 @@ const appleMusicLogoWhite = '/logos/appleMusic.svg';
 const appleMusicLogoBlack = '/logos/appleMusic-black.svg';
 const soundcloudLogo = '/logos/soundcloud.png';
 
+// hooks
+import { useState, useEffect } from 'react';
+
 // chakra-ui
 import {
   Box,
@@ -31,9 +34,16 @@ import {
 
 // local components
 import SoundCloudPlayer from '@/app/_components/interactive/soundcloudPlayer';
+import YouTubePlayer from '@/app/_components/interactive/youtubePlayer';
 
 export default function Music() {
+  const [isClient, setIsClient] = useState(false);
   const color = useColorModeValue('purple.500', 'purple.300');
+
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
+
   return (
     <Box
       p={{ base: '3rem 0', md: '6rem 3rem' }}
@@ -142,7 +152,17 @@ export default function Music() {
             </Text>
           </Stack>
         </Flex>
-        <SoundCloudPlayer />
+
+        {isClient && (
+          <>
+            <Box mb={'4rem'}>
+              <Heading mb={'1rem'}>Listen to Fake Pete</Heading>
+              <SoundCloudPlayer />
+            </Box>
+            <Heading mb={'1rem'}>Watch Fake Pete</Heading>
+            <YouTubePlayer />
+          </>
+        )}
       </Container>
     </Box>
   );
