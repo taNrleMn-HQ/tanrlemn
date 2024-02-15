@@ -24,7 +24,7 @@ import { Menu, ShoppingBagIcon } from 'lucide-react';
 // local components
 import AccountButton from '../_components/interactive/accountButton';
 import Logo from '../_components/branding/logo';
-import ArtistToggle from '../_components/interactive/artistToggle';
+import ColorModeToggle from '../_components/interactive/colorModeToggle';
 
 export default function MobileNavbar({ routes }) {
   const { numCartItems } = useCart();
@@ -74,7 +74,7 @@ export default function MobileNavbar({ routes }) {
           <DrawerCloseButton />
           <DrawerHeader>
             <Logo p={0} />
-            <ArtistToggle />
+            <ColorModeToggle />
           </DrawerHeader>
           <DrawerBody
             minH={'50vh'}

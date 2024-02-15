@@ -56,7 +56,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/runtime@npm:^7.0.0, @babel/runtime@npm:^7.12.13, @babel/runtime@npm:^7.12.5, @babel/runtime@npm:^7.18.3, @babel/runtime@npm:^7.23.2":
+"@babel/runtime@npm:^7.0.0, @babel/runtime@npm:^7.10.2, @babel/runtime@npm:^7.12.13, @babel/runtime@npm:^7.12.5, @babel/runtime@npm:^7.18.3, @babel/runtime@npm:^7.23.2":
   version: 7.23.9
   resolution: "@babel/runtime@npm:7.23.9"
   dependencies:
@@ -1679,6 +1679,24 @@ __metadata:
   version: 2.0.2
   resolution: "@humanwhocodes/object-schema@npm:2.0.2"
   checksum: 6fd83dc320231d71c4541d0244051df61f301817e9f9da9fd4cb7e44ec8aacbde5958c1665b0c419401ab935114fdf532a6ad5d4e7294b1af2f347dd91a6983f
+  languageName: node
+  linkType: hard
+
+"@iconify/react@npm:^4.1.1":
+  version: 4.1.1
+  resolution: "@iconify/react@npm:4.1.1"
+  dependencies:
+    "@iconify/types": "npm:^2.0.0"
+  peerDependencies:
+    react: ">=16"
+  checksum: 636fd1d953abd7562d7c4d9c60b5a5c6b202c5b59b0cfb7dab58c4cf5f66334f66d6736f5fe9cdc0e1b6b0c3a7d713f284a296c7fb154dbd20efd339fe0e5f6c
+  languageName: node
+  linkType: hard
+
+"@iconify/types@npm:^2.0.0":
+  version: 2.0.0
+  resolution: "@iconify/types@npm:2.0.0"
+  checksum: 65a3be43500c7ccacf360e136d00e1717f050b7b91da644e94370256ac66f582d59212bdb30d00788aab4fc078262e91c95b805d1808d654b72f6d2072a7e4b2
   languageName: node
   linkType: hard
 
@@ -6550,6 +6568,19 @@ __metadata:
   languageName: node
   linkType: hard
 
+"react-h5-audio-player@npm:^3.9.1":
+  version: 3.9.1
+  resolution: "react-h5-audio-player@npm:3.9.1"
+  dependencies:
+    "@babel/runtime": "npm:^7.10.2"
+    "@iconify/react": "npm:^4.1.1"
+  peerDependencies:
+    react: ^16.3.0 || ^17.0.0 || ^18.0.0
+    react-dom: ^16.3.0 || ^17.0.0 || ^18.0.0
+  checksum: b260ff972be48500f4f89b4aba5a54b83e9dfb3d3edce9abff219953a759177b257eff43dfada4397f2a4f537f256628e5985cb98cbf004a4e55e629f78f10e6
+  languageName: node
+  linkType: hard
+
 "react-is@npm:^16.13.1, react-is@npm:^16.7.0":
   version: 16.13.1
   resolution: "react-is@npm:16.13.1"
@@ -7332,6 +7363,7 @@ __metadata:
     react: "npm:^18.2.0"
     react-dom: "npm:^18.2.0"
     react-facebook-pixel: "npm:^1.0.4"
+    react-h5-audio-player: "npm:^3.9.1"
     react-responsive-masonry: "npm:^2.1.7"
     react-slideshow-image: "npm:^4.3.0"
     recoil: "npm:^0.7.7"

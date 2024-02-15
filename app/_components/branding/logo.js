@@ -7,7 +7,7 @@ import { Flex, Heading, Link, Box, useColorModeValue } from '@chakra-ui/react';
 import Underscore from './underscore';
 
 export default function Logo({ shouldLink = true, p = '0.3125rem 1.4375rem' }) {
-  const text = useColorModeValue('taNrleMn', 'Fake Pete');
+  const text = 'taNrleMn';
   const color = useColorModeValue('gray.700', 'gray.300');
   return (
     <>

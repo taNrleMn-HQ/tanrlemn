@@ -22,9 +22,10 @@ export default function NotFound() {
   return (
     <Container p={'5rem 1rem'}>
       <Tag
-        size={'lg'}
+        size={'md'}
         textTransform={'uppercase'}
-        colorScheme={'red'}
+        colorScheme={'orange'}
+        mb={'0.5rem'}
         maxW={'fit-content'}>
         404
       </Tag>
