@@ -19,9 +19,9 @@ export default function CommissionRequest({ isOpen, onClose }) {
       <ModalContent>
         <ModalCloseButton />
         <ModalBody
-          p={'0'}
-          maxH={'100vh'}
-          mt={'2rem'}>
+          p={'1rem'}
+          maxH={'100%'}
+          mt={{ base: '3rem', md: '2rem' }}>
           <FilloutStandardEmbed
             dynamicResize
             filloutId='8xEXWBSvJbus'
