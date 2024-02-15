@@ -12,10 +12,7 @@ export default function HeroImage({ mr, alt, ...props }) {
       alignItems={'center'}
       overflow={'hidden'}
       mr={mr}
-      borderRadius={'9px'}
-      maxH={{ base: '100%', md: '22rem' }}
-      w={{ base: '100%', md: '17rem' }}
-      maxW={{ base: '100%', md: '17rem' }}>
+      borderRadius={'9px'}>
       <Image
         alt={alt}
         objectFit={'cover'}

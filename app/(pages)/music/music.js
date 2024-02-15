@@ -14,7 +14,8 @@ const appleMusicLogoBlack = '/logos/appleMusic-black.svg';
 const soundcloudLogo = '/logos/soundcloud.png';
 
 // hooks
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
+import { useQueryState } from 'nuqs';
 
 // chakra-ui
 import {
@@ -37,12 +38,35 @@ import SoundCloudPlayer from '@/app/_components/interactive/soundcloudPlayer';
 import YouTubePlayer from '@/app/_components/interactive/youtubePlayer';
 
 export default function Music() {
+  const soundcloudRef = useRef();
+  const youtubeRef = useRef();
+
+  const [scrollto, setScrollto] = useQueryState('scrollto');
   const [isClient, setIsClient] = useState(false);
   const color = useColorModeValue('purple.500', 'purple.300');
 
   useEffect(() => {
     setIsClient(true);
-  }, []);
+
+    console.log('scrollto:', scrollto);
+
+    if (scrollto === 'soundcloud' && soundcloudRef.current) {
+      console.log('scrolling to soundcloud');
+      soundcloudRef.current.scrollIntoView({
+        behavior: 'smooth',
+        block: 'center',
+      });
+      setScrollto(null);
+    }
+
+    if (scrollto === 'youtube' && youtubeRef.current) {
+      youtubeRef.current.scrollIntoView({
+        behavior: 'smooth',
+        block: 'center',
+      });
+      setScrollto(null);
+    }
+  }, [scrollto, setScrollto, youtubeRef, soundcloudRef, isClient]);
 
   return (
     <Box
@@ -155,12 +179,17 @@ export default function Music() {
 
         {isClient && (
           <>
-            <Box mb={'4rem'}>
+            <Box
+              ref={soundcloudRef}
+              mb={'4rem'}
+              id='soundcloud'>
               <Heading mb={'1rem'}>Listen to Fake Pete</Heading>
               <SoundCloudPlayer />
             </Box>
-            <Heading mb={'1rem'}>Watch Fake Pete</Heading>
-            <YouTubePlayer />
+            <Box ref={youtubeRef}>
+              <Heading mb={'1rem'}>Watch Fake Pete</Heading>
+              <YouTubePlayer />
+            </Box>
           </>
         )}
       </Container>
