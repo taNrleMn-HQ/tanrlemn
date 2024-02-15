@@ -28,7 +28,9 @@ import {
   useColorModeValue,
   Flex,
 } from '@chakra-ui/react';
-import { MoveRight } from 'lucide-react';
+
+// local components
+import SoundCloudPlayer from '@/app/_components/interactive/soundcloudPlayer';
 
 export default function Music() {
   const color = useColorModeValue('purple.500', 'purple.300');
@@ -140,6 +142,7 @@ export default function Music() {
             </Text>
           </Stack>
         </Flex>
+        <SoundCloudPlayer />
       </Container>
     </Box>
   );
