@@ -11,7 +11,7 @@ import { useIsMobile } from '@/app/_lib/hooks/useIsMobile';
 import { useAuth } from '@/app/_lib/hooks/useAuth';
 
 // chakra-ui
-import { Flex, Box, useColorModeValue } from '@chakra-ui/react';
+import { Flex, Box, useColorModeValue, Button } from '@chakra-ui/react';
 
 // local components
 import Logo from '../_components/branding/logo';
@@ -70,7 +70,7 @@ export default function Navbar() {
             <Logo />
 
             {loading ? (
-              <></>
+              <Button isLoading={loading}></Button>
             ) : isMobile ? (
               <MobileNav routes={routes} />
             ) : (

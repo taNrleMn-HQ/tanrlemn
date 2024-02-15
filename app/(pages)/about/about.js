@@ -1,7 +1,7 @@
 'use client';
 
 // images
-const aboutTannerSrc = 'https://i.imgur.com/BFWf7ku.jpg';
+const aboutTannerSrc = 'https://i.imgur.com/BFWf7kuh.jpg';
 
 // chakra-ui
 import {

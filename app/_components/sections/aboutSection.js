@@ -16,24 +16,24 @@ import {
   useColorModeValue,
   Highlight,
 } from '@chakra-ui/react';
+import { MoveRight } from 'lucide-react';
 
 export default function AboutSection() {
   const highlightColor = useColorModeValue('purple.500', 'purple.200');
   return (
     <Flex
       flexDirection={{ base: 'column', md: 'row' }}
-      p={{ base: '2rem 1rem' }}
+      p={{ base: '4rem 1rem' }}
       mb={{ base: '3rem' }}
       align={'center'}
-      textAlign={'center'}
       justify={'center'}>
       <Stack
-        align={'center'}
         maxW={{ base: '100%', md: '650px' }}
         mb={{ base: '3rem', md: '0' }}>
         <Tag
           textTransform={'uppercase'}
           size={'sm'}
+          mb={'0.5rem'}
           maxW={'fit-content'}
           colorScheme={'purple'}>
           About the artist
@@ -65,17 +65,26 @@ export default function AboutSection() {
             styles={{ color: highlightColor, fontWeight: 600 }}>
             taNrleMn&apos;s work spans across multiple mediums, including music,
             visual art, woodworking, and more. He is currently accepting
-            commissions for visual art and music production.
+            commissions for visual artworks.
           </Highlight>
         </Text>
-        <Flex>
+        <Flex
+          wrap={'wrap'}
+          gap={'1rem'}>
           <Link
             href={'/about'}
+            maxW={'fit-content'}
+            mr={'1rem'}>
+            <Button colorScheme={'purple'}>Learn more</Button>
+          </Link>
+          <Link
+            href={'/commissions'}
             maxW={'fit-content'}>
             <Button
+              rightIcon={<MoveRight size={17} />}
               mr={'1rem'}
-              colorScheme={'purple'}>
-              Learn more
+              colorScheme={'gray'}>
+              Request a commission
             </Button>
           </Link>
         </Flex>

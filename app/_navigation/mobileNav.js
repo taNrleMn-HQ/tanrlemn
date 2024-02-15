@@ -1,6 +1,7 @@
 'use client';
 
 // hooks
+import { useState, useEffect } from 'react';
 import { useCart } from '../_lib/hooks/useCart';
 
 // chakra-ui
@@ -18,6 +19,7 @@ import {
   Heading,
   Box,
   useColorModeValue,
+  Button,
 } from '@chakra-ui/react';
 import { Menu, ShoppingBagIcon } from 'lucide-react';
 
@@ -33,6 +35,7 @@ export default function MobileNavbar({ routes }) {
 
   const bagColor = useColorModeValue('gray.800', 'gray.200');
   const bg = useColorModeValue('red.300', 'orange.400');
+  const buttonVariant = useColorModeValue('ghost', 'solid');
 
   return (
     <>
@@ -60,10 +63,12 @@ export default function MobileNavbar({ routes }) {
             )}
           </Flex>
         </Link>
-        <Menu
-          onClick={onOpen}
-          size={20}
-        />
+        <Button variant={buttonVariant}>
+          <Menu
+            onClick={onOpen}
+            size={20}
+          />
+        </Button>
       </Flex>
       <Drawer
         isOpen={isOpen}

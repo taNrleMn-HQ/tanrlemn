@@ -2,17 +2,11 @@
 
 // images
 const commissionImageLinks = [
-  'https://i.imgur.com/CljkHns.jpg',
-  'https://i.imgur.com/G9Un4Sy.jpg',
+  'https://i.imgur.com/CljkHnsh.jpg',
+  'https://i.imgur.com/G9Un4Syh.jpg',
   'https://i.imgur.com/drgPiJyh.jpg',
   'https://i.imgur.com/fNISTWSh.jpg',
 ];
-
-// recoil
-import { useRecoilState } from 'recoil';
-
-// hooks
-import { useEffect } from 'react';
 
 // chakra-ui
 import {
