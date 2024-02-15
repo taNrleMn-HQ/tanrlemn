@@ -35,6 +35,7 @@
     "react-dom": "^18.2.0",
     "react-facebook-pixel": "^1.0.4",
     "react-iframe": "^1.8.5",
+    "react-player": "^2.14.1",
     "react-responsive-masonry": "^2.1.7",
     "react-slideshow-image": "^4.3.0",
     "recoil": "^0.7.7",
