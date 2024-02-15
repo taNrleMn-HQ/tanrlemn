@@ -18,7 +18,7 @@ import {
 } from '@chakra-ui/react';
 
 export default function FakePeteSection() {
-  const highlightColor = useColorModeValue('purple.700', 'purple.200');
+  const highlightColor = useColorModeValue('purple.500', 'purple.200');
   const borderColor = useColorModeValue('gray.200', 'gray.700');
 
   return (

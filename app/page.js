@@ -8,6 +8,7 @@ import ArtHero from './_components/sections/artHero';
 import MusicHero from './_components/sections/musicHero';
 import TaNrLeMnSection from './_components/sections/tanrlemn';
 import FakePeteSection from './_components/sections/fakePete';
+import AboutSection from './_components/sections/aboutSection';
 
 export default function Home() {
   const borderColor = useColorModeValue('gray.200', 'gray.700');
@@ -31,6 +32,7 @@ export default function Home() {
       </Box>
       <TaNrLeMnSection />
       <FakePeteSection />
+      <AboutSection />
     </Box>
   );
 }
