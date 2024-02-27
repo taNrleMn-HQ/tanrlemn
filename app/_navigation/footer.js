@@ -103,9 +103,12 @@ export default function Footer() {
                     Shop
                   </Heading>
                   <Stack gap={0}>
-                    <Link href='/shop'>Official Shop</Link>
-                    <Link href='/subscriptions'>Subscriptions</Link>
                     <Link href='/commissions'>Commissions</Link>
+                    <Link
+                      href='https://tanrlemnxyz.etsy.com'
+                      isExternal>
+                      Etsy Shop
+                    </Link>
                   </Stack>
                 </Box>
                 <Box>

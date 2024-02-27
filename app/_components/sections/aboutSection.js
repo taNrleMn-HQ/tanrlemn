@@ -1,9 +1,5 @@
 'use client';
 
-// images
-const whaleriderSrc = 'https://i.imgur.com/fNISTWSl.jpg';
-const ownerSrc = 'https://i.imgur.com/v3TtoGIl.jpg';
-
 // chakra-ui
 import {
   Heading,

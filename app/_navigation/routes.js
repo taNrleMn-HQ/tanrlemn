@@ -19,15 +19,15 @@ export const routes = [
         'Commission YOURHEAD to create a custom piece of art for your home or business.',
     },
   },
-  {
-    name: 'Shop',
-    path: '/shop',
-    order: 2,
-    meta: {
-      title: 'Shop',
-      description: 'Shop for original oil paintings and prints by YOURHEAD.',
-    },
-  },
+  // {
+  //   name: 'Shop',
+  //   path: '/shop',
+  //   order: 2,
+  //   meta: {
+  //     title: 'Shop',
+  //     description: 'Shop for original oil paintings and prints by YOURHEAD.',
+  //   },
+  // },
   {
     name: 'Gallery',
     path: '/gallery',

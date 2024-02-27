@@ -1,7 +1,10 @@
 'use client';
 
+// images
+import etsyOrange from '@/public/logos/etsy.png';
+import estyWhite from '@/public/logos/etsy-white.png';
+
 // hooks
-import { useState, useEffect } from 'react';
 import { useCart } from '../_lib/hooks/useCart';
 
 // chakra-ui
@@ -20,21 +23,19 @@ import {
   Box,
   useColorModeValue,
   Button,
+  Image,
 } from '@chakra-ui/react';
-import { Menu, ShoppingBagIcon } from 'lucide-react';
+import { ExternalLink, Menu } from 'lucide-react';
 
 // local components
-import AccountButton from '../_components/interactive/accountButton';
 import Logo from '../_components/branding/logo';
 import ColorModeToggle from '../_components/interactive/colorModeToggle';
 
 export default function MobileNavbar({ routes }) {
-  const { numCartItems } = useCart();
+  const etsyLogo = useColorModeValue(etsyOrange, estyWhite);
 
   const { isOpen, onOpen, onClose } = useDisclosure();
 
-  const bagColor = useColorModeValue('gray.800', 'gray.200');
-  const bg = useColorModeValue('red.300', 'orange.400');
   const buttonVariant = useColorModeValue('ghost', 'solid');
 
   return (
@@ -46,23 +47,7 @@ export default function MobileNavbar({ routes }) {
           p={'0.4rem 0.8rem'}
           borderRadius={'full'}
           href='/cart'
-          ml={'1rem'}>
-          <Flex>
-            <Box color={bagColor}>
-              <ShoppingBagIcon size={17} />
-            </Box>
-            {numCartItems > 0 && (
-              <Box
-                position={'relative'}
-                top={'-0.2rem'}
-                left={'-0.2rem'}
-                w={'0.6rem'}
-                h={'0.6rem'}
-                background={bg}
-                borderRadius={'100px'}></Box>
-            )}
-          </Flex>
-        </Link>
+          ml={'1rem'}></Link>
         <Button variant={buttonVariant}>
           <Menu
             onClick={onOpen}
@@ -102,7 +87,24 @@ export default function MobileNavbar({ routes }) {
               <Box
                 m={'2rem 0 1rem 0'}
                 w={'100%'}>
-                <AccountButton />
+                <Link
+                  w={'100%'}
+                  href='https://tanrlemnxyz.etsy.com'
+                  isExternal>
+                  <Button
+                    w={'100%'}
+                    p={'0.25rem 2rem'}
+                    colorScheme={'teal'}
+                    variant={'outline'}
+                    rightIcon={<ExternalLink size={12} />}>
+                    <Image
+                      src={etsyLogo.src}
+                      alt={'Etsy'}
+                      objectFit={'contain'}
+                      w={'2.5rem'}
+                    />
+                  </Button>
+                </Link>
               </Box>
             </VStack>
           </DrawerBody>

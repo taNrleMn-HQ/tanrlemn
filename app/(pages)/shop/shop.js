@@ -1,69 +1,64 @@
 'use client';
 
-// recoil
-import { useRecoilValue } from 'recoil';
-import { shopProductsSelector } from '@/app/_state/selectors';
-
-// hooks
-import { useProducts } from '@/app/_lib/hooks/useProducts';
+// images
+import etsyOrange from '@/public/logos/etsy.png';
+import estyWhite from '@/public/logos/etsy-white.png';
 
 // chakra-ui
-import { Box, Flex, Heading, Text } from '@chakra-ui/react';
+import {
+  Image,
+  Heading,
+  Text,
+  Button,
+  Link,
+  Container,
+  useColorModeValue,
+  VStack,
+} from '@chakra-ui/react';
+import { ExternalLink } from 'lucide-react';
 
 // components
-import ProductCard from '@/app/_components/products/productCard';
-import LoadingDiv from '@/app/_components/interactive/loadingDiv';
 
 export default function Shop() {
-  const { loading } = useProducts();
-  const shopProducts = useRecoilValue(shopProductsSelector);
-
-  const categoryText = {
-    all: 'Shop All of taNrleMn',
-    prints: 'Fine Art Prints',
-    originals: 'Original Paintings by taNrleMn',
-    apparel: 'taNrleMn Apparel',
-    sale: 'Sale Items',
-    default: 'The Official Shop – taNrleMn',
-    null: 'The Official Shop – taNrleMn',
-  };
+  const etsyLogo = useColorModeValue(etsyOrange, estyWhite);
+  const textColor = useColorModeValue('gray.600', 'gray.400');
 
   return (
-    <Box
+    <Container
+      minH={{ base: '70vh', md: '65vh' }}
       p={{
-        base: '2rem 1rem',
-        md: '4rem 2rem',
+        base: '5rem 1rem',
+        md: '6rem 2rem',
       }}>
-      {loading && (
-        <LoadingDiv
-          isLoading={loading}
-          id={'shop'}
-        />
-      )}
-      {shopProducts !== null && (
-        <Box>
-          <Box mb={'1.5rem'}>
-            <Heading>{categoryText[null]}</Heading>
-            <Text>
-              {shopProducts.length === 1
-                ? `${shopProducts.length} product`
-                : `${shopProducts.length} products`}
-            </Text>
-          </Box>
-          <Flex
-            gap={{ base: '1.5rem' }}
-            flexWrap={'wrap'}>
-            {shopProducts.map((product, i) => {
-              return (
-                <ProductCard
-                  key={i}
-                  product={product}
-                />
-              );
-            })}
-          </Flex>
-        </Box>
-      )}
-    </Box>
+      <Heading mb={'0.5rem'}>Shop taNrleMn</Heading>
+      <Text mb={'1.5rem'}>
+        View taNrleMn&apos;s Etsy store to purchase artwork and prints.
+      </Text>
+      <VStack
+        m={0}
+        w={'fit-content'}
+        gap={0}>
+        <Link
+          href='https://tanrlemnxyz.etsy.com'
+          isExternal>
+          <Button
+            colorScheme={'gray'}
+            rightIcon={<ExternalLink size={15} />}>
+            <Image
+              src={etsyLogo.src}
+              alt={'Etsy'}
+              objectFit={'contain'}
+              w={'3rem'}
+            />
+          </Button>
+        </Link>
+        <Text
+          mt={'0.25rem'}
+          color={textColor}
+          fontSize={'0.75rem'}>
+          Shop prints
+        </Text>
+      </VStack>
+    </Container>
   );
 }

@@ -3,6 +3,8 @@
 // images
 const whaleriderSrc = 'https://i.imgur.com/fNISTWSl.jpg';
 const ownerSrc = 'https://i.imgur.com/v3TtoGIl.jpg';
+import etsyOrange from '@/public/logos/etsy.png';
+import estyWhite from '@/public/logos/etsy-white.png';
 
 // chakra-ui
 import {
@@ -14,12 +16,17 @@ import {
   Tag,
   Link,
   useColorModeValue,
+  Image,
+  VStack,
 } from '@chakra-ui/react';
-import { BookImage, MoveRight } from 'lucide-react';
+import { BookImage, ExternalLink, MoveRight } from 'lucide-react';
 import HeroImage from '../images/heroImage';
 
 export default function ArtHero() {
   const tagBg = useColorModeValue('gray.100', 'gray.700');
+  const etsyLogo = useColorModeValue(etsyOrange, estyWhite);
+  const textColor = useColorModeValue('gray.600', 'gray.400');
+
   return (
     <Flex
       flexDirection={{ base: 'column', md: 'row' }}
@@ -75,19 +82,37 @@ export default function ArtHero() {
           embellishments and natural elements.
         </Text>
         <Flex>
-          <Link
-            href={'/shop'}
-            maxW={'fit-content'}>
-            <Button
-              mr={'1rem'}
-              colorScheme={'purple'}>
-              Shop now
-            </Button>
-          </Link>
+          <VStack
+            m={0}
+            mr={'1rem'}
+            w={'fit-content'}
+            gap={0}>
+            <Link
+              href='https://tanrlemnxyz.etsy.com'
+              isExternal>
+              <Button
+                colorScheme={'gray'}
+                rightIcon={<ExternalLink size={15} />}>
+                <Image
+                  src={etsyLogo.src}
+                  alt={'Etsy'}
+                  objectFit={'contain'}
+                  w={'3rem'}
+                />
+              </Button>
+            </Link>
+            <Text
+              mt={'0.25rem'}
+              color={textColor}
+              fontSize={'0.75rem'}>
+              Shop prints
+            </Text>
+          </VStack>
           <Link href={'/gallery'}>
             <Button
               colorScheme={'gray'}
-              leftIcon={<BookImage size={20} />}>
+              variant={'outline'}
+              leftIcon={<BookImage size={15} />}>
               View works
             </Button>
           </Link>
