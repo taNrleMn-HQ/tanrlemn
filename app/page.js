@@ -12,9 +12,10 @@ import AboutSection from './_components/sections/aboutSection';
 
 export default function Home() {
   const borderColor = useColorModeValue('gray.200', 'gray.700');
+
   return (
     <Box>
-      <MusicHero />
+      <ArtHero />
       <Box
         borderTop={'1px solid'}
         borderBottom={'1px solid'}

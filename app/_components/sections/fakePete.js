@@ -45,11 +45,12 @@ export default function FakePeteSection() {
           <Highlight
             query={'Fake Pete'}
             styles={{ fontWeight: 600, color: highlightColor }}>
-            Fake Pete makes [insert statement about music here].
+            Fake Pete makes [insert statement about the type of music FP makes
+            here].
           </Highlight>
         </Text>
         <Link
-          href={'/shop'}
+          href={'/music'}
           maxW={'fit-content'}>
           <Button
             mr={'1rem'}

@@ -80,21 +80,43 @@ export default function Music() {
         <Flex
           flexDir={{ base: 'column-reverse', md: 'row' }}
           pb={'3rem'}
-          // borderBottom={'1px solid'}
+          borderBottom={'1px solid'}
+          mb={'4rem'}
           borderBottomColor={'gray.200'}
           w={'100%'}
           align={'center'}
           gap={'2rem'}>
-          <Image
-            src={aboutTannerSrc}
-            alt={'Tanner Lemon'}
-            w={{ base: '100%', md: '300px' }}
-            borderRadius={'1rem'}
-          />
           <Stack>
+            <Tag
+              size={'sm'}
+              textTransform={'uppercase'}
+              colorScheme={'purple'}
+              maxW={'fit-content'}>
+              The Land of the Living
+            </Tag>
+            <Heading
+              mb={'0.5rem'}
+              size={'4xl'}
+              fontWeight={800}
+              color={color}>
+              Fake it til you make it.
+            </Heading>
+            <Text maxW={'750px'}>
+              <Highlight
+                query={'Fake Pete'}
+                styles={{
+                  fontWeight: 600,
+                  color: color,
+                }}>
+                Fake Pete, a vocalist and producer from the Midwest, creates
+                music that is introspective yet danceable. His sound, a blend of
+                hip-hop, electronic, and indie rock, is influenced by artists
+                ranging from Kendrick Lamar to Lorde.
+              </Highlight>
+            </Text>
             <Flex
               gap={{ base: '1rem', md: '2rem' }}
-              mb={'2rem'}
+              mt={'2rem'}
               align={'center'}
               wrap={'wrap'}>
               <Link
@@ -147,33 +169,6 @@ export default function Music() {
                 </Button>
               </Link>
             </Flex>
-            <Tag
-              size={'sm'}
-              textTransform={'uppercase'}
-              colorScheme={'purple'}
-              maxW={'fit-content'}>
-              The Land of the Living
-            </Tag>
-            <Heading
-              mb={'0.5rem'}
-              size={'4xl'}
-              fontWeight={800}
-              color={color}>
-              Fake it til you make it.
-            </Heading>
-            <Text maxW={'750px'}>
-              <Highlight
-                query={'Fake Pete'}
-                styles={{
-                  fontWeight: 600,
-                  color: color,
-                }}>
-                Fake Pete, a vocalist and producer from the Midwest, creates
-                music that is introspective yet danceable. His sound, a blend of
-                hip-hop, electronic, and indie rock, is influenced by artists
-                ranging from Kendrick Lamar to Lorde.
-              </Highlight>
-            </Text>
           </Stack>
         </Flex>
 

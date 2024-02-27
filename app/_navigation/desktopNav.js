@@ -1,20 +1,28 @@
 'use client';
 
+// images
+import etsyOrange from '@/public/logos/etsy.png';
+import estyWhite from '@/public/logos/etsy-white.png';
+
 // hooks
 import { useCart } from '../_lib/hooks/useCart';
 
 // chakra-ui
-import { Link, Flex, Text, Box, useColorModeValue } from '@chakra-ui/react';
+import {
+  Link,
+  Flex,
+  Text,
+  Box,
+  useColorModeValue,
+  Button,
+  Image,
+} from '@chakra-ui/react';
 
 // local components
-import AccountButton from '../_components/interactive/accountButton';
-import { ShoppingBagIcon } from 'lucide-react';
+import { ExternalLink, ShoppingBagIcon } from 'lucide-react';
 
 export default function DesktopNavbar({ routes }) {
-  const { numCartItems } = useCart();
-
-  const bagColor = useColorModeValue('gray.800', 'gray.200');
-  const bg = useColorModeValue('red.200', 'orange.500');
+  const etsyLogo = useColorModeValue(etsyOrange, estyWhite);
 
   return (
     <Flex align={'center'}>
@@ -29,38 +37,23 @@ export default function DesktopNavbar({ routes }) {
           />
         ))}
       </Flex>
-
       <Link
-        _hover={{ textDecoration: 'none' }}
-        p={'0.4rem 0.8rem'}
-        borderRadius={'full'}
-        href='/cart'
-        ml={'1rem'}>
-        <Flex>
-          <Box color={bagColor}>
-            <ShoppingBagIcon size={17} />
-          </Box>
-          {numCartItems > 0 && (
-            <Flex
-              ml={'0.2rem'}
-              top={0}
-              w={'1rem'}
-              h={'1rem'}
-              align={'center'}
-              justify={'center'}
-              background={bg}
-              borderRadius={'100px'}>
-              <Text
-                lineHeight={1}
-                fontSize={'0.65rem'}
-                fontWeight={600}>
-                {numCartItems}
-              </Text>
-            </Flex>
-          )}
-        </Flex>
+        ml={'1rem'}
+        href='https://tanrlemnxyz.etsy.com'
+        isExternal>
+        <Button
+          p={'0.25rem 2rem'}
+          colorScheme={'teal'}
+          variant={'outline'}
+          rightIcon={<ExternalLink size={12} />}>
+          <Image
+            src={etsyLogo.src}
+            alt={'Etsy'}
+            objectFit={'contain'}
+            minW={'2.5rem'}
+          />
+        </Button>
       </Link>
-      <AccountButton />
     </Flex>
   );
 }
@@ -73,11 +66,12 @@ const NavLink = ({ name, path, icon, target }) => {
       fontSize={'1rem'}
       fontWeight={500}
       textDecoration={'none'}
+      borderRadius={'0.25rem'}
       _hover={{
         textDecoration: 'none',
         background: 'purple.100',
         color: 'purple.700',
-        borderRadius: '0.25rem',
+        borderRadius: '0.35rem',
       }}
       target={target}
       href={path}
