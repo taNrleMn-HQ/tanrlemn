@@ -4,22 +4,11 @@
 import etsyOrange from '@/public/logos/etsy.png';
 import estyWhite from '@/public/logos/etsy-white.png';
 
-// hooks
-import { useCart } from '../_lib/hooks/useCart';
-
 // chakra-ui
-import {
-  Link,
-  Flex,
-  Text,
-  Box,
-  useColorModeValue,
-  Button,
-  Image,
-} from '@chakra-ui/react';
+import { Link, Flex, useColorModeValue, Button, Image } from '@chakra-ui/react';
 
 // local components
-import { ExternalLink, ShoppingBagIcon } from 'lucide-react';
+import { ExternalLink } from 'lucide-react';
 
 export default function DesktopNavbar({ routes }) {
   const etsyLogo = useColorModeValue(etsyOrange, estyWhite);
@@ -51,6 +40,7 @@ export default function DesktopNavbar({ routes }) {
             alt={'Etsy'}
             objectFit={'contain'}
             w={'2.5rem'}
+            minW={'2rem'}
           />
         </Button>
       </Link>
@@ -58,7 +48,7 @@ export default function DesktopNavbar({ routes }) {
   );
 }
 
-const NavLink = ({ name, path, icon, target }) => {
+const NavLink = ({ name, path, target }) => {
   return (
     <Link
       position={'relative'}
