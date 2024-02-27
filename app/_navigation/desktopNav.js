@@ -50,7 +50,7 @@ export default function DesktopNavbar({ routes }) {
             src={etsyLogo.src}
             alt={'Etsy'}
             objectFit={'contain'}
-            minW={'2.5rem'}
+            w={'2.5rem'}
           />
         </Button>
       </Link>
