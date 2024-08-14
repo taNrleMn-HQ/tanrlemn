@@ -22,63 +22,41 @@ import { MoveRight } from 'lucide-react';
 export default function About() {
   const color = useColorModeValue('purple.500', 'purple.300');
   return (
-    <Box
-      p={{ base: '3rem 0', md: '6rem 3rem' }}
-      fontSize={'1.1rem'}>
+    <Box p={{ base: '3rem 0', md: '6rem 3rem' }} fontSize={'1.1rem'}>
       <Container
         maxW={'650px'}
         mb={'4rem'}
         h={'fit-content'}
-        position={'relative'}>
+        position={'relative'}
+      >
         <Stack
           pb={'3rem'}
           borderBottom={'1px solid'}
           borderBottomColor={'gray.200'}
           mb={'4rem'}
-          w={'100%'}>
-          <Tag
-            size={'sm'}
-            textTransform={'uppercase'}
-            colorScheme={'purple'}
-            maxW={'fit-content'}>
-            Some words about
+          w={'100%'}
+        >
+          <Tag colorScheme={'pink'} maxW={'fit-content'}>
+            taNrleMn is an artist
           </Tag>
-          <Heading size={'lg'}>The brain of an artist</Heading>
-          <Heading
-            mb={'1rem'}
-            size={'4xl'}
-            fontWeight={800}
-            color={color}>
-            A world that never sleeps.
+          <Heading mb={'1rem'} size={'3xl'} fontWeight={800}>
+            Some words about my brain
           </Heading>
 
-          <Text maxW={'750px'}>
-            <Highlight
-              query={'taNrleMn'}
-              styles={{
-                fontWeight: 600,
-                color: color,
-              }}>
-              taNrleMn is an oil painter who is passionately committed to
-              capturing the vibrancy of the world around us. As a self-taught
-              artist with over a decade of experience, he continuously evolves
-              his craft.
-            </Highlight>
+          <Text maxW={'750px'} mb={'0.5rem'}>
+            My work is a reflection of the beauty and complexity of the human
+            experience, exploring themes of identity, connection, and healing.
           </Text>
           <Text mb={'2rem'}>
-            With a curious mind, he always seeks new ideas and innovative ways
-            to express himself. Currently, he is fully immersed in the creative
-            process, diligently working on his latest projects. Each canvas
-            holds a unique story waiting to be unveiled.
+            I create art to inspire and uplift others, to encourage empathy and
+            understanding, and to foster a sense of community and connection.
           </Text>
-          <Link
-            mb={'2rem'}
-            maxW={'fit-content'}
-            href={'/commissions'}>
+          <Link mb={'2rem'} maxW={'fit-content'} href={'/commissions'}>
             <Button
               colorScheme={'purple'}
               mr={'1rem'}
-              rightIcon={<MoveRight />}>
+              rightIcon={<MoveRight />}
+            >
               Request a commission
             </Button>
           </Link>
@@ -103,7 +81,8 @@ export default function About() {
               styles={{
                 fontWeight: 600,
                 color: color,
-              }}>
+              }}
+            >
               As we navigate the pain passed down through generations, we
               journey through life in search of answers to heal or make the pain
               disappear. The artist, taNrleMn, strongly believes in the
@@ -118,7 +97,8 @@ export default function About() {
               styles={{
                 fontWeight: 600,
                 color: color,
-              }}>
+              }}
+            >
               taNrleMn&apos;s artistry delves into the complex relationship
               between the profound pain that unites us and the visible, shared
               aspects of our lives. The artist strives to uncover the true
@@ -133,7 +113,8 @@ export default function About() {
               styles={{
                 fontWeight: 600,
                 color: color,
-              }}>
+              }}
+            >
               People serve as beacons of inspiration, brimming with the beauty
               and anguish of existence. For taNrleMn, painting becomes a medium
               for sharing and mutual understanding—a tool to aid in the healing

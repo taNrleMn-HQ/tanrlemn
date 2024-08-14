@@ -10,20 +10,14 @@ export default function ArtworkCard({ artwork }) {
   const { isOpen, onOpen, onClose } = useDisclosure();
   return (
     <>
-      <ArtworkModal
-        artwork={artwork}
-        isOpen={isOpen}
-        onClose={onClose}
-      />
-      <VStack
-        cursor={'pointer'}
-        position={'relative'}
-        onClick={onOpen}>
+      <ArtworkModal artwork={artwork} isOpen={isOpen} onClose={onClose} />
+      <VStack cursor={'pointer'} position={'relative'} onClick={onOpen}>
         <Box
           height={'100%'}
           width={'100%'}
           position={'relative'}
-          overflow={'hidden'}>
+          overflow={'hidden'}
+        >
           <Image
             objectFit={'cover'}
             objectPosition={'top'}

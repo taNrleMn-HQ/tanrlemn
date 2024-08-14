@@ -10,10 +10,8 @@ export default function ColorModeToggle() {
   };
 
   return (
-    <FormControl
-      display='flex'
-      alignItems='center'>
-      <Box color={colorMode === 'light' ? 'orange.500' : 'gray.400'}>
+    <FormControl display='flex' alignItems='center'>
+      <Box color={colorMode === 'light' ? 'pink.500' : 'gray.400'}>
         <Sun size={17} />
       </Box>
       <Switch
