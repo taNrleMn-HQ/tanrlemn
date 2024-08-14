@@ -6,6 +6,7 @@ import {
   ModalContent,
   ModalCloseButton,
   ModalBody,
+  Box,
 } from '@chakra-ui/react';
 import { FilloutStandardEmbed } from '@fillout/react';
 
@@ -15,17 +16,14 @@ export default function CommissionRequest({ isOpen, onClose }) {
       size={{ base: 'full' }}
       motionPreset='slideInBottom'
       isOpen={isOpen}
-      onClose={onClose}>
+      onClose={onClose}
+    >
       <ModalContent>
         <ModalCloseButton />
-        <ModalBody
-          p={'1rem'}
-          maxH={'100%'}
-          mt={{ base: '3rem', md: '2rem' }}>
-          <FilloutStandardEmbed
-            dynamicResize
-            filloutId='8xEXWBSvJbus'
-          />
+        <ModalBody>
+          <Box p={'1rem'} h={'90vh'} mt={{ base: '3rem', md: '2rem' }}>
+            <FilloutStandardEmbed filloutId='8EByWJi5mbus' />
+          </Box>
         </ModalBody>
       </ModalContent>
     </Modal>
