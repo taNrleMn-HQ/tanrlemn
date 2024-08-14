@@ -1,0 +1,155 @@
+[
+  {
+    "id": 1,
+    "created_at": "2023-12-08 07:40:43.802703+00",
+    "name": "The Light Saw Me First",
+    "description": "Oil on canvas. 16 x 20 in, 40.6 x 50.8 cm",
+    "artwork_date": "2020-01-13",
+    "main_image": "https://i.imgur.com/8rfvCeTh.jpg",
+    "available_for_sale": false
+  },
+  {
+    "id": 2,
+    "created_at": "2023-12-08 07:42:46.885311+00",
+    "name": "Shining Light",
+    "description": "Oil on canvas. 16 x 20 in, 40.6 x 50.8 cm",
+    "artwork_date": "2020-01-21",
+    "main_image": "https://i.imgur.com/BNN6yGxh.jpg",
+    "available_for_sale": false
+  },
+  {
+    "id": 3,
+    "created_at": "2023-12-08 07:43:37.276708+00",
+    "name": "Hide My Light",
+    "description": "Oil on canvas. 16 x 20 in, 40.6 x 50.8 cm",
+    "artwork_date": "2020-01-26",
+    "main_image": "https://i.imgur.com/RAF1b2Ph.jpg",
+    "available_for_sale": false
+  },
+  {
+    "id": 4,
+    "created_at": "2023-12-08 07:44:32.393916+00",
+    "name": "Between Ferns",
+    "description": "Oil on canvas. 24 x 36 in, 61 x 91.4 cm",
+    "artwork_date": "2022-05-23",
+    "main_image": "https://i.imgur.com/CVuS9hmh.jpg",
+    "available_for_sale": false
+  },
+  {
+    "id": 5,
+    "created_at": "2023-12-08 07:45:34.245526+00",
+    "name": "Out of Time",
+    "description": "Acrylic on canvas. 30 x 40 in, 76.2 x 101.6 cm",
+    "artwork_date": "2019-11-13",
+    "main_image": "https://i.imgur.com/SfRhvWSh.jpg",
+    "available_for_sale": false
+  },
+  {
+    "id": 6,
+    "created_at": "2023-12-08 07:46:16.464452+00",
+    "name": "Lost in Motion",
+    "description": "Oil on canvas. 16 x 20 in, 40.6 x 50.8 cm",
+    "artwork_date": "2019-11-07",
+    "main_image": "https://i.imgur.com/EKiZuD2h.jpg",
+    "available_for_sale": false
+  },
+  {
+    "id": 7,
+    "created_at": "2023-12-08 07:47:16.457399+00",
+    "name": "I'm Crazy Today",
+    "description": "Oil on canvas. 24 x 36 in, 61 x 91.4 cm",
+    "artwork_date": "2020-12-04",
+    "main_image": "https://i.imgur.com/drgPiJyh.jpg",
+    "available_for_sale": false
+  },
+  {
+    "id": 8,
+    "created_at": "2023-12-08 07:48:13.887246+00",
+    "name": "Wrestling Saved My Life",
+    "description": "Oil on canvas. 24 x 36 in, 61 x 91.4 cm",
+    "artwork_date": "2020-04-14",
+    "main_image": "https://i.imgur.com/YYZG5nSh.jpg",
+    "available_for_sale": false
+  },
+  {
+    "id": 9,
+    "created_at": "2023-12-08 07:49:28.167148+00",
+    "name": "Who Are I",
+    "description": "Oil on canvas. 16 x 20 in, 40.6 x 50.8 cm",
+    "artwork_date": "2020-05-03",
+    "main_image": "https://i.imgur.com/UUKKIi7h.jpg",
+    "available_for_sale": false
+  },
+  {
+    "id": 10,
+    "created_at": "2023-12-08 07:50:13.69857+00",
+    "name": "Abstract Times",
+    "description": "Oil on canvas. 16 x 20 in, 40.6 x 50.8 cm",
+    "artwork_date": "2020-05-22",
+    "main_image": "https://i.imgur.com/pEfbhLTh.jpg",
+    "available_for_sale": false
+  },
+  {
+    "id": 11,
+    "created_at": "2023-12-08 07:50:45.090384+00",
+    "name": "Friendship Cycle",
+    "description": "Oil on canvas. 24 x 36 in, 61 x 91.4 cm",
+    "artwork_date": "2021-03-14",
+    "main_image": "https://i.imgur.com/G9Un4Syh.jpg",
+    "available_for_sale": false
+  },
+  {
+    "id": 12,
+    "created_at": "2023-12-08 07:52:29.357009+00",
+    "name": "IMOK, Owner",
+    "description": "Oil on canvas. 24 x 36 in, 61 x 91.4 cm",
+    "artwork_date": "2022-08-29",
+    "main_image": "https://i.imgur.com/v3TtoGIh.jpg",
+    "available_for_sale": false
+  },
+  {
+    "id": 13,
+    "created_at": "2023-12-08 07:53:24.934782+00",
+    "name": "No Thyself",
+    "description": "Oil on canvas. 24 x 36 in, 61 x 91.4 cm",
+    "artwork_date": "2022-08-24",
+    "main_image": "https://i.imgur.com/BeBKnWrh.jpg",
+    "available_for_sale": false
+  },
+  {
+    "id": 14,
+    "created_at": "2023-12-08 07:54:18.576897+00",
+    "name": "Donut Eat Me, Please",
+    "description": "Oil on canvas. 24 x 36 in, 61 x 91.4 cm",
+    "artwork_date": "2023-05-09",
+    "main_image": "https://i.imgur.com/CljkHnsh.jpg",
+    "available_for_sale": false
+  },
+  {
+    "id": 15,
+    "created_at": "2023-12-08 07:55:07.220205+00",
+    "name": "Bliss, Now",
+    "description": "Oil on canvas. 20 x 30 in, 50.8 x 76.2 cm",
+    "artwork_date": "2022-08-30",
+    "main_image": "https://i.imgur.com/lfKDiOmh.jpg",
+    "available_for_sale": false
+  },
+  {
+    "id": 16,
+    "created_at": "2023-12-08 07:55:45.632526+00",
+    "name": "Whalerider",
+    "description": "Oil on canvas. 24 x 36 in, 61 x 91.4 cm",
+    "artwork_date": "2022-08-28",
+    "main_image": "https://i.imgur.com/fNISTWSh.jpg",
+    "available_for_sale": false
+  },
+  {
+    "id": 17,
+    "created_at": "2023-12-08 07:58:35.421832+00",
+    "name": "Content Management",
+    "description": "Oil on canvas. 16 x 20 in, 40.6 x 50.8 cm",
+    "artwork_date": "2022-02-11",
+    "main_image": "https://i.imgur.com/Zopl8vWh.jpg",
+    "available_for_sale": false
+  }
+]

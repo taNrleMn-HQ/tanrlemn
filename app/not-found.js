@@ -26,31 +26,26 @@ export default function NotFound() {
         textTransform={'uppercase'}
         colorScheme={'orange'}
         mb={'0.5rem'}
-        maxW={'fit-content'}>
+        maxW={'fit-content'}
+      >
         404
       </Tag>
-      <Heading
-        maxW={'500px'}
-        mb={'1rem'}
-        size={'4xl'}
-        fontWeight={800}>
+      <Heading maxW={'500px'} mb={'1rem'} size={'3xl'} fontWeight={800}>
         Oops... That&apos;s an error
       </Heading>
       <Text mb={'2rem'}>
         We couldn&apos;t find the page you were looking for. Please try again.
       </Text>
       <Box>
-        <Link
-          mb={'2rem'}
-          maxW={'fit-content'}
-          href={'/'}>
+        <Link mb={'2rem'} maxW={'fit-content'} href={'/'}>
           <Button
             _hover={{
               outline: '1px solid',
               outlineColor: 'orange.300',
             }}
             mr={'1rem'}
-            colorScheme={'blue'}>
+            colorScheme={'blue'}
+          >
             Return home
           </Button>
         </Link>

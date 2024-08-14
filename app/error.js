@@ -30,40 +30,26 @@ export default function Error({ error, reset }) {
         size={'md'}
         textTransform={'uppercase'}
         colorScheme={'red'}
-        maxW={'fit-content'}>
+        maxW={'fit-content'}
+      >
         Error
       </Tag>
-      <Heading
-        maxW={'500px'}
-        mb={'1rem'}
-        size={'4xl'}
-        fontWeight={800}>
+      <Heading maxW={'500px'} mb={'1rem'} size={'3xl'} fontWeight={800}>
         Oops... That&apos;s an error
       </Heading>
       <Text mb={'0.5rem'}>
         We couldn&apos;t make that request. Please try again.
       </Text>
-      <Code
-        mb={'2rem'}
-        colorScheme={'red'}>
+      <Code mb={'2rem'} colorScheme={'red'}>
         Error: {error.name}
         <br /> Message: {error.message}
       </Code>
       <Box>
-        <Button
-          onClick={() => reset()}
-          mr={'1rem'}
-          colorScheme={'orange'}>
+        <Button onClick={() => reset()} mr={'1rem'} colorScheme={'orange'}>
           Try again
         </Button>
-        <Link
-          mb={'2rem'}
-          maxW={'fit-content'}
-          href={'/'}>
-          <Button
-            variant={'ghost'}
-            colorScheme={'blue'}
-            mr={'1rem'}>
+        <Link mb={'2rem'} maxW={'fit-content'} href={'/'}>
+          <Button variant={'ghost'} colorScheme={'blue'} mr={'1rem'}>
             Return home
           </Button>
         </Link>
