@@ -25,7 +25,7 @@ export default function Home() {
         p={'2rem 0'}
         borderColor={borderColor}
       >
-        <Container>
+        <Container pt={'2rem'}>
           <VStack>
             <Heading size={'lg'} textAlign={'center'}>
               I will paint your face if you want

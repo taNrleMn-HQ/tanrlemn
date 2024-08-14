@@ -24,7 +24,7 @@ export default function Navbar() {
   }, []);
 
   const bg = useColorModeValue('blue.50', 'gray.800');
-  const borderColor = useColorModeValue('orange.300', 'gray.600');
+  const borderColor = useColorModeValue('pink.200', 'gray.600');
 
   return (
     <>

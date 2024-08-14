@@ -33,7 +33,7 @@ import CommissionRequest from '@/app/_components/forms/commissionRequest';
 export default function Commissions() {
   const { isOpen, onOpen, onClose } = useDisclosure();
 
-  const color = useColorModeValue('purple.500', 'orange.300');
+  const color = useColorModeValue('purple.500', 'pink.300');
   const bg = useColorModeValue('green.100', 'gray.700');
 
   return (
@@ -53,7 +53,7 @@ export default function Commissions() {
           borderBottom={'1px solid'}
           borderBottomColor={'gray.200'}
         >
-          <Tag colorScheme={'orange'} maxW={'fit-content'}>
+          <Tag colorScheme={'pink'} maxW={'fit-content'}>
             Custom art is cool
           </Tag>
           <Heading mb={'1rem'} size={'3xl'} fontWeight={800}>

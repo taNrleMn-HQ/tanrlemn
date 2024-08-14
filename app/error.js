@@ -1,8 +1,5 @@
 'use client';
 
-// recoil
-import { useSetRecoilState } from 'recoil';
-
 // hooks
 import { useEffect } from 'react';
 
@@ -16,7 +13,6 @@ import {
   Heading,
   Link,
   Code,
-  VStack,
 } from '@chakra-ui/react';
 
 export default function Error({ error, reset }) {
@@ -45,7 +41,7 @@ export default function Error({ error, reset }) {
         <br /> Message: {error.message}
       </Code>
       <Box>
-        <Button onClick={() => reset()} mr={'1rem'} colorScheme={'orange'}>
+        <Button onClick={() => reset()} mr={'1rem'} colorScheme={'pink'}>
           Try again
         </Button>
         <Link mb={'2rem'} maxW={'fit-content'} href={'/'}>

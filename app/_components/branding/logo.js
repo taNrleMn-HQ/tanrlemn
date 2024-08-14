@@ -1,10 +1,13 @@
 'use client';
 
+// images
+import logo from '@/app/_assets/donut-logo.svg';
+
 // chakra-ui
 import { Flex, Heading, Link, Box, useColorModeValue } from '@chakra-ui/react';
 
 // local components
-import Underscore from './underscore';
+import Donut from './donut';
 
 export default function Logo({ shouldLink = true, p = '0.3125rem 1.4375rem' }) {
   const text = 'taNrleMn';
@@ -17,19 +20,12 @@ export default function Logo({ shouldLink = true, p = '0.3125rem 1.4375rem' }) {
           mr={'1.25rem'}
           href='/'
           _hover={{ textDecoration: 'none' }}
-          textDecoration={'none'}>
-          <LogoContent
-            color={color}
-            text={text}
-            p={p}
-          />
+          textDecoration={'none'}
+        >
+          <LogoContent color={color} text={text} p={p} />
         </Link>
       ) : (
-        <LogoContent
-          color={color}
-          text={text}
-          p={p}
-        />
+        <LogoContent color={color} text={text} p={p} />
       )}
     </>
   );
@@ -45,12 +41,13 @@ export const LogoContent = ({ color, text, p }) => {
       borderRadius={'9px'}
       _hover={{
         outline: '1px solid',
-        outlineColor: 'purple.300',
+        outlineColor: 'pink.300',
       }}
-      align={'flex-end'}
-      p={p}>
-      <Box pb={'0.3rem'}>
-        <Underscore />
+      align={'center'}
+      p={p}
+    >
+      <Box w={'2rem'} h={'2rem'} mr={'0.35rem'}>
+        <Donut />
       </Box>
       <Heading
         mr={'0.125rem'}
@@ -59,7 +56,8 @@ export const LogoContent = ({ color, text, p }) => {
         whiteSpace={'nowrap'}
         lineHeight={'1.56288rem'}
         letterSpacing={'-0.02688rem'}
-        size={'md'}>
+        size={'md'}
+      >
         {text}
       </Heading>
     </Flex>

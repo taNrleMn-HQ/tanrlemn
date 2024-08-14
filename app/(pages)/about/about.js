@@ -36,7 +36,7 @@ export default function About() {
           mb={'4rem'}
           w={'100%'}
         >
-          <Tag colorScheme={'orange'} maxW={'fit-content'}>
+          <Tag colorScheme={'pink'} maxW={'fit-content'}>
             taNrleMn is an artist
           </Tag>
           <Heading mb={'1rem'} size={'3xl'} fontWeight={800}>

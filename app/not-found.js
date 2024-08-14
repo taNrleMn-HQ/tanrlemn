@@ -1,11 +1,5 @@
 'use client';
 
-// recoil
-import { useSetRecoilState } from 'recoil';
-
-// hooks
-import { useEffect } from 'react';
-
 // chakra-ui
 import {
   Box,
@@ -16,7 +10,6 @@ import {
   Heading,
   Tag,
 } from '@chakra-ui/react';
-import { MoveRight } from 'lucide-react';
 
 export default function NotFound() {
   return (
@@ -24,7 +17,7 @@ export default function NotFound() {
       <Tag
         size={'md'}
         textTransform={'uppercase'}
-        colorScheme={'orange'}
+        colorScheme={'pink'}
         mb={'0.5rem'}
         maxW={'fit-content'}
       >
@@ -41,7 +34,7 @@ export default function NotFound() {
           <Button
             _hover={{
               outline: '1px solid',
-              outlineColor: 'orange.300',
+              outlineColor: 'pink.300',
             }}
             mr={'1rem'}
             colorScheme={'blue'}

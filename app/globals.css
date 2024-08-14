@@ -22,7 +22,7 @@ html body {
 }
 
 ::selection {
-  background: var(--chakra-colors-orange-300);
+  background: var(--chakra-colors-pink-300);
 }
 
 /* Scrollbar Styles */
@@ -39,7 +39,7 @@ html body {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--chakra-colors-orange-200);
+  background: var(--chakra-colors-pink-200);
   border-radius: 0.25rem;
 }
 

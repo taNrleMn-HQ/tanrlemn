@@ -15,11 +15,13 @@ import {
   Highlight,
   useColorModeValue,
 } from '@chakra-ui/react';
+import Logo from '../_components/branding/logo';
+import Donut from '../_components/branding/donut';
 
 export default function Footer() {
   const bg = useColorModeValue('blue.50', 'gray.800');
-  const color = useColorModeValue('orange.400', 'purple.200');
-  const borderColor = useColorModeValue('orange.300', 'gray.600');
+  const color = useColorModeValue('pink.400', 'pink.200');
+  const borderColor = useColorModeValue('pink.300', 'gray.600');
 
   return (
     <>
@@ -40,9 +42,9 @@ export default function Footer() {
               maxW={'25rem'}
               mr={{ base: 0, md: '7rem' }}
             >
-              <Heading mb={'0.25rem'} size={'md'} color={color}>
-                _tL
-              </Heading>
+              <Box mb={'0.25rem'} w={'3rem'} h={'3rem'}>
+                <Donut />
+              </Box>
               <Text>
                 <Highlight
                   query={"taNrleMn's"}
