@@ -57,7 +57,7 @@ export default function Commissions() {
           borderBottomColor={'gray.200'}
         >
           <Tag colorScheme={'pink'} maxW={'fit-content'} size={'lg'}>
-            Starting at $1,000
+            $1,000
           </Tag>
           <Heading mb={'1rem'} size={'3xl'} fontWeight={800}>
             Commissioned Oil Paintings by taNrleMn
