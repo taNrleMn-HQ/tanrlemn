@@ -52,17 +52,27 @@ export default function MobileNavbar({ routes }) {
           </DrawerHeader>
           <DrawerBody minH={'50vh'} w={'100%'}>
             <VStack w={'100%'} fontSize={'0.9rem'} align={'flex-start'}>
-              {routes.map((route, index) => (
-                <NavLink
-                  key={route.name}
-                  name={route.name}
-                  path={route.path}
-                  icon={route.icon}
-                  target={route.target}
-                  index={index}
-                  routesLength={routes.length}
-                />
-              ))}
+              {routes.map((route, index) =>
+                route.isExternal ? (
+                  <ExternalNavLink
+                    key={route.name}
+                    name={route.name}
+                    path={route.path}
+                    target={route.target}
+                    index={index}
+                    routesLength={routes.length}
+                  />
+                ) : (
+                  <NavLink
+                    key={route.name}
+                    name={route.name}
+                    path={route.path}
+                    icon={route.icon}
+                    index={index}
+                    routesLength={routes.length}
+                  />
+                )
+              )}
             </VStack>
           </DrawerBody>
         </DrawerContent>
@@ -71,7 +81,7 @@ export default function MobileNavbar({ routes }) {
   );
 }
 
-const NavLink = ({ name, path, icon, target, index, routesLength }) => {
+const NavLink = ({ name, path, index, routesLength }) => {
   return (
     <Link
       w={'100%'}
@@ -82,7 +92,6 @@ const NavLink = ({ name, path, icon, target, index, routesLength }) => {
       _hover={{
         textDecoration: 'none',
       }}
-      target={target}
       href={path}
       p={'1rem 1rem 1rem 0'}
     >
@@ -90,7 +99,31 @@ const NavLink = ({ name, path, icon, target, index, routesLength }) => {
         <Heading maxW={'fit-content'} size={'md'} fontWeight={500}>
           {name}
         </Heading>
-        {icon && icon}
+      </Flex>
+    </Link>
+  );
+};
+
+const ExternalNavLink = ({ name, path, index, routesLength }) => {
+  return (
+    <Link
+      w={'100%'}
+      borderBottom={index === routesLength - 1 ? 'none' : '1px solid'}
+      borderColor={'gray.200'}
+      position={'relative'}
+      textDecoration={'none'}
+      _hover={{
+        textDecoration: 'none',
+      }}
+      target={'_blank'}
+      href={path}
+      p={'1rem 1rem 1rem 0'}
+    >
+      <Flex align={'center'} gap={'0.5rem'}>
+        <Heading maxW={'fit-content'} size={'md'} fontWeight={500}>
+          {name}
+        </Heading>
+        <ExternalLink size={20} />
       </Flex>
     </Link>
   );
