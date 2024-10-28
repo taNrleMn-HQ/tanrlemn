@@ -20,7 +20,7 @@ export default function ArtworkModal({ artwork, isOpen, onClose }) {
 
   return (
     <Modal
-      size={{ base: 'xs', md: '3xl' }}
+      size={{ base: 'xs', md: '5xl' }}
       isCentered
       allowPinchZoom
       trapFocus={false}

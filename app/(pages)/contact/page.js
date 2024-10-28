@@ -7,21 +7,21 @@ const images = [
 ];
 
 // local components
-import Support from './support';
+import Contact from './contact';
 
 // metadata
 export const metadata = {
-  title: 'Support',
-  description: 'Get help with your account, orders, and more.',
+  title: 'Contact',
+  description: 'Get in touch with us.',
   openGraph: {
-    title: 'Support',
+    title: 'Contact',
     images: images,
-    description: 'Get help with your account, orders, and more.',
+    description: 'Get in touch with us.',
     locale: 'en_US',
     type: 'website',
   },
 };
 
 export default function Page() {
-  return <Support />;
+  return <Contact />;
 }

@@ -19,7 +19,7 @@ export default function Home() {
   return (
     <Box>
       <ArtHero />
-      <Box
+      {/* <Box
         borderTop={'1px solid'}
         m={{ base: '1rem', md: '3rem' }}
         p={'2rem 0'}
@@ -28,11 +28,11 @@ export default function Home() {
         <Container pt={'2rem'}>
           <VStack>
             <Heading size={'lg'} textAlign={'center'}>
-              I will paint your face if you want
+              Busy painting
             </Heading>
           </VStack>
         </Container>
-      </Box>
+      </Box> */}
     </Box>
   );
 }

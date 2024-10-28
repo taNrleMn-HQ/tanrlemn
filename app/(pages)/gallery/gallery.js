@@ -53,7 +53,7 @@ export default function Gallery() {
                 p={'0.35rem 1rem 0.35rem 0.5rem'}
                 pl={0}
                 mb={'0.35rem'}
-                href={'/commissions'}
+                href={'/contact'}
                 display={'flex'}
                 transition={'all 0.2s ease-in-out'}
                 _hover={{
@@ -71,7 +71,7 @@ export default function Gallery() {
                   colorScheme={'green'}
                   borderRadius={'full'}
                 >
-                  accepting commissions
+                  get in touch
                 </Tag>
                 <Flex align={'center'}>
                   <MoveRight size={15} />

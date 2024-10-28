@@ -42,7 +42,7 @@ export default function ArtHero() {
           p={'0.35rem 1rem 0.35rem 0.5rem'}
           pl={0}
           mb={'0.35rem'}
-          href={'/commissions'}
+          href={'/contact'}
           display={'flex'}
           transition={'all 0.2s ease-in-out'}
           _hover={{
@@ -60,7 +60,7 @@ export default function ArtHero() {
             colorScheme={'blue'}
             borderRadius={'full'}
           >
-            accepting commissions
+            get in touch
           </Tag>
           <Flex align={'center'}>
             <Text mr={'0.5rem'} fontSize={'0.85rem'}>
@@ -73,9 +73,8 @@ export default function ArtHero() {
           A tool for healing.
         </Heading>
         <Text mb={'1rem'}>
-          My art explores the profound unity found in shared pain. I believe we
-          all experience pain, and that pain can be a powerful tool for healing
-          and connection.
+          My art explores the space between us. I believe we all experience
+          pain, and that pain can be a powerful tool for healing and connection.
         </Text>
         <Flex>
           <Link href={'/gallery'}>
