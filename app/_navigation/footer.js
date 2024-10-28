@@ -64,7 +64,6 @@ export default function Footer() {
                   Art
                 </Heading>
                 <Stack gap={0}>
-                  <Link href='/commissions'>Commissions</Link>
                   <Link href='/gallery'>Gallery</Link>
                   <Link href='/about'>About</Link>
                 </Stack>
@@ -74,7 +73,7 @@ export default function Footer() {
                   Support
                 </Heading>
                 <Stack gap={0}>
-                  <Link href='/support'>Get Help</Link>
+                  <Link href='/contact'>Contact</Link>
                   <Link href='/privacy'>Privacy</Link>
                   <Link href='/terms'>Terms</Link>
                 </Stack>

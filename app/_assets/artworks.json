@@ -1,155 +1,338 @@
 [
   {
     "id": 1,
-    "created_at": "2023-12-08 07:40:43.802703+00",
     "name": "The Light Saw Me First",
     "description": "Oil on canvas. 16 x 20 in, 40.6 x 50.8 cm",
     "artwork_date": "2020-01-13",
-    "main_image": "https://i.imgur.com/8rfvCeTh.jpg",
+    "main_image": "https://res.cloudinary.com/dvqazhd4s/image/upload/v1730139919/IMG_4276_a0yir5.jpg",
     "available_for_sale": false
   },
   {
     "id": 2,
-    "created_at": "2023-12-08 07:42:46.885311+00",
     "name": "Shining Light",
     "description": "Oil on canvas. 16 x 20 in, 40.6 x 50.8 cm",
     "artwork_date": "2020-01-21",
-    "main_image": "https://i.imgur.com/BNN6yGxh.jpg",
+    "main_image": "https://res.cloudinary.com/dvqazhd4s/image/upload/v1730140331/gpaSays-3_cm8dre.jpg",
     "available_for_sale": false
   },
   {
     "id": 3,
-    "created_at": "2023-12-08 07:43:37.276708+00",
     "name": "Hide My Light",
     "description": "Oil on canvas. 16 x 20 in, 40.6 x 50.8 cm",
     "artwork_date": "2020-01-26",
-    "main_image": "https://i.imgur.com/RAF1b2Ph.jpg",
+    "main_image": "https://res.cloudinary.com/dvqazhd4s/image/upload/v1730139918/IMG_4385_tce4kv.jpg",
     "available_for_sale": false
   },
   {
     "id": 4,
-    "created_at": "2023-12-08 07:44:32.393916+00",
     "name": "Between Ferns",
     "description": "Oil on canvas. 24 x 36 in, 61 x 91.4 cm",
     "artwork_date": "2022-05-23",
-    "main_image": "https://i.imgur.com/CVuS9hmh.jpg",
+    "main_image": "https://res.cloudinary.com/dvqazhd4s/image/upload/v1730139920/IMG_4794_cj3xkk.jpg",
     "available_for_sale": false
   },
   {
     "id": 5,
-    "created_at": "2023-12-08 07:45:34.245526+00",
     "name": "Out of Time",
     "description": "Acrylic on canvas. 30 x 40 in, 76.2 x 101.6 cm",
     "artwork_date": "2019-11-13",
-    "main_image": "https://i.imgur.com/SfRhvWSh.jpg",
+    "main_image": "https://res.cloudinary.com/dvqazhd4s/image/upload/v1730139910/IMG_3902_x56fqu.jpg",
     "available_for_sale": false
   },
   {
     "id": 6,
-    "created_at": "2023-12-08 07:46:16.464452+00",
     "name": "Lost in Motion",
     "description": "Oil on canvas. 16 x 20 in, 40.6 x 50.8 cm",
     "artwork_date": "2019-11-07",
-    "main_image": "https://i.imgur.com/EKiZuD2h.jpg",
+    "main_image": "https://res.cloudinary.com/dvqazhd4s/image/upload/v1730139931/IMG_8778_cffbm1.jpg",
     "available_for_sale": false
   },
   {
     "id": 7,
-    "created_at": "2023-12-08 07:47:16.457399+00",
     "name": "I'm Crazy Today",
     "description": "Oil on canvas. 24 x 36 in, 61 x 91.4 cm",
     "artwork_date": "2020-12-04",
-    "main_image": "https://i.imgur.com/drgPiJyh.jpg",
+    "main_image": "https://res.cloudinary.com/dvqazhd4s/image/upload/v1730139899/IMG_3120_hzzrus.jpg",
     "available_for_sale": false
   },
   {
     "id": 8,
-    "created_at": "2023-12-08 07:48:13.887246+00",
     "name": "Wrestling Saved My Life",
     "description": "Oil on canvas. 24 x 36 in, 61 x 91.4 cm",
     "artwork_date": "2020-04-14",
-    "main_image": "https://i.imgur.com/YYZG5nSh.jpg",
+    "main_image": "https://res.cloudinary.com/dvqazhd4s/image/upload/v1730139879/IMG_1012_jjb2yz.jpg",
     "available_for_sale": false
   },
   {
     "id": 9,
-    "created_at": "2023-12-08 07:49:28.167148+00",
     "name": "Who Are I",
     "description": "Oil on canvas. 16 x 20 in, 40.6 x 50.8 cm",
     "artwork_date": "2020-05-03",
-    "main_image": "https://i.imgur.com/UUKKIi7h.jpg",
+    "main_image": "https://res.cloudinary.com/dvqazhd4s/image/upload/v1730139882/IMG_1179_gan6tr.jpg",
     "available_for_sale": false
   },
   {
     "id": 10,
-    "created_at": "2023-12-08 07:50:13.69857+00",
     "name": "Abstract Times",
     "description": "Oil on canvas. 16 x 20 in, 40.6 x 50.8 cm",
     "artwork_date": "2020-05-22",
-    "main_image": "https://i.imgur.com/pEfbhLTh.jpg",
+    "main_image": "https://res.cloudinary.com/dvqazhd4s/image/upload/v1730139889/IMG_1559-1_sjw19t.jpg",
     "available_for_sale": false
   },
   {
     "id": 11,
-    "created_at": "2023-12-08 07:50:45.090384+00",
     "name": "Friendship Cycle",
     "description": "Oil on canvas. 24 x 36 in, 61 x 91.4 cm",
     "artwork_date": "2021-03-14",
-    "main_image": "https://i.imgur.com/G9Un4Syh.jpg",
+    "main_image": "https://res.cloudinary.com/dvqazhd4s/image/upload/v1730139909/IMG_3775_fhxtpa.jpg",
     "available_for_sale": false
   },
   {
     "id": 12,
-    "created_at": "2023-12-08 07:52:29.357009+00",
     "name": "IMOK, Owner",
     "description": "Oil on canvas. 24 x 36 in, 61 x 91.4 cm",
     "artwork_date": "2022-08-29",
-    "main_image": "https://i.imgur.com/v3TtoGIh.jpg",
+    "main_image": "https://res.cloudinary.com/dvqazhd4s/image/upload/v1730139926/IMG_5544_Edited_lsx1q0.jpg",
     "available_for_sale": false
   },
   {
     "id": 13,
-    "created_at": "2023-12-08 07:53:24.934782+00",
     "name": "No Thyself",
     "description": "Oil on canvas. 24 x 36 in, 61 x 91.4 cm",
     "artwork_date": "2022-08-24",
-    "main_image": "https://i.imgur.com/BeBKnWrh.jpg",
+    "main_image": "https://res.cloudinary.com/dvqazhd4s/image/upload/v1730139921/IMG_5524_20Edited_Edited_jftwet.jpg",
     "available_for_sale": false
   },
   {
     "id": 14,
-    "created_at": "2023-12-08 07:54:18.576897+00",
     "name": "Donut Eat Me, Please",
     "description": "Oil on canvas. 24 x 36 in, 61 x 91.4 cm",
     "artwork_date": "2023-05-09",
-    "main_image": "https://i.imgur.com/CljkHnsh.jpg",
+    "main_image": "https://res.cloudinary.com/dvqazhd4s/image/upload/v1730139934/IMG_7630_20Edited_Edited_ynq61t.jpg",
     "available_for_sale": false
   },
   {
     "id": 15,
-    "created_at": "2023-12-08 07:55:07.220205+00",
     "name": "Bliss, Now",
     "description": "Oil on canvas. 20 x 30 in, 50.8 x 76.2 cm",
     "artwork_date": "2022-08-30",
-    "main_image": "https://i.imgur.com/lfKDiOmh.jpg",
+    "main_image": "https://res.cloudinary.com/dvqazhd4s/image/upload/v1730139925/IMG_5548_ppt4mt.jpg",
     "available_for_sale": false
   },
   {
     "id": 16,
-    "created_at": "2023-12-08 07:55:45.632526+00",
     "name": "Whalerider",
     "description": "Oil on canvas. 24 x 36 in, 61 x 91.4 cm",
     "artwork_date": "2022-08-28",
-    "main_image": "https://i.imgur.com/fNISTWSh.jpg",
+    "main_image": "https://res.cloudinary.com/dvqazhd4s/image/upload/v1730139928/IMG_5537_Edited_ynladj.jpg",
     "available_for_sale": false
   },
   {
     "id": 17,
-    "created_at": "2023-12-08 07:58:35.421832+00",
-    "name": "Content Management",
+    "name": "Finding It",
     "description": "Oil on canvas. 16 x 20 in, 40.6 x 50.8 cm",
     "artwork_date": "2022-02-11",
-    "main_image": "https://i.imgur.com/Zopl8vWh.jpg",
+    "main_image": "https://res.cloudinary.com/dvqazhd4s/image/upload/v1730139914/IMG_4047_Edited_fnkxo5.jpg",
+    "available_for_sale": false
+  },
+  {
+    "id": 18,
+    "name": "It Really Is Okay, Okay",
+    "description": "Mixed media on canvas. 12 x 12 in, 30.5 x 30.5 cm",
+    "artwork_date": "2024-01-09",
+    "main_image": "https://res.cloudinary.com/dvqazhd4s/image/upload/v1730139935/IMG_9855_Edited_hwulc6.jpg",
+    "available_for_sale": false
+  },
+  {
+    "id": 19,
+    "name": "Reflection of",
+    "description": "Oil pastel on paper. 18 x 24 in, 45.7 x 61 cm",
+    "artwork_date": "2020-10-22",
+    "main_image": "https://res.cloudinary.com/dvqazhd4s/image/upload/v1730139896/IMG_2238_Edited_rzi6gw.jpg",
+    "available_for_sale": false
+  },
+  {
+    "id": 20,
+    "name": "What did you say?",
+    "description": "Oil on canvas. 8 x 10 in, 20.3 x 25.4 cm",
+    "artwork_date": "2020-05-08",
+    "main_image": "https://res.cloudinary.com/dvqazhd4s/image/upload/v1730139883/IMG_1287_Edited_b682kz.jpg",
+    "available_for_sale": false
+  },
+  {
+    "id": 21,
+    "name": "Trinity",
+    "description": "Acrylic on canvas. 96 x 48 in, 243.8 x 121.9 cm",
+    "artwork_date": "2016-04-09",
+    "main_image": "https://res.cloudinary.com/dvqazhd4s/image/upload/v1730139896/IMG_2769_sjswek.jpg",
+    "available_for_sale": false
+  },
+  {
+    "id": 22,
+    "name": "Breating again",
+    "description": "Acrylic on canvas. 72 x 36 in, 182.9 x 91.4 cm",
+    "artwork_date": "2016-05-01",
+    "main_image": "https://res.cloudinary.com/dvqazhd4s/image/upload/v1730139931/Snapseed_ywl5wt.jpg",
+    "available_for_sale": false
+  },
+  {
+    "id": 23,
+    "name": "Not for profit",
+    "description": "Acrylic on canvas. 30 x 40 in, 76.2 x 101.6 cm",
+    "artwork_date": "2016-09-17",
+    "main_image": "https://res.cloudinary.com/dvqazhd4s/image/upload/v1730139897/IMG_2064_m9wjbg.jpg",
+    "available_for_sale": false
+  },
+  {
+    "id": 24,
+    "name": "Tribe",
+    "description": "Acrylic on canvas. 30 x 40 in, 76.2 x 101.6 cm",
+    "artwork_date": "2016-09-30",
+    "main_image": "https://res.cloudinary.com/dvqazhd4s/image/upload/v1730139873/IMG_0631_sywosk.jpg",
+    "available_for_sale": false
+  },
+  {
+    "id": 25,
+    "name": "Jesus Wept",
+    "description": "Acrylic on canvas. 30 x 40 in, 76.2 x 101.6 cm",
+    "artwork_date": "2018-01-09",
+    "main_image": "https://res.cloudinary.com/dvqazhd4s/image/upload/v1730139872/IMG_0632_Edited_jppael.jpg",
+    "available_for_sale": false
+  },
+  {
+    "id": 26,
+    "name": "Flacid nose",
+    "description": "Acrylic on canvas. 60 x 60 in, 152.4 x 152.4 cm",
+    "artwork_date": "2019-08-15",
+    "main_image": "https://res.cloudinary.com/dvqazhd4s/image/upload/v1730139929/IMG_5976_Edited_nfp4eq.jpg",
+    "available_for_sale": false
+  },
+  {
+    "id": 27,
+    "name": "Oil Experiment No. 1",
+    "description": "Oil on yupo paper. 24 x 36 in, 61 x 91.4 cm",
+    "artwork_date": "2019-09-17",
+    "main_image": "https://res.cloudinary.com/dvqazhd4s/image/upload/v1730139902/IMG_3313-1_deyzl6.jpg",
+    "available_for_sale": false
+  },
+  {
+    "id": 28,
+    "name": "Oil Experiment No. 2",
+    "description": "Oil on yupo paper. 24 x 36 in, 61 x 91.4 cm",
+    "artwork_date": "2019-09-17",
+    "main_image": "https://res.cloudinary.com/dvqazhd4s/image/upload/v1730144841/IMG_3533_nqrwxt.jpg",
+    "available_for_sale": false
+  },
+  {
+    "id": 29,
+    "name": "Oil Experiment No. 3",
+    "description": "Oil on yupo paper. 24 x 36 in, 61 x 91.4 cm",
+    "artwork_date": "2019-09-26",
+    "main_image": "https://res.cloudinary.com/dvqazhd4s/image/upload/v1730139903/IMG_3592-1_karkm6.jpg",
+    "available_for_sale": false
+  },
+  {
+    "id": 30,
+    "name": "Oil Experiment No. 4",
+    "description": "Oil on yupo paper. 24 x 36 in, 61 x 91.4 cm",
+    "artwork_date": "2019-10-07",
+    "main_image": "https://res.cloudinary.com/dvqazhd4s/image/upload/v1730139904/IMG_3589-1_rytuki.jpg",
+    "available_for_sale": false
+  },
+  {
+    "id": 31,
+    "name": "Oil Experiment No. 5",
+    "description": "Oil on yupo paper. 18 x 36 in, 45.7 x 91.4 cm",
+    "artwork_date": "2019-10-12",
+    "main_image": "https://res.cloudinary.com/dvqazhd4s/image/upload/v1730139904/IMG_3591-1_chgizb.jpg",
+    "available_for_sale": false
+  },
+  {
+    "id": 32,
+    "name": "It's alright...",
+    "description": "Oil on canvas. 8 x 10 in, 20.3 x 25.4 cm",
+    "artwork_date": "2022-05-06",
+    "main_image": "https://res.cloudinary.com/dvqazhd4s/image/upload/v1730139928/IMG_7974_c0djta.jpg",
+    "available_for_sale": false
+  },
+  {
+    "id": 36,
+    "name": "I never asked to look this way",
+    "description": "Oil on canvas. 30 x 40 in, 76.2 x 101.6 cm",
+    "artwork_date": "2019-11-30",
+    "main_image": "https://res.cloudinary.com/dvqazhd4s/image/upload/v1730139917/IMG_4050-1_t2y16o.jpg",
+    "available_for_sale": false
+  },
+  {
+    "id": 37,
+    "name": "I think I get it",
+    "description": "Oil on yupo paper. 30 x 40 in, 76.2 x 101.6 cm",
+    "artwork_date": "2020-01-15",
+    "main_image": "https://res.cloudinary.com/dvqazhd4s/image/upload/v1730139916/IMG_4294_xgvqvs.jpg",
+    "available_for_sale": false
+  },
+  {
+    "id": 40,
+    "name": "Find Your Way",
+    "description": "Oil on canvas. 24 x 36 in, 61 x 91.4 cm",
+    "artwork_date": "2022-03-04",
+    "main_image": "https://res.cloudinary.com/dvqazhd4s/image/upload/v1730139914/IMG_4241_Edited_hhjnkt.jpg",
+    "available_for_sale": false
+  },
+  {
+    "id": 41,
+    "name": "Viewpoint Collage",
+    "description": "Collage on paper. 24 x 15 in, 61 x 38.1 cm",
+    "artwork_date": "2019-11-02",
+    "main_image": "https://res.cloudinary.com/dvqazhd4s/image/upload/v1730139908/IMG_3803-1_kke7t5.jpg",
+    "available_for_sale": false
+  },
+  {
+    "id": 43,
+    "name": "Ewazere",
+    "description": "Oil on canvas. 30 x 40 in, 76.2 x 101.6 cm",
+    "artwork_date": "2019-09-30",
+    "main_image": "https://res.cloudinary.com/dvqazhd4s/image/upload/v1730139904/IMG_3479_Edited_e7s5kt.jpg",
+    "available_for_sale": false
+  },
+  {
+    "id": 44,
+    "name": "The alien told me to",
+    "description": "Oil on canvas. 24 x 48 in, 61 x 121.9 cm",
+    "artwork_date": "2021-02-12",
+    "main_image": "https://res.cloudinary.com/dvqazhd4s/image/upload/v1730139899/IMG_3441_ly7ach.jpg",
+    "available_for_sale": false
+  },
+  {
+    "id": 48,
+    "name": "Bubbles",
+    "description": "Oil on canvas. 16 x 20 in, 40.6 x 50.8 cm",
+    "artwork_date": "2020-05-14",
+    "main_image": "https://res.cloudinary.com/dvqazhd4s/image/upload/v1730139888/IMG_1373-1_kwq6eh.jpg",
+    "available_for_sale": false
+  },
+  {
+    "id": 49,
+    "name": "Sitting light",
+    "description": "Oil on canvas. 16 x 20 in, 40.6 x 50.8 cm",
+    "artwork_date": "2020-05-21",
+    "main_image": "https://res.cloudinary.com/dvqazhd4s/image/upload/v1730139882/IMG_1526-1_w5t7fm.jpg",
+    "available_for_sale": false
+  },
+  {
+    "id": 50,
+    "name": "Side view",
+    "description": "Oil on canvas. 36 x 36 in, 91.4 x 91.4 cm",
+    "artwork_date": "2020-05-01",
+    "main_image": "https://res.cloudinary.com/dvqazhd4s/image/upload/v1730139880/IMG_1152_a8iin1.jpg",
+    "available_for_sale": false
+  },
+  {
+    "id": 51,
+    "name": "Different World",
+    "description": "Oil on yupo paper. 30 x 40 in, 76.2 x 101.6 cm",
+    "artwork_date": "2020-05-02",
+    "main_image": "https://res.cloudinary.com/dvqazhd4s/image/upload/v1730139880/IMG_1165_e9vvqq.jpg",
     "available_for_sale": false
   }
 ]

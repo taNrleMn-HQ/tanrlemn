@@ -37,7 +37,7 @@ export default function About() {
           w={'100%'}
         >
           <Tag colorScheme={'pink'} maxW={'fit-content'}>
-            taNrleMn is an artist
+            I am an artist
           </Tag>
           <Heading mb={'1rem'} size={'3xl'} fontWeight={800}>
             Some words about my brain
@@ -47,19 +47,10 @@ export default function About() {
             My work is a reflection of the beauty and complexity of the human
             experience, exploring themes of identity, connection, and healing.
           </Text>
-          <Text mb={'2rem'}>
+          <Text>
             I create art to inspire and uplift others, to encourage empathy and
             understanding, and to foster a sense of community and connection.
           </Text>
-          <Link mb={'2rem'} maxW={'fit-content'} href={'/commissions'}>
-            <Button
-              colorScheme={'purple'}
-              mr={'1rem'}
-              rightIcon={<MoveRight />}
-            >
-              Request a commission
-            </Button>
-          </Link>
         </Stack>
         <Image
           src={aboutTannerSrc}

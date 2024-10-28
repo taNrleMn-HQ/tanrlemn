@@ -17,9 +17,7 @@ export function ThemeProvider({ cookies, children }) {
       : localStorageManager;
   return (
     <>
-      <ChakraProvider
-        theme={theme}
-        colorModeManager={colorModeManager}>
+      <ChakraProvider theme={theme} colorModeManager={colorModeManager}>
         {children}
       </ChakraProvider>
     </>

@@ -20,7 +20,7 @@ export default function ArtworkModal({ artwork, isOpen, onClose }) {
 
   return (
     <Modal
-      size={{ base: 'xs', md: '3xl' }}
+      size={{ base: 'xs', md: '5xl' }}
       isCentered
       allowPinchZoom
       trapFocus={false}
@@ -37,12 +37,9 @@ export default function ArtworkModal({ artwork, isOpen, onClose }) {
             p={{ base: '3rem 0.75rem 1rem 0.75rem', md: '2rem' }}
             gap={{ base: '1rem', md: '2rem' }}
           >
-            <Image
-              src={mainImage}
-              alt={artwork.name}
-              h={{ base: 'auto', md: '85vh' }}
-              w={'auto'}
-            />
+            <Box h={{ base: 'auto' }} w={'auto'} maxH={'90vh'} maxW={'75%'}>
+              <Image src={mainImage} alt={artwork.name} maxH={'100%'} />
+            </Box>
             <Box w={'200px'} mt={{ base: '0', md: '3rem' }}>
               <Heading mb={'0.1rem'} size={'lg'}>
                 {artwork.name}

@@ -4,11 +4,11 @@
 import { Link, Flex, useColorModeValue, Button, Image } from '@chakra-ui/react';
 
 // local components
-import { ExternalLink, MoveRight } from 'lucide-react';
+import { ExternalLink } from 'lucide-react';
 
 export default function DesktopNavbar({ routes }) {
   return (
-    <Flex align={'center'} gap={'1rem'}>
+    <Flex align={'center'} gap={'1rem'} pr={{ base: '0', md: '2rem' }}>
       <Flex fontSize={'0.9rem'}>
         {routes.map((route) =>
           route.isExternal ? (
@@ -22,9 +22,9 @@ export default function DesktopNavbar({ routes }) {
           )
         )}
       </Flex>
-      <Link maxW={'fit-content'} href={'/commissions'}>
+      <Link maxW={'fit-content'} href={'/contact'}>
         <Button colorScheme={'purple'} size={'sm'}>
-          Request a commission
+          Get in touch
         </Button>
       </Link>
     </Flex>
