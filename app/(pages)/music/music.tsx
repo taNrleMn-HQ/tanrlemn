@@ -14,6 +14,7 @@ export default function Music() {
       >
         <Box h={'450px'} mb={'2rem'}>
           <iframe
+            style={{ borderRadius: '12px' }}
             src='https://open.spotify.com/embed/album/2HxOuLrTAvE2woAgj4uVlN?utm_source=generator'
             width='100%'
             height='100%'
@@ -23,6 +24,7 @@ export default function Music() {
         </Box>
         <Box h={'450px'} mb={'2rem'}>
           <iframe
+            style={{ borderRadius: '12px' }}
             src='https://open.spotify.com/embed/album/1OAxxhFvQsoSlkWnSILllF?utm_source=generator'
             width='100%'
             height='100%'
@@ -32,6 +34,7 @@ export default function Music() {
         </Box>
         <Box h={'450px'} mb={'2rem'}>
           <iframe
+            style={{ borderRadius: '12px' }}
             src='https://open.spotify.com/embed/album/4KNOSPgZSHxyC2N5zINBfW?utm_source=generator'
             width='100%'
             height='100%'
