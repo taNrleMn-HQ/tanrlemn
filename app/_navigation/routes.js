@@ -1,12 +1,17 @@
 export const routes = [
   {
-    name: 'Gallery',
-    path: '/gallery',
+    name: 'Painting',
+    path: '/painting',
     order: 1,
+  },
+  {
+    name: 'Music',
+    path: '/music',
+    order: 2,
   },
   {
     name: 'About',
     path: '/about',
-    order: 2,
+    order: 3,
   },
 ];

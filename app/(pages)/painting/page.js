@@ -11,7 +11,7 @@ import Gallery from './gallery';
 
 // metadata
 export const metadata = {
-  title: 'Gallery',
+  title: 'Paintings',
   description: "View taNrleMn's artworks",
   openGraph: {
     title: 'Gallery',
