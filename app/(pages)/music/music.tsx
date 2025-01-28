@@ -1,27 +1,9 @@
 'use client';
 
-// images
-const aboutTannerSrc = 'https://i.imgur.com/o5olhWRh.png';
-
 // chakra-ui
-import {
-  Box,
-  Heading,
-  Image,
-  Stack,
-  Text,
-  Tag,
-  Link,
-  Container,
-  Button,
-  Highlight,
-  useColorModeValue,
-} from '@chakra-ui/react';
-import { MoveRight } from 'lucide-react';
-import { Spotify } from 'react-spotify-embed';
+import { Box, Container } from '@chakra-ui/react';
 
 export default function About() {
-  const color = useColorModeValue('purple.500', 'purple.300');
   return (
     <Box p={{ base: '3rem 0', md: '6rem 3rem' }} fontSize={'1.1rem'}>
       <Container
