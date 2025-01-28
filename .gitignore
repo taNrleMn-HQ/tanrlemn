@@ -41,3 +41,7 @@ next-env.d.ts
 
 # env
 .env
+
+.DS_Store
+._.DS_Store
+._*  
