@@ -3,7 +3,7 @@
 // chakra-ui
 import { Box, Container } from '@chakra-ui/react';
 
-export default function About() {
+export default function Music() {
   return (
     <Box p={{ base: '3rem 0', md: '6rem 3rem' }} fontSize={'1.1rem'}>
       <Container
