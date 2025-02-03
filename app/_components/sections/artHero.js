@@ -77,7 +77,7 @@ export default function ArtHero() {
           pain, and that pain can be a powerful tool for healing and connection.
         </Text>
         <Flex>
-          <Link href={'/gallery'}>
+          <Link href={'/painting'}>
             <Button colorScheme={'blue'} leftIcon={<BookImage size={15} />}>
               View works
             </Button>
