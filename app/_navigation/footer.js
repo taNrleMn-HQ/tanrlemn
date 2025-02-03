@@ -64,7 +64,8 @@ export default function Footer() {
                   Art
                 </Heading>
                 <Stack gap={0}>
-                  <Link href='/gallery'>Gallery</Link>
+                  <Link href='/painting'>Painting</Link>
+                  <Link href='/music'>Music</Link>
                   <Link href='/about'>About</Link>
                 </Stack>
               </Box>
